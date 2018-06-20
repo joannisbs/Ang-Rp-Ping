@@ -13,12 +13,13 @@
 
 .iconmenu {
   margin-left: 20px;
-  margin-right: 20px;
+  margin-right: 50px;
   width: 20px;
+  border-color: #21237b;
 }
 
 .logo {
-  margin-left: 20px;
+  margin-left: 50px;
   margin-right: 20px;
   width: 40px;
 }
