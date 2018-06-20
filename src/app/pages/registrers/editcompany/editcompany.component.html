@@ -1,21 +1,91 @@
 <div class = "divis">
   <form #frm="ngForm" (ngSubmit)="onSubmit(frm)" >
+    
     <div class="form-row">
+      
       <div class="form-group col-md-6">
         <label for="input_name">Empresa:</label>
-          <div class="input-group">
+        <div class="input-group">
           <input type="text" class="form-control formm" id="input_name" placeholder="Nome" name="input_name" ngModel required #input_name="ngModel" maxlength="12">
-          <span class='input-group-addon' [class.d-none]="!input_name.invalid || !input_name.touched"><img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'></span>
+          <span class='input-group-addon' [class.d-none]="!input_name.invalid || !input_name.touched">
+            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          </span>
         </div>
-        <small id="nameHelpBlock" class="form-text text-muted">
-          Máximo 12 caracteres. {{!input_name.invalid || !input_name.touched}}
+        <small id="nameHelpBlock" class="form-text" 
+          [class.texterror]="input_name.invalid && input_name.touched"
+          [class.text-muted]="!input_name.invalid || !input_name.touched">
+          Máximo 12 caracteres.
+        </small>
+        <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="!input_name.invalid || !input_name.touched">
+          Campo obrigatório.
         </small>
       </div>
+
       <div class="form-group col-md-6">
-        <label for="inputPassword4">Password</label>
-        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+        <label for="inputCNPJ">CNPJ:</label>
+        <div class="input-group">
+          <input type="text" class="form-control formm" id="inputCNPJ" placeholder="CNPJ" 
+            name="inputCNPJ" ngModel required #inputCNPJ="ngModel"
+            pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})" maxlength="17">
+          <span class='input-group-addon' [class.d-none]="!inputCNPJ.invalid || !inputCNPJ.touched">
+            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          </span>
+        </div>  
+        <small id="nameHelpBlock" class="form-text" 
+          [class.texterror]="inputCNPJ.invalid && inputCNPJ.touched"
+          [class.text-muted]="!inputCNPJ.invalid || !inputCNPJ.touched">
+          Digite um CPF ou CNPJ válido.
+        </small>    
+        <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="!inputCNPJ.invalid || !inputCNPJ.touched">
+          Campo obrigatório.
+        </small> 
       </div>
+    </div>
+
+
+    <div class="form-row">
+
+      <div class="form-group col-md-5">
+        <label for="inputResp">Responsável:</label>
+        <div class="input-group">
+        <input type="text" class="form-control formm" id="inputResp" placeholder="Nome Sobrenome" 
+            name="inputResp" ngModel required #inputResp="ngModel"
+            pattern="[A-Za-z ]{3,}" maxlength="45">
+          <span class='input-group-addon' [class.d-none]="!inputResp.invalid || !inputResp.touched">
+            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          </span>
+        </div>
+        <small id="nameHelpBlock" class="form-text" 
+            [class.texterror]="inputResp.invalid && inputResp.touched"
+            [class.text-muted]="!inputResp.invalid || !inputResp.touched">
+          Digite o nome do responsável.
+        </small> 
+        <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="!inputResp.invalid || !inputResp.touched">
+          Campo obrigatório, somente letras.
+        </small>
+      </div>
+
+
+      <div class="form-group col-md-5">
+        <label for="inputEMAIL">Email:</label>
+        <div class="input-group">
+          <input type="text" class="form-control formm" id="inputEMAIL" placeholder="Email" 
+            name="inputEMAIL" ngModel required #inputEMAIL="ngModel" email maxlength="45">
+          <span class='input-group-addon' [class.d-none]="!inputEMAIL.invalid || !inputEMAIL.touched">
+            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          </span>
+        </div>
+        <small id="nameHelpBlock" class="form-text" 
+            [class.texterror]="inputEMAIL.invalid && inputEMAIL.touched"
+            [class.text-muted]="!inputEMAIL.invalid || !inputEMAIL.touched">
+          Digite um E-MAIL válido.
+        </small>  
+        <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="!inputEMAIL.invalid || !inputEMAIL.touched">
+          Campo Obrigatório.
+        </small>
+      </div>   
     </div> 
+   
     <div class="form-group">
       <label for="inputAddress">Address</label>
       <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
