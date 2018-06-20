@@ -1,4 +1,58 @@
 <div class = "divis">
+
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  
+    <div class="form-row">
+        
+      <div class="form-group col-md-6">
+        <label for="inputName">Empresa:</label>
+        <div class="input-group">
+          <input type="text" class="form-control formm" id="inputName" placeholder="Nome" formControName="inputNome">
+          <span class='input-group-addon' [class.d-none]="true">
+            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          </span>
+        </div>
+        <small id="nameHelpBlock" class="form-text">
+          Máximo 12 caracteres.
+        </small>
+        
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="inputCNPJ">CNPJ:</label>
+        <div class="input-group">
+          <input type="text" class="form-control formm" id="inputCNPJ" placeholder="CNPJ" 
+          formControName="inputCNPJ">
+          <span class='input-group-addon' [class.d-none]="true">
+            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          </span>
+        </div>  
+        <small id="nameHelpBlock" class="form-text" 
+          >
+          Digite um CPF ou CNPJ válido.
+        </small>    
+      </div>
+      
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
   <form #frm="ngForm" (ngSubmit)="onSubmit(frm)" >
     
     <div class="form-row">
@@ -83,7 +137,26 @@
         <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="!inputEMAIL.invalid || !inputEMAIL.touched">
           Campo Obrigatório.
         </small>
-      </div>   
+      </div> 
+
+      <div class="form-group col-md-2">
+        <label for="inputTel">Contato:</label>
+        <div class="input-group">
+          <input type="text" class="form-control formm" id="inputTel" placeholder="Telefone ou Celular" pattern="([0-9]{10,}" maxlength="11"
+            name="inputTel" ngModel required #inputTel="ngModel">
+          <span class='input-group-addon' [class.d-none]="!inputTel.invalid || !inputTel.touched">
+            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          </span>
+        </div>
+        <small id="nameHelpBlock" class="form-text" 
+            [class.texterror]="inputTel.invalid && inputTel.touched"
+            [class.text-muted]="!inputTel.invalid || !inputTel.touched">
+          Digite um telefone ou celular válido.
+        </small>  
+        <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="!inputTel.invalid || !inputTel.touched">
+          Campo obrigatório, somente números.
+        </small>
+      </div>
     </div> 
    
     <div class="form-group">
@@ -122,3 +195,5 @@
     <button type="submit" class="btn btn-primary">Sign in</button>
   </form>
 </div>
+
+-->

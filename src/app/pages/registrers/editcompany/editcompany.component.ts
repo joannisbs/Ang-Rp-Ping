@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -11,12 +11,18 @@ import { Component, OnInit } from '@angular/core';
 
 export class EditcompanyComponent implements OnInit {
 
-  constructor() { }
+  formulario: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.formulario = this.formBuilder.group ({
+      inputNome: [null],
+      inputCNPJ: [null]
+    });
   }
-  onSubmit(form) {
-    console.log(form);
+  onSubmit() {
+    console.log(this.formulario.value);
 
   }
 
