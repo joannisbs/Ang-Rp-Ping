@@ -1,0 +1,257 @@
+
+/*zera estilos*/
+*, *:after, *:before{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.iconmenu{
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 20px;
+}
+.logo {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 40px;
+}
+
+.border{
+    
+    border-color: #21237b;
+    border-radius: 10px;
+    border-width: 5px;
+    background: #21237b;
+}
+.itemmenu1 {
+    color: #ffffff;
+	text-decoration: none;
+	display: block;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing:0.2em;
+    padding: 20px;
+    align-self: center;
+    border-radius: 10px;
+}
+
+.itemmenu2 {
+    color: #ffffff;
+	text-decoration: none;
+	display: block;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing:0.2em;
+    padding: 20px;
+    align-self: center;
+    border-radius: 5px;
+}
+
+.divis{
+  margin-left: 60px;
+  margin-right: 60px; 
+}
+.dropdown-toggle::after {
+    display:none;
+}
+li:hover .itemmenu {
+    background: #5a21f8;
+    color: #ffffff;
+   
+  }
+.itemmenu::before {
+    content: '';
+    display: block;
+    height: 5px;
+    width: 0%;
+    background-color: #ffffff;
+    position: relative;
+    top: 30px;
+    transition: all ease-in-out 250ms;
+}
+  
+.itemmenu:hover::before {
+    width: 100%;
+ }
+  
+
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+.initlogo{
+	position: absolute;
+	display:flex;
+	top: 25px;
+	left: 0px;
+
+}
+.menu{
+	display:flex;
+	/*justify-content: space-between;
+	
+	align-items:center;
+	background: #ffffff;
+
+}
+.menu-list{
+	list-style: none;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+.menu > .menu-list > li{
+	float: left;
+
+}
+.menu > .menu-list > li > a {
+	color: #21237b;
+	text-decoration: none;
+	display: block;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing:0.2em;
+	padding: 20px;
+
+}
+/*
+.menu > .menu-list > li:hover a {
+  background: #9F90FD;
+  color: #21237b;
+}
+
+
+.menu > .menu-list > li > a:hover {
+    background: #21237b;
+	color: #ffffff;
+}
+
+.menu > .menu-list > li > a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  width: 0%;
+  background-color: #ffffff;
+  position: relative;
+  top: 30px;
+  transition: all ease-in-out 250ms;
+}
+
+.menu > .menu-list > li > a:hover::before {
+  width: 100%;
+}
+
+.logomenu {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 20px;
+}
+.menu .menu-list, .menu .sub-menu{
+  list-style: none;
+}
+/* Mostra o submenu no evento de mouse hover */
+/*.menu > .menu-list > li:hover > .sub-menu {
+  display: block;
+}
+/* Configura o estilo do submenu 
+
+.menu > .menu-list > li > .sub-menu {
+	position: absolute;
+	top: 65px;
+	background: #21237b;
+	text-transform: uppercase;
+	display: none;
+	padding: 5px;
+	padding-bottom:10px;
+	
+
+  
+}
+.checkoculto{
+	display: none;
+	cursor: pointer;
+}
+
+
+/* Configura os links do submenu
+.menu > .menu-list > li > .sub-menu > li > a {
+	
+	
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing:0.4em;
+	padding: 10px;
+}	
+/* Clearfix para o menu 
+
+
+.menu > .menu-list > li > .sub-menu > li > a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  width: 0%;
+  background-color: #ffffff;
+  position: relative;
+  top: 30px;
+  transition: all ease-in-out 250ms;
+}
+
+.menu > .menu-list > li > .sub-menu > li > a:hover::before {
+  width: 100%;
+}
+
+
+.menu:after {
+  content: '.';
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.Label{
+	padding-top: 5px;
+	color: #21237b;
+	text-decoration: none;
+	display: block;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing:0.2em;
+
+}
+
+.divisor
+{
+    content:' ';
+    display:block;
+    border:2px solid #21237b;
+	
+}
+.fimcab{
+	position: absolute;
+	width:100%;
+	top: 70px;
+}
+*/
