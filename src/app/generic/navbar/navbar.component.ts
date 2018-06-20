@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   public idNav = null;
   public user_name = 'João';
-  public url_icon = "/assets/icons/menuwhite.png";
-  url_icon2 = "/assets/icons/xwhite.png";
+  public url_icon = '/assets/icons/menuwhite.png';
+  url_icon2 = '/assets/icons/xwhite.png';
 
   constructor() { }
 
