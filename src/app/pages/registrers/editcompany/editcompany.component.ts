@@ -42,6 +42,48 @@ export class EditcompanyComponent implements OnInit {
         [Validators.required,
         Validators.maxLength(14),
         Validators.pattern('[\(]?[0-9]{2}(( )|([\)])|()|(-))(([0-9]{4})|([0-9]{5}))(( )|(-)|)([0-9]{4})')]],
+
+
+      inputCep: [null,
+        [Validators.required,
+        Validators.maxLength(45),
+        Validators.pattern('[0-9]{5}[-][0-9]{3}')]],
+
+      inputRua: [null,
+        [Validators.required,
+        Validators.maxLength(60),
+        Validators.pattern('[A-Za-z]{3,}')]],
+
+      inputNum: [null,
+        [Validators.required,
+        Validators.maxLength(6),
+        Validators.pattern('[0-9]+')]],
+
+      inputComp: [null,
+        [Validators.maxLength(45)]],
+
+      inputUF: [null,
+        [Validators.required,
+        Validators.maxLength(2),
+        Validators.pattern('[A-Z]+')]],
+
+      inputCity: [null,
+        [Validators.required,
+        Validators.maxLength(45),
+        Validators.pattern('[A-Za-z]+')]],
+
+      inputBairro: [null,
+        [Validators.required,
+        Validators.maxLength(45),
+        Validators.pattern('[A-Za-z]+')]],
+
+      inputRef: [null,
+        [Validators.required,
+        Validators.maxLength(45)]],
+
+
+
+
     });
   }
   onSubmit() {

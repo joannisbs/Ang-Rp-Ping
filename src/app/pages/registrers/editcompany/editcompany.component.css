@@ -37,3 +37,10 @@
     /* text-shadow: 1px 1px #6b86ff; */
     
 }
+.separador{
+    margin: 5px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-top: 1px solid #21237b;
+   
+}
