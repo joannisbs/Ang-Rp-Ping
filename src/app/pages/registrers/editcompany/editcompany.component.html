@@ -5,42 +5,105 @@
     <div class="form-row">
         
       <div class="form-group col-md-6">
-        <label for="inputName">Empresa:</label>
+        <label class="LabelForm" for="inputName">Empresa:</label>
         <div class="input-group">
-          <input type="text" class="form-control formm" id="inputName" placeholder="Nome" formControName="inputNome">
-          <span class='input-group-addon' [class.d-none]="true">
+          <input type="text" class="form-control formm" id="inputName" placeholder="Nome" formControlName="inputNome"  maxlength="12">
+          <span class='input-group-addon' [class.d-none]="formulario.controls['inputNome'].valid || !formulario.controls['inputNome'].touched ">
             <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
           </span>
         </div>
-        <small id="nameHelpBlock" class="form-text">
-          Máximo 12 caracteres.
+        <small id="nameHelpBlock" class="form-text" 
+          [class.texterror]="!formulario.controls['inputNome'].valid && formulario.controls['inputNome'].touched"
+          [class.text-muted]="formulario.controls['inputNome'].valid || !formulario.controls['inputNome'].touched ">
+            Máximo 12 caracteres, iniciar com letra maiúscula.
         </small>
-        
+        <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="formulario.controls['inputNome'].valid || !formulario.controls['inputNome'].touched ">
+          Campo obrigatório.
+        </small>
       </div>
 
+
       <div class="form-group col-md-6">
-        <label for="inputCNPJ">CNPJ:</label>
+        <label class="LabelForm" for="inputCNPJ">CNPJ:</label>
         <div class="input-group">
-          <input type="text" class="form-control formm" id="inputCNPJ" placeholder="CNPJ" 
-          formControName="inputCNPJ">
-          <span class='input-group-addon' [class.d-none]="true">
+          <input type="text" class="form-control formm" id="inputCNPJ" placeholder="CNPJ ou CPF" formControlName="inputCNPJ"maxlength="18">
+          <span class='input-group-addon' [class.d-none]="formulario.controls['inputCNPJ'].valid || !formulario.controls['inputCNPJ'].touched">
             <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
           </span>
         </div>  
         <small id="nameHelpBlock" class="form-text" 
-          >
+        [class.texterror]="!formulario.controls['inputCNPJ'].valid && formulario.controls['inputCNPJ'].touched"
+        [class.text-muted]="formulario.controls['inputCNPJ'].valid || !formulario.controls['inputCNPJ'].touched" >
           Digite um CPF ou CNPJ válido.
         </small>    
-      </div>
-      
+        <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="formulario.controls['inputCNPJ'].valid || !formulario.controls['inputCNPJ'].touched ">
+          Campo obrigatório.
+        </small>    
+      </div> 
     </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
-  </form>
+
+    <div class="form-row">
+
+      <div class="form-group col-md-5">
+        <label class="LabelForm" for="inputResp">Responsável:</label>
+        <div class="input-group">
+          <input type="text" class="form-control formm" id="inputResp" placeholder="Nome Sobrenome" formControlName="inputResp">
+          <span class='input-group-addon' [class.d-none]="formulario.controls['inputResp'].valid || !formulario.controls['inputResp'].touched">
+            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          </span>
+        </div>  
+        <small id="nameHelpBlock" class="form-text" 
+        [class.texterror]="!formulario.controls['inputResp'].valid && formulario.controls['inputResp'].touched"
+        [class.text-muted]="formulario.controls['inputResp'].valid || !formulario.controls['inputResp'].touched" >
+          Digite o nome do responsável. 
+        </small>    
+        <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="formulario.controls['inputResp'].valid || !formulario.controls['inputResp'].touched ">
+          Campo obrigatório, somente letras, máximo 45 caracteres. 
+        </small>    
+      </div> 
+     
+
+
+      <div class="form-group col-md-5">
+        <label class="LabelForm" for="inputEMAIL">Email:</label>
+        <div class="input-group">
+          <input type="text" class="form-control formm" id="inputEMAIL" placeholder="user@email.com" formControlName="inputEMAIL">
+          <span class='input-group-addon' [class.d-none]="formulario.controls['inputEMAIL'].valid || !formulario.controls['inputEMAIL'].touched">
+            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          </span>
+        </div>  
+        <small id="nameHelpBlock" class="form-text" 
+        [class.texterror]="!formulario.controls['inputEMAIL'].valid && formulario.controls['inputEMAIL'].touched"
+        [class.text-muted]="formulario.controls['inputEMAIL'].valid || !formulario.controls['inputEMAIL'].touched" >
+        Digite um E-MAIL válido.
+      </small>    
+      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="formulario.controls['inputEMAIL'].valid || !formulario.controls['inputEMAIL'].touched ">
+        Campo Obrigatório.
+      </small>
+    </div> 
+
+    <div class="form-group col-md-2">
+      <label class="LabelForm" for="inputTel">Telefone:</label>
+      <div class="input-group">
+        <input type="text" class="form-control formm" id="inputTel" placeholder="Fixo ou Celular" formControlName="inputTel">
+        <span class='input-group-addon' [class.d-none]="formulario.controls['inputTel'].valid || !formulario.controls['inputTel'].touched">
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>  
+      <small id="nameHelpBlock" class="form-text" 
+        [class.texterror]="!formulario.controls['inputTel'].valid && formulario.controls['inputTel'].touched"
+        [class.text-muted]="formulario.controls['inputTel'].valid || !formulario.controls['inputTel'].touched" >
+          Digite telefone válido.
+      </small>    
+      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="formulario.controls['inputTel'].valid || !formulario.controls['inputTel'].touched ">
+        Campo obrigatório.
+      </small>
+    </div>
+
+  </div> 
+  <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
 </div>
-
-
-
-
 
 
 
