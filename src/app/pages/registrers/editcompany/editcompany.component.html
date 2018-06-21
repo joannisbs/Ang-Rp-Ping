@@ -4,7 +4,7 @@
   
     <div class="form-row">
         
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-4">
         <label class="LabelForm" for="inputName">Empresa:</label>
         <div class="input-group">
           <input type="text" class="form-control formm" id="inputName" placeholder="Nome" formControlName="inputNome"  maxlength="12">
@@ -23,7 +23,7 @@
       </div>
 
 
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-3">
         <label class="LabelForm" for="inputCNPJ">CNPJ:</label>
         <div class="input-group">
           <input type="text" class="form-control formm" id="inputCNPJ" placeholder="CNPJ ou CPF" formControlName="inputCNPJ"maxlength="18">
@@ -32,19 +32,33 @@
           </span>
         </div>  
         <small id="nameHelpBlock" class="form-text" 
-        [class.texterror]="!formulario.controls['inputCNPJ'].valid && formulario.controls['inputCNPJ'].touched"
-        [class.text-muted]="formulario.controls['inputCNPJ'].valid || !formulario.controls['inputCNPJ'].touched" >
+            [class.texterror]="!formulario.controls['inputCNPJ'].valid && formulario.controls['inputCNPJ'].touched"
+            [class.text-muted]="formulario.controls['inputCNPJ'].valid || !formulario.controls['inputCNPJ'].touched" >
           Digite um CPF ou CNPJ válido com ou sem pontos e traços.
         </small>    
         <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="formulario.controls['inputCNPJ'].valid || !formulario.controls['inputCNPJ'].touched ">
           Campo obrigatório.
         </small>    
       </div> 
+      <div class="form-group col-md-5">
+          <label class="LabelForm" for="inputEMAIL">Email:</label>
+          <div class="input-group">
+            <input type="text" class="form-control formm" id="inputEMAIL" placeholder="user@email.com" formControlName="inputEMAIL">
+            <span class='input-group-addon' [class.d-none]="formulario.controls['inputEMAIL'].valid || !formulario.controls['inputEMAIL'].touched">
+              <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+            </span>
+          </div>    
+        <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="formulario.controls['inputEMAIL'].valid || !formulario.controls['inputEMAIL'].touched ">
+          Campo Obrigatório.
+        </small>
+      </div> 
+      
+        
     </div>
 
     <div class="form-row">
 
-      <div class="form-group col-md-5">
+      <div class="form-group col-md-7">
         <label class="LabelForm" for="inputResp">Responsável:</label>
         <div class="input-group">
           <input type="text" class="form-control formm" id="inputResp" placeholder="Nome Sobrenome" formControlName="inputResp">
@@ -53,8 +67,8 @@
           </span>
         </div>  
         <small id="nameHelpBlock" class="form-text" 
-        [class.texterror]="!formulario.controls['inputResp'].valid && formulario.controls['inputResp'].touched"
-        [class.text-muted]="formulario.controls['inputResp'].valid || !formulario.controls['inputResp'].touched" >
+            [class.texterror]="!formulario.controls['inputResp'].valid && formulario.controls['inputResp'].touched"
+            [class.text-muted]="formulario.controls['inputResp'].valid || !formulario.controls['inputResp'].touched" >
           Digite o nome do responsável. 
         </small>    
         <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="formulario.controls['inputResp'].valid || !formulario.controls['inputResp'].touched ">
@@ -62,33 +76,64 @@
         </small>    
       </div> 
      
-
-
-      <div class="form-group col-md-5">
-        <label class="LabelForm" for="inputEMAIL">Email:</label>
+      <div class="form-group col-md-2">
+        <label class="LabelForm" for="inputTel">Telefone:</label>
         <div class="input-group">
-          <input type="text" class="form-control formm" id="inputEMAIL" placeholder="user@email.com" formControlName="inputEMAIL">
-          <span class='input-group-addon' [class.d-none]="formulario.controls['inputEMAIL'].valid || !formulario.controls['inputEMAIL'].touched">
+          <input type="text" class="form-control formm" id="inputTel" placeholder="Fixo ou Celular" formControlName="inputTel">
+          <span class='input-group-addon' [class.d-none]="formulario.controls['inputTel'].valid || !formulario.controls['inputTel'].touched">
             <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
           </span>
         </div>    
-      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="formulario.controls['inputEMAIL'].valid || !formulario.controls['inputEMAIL'].touched ">
-        Campo Obrigatório.
-      </small>
-    </div> 
+        <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="formulario.controls['inputTel'].valid || !formulario.controls['inputTel'].touched ">
+          Campo obrigatório.
+        </small>
+      </div>
+      
+      <div class="form-group col-md-1">
+        <label class="LabelForm" for="inputTela">Tela:</label>
+        <div class="input-group">
+          <input type="text" class="form-control formm" id="inputTela" placeholder="Nome Sobrenome" formControlName="inputTela">
+          <span class='input-group-addon' [class.d-none]="formulario.controls['inputTela'].valid || !formulario.controls['inputTela'].touched">
+            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          </span>
+        </div>  
+        <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="formulario.controls['inputTela'].valid || !formulario.controls['inputTela'].touched ">
+          Campo obrigatório, 1 ou 2. 
+        </small>    
+      </div> 
+          
 
-    <div class="form-group col-md-2">
-      <label class="LabelForm" for="inputTel">Telefone:</label>
-      <div class="input-group">
-        <input type="text" class="form-control formm" id="inputTel" placeholder="Fixo ou Celular" formControlName="inputTel">
-        <span class='input-group-addon' [class.d-none]="formulario.controls['inputTel'].valid || !formulario.controls['inputTel'].touched">
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
-        </span>
-      </div>    
-      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="formulario.controls['inputTel'].valid || !formulario.controls['inputTel'].touched ">
-        Campo obrigatório.
-      </small>
-    </div>
+      <div class="form-group col-md-1">
+        <label class="LabelForm" for="inputLinha">Linha:</label>
+        <div class="input-group">
+          <input type="text" class="form-control formm" id="inputLinha" placeholder="Nome Sobrenome" formControlName="inputLinha">
+          <span class='input-group-addon' [class.d-none]="formulario.controls['inputLinha'].valid || !formulario.controls['inputLinha'].touched">
+            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          </span>
+        </div>   
+        <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="formulario.controls['inputLinha'].valid || !formulario.controls['inputLinha'].touched ">
+          Campo obrigatório, 0-10. 
+        </small>    
+      </div> 
+
+
+
+      <div class="form-group col-md-1">
+        <label class="LabelForm" for="inputColuna">Coluna:</label>
+        <div class="input-group">
+          <input type="text" class="form-control formm" id="inputColuna" placeholder="Nome Sobrenome" formControlName="inputColuna">
+          <span class='input-group-addon' [class.d-none]="formulario.controls['inputColuna'].valid || !formulario.controls['inputColuna'].touched">
+            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          </span>
+        </div>  
+
+        <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="formulario.controls['inputColuna'].valid || !formulario.controls['inputColuna'].touched ">
+          Campo obrigatório. 
+        </small>    
+      </div> 
+
+
+ 
   </div> 
   
   
@@ -205,9 +250,13 @@
             </div> 
       </div>
 
-      <div class="form-row separador"></div>
+    
+      
+        <button type="submit" class="btn btn-primary float-right btn">Salvar Alterações</button>
+    
+    
 
-  <button type="submit" class="btn btn-primary">Sign in</button>
+  
 </form>
 </div>
 

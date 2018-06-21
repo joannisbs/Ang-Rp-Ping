@@ -81,9 +81,20 @@ export class EditcompanyComponent implements OnInit {
         [Validators.required,
         Validators.maxLength(45)]],
 
+      inputTela: [null,
+        [Validators.required,
+        Validators.maxLength(1),
+        Validators.pattern('[1-2]')]],
 
+      inputLinha: [null,
+        [Validators.required,
+        Validators.maxLength(2),
+        Validators.pattern('(10|[0-9])')]],
 
-
+      inputColuna: [null,
+        [Validators.required,
+        Validators.maxLength(2),
+        Validators.pattern('[0-9]+')]],
     });
   }
   onSubmit() {
