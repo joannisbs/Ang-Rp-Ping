@@ -32,7 +32,7 @@
 }
 
 .itemmenu1 {
-  color: #ffffff;
+  color: #ffffff !important;
   text-decoration: none;
   display: block;
   text-transform: uppercase;
