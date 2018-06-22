@@ -1,112 +1,171 @@
 <div [formGroup]="addressForm">
-  
-    <div class="form-row">
-        
-        <div class="form-group col-lg-2">
-          <label class="LabelForm" for="cep">Cep:</label>
-          <div class="input-group">
-            <input type="text" class="form-control formm" id="cep" placeholder="Cep" formControlName="cep"  maxlength="9" (blur)="buscarCep(addressForm.value.cep)">
-            <span class='input-group-addon' [class.d-none]="addressForm.controls['cep'].valid || !addressForm.controls['cep'].touched ">
-              <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
-            </span>
-          </div>
-          <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="addressForm.controls['cep'].valid || !addressForm.controls['cep'].touched ">
-            Campo obrigatório, somente números.
-          </small>
-        </div>
-  
-  
-        <div class="form-group col-lg-5">
-          <label class="LabelForm" for="logradouro">Rua:</label>
-          <div class="input-group">
-            <input type="text" class="form-control formm" id="logradouro" placeholder="logradouro" formControlName="logradouro"maxlength="60">
-            <span class='input-group-addon' [class.d-none]="addressForm.controls['logradouro'].valid || !addressForm.controls['logradouro'].touched">
-              <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
-            </span>
-          </div>   
-          <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="addressForm.controls['logradouro'].valid || !addressForm.controls['logradouro'].touched ">
-            Campo obrigatório.
-          </small>    
-        </div> 
-  
-        <div class="form-group col-lg-2">
-            <label class="LabelForm" for="numero">Número:</label>
-            <div class="input-group">
-              <input type="text" class="form-control formm" id="numero" placeholder="Número" formControlName="numero"maxlength="6">
-              <span class='input-group-addon' [class.d-none]="addressForm.controls['numero'].valid || !addressForm.controls['numero'].touched">
-                <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
-              </span>
-            </div>      
-            <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="addressForm.controls['numero'].valid || !addressForm.controls['numero'].touched ">
-              Campo obrigatório.
-            </small>    
-          </div> 
-          
-          <div class="form-group col-lg-3">
-              <label class="LabelForm" for="complemento">Complemento:</label>
-              <div class="input-group">
-                <input type="text" class="form-control formm" id="complemento" placeholder="Complemento" formControlName="complemento"maxlength="45">
-                <span class='input-group-addon' [class.d-none]="addressForm.controls['complemento'].valid || !addressForm.controls['complemento'].touched">
-                  <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
-                </span>
-              </div>     
-              <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="addressForm.controls['complemento'].valid || !addressForm.controls['complemento'].touched ">
-                Campo obrigatório.
-              </small>    
-            </div> 
-      </div>
-  
+
+  <!-- Linha 1 -->
+  <div class="form-row">
+
+    <!-- Campo de input do cep -->
+    <div class="form-group col-lg-2">
       
-      <div class="form-row">
+      <label class="LabelForm" for="cep">Cep:</label>
+      <div class="input-group">
+        
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="cep" 
+          placeholder="Cep" 
+          formControlName="cep" 
+          maxlength="9" 
+          (blur)="buscarCep(addressForm.value.cep)"
+        >
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' 
+          [class.d-none]="addressForm.controls['cep'].valid || !addressForm.controls['cep'].touched ">
           
-          <div class="form-group col-lg-1">
-            <label class="LabelForm" for="uf">Uf:</label>
-            <div class="input-group">
-              <input type="text" class="form-control formm" id="uf" placeholder="UF" formControlName="uf"  maxlength="2">
-              <span class='input-group-addon' [class.d-none]="addressForm.controls['uf'].valid || !addressForm.controls['uf'].touched ">
-                <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
-              </span>
-            </div>
-            <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="addressForm.controls['uf'].valid || !addressForm.controls['uf'].touched ">
-              Campo obrigatório, somente sigla.
-            </small>
-          </div>
-    
-    
-          <div class="form-group col-lg-3">
-            <label class="LabelForm" for="cidade">Cidade:</label>
-            <div class="input-group">
-              <input type="text" class="form-control formm" id="cidade" placeholder="Cidade" formControlName="cidade"maxlength="45">
-              <span class='input-group-addon' [class.d-none]="addressForm.controls['cidade'].valid || !addressForm.controls['cidade'].touched">
-                <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
-              </span>
-            </div>   
-            <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="addressForm.controls['cidade'].valid || !addressForm.controls['cidade'].touched ">
-              Campo obrigatório, somente letras.
-            </small>    
-          </div> 
-    
-          <div class="form-group col-lg-3">
-              <label class="LabelForm" for="bairro">Bairro:</label>
-              <div class="input-group">
-                <input type="text" class="form-control formm" id="bairro" placeholder="Bairro" formControlName="bairro"maxlength="45">
-                <span class='input-group-addon' [class.d-none]="addressForm.controls['bairro'].valid || !addressForm.controls['bairro'].touched">
-                  <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
-                </span>
-              </div>      
-              <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="addressForm.controls['bairro'].valid || !addressForm.controls['bairro'].touched ">
-                Campo obrigatório, somente letras.
-              </small>    
-            </div> 
-            
-            <div class="form-group col-lg-5">
-                <label class="LabelForm" for="inputRef">Ponto Referência:</label>
-                <div class="input-group">
-                  <input type="text" class="form-control formm" id="inputRef" placeholder="Referência" formControlName="inputRef"maxlength="45">
-                  <span class='input-group-addon' [class.d-none]="addressForm.controls['inputRef'].valid || !addressForm.controls['inputRef'].touched">
-                    <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
-                  </span>
-                </div>       
-              </div> 
-        </div>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" 
+          class="form-text texterror" 
+          [class.d-none]="addressForm.controls['cep'].valid || !addressForm.controls['cep'].touched ">
+        Cep inválido. 
+      </small>
+
+    </div>
+
+
+    <!-- Campo de input da Rua -->
+    <div class="form-group col-lg-5">
+
+      <label class="LabelForm" for="logradouro">Rua:</label>
+      <div class="input-group">
+
+        <input type="text" 
+          class="form-control formm" 
+          id="logradouro" 
+          placeholder="logradouro" 
+          formControlName="logradouro" 
+          maxlength="60"
+        >
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' 
+          [class.d-none]="addressForm.controls['logradouro'].valid || !addressForm.controls['logradouro'].touched">
+          
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" 
+        class="form-text texterror" 
+        [class.d-none]="addressForm.controls['logradouro'].valid || !addressForm.controls['logradouro'].touched ">
+        
+        Campo obrigatório.
+      </small>
+    </div>
+
+
+    <!-- Campo de input do Número -->
+    <div class="form-group col-lg-2">
+      <label class="LabelForm" for="numero">Número:</label>
+      <div class="input-group">
+
+        <input type="text" 
+          class="form-control formm" 
+          id="numero" 
+          placeholder="Número" 
+          formControlName="numero" 
+          maxlength="6"
+          >
+         
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' 
+          [class.d-none]="addressForm.controls['numero'].valid || !addressForm.controls['numero'].touched">
+          
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" 
+        class="form-text texterror" 
+        [class.d-none]="addressForm.controls['numero'].valid || !addressForm.controls['numero'].touched ">
+        
+        Campo obrigatório.
+      </small>
+    </div>
+
+     <!-- Campo de input do Complemento -->
+    <div class="form-group col-lg-3">
+      <label class="LabelForm" for="complemento">Complemento:</label>
+      
+      <div class="input-group">
+        <input type="text" 
+          class="form-control formm" 
+          id="complemento" 
+          placeholder="Complemento" 
+          formControlName="complemento" 
+          maxlength="45"
+          >
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-row">
+
+    <div class="form-group col-lg-1">
+      <label class="LabelForm" for="uf">Uf:</label>
+      <div class="input-group">
+        <input type="text" class="form-control formm" id="uf" placeholder="UF" formControlName="uf" maxlength="2">
+        <span class='input-group-addon' [class.d-none]="addressForm.controls['uf'].valid || !addressForm.controls['uf'].touched ">
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="addressForm.controls['uf'].valid || !addressForm.controls['uf'].touched ">
+        Campo obrigatório, somente sigla.
+      </small>
+    </div>
+
+
+    <div class="form-group col-lg-3">
+      <label class="LabelForm" for="cidade">Cidade:</label>
+      <div class="input-group">
+        <input type="text" class="form-control formm" id="cidade" placeholder="Cidade" formControlName="cidade" maxlength="45">
+        <span class='input-group-addon' [class.d-none]="addressForm.controls['cidade'].valid || !addressForm.controls['cidade'].touched">
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="addressForm.controls['cidade'].valid || !addressForm.controls['cidade'].touched ">
+        Campo obrigatório, somente letras.
+      </small>
+    </div>
+
+    <div class="form-group col-lg-3">
+      <label class="LabelForm" for="bairro">Bairro:</label>
+      <div class="input-group">
+        <input type="text" class="form-control formm" id="bairro" placeholder="Bairro" formControlName="bairro" maxlength="45">
+        <span class='input-group-addon' [class.d-none]="addressForm.controls['bairro'].valid || !addressForm.controls['bairro'].touched">
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="addressForm.controls['bairro'].valid || !addressForm.controls['bairro'].touched ">
+        Campo obrigatório, somente letras.
+      </small>
+    </div>
+
+    <div class="form-group col-lg-5">
+      <label class="LabelForm" for="inputRef">Ponto Referência:</label>
+      <div class="input-group">
+        <input type="text" class="form-control formm" id="inputRef" placeholder="Referência" formControlName="inputRef" maxlength="45">
+        <span class='input-group-addon' [class.d-none]="addressForm.controls['inputRef'].valid || !addressForm.controls['inputRef'].touched">
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+    </div>
+  </div>
 </div>
