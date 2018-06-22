@@ -1,3 +1,9 @@
-<p>
-  editrep works!
-</p>
+<div class="divis">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      <!-- <app-company-form [companyForm]="formulario"></app-company-form> -->
+      <div class="form-row separador"></div>
+      <app-address-form [addressForm]="formulario"></app-address-form>
+      <button type="submit" class="btn btn-primary float-right btn">Salvar Alterações</button>
+    </form>
+  </div>
+  
