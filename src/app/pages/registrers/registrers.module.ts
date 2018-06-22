@@ -9,6 +9,7 @@ import { EditcompanyComponent } from './editcompany/editcompany.component';
 import { EditrepComponent } from './editrep/editrep.component';
 import { AddressFormComponent } from './components/address-form/address-form.component';
 import { CompanyFormComponent } from './components/company-form/company-form.component';
+import { RepFormComponent } from './components/rep-form/rep-form.component';
 
 @NgModule({
   imports: [
@@ -24,12 +25,13 @@ import { CompanyFormComponent } from './components/company-form/company-form.com
     EditcompanyComponent,
     EditrepComponent,
     AddressFormComponent,
-    CompanyFormComponent
+    CompanyFormComponent,
+    RepFormComponent
    ],
    entryComponents: [
     AddressFormComponent,
     CompanyFormComponent
-   ]
+  ]
 
 })
 export class RegistrersModule { }
