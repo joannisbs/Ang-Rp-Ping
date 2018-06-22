@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { addressFormGroup } from '../components/address-form/address.interface';
+
+import { CompanyService } from './../../../services/company/company.service';
+
 @Component({
   selector: 'app-editcompany',
   templateUrl: './editcompany.component.html',
@@ -12,89 +16,62 @@ export class EditcompanyComponent implements OnInit {
 
   public formulario: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private companyService: CompanyService,
+  ) { }
 
   ngOnInit() {
     this.formulario = this.formBuilder.group ({
-      inputNome: [null,
+      inputNome: ['',
                   [Validators.required,
                   Validators.maxLength(12),
                   Validators.pattern('[A-Z].*')]],
 
-      inputCNPJ: [null,
+      inputCNPJ: ['',
         [Validators.required,
         Validators.maxLength(18),
         // tslint:disable-next-line:max-line-length
         Validators.pattern('^([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}(-)?[0-9]{2})$|^([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}(()|(-))[0-9]{2})$')]],
 
-      inputResp: [null,
+      inputResp: ['',
         [Validators.required,
         Validators.maxLength(45),
         Validators.pattern('[A-Za-z ]{3,}')]],
 
-      inputEMAIL: [null,
+      inputEMAIL: ['',
       [Validators.required,
       Validators.maxLength(45),
       Validators.pattern('[^@]+@[^@]+\.[a-zA-Z]{2,6}')]],
 
-      inputTel: [null,
+      inputTel: ['',
         [Validators.required,
         Validators.maxLength(14),
         Validators.pattern('[\(]?[0-9]{2}(( )|([\)])|()|(-))(([0-9]{4})|([0-9]{5}))(( )|(-)|)([0-9]{4})')]],
 
-
-      inputCep: [null,
-        [Validators.required,
-        Validators.maxLength(45),
-        Validators.pattern('[0-9]{5}[-][0-9]{3}')]],
-
-      inputRua: [null,
-        [Validators.required,
-        Validators.maxLength(60),
-        Validators.pattern('[A-Za-z]{3,}')]],
-
-      inputNum: [null,
-        [Validators.required,
-        Validators.maxLength(6),
-        Validators.pattern('[0-9]+')]],
-
-      inputComp: [null,
-        [Validators.maxLength(45)]],
-
-      inputUF: [null,
-        [Validators.required,
-        Validators.maxLength(2),
-        Validators.pattern('[A-Z]+')]],
-
-      inputCity: [null,
-        [Validators.required,
-        Validators.maxLength(45)]],
-
-      inputBairro: [null,
-        [Validators.required,
-        Validators.maxLength(45)]],
-
-      inputRef: [null,
-        [Validators.required,
-        Validators.maxLength(45)]],
-
-      inputTela: [null,
+      inputTela: ['',
         [Validators.required,
         Validators.maxLength(1),
         Validators.pattern('[1-2]')]],
 
-      inputColuna: [null,
+      inputColuna: ['',
         [Validators.required,
         Validators.maxLength(2),
         Validators.pattern('(10|[0-9])')]],
 
-      inputLinha: [null,
+      inputLinha: ['',
         [Validators.required,
         Validators.maxLength(2),
         Validators.pattern('[0-9]+')]],
+        ...addressFormGroup,
+
     });
   }
-  onSubmit() {
-    console.log(this.formulario.value);
+
+  onSubmit(company) {
+   this.companyService
+    .cadastrarCompany(company)
+    .subscribe(res => console.log(res));
   }
+
 }
