@@ -14,7 +14,7 @@ import { Http } from '@angular/http';
 
 export class EditcompanyComponent implements OnInit {
 
-  formulario: FormGroup;
+  public formulario: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private http: Http) { }
 
