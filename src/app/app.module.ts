@@ -2,8 +2,10 @@ import { GenericModule } from './generic/generic.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { RegistrersModule } from './pages/registrers/registrers.module';
 import { FormsModule } from '@angular/forms';
+import { PagesModule } from 'src/app/pages/pages.module';
+import { RouterModule } from '@angular/router';
+import { routing } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -12,8 +14,10 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     GenericModule,
-    RegistrersModule,
+    PagesModule,
     FormsModule,
+    RouterModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
