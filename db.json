@@ -1,0 +1,43 @@
+{
+  "equipamentos": [],
+  "company": [
+    {
+      "inputNome": "qwqeqwe",
+      "inputCNPJ": "125454515484841515",
+      "inputResp": "65465465",
+      "inputEMAIL": "4654654",
+      "inputTel": "565565",
+      "inputTela": "4",
+      "inputColuna": "54",
+      "inputLinha": "45",
+      "cep": "09784-500",
+      "logradouro": "Rua Joana D'Arc",
+      "numero": "33",
+      "complemento": "333",
+      "uf": "SP",
+      "cidade": "São Bernardo do Campo",
+      "bairro": "Montanhão",
+      "inputRef": "",
+      "id": 1
+    },
+    {
+      "inputNome": "qwqeqwe",
+      "inputCNPJ": "125454515484841515",
+      "inputResp": "65465465",
+      "inputEMAIL": "4654654",
+      "inputTel": "565565",
+      "inputTela": "4",
+      "inputColuna": "54",
+      "inputLinha": "45",
+      "cep": "09784-500",
+      "logradouro": "Rua Joana D'Arc",
+      "numero": "33",
+      "complemento": "333",
+      "uf": "SP",
+      "cidade": "São Bernardo do Campo",
+      "bairro": "Montanhão",
+      "inputRef": "",
+      "id": 2
+    }
+  ]
+}
