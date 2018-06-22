@@ -92,7 +92,7 @@
       <div class="form-group col-md-1">
         <label class="LabelForm" for="inputTela">Tela:</label>
         <div class="input-group">
-          <input type="text" class="form-control formm" id="inputTela" placeholder="Nome Sobrenome" formControlName="inputTela">
+          <input type="text" class="form-control formm" id="inputTela" placeholder="Nome Sobrenome" formControlName="inputTela" maxlength="1">
           <span class='input-group-addon' [class.d-none]="formulario.controls['inputTela'].valid || !formulario.controls['inputTela'].touched">
             <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
           </span>
@@ -106,7 +106,7 @@
       <div class="form-group col-md-1">
         <label class="LabelForm" for="inputLinha">Linha:</label>
         <div class="input-group">
-          <input type="text" class="form-control formm" id="inputLinha" placeholder="Nome Sobrenome" formControlName="inputLinha">
+          <input type="text" class="form-control formm" id="inputLinha" placeholder="Nome Sobrenome" formControlName="inputLinha" maxlength="2">
           <span class='input-group-addon' [class.d-none]="formulario.controls['inputLinha'].valid || !formulario.controls['inputLinha'].touched">
             <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
           </span>
@@ -121,7 +121,7 @@
       <div class="form-group col-md-1">
         <label class="LabelForm" for="inputColuna">Coluna:</label>
         <div class="input-group">
-          <input type="text" class="form-control formm" id="inputColuna" placeholder="Nome Sobrenome" formControlName="inputColuna">
+          <input type="text" class="form-control formm" id="inputColuna" placeholder="Nome Sobrenome" formControlName="inputColuna" maxlength="2">
           <span class='input-group-addon' [class.d-none]="formulario.controls['inputColuna'].valid || !formulario.controls['inputColuna'].touched">
             <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
           </span>
@@ -145,13 +145,13 @@
       <div class="form-group col-md-2">
         <label class="LabelForm" for="inputCep">Cep:</label>
         <div class="input-group">
-          <input type="text" class="form-control formm" id="inputCep" placeholder="Cep" formControlName="inputCep"  maxlength="9">
+          <input type="text" class="form-control formm" id="inputCep" placeholder="Cep" formControlName="inputCep"  maxlength="9" (blur)="consultaCep()">
           <span class='input-group-addon' [class.d-none]="formulario.controls['inputCep'].valid || !formulario.controls['inputCep'].touched ">
             <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
           </span>
         </div>
         <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="formulario.controls['inputCep'].valid || !formulario.controls['inputCep'].touched ">
-          Campo obrigatório.
+          Campo obrigatório, somente números.
         </small>
       </div>
 
@@ -172,7 +172,7 @@
       <div class="form-group col-md-2">
           <label class="LabelForm" for="inputNum">Número:</label>
           <div class="input-group">
-            <input type="text" class="form-control formm" id="inputNum" placeholder="Número" formControlName="inputNum"maxlength="18">
+            <input type="text" class="form-control formm" id="inputNum" placeholder="Número" formControlName="inputNum"maxlength="6">
             <span class='input-group-addon' [class.d-none]="formulario.controls['inputNum'].valid || !formulario.controls['inputNum'].touched">
               <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
             </span>
@@ -185,7 +185,7 @@
         <div class="form-group col-md-3">
             <label class="LabelForm" for="inputComp">Complemento:</label>
             <div class="input-group">
-              <input type="text" class="form-control formm" id="inputComp" placeholder="Complemento" formControlName="inputComp"maxlength="18">
+              <input type="text" class="form-control formm" id="inputComp" placeholder="Complemento" formControlName="inputComp"maxlength="45">
               <span class='input-group-addon' [class.d-none]="formulario.controls['inputComp'].valid || !formulario.controls['inputComp'].touched">
                 <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
               </span>

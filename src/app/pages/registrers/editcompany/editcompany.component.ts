@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Http } from '@angular/http';
 
 
 @Component({
@@ -13,7 +16,7 @@ export class EditcompanyComponent implements OnInit {
 
   formulario: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private http: Http) { }
 
   ngOnInit() {
     this.formulario = this.formBuilder.group ({
@@ -69,13 +72,11 @@ export class EditcompanyComponent implements OnInit {
 
       inputCity: [null,
         [Validators.required,
-        Validators.maxLength(45),
-        Validators.pattern('[A-Za-z]+')]],
+        Validators.maxLength(45)]],
 
       inputBairro: [null,
         [Validators.required,
-        Validators.maxLength(45),
-        Validators.pattern('[A-Za-z]+')]],
+        Validators.maxLength(45)]],
 
       inputRef: [null,
         [Validators.required,
@@ -86,12 +87,12 @@ export class EditcompanyComponent implements OnInit {
         Validators.maxLength(1),
         Validators.pattern('[1-2]')]],
 
-      inputLinha: [null,
+      inputColuna: [null,
         [Validators.required,
         Validators.maxLength(2),
         Validators.pattern('(10|[0-9])')]],
 
-      inputColuna: [null,
+      inputLinha: [null,
         [Validators.required,
         Validators.maxLength(2),
         Validators.pattern('[0-9]+')]],
@@ -102,6 +103,24 @@ export class EditcompanyComponent implements OnInit {
 
   }
 
+  consultaCep() {
+    if (this.formulario.controls['inputCep'].valid) {
+      // tslint:disable-next-line:no-var-keyword
+      var cep = this.formulario.controls['inputCep'].value;
+      cep = cep.replace('-', '');
+      console.log(cep);
+      this.http.get(`https://viacep.com.br/ws/${cep}/json`).pipe(
+        map(dados => this.prencherEnd(dados)));
+        // .subscribe(dados => this.prencherEnd(dados));
+    }
+
+  }
+
+  prencherEnd(dados) {
+    console.log(dados);
+    this.formulario.controls['inputRua'].setValue(
+       dados._body.logradouro);
+  }
 
 
 }
