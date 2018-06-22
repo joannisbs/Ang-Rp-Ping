@@ -1,10 +1,11 @@
-import { GenericModule } from './generic/generic.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { PagesModule } from 'src/app/pages/pages.module';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
+import { AppComponent } from './app.component';
+import { GenericModule } from './generic/generic.module';
+import { PagesModule } from 'src/app/pages/pages.module';
 import { routing } from './app.routing';
 import { ServicesModule } from './services/services.module';
 

@@ -1,5 +1,5 @@
 <div class="divis">
-  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit(formulario.value)">
     <app-company-form [companyForm]="formulario"></app-company-form>
     <div class="form-row separador"></div>
     <app-address-form [addressForm]="formulario"></app-address-form>

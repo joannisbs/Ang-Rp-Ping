@@ -69,9 +69,11 @@ export class EditcompanyComponent implements OnInit {
   }
 
   onSubmit(company) {
+    console.log(company);
    this.companyService
     .cadastrarCompany(company)
     .subscribe(res => console.log(res));
+
   }
 
 }
