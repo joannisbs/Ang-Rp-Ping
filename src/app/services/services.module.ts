@@ -2,6 +2,7 @@ import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CepService } from './cep/cep.service';
+import { CompanyService } from './company/company.service';
 
 @NgModule({
   imports: [
@@ -9,6 +10,9 @@ import { CepService } from './cep/cep.service';
     HttpModule
   ],
   declarations: [],
-  providers: [CepService],
+  providers: [
+    CepService,
+    CompanyService
+  ],
 })
 export class ServicesModule { }
