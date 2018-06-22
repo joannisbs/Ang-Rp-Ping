@@ -1,3 +1,4 @@
+import { CepService } from './../../../../services/cep/cep.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -10,9 +11,12 @@ export class AddressFormComponent implements OnInit {
   @Input()
   addressForm;
 
-  constructor() { }
+  constructor(private cepService: CepService) { }
 
   ngOnInit() {
   }
 
+  buscarCep(cep) {
+    this.cepService.consultaCep(cep);
+  }
 }

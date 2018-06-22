@@ -5,7 +5,7 @@
         <div class="form-group col-md-2">
           <label class="LabelForm" for="inputCep">Cep:</label>
           <div class="input-group">
-            <input type="text" class="form-control formm" id="inputCep" placeholder="Cep" formControlName="inputCep"  maxlength="9" (blur)="consultaCep()">
+            <input type="text" class="form-control formm" id="inputCep" placeholder="Cep" formControlName="inputCep"  maxlength="9" (blur)="buscarCep(addressForm.value.inputCep)">
             <span class='input-group-addon' [class.d-none]="addressForm.controls['inputCep'].valid || !addressForm.controls['inputCep'].touched ">
               <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
             </span>
