@@ -24,11 +24,11 @@ export class AddressFormComponent implements OnInit, OnDestroy {
     cep.replace('[-]', '');
     return this.subcription = this.cepService.consultaCep(cep)
       .subscribe(({ logradouro, localidade: cidade, uf, bairro, cep: cepCode }) => {
-        this.addressForm.get('cidade').patchValue(cidade);
-        this.addressForm.get('uf').patchValue(uf);
-        this.addressForm.get('logradouro').patchValue(logradouro);
-        this.addressForm.get('bairro').patchValue(bairro);
-        this.addressForm.get('cep').patchValue(cepCode);
+        this.addressForm.get('end_cidade').patchValue(cidade);
+        this.addressForm.get('end_uf').patchValue(uf);
+        this.addressForm.get('end_rua').patchValue(logradouro);
+        this.addressForm.get('end_bairro').patchValue(bairro);
+        this.addressForm.get('end_cep').patchValue(cepCode);
       });
   }
 
