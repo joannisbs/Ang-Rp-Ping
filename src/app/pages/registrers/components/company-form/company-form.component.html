@@ -1,138 +1,356 @@
 
 <div [formGroup]="companyForm">
-  
-<div class="form-row">
+ 
+  <!-- Linha 1  -->
+  <div class="form-row">
         
+    <!-- Campo de input do nome da empresa -->
     <div class="form-group col-lg-4">
-      <label class="LabelForm" for="inputName">Empresa:</label>
+
+      <label class="LabelForm" for="emp_nome">Empresa:</label>
       <div class="input-group">
-        <input type="text" class="form-control formm" id="inputName" placeholder="Nome" formControlName="inputNome"  maxlength="12">
-        <span class='input-group-addon' [class.d-none]="companyForm.controls['inputNome'].valid || !companyForm.controls['inputNome'].touched ">
+        
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="emp_nome" 
+          placeholder="Nome" 
+          formControlName="emp_nome" 
+          maxlength="12"
+        >
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' 
+          [class.d-none]="companyForm.controls['emp_nome'].valid || !companyForm.controls['emp_nome'].touched "
+        >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
       </div>
-      <small id="nameHelpBlock" class="form-text" 
-        [class.texterror]="!companyForm.controls['inputNome'].valid && companyForm.controls['inputNome'].touched"
-        [class.text-muted]="companyForm.controls['inputNome'].valid || !companyForm.controls['inputNome'].touched ">
-          Máximo 12 caracteres, iniciar com letra maiúscula.
+
+      <!-- Mensagem de ajuda -->
+      <small id="nameHelpBlock" 
+          class="form-text" 
+          [class.texterror]="!companyForm.controls['emp_nome'].valid && companyForm.controls['emp_nome'].touched"
+          [class.text-muted]="companyForm.controls['emp_nome'].valid || !companyForm.controls['emp_nome'].touched ">
+        Será exibido na tela Ping.
       </small>
-      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="companyForm.controls['inputNome'].valid || !companyForm.controls['inputNome'].touched ">
+
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" 
+          class="form-text texterror" 
+          [class.d-none]="companyForm.controls['emp_nome'].valid || !companyForm.controls['emp_nome'].touched ">
+        Campo obrigatório, máximo 12 caracterers, iniciar com letra maiúscula.
+      </small>
+    </div>
+
+    <!-- Campo de input do CNPJ da empresa -->
+    <div class="form-group col-lg-3">
+
+      <label class="LabelForm" for="empdata_cnpj">CNPJ:</label>
+      <div class="input-group">
+
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="empdata_cnpj" 
+          placeholder="CNPJ ou CPF" 
+          formControlName="empdata_cnpj"
+          maxlength="18"
+          (blur)="arrumaCNPJ(companyForm.value.empdata_cnpj)"
+        >
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' 
+          [class.d-none]="companyForm.controls['empdata_cnpj'].valid || !companyForm.controls['empdata_cnpj'].touched"
+        >
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small 
+        id="nameHelpBlock" 
+        class="form-text texterror" 
+        [class.d-none]="companyForm.controls['empdata_cnpj'].valid || !companyForm.controls['empdata_cnpj'].touched "
+      >
+        Campo obrigatório.
+      </small>
+    </div>
+
+    <!-- Campo de input do responsável da empresa -->
+    <div class="form-group col-lg-5">
+
+      <label class="LabelForm" for="empdata_resp">Responsável:</label>
+      <div class="input-group">
+
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="empdata_resp" 
+          placeholder="Nome Sobrenome" 
+          formControlName="empdata_resp"
+          maxlength="45"
+        >
+
+        <!-- Icone de X has error -->
+        <span 
+          class='input-group-addon' 
+          [class.d-none]="companyForm.controls['empdata_resp'].valid || !companyForm.controls['empdata_resp'].touched"
+        >
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>  
+      <!-- Mensagem de erro -->
+      <small 
+        id="nameHelpBlock" 
+        class="form-text texterror" 
+        [class.d-none]="companyForm.controls['empdata_resp'].valid || !companyForm.controls['empdata_resp'].touched "
+      >
+        Campo obrigatório. 
+      </small>    
+    </div> 
+  </div>
+
+  <!-- Linha 2  -->
+  <div class="form-row">
+
+    <!-- Campo de input razao social da empresa -->
+    <div class="form-group col-lg-9">
+
+      <label class="LabelForm" for="empdata_razao">Razão Social:</label>
+      <div class="input-group">
+
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="empdata_razao" 
+          placeholder="Razão Social" 
+          formControlName="empdata_razao"
+          maxlength="90"
+        >
+
+        <!-- Icone de X has error -->
+        <span 
+          class='input-group-addon' 
+          [class.d-none]="companyForm.controls['empdata_razao'].valid || !companyForm.controls['empdata_razao'].touched"
+        >
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small 
+        id="nameHelpBlock" 
+        class="form-text texterror" 
+        [class.d-none]="companyForm.controls['empdata_razao'].valid || !companyForm.controls['empdata_razao'].touched "
+      >
         Campo obrigatório.
       </small>
     </div>
 
 
+    <!-- Campo de input do telefone da empresa -->
     <div class="form-group col-lg-3">
-      <label class="LabelForm" for="inputCNPJ">CNPJ:</label>
+
+      <label class="LabelForm" for="empdata_tel">Telefone:</label>
       <div class="input-group">
-        <input type="text" class="form-control formm" id="inputCNPJ" placeholder="CNPJ ou CPF" formControlName="inputCNPJ"maxlength="18">
-        <span class='input-group-addon' [class.d-none]="companyForm.controls['inputCNPJ'].valid || !companyForm.controls['inputCNPJ'].touched">
+
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="empdata_tel" 
+          placeholder="Fixo ou Celular" 
+          formControlName="empdata_tel"
+          maxlength="15"
+          (blur)="arrumaTel(companyForm.value.empdata_tel)"
+        >
+
+        <!-- Icone de X has error -->
+        <span 
+          class='input-group-addon' 
+          [class.d-none]="companyForm.controls['empdata_tel'].valid || !companyForm.controls['empdata_tel'].touched " 
+        >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
-      </div>  
-      <small id="nameHelpBlock" class="form-text" 
-          [class.texterror]="!companyForm.controls['inputCNPJ'].valid && companyForm.controls['inputCNPJ'].touched"
-          [class.text-muted]="companyForm.controls['inputCNPJ'].valid || !companyForm.controls['inputCNPJ'].touched" >
-        Digite um CPF ou CNPJ válido com ou sem pontos e traços.
-      </small>    
-      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="companyForm.controls['inputCNPJ'].valid || !companyForm.controls['inputCNPJ'].touched ">
-        Campo obrigatório.
-      </small>    
-    </div> 
-    <div class="form-group col-lg-5">
-        <label class="LabelForm" for="inputEMAIL">Email:</label>
-        <div class="input-group">
-          <input type="text" class="form-control formm" id="inputEMAIL" placeholder="user@email.com" formControlName="inputEMAIL">
-          <span class='input-group-addon' [class.d-none]="companyForm.controls['inputEMAIL'].valid || !companyForm.controls['inputEMAIL'].touched">
-            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
-          </span>
-        </div>    
-      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="companyForm.controls['inputEMAIL'].valid || !companyForm.controls['inputEMAIL'].touched ">
+      </div>
+      <!-- Mensagem de erro -->
+      <small 
+        id="nameHelpBlock" 
+        class="form-text texterror" 
+        [class.d-none]="companyForm.controls['empdata_tel'].valid || !companyForm.controls['empdata_tel'].touched"
+      >
+        Campo obrigatório, coloque o DDD
+      </small>
+    </div>
+
+
+  </div>
+
+  <!-- Linha 3  -->
+  <div class="form-row">
+
+    <!-- Campo de input do email da empresa -->
+    <div class="form-group col-lg-6">
+      <label class="LabelForm" for="empdata_email">Email:</label>
+      <div class="input-group">
+        
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="empdata_email" 
+          placeholder="user@email.com" 
+          formControlName="empdata_email"
+          maxlength="45"
+        >
+        
+        <!-- Icone de X has error -->
+        <span 
+          class='input-group-addon' 
+          [class.d-none]="companyForm.controls['empdata_email'].valid || !companyForm.controls['empdata_email'].touched"
+        >
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->   
+      <small 
+        id="nameHelpBlock" 
+        class="form-text texterror" 
+        [class.d-none]="companyForm.controls['empdata_email'].valid || !companyForm.controls['empdata_email'].touched "
+      >
         Campo Obrigatório.
       </small>
     </div> 
-    
-      
-  </div>
 
-  <div class="form-row">
-
-    <div class="form-group col-lg-7">
-      <label class="LabelForm" for="inputResp">Responsável:</label>
-      <div class="input-group">
-        <input type="text" class="form-control formm" id="inputResp" placeholder="Nome Sobrenome" formControlName="inputResp">
-        <span class='input-group-addon' [class.d-none]="companyForm.controls['inputResp'].valid || !companyForm.controls['inputResp'].touched">
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
-        </span>
-      </div>  
-      <small id="nameHelpBlock" class="form-text" 
-          [class.texterror]="!companyForm.controls['inputResp'].valid && companyForm.controls['inputResp'].touched"
-          [class.text-muted]="companyForm.controls['inputResp'].valid || !companyForm.controls['inputResp'].touched" >
-        Digite o nome do responsável. 
-      </small>    
-      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="companyForm.controls['inputResp'].valid || !companyForm.controls['inputResp'].touched ">
-        Campo obrigatório, somente letras, máximo 45 caracteres. 
-      </small>    
-    </div> 
-   
+    <!-- Campo de input do tela da empresa -->
     <div class="form-group col-lg-2">
-      <label class="LabelForm" for="inputTel">Telefone:</label>
+      
+      <label class="LabelForm" for="emp_tela">Tela:</label>
       <div class="input-group">
-        <input type="text" class="form-control formm" id="inputTel" placeholder="Fixo ou Celular" formControlName="inputTel">
-        <span class='input-group-addon' [class.d-none]="companyForm.controls['inputTel'].valid || !companyForm.controls['inputTel'].touched">
+
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="emp_tela" 
+          placeholder="Tela" 
+          formControlName="emp_tela" 
+          maxlength="1"
+        >
+
+        <!-- Icone de X has error -->
+        <span 
+          class='input-group-addon' 
+          [class.d-none]="companyForm.controls['emp_tela'].valid || !companyForm.controls['emp_tela'].touched"
+        >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
-      </div>    
-      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="companyForm.controls['inputTel'].valid || !companyForm.controls['inputTel'].touched ">
-        Campo obrigatório.
-      </small>
-    </div>
-    
-    <div class="form-group col-lg-1">
-      <label class="LabelForm" for="inputTela">Tela:</label>
-      <div class="input-group">
-        <input type="text" class="form-control formm" id="inputTela" placeholder="Nome Sobrenome" formControlName="inputTela" maxlength="1">
-        <span class='input-group-addon' [class.d-none]="companyForm.controls['inputTela'].valid || !companyForm.controls['inputTela'].touched">
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
-        </span>
-      </div>  
-      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="companyForm.controls['inputTela'].valid || !companyForm.controls['inputTela'].touched ">
+      </div>
+
+      <!-- Mensagem de ajuda --> 
+      <small id="nameHelpBlock" 
+        class="form-text" 
+        [class.texterror]="!companyForm.controls['emp_tela'].valid && companyForm.controls['emp_tela'].touched"
+        [class.text-muted]="companyForm.controls['emp_tela'].valid || !companyForm.controls['emp_tela'].touched "
+      >
+
+        A tela do ping que será exibido a empresa.
+      </small> 
+      
+      <!-- Mensagem de erro -->  
+      <small 
+        id="nameHelpBlock" 
+        class="form-text texterror" 
+        [class.d-none]="companyForm.controls['emp_tela'].valid || !companyForm.controls['emp_tela'].touched "
+      >
+
         Campo obrigatório, 1 ou 2. 
       </small>    
     </div> 
-        
-
-    <div class="form-group col-lg-1">
-      <label class="LabelForm" for="inputLinha">Linha:</label>
+      
+    <!-- Campo de input da linha da empresa -->
+    <div class="form-group col-lg-2">
+      <label class="LabelForm" for="emp_linha">Linha:</label>
       <div class="input-group">
-        <input type="text" class="form-control formm" id="inputLinha" placeholder="Nome Sobrenome" formControlName="inputLinha" maxlength="2">
-        <span class='input-group-addon' [class.d-none]="companyForm.controls['inputLinha'].valid || !companyForm.controls['inputLinha'].touched">
+        
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="emp_linha" 
+          placeholder="Linha" 
+          formControlName="emp_linha" 
+          maxlength="2"
+        >
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' [class.d-none]="companyForm.controls['emp_linha'].valid || !companyForm.controls['emp_linha'].touched">
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
-      </div>   
-      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="companyForm.controls['inputLinha'].valid || !companyForm.controls['inputLinha'].touched ">
+      </div>  
+
+      <!-- Mensagem de ajuda --> 
+      <small 
+        id="nameHelpBlock" 
+        class="form-text" 
+        [class.texterror]="!companyForm.controls['emp_linha'].valid && companyForm.controls['emp_linha'].touched"
+        [class.text-muted]="companyForm.controls['emp_linha'].valid || !companyForm.controls['emp_linha'].touched "
+      >
+
+        A linha do ping que será exibido a empresa.
+      </small> 
+      
+      <!-- Mensagem de erro -->  
+      <small 
+        id="nameHelpBlock" 
+        class="form-text texterror" 
+        [class.d-none]="companyForm.controls['emp_linha'].valid || !companyForm.controls['emp_linha'].touched "
+      >
         Campo obrigatório, 0-10. 
       </small>    
     </div> 
 
-
-
-    <div class="form-group col-lg-1">
-      <label class="LabelForm" for="inputColuna">Coluna:</label>
+    <!-- Campo de input da coluna da empresa -->
+    <div class="form-group col-lg-2">
+      
+      <label class="LabelForm" for="emp_coluna">Coluna:</label>
       <div class="input-group">
-        <input type="text" class="form-control formm" id="inputColuna" placeholder="Nome Sobrenome" formControlName="inputColuna" maxlength="2">
-        <span class='input-group-addon' [class.d-none]="companyForm.controls['inputColuna'].valid || !companyForm.controls['inputColuna'].touched">
+        
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="emp_coluna" 
+          placeholder="Coluna" 
+          formControlName="emp_coluna" 
+          maxlength="2"
+        >
+
+        <!-- Icone de X has error -->
+        <span 
+          class='input-group-addon' 
+          [class.d-none]="companyForm.controls['emp_coluna'].valid || !companyForm.controls['emp_coluna'].touched"
+        >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
-      </div>  
+      </div> 
 
-      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="companyForm.controls['inputColuna'].valid || !companyForm.controls['inputColuna'].touched ">
+      <!-- Mensagem de ajuda --> 
+      <small id="nameHelpBlock" 
+        class="form-text" 
+        [class.texterror]="!companyForm.controls['emp_coluna'].valid && companyForm.controls['emp_coluna'].touched"
+        [class.text-muted]="companyForm.controls['emp_coluna'].valid || !companyForm.controls['emp_coluna'].touched "
+      >
+        A coluna do ping que será exibido a empresa.
+      </small> 
+
+      <!-- Mensagem de erro -->
+      <small 
+        id="nameHelpBlock" 
+        class="form-text texterror" 
+        [class.d-none]="companyForm.controls['emp_coluna'].valid || !companyForm.controls['emp_coluna'].touched "
+      >
         Campo obrigatório. 
       </small>    
     </div> 
 
-
-
-</div> 
+  </div> 
 
 </div>
