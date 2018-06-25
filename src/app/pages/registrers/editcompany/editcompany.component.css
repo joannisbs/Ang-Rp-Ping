@@ -3,40 +3,8 @@
     margin-right: 75px;
     margin-top: 30px;
   }
-.ng-invalid.ng-touched.formm {
-    border: 1px solid red;
-    border-radius: 10px;
-    
-}
-.formm {
-    border-color:#21237b;
-    border-radius: 10px;
-   
-}
-.erroicon {
-    width: 20px;
-    padding-top: 4px; 
-    align-self: center;
-    margin-left: -30px; 
-    position: relative;
-    border-radius: 10px;
 
-}
-.texterror{
-    color: red;
-}
 
-.LabelForm{
-    color: #21237b;
-    border: none;
-    margin-left: 5px;
-    font-size: 18px;
-    font-weight: 700;
-    font-style: italic;
-    /* letter-spacing: 0.2em; */
-    /* text-shadow: 1px 1px #6b86ff; */
-    
-}
 .separador{
     margin: 5px;
     margin-top: 25px;
@@ -50,6 +18,7 @@
     font-weight: 700;
     color: #ffffff;
     padding-bottom: 15px;
+    /* padding-left: 60px; */
 }
 
 .btn:hover {
@@ -71,4 +40,52 @@
 .btn:hover::before {
     width: 100%;
   }
-   
+
+.indisponivel.btn:hover {
+    background-color: #10113B;
+    color: red;
+  }
+
+.indisponivel.btn::before {
+    content: '';
+    display: block;
+    height: 5px;
+    width: 0%;
+    background-color: red;
+    position: relative;
+    top: 30px;
+    transition: all ease-in-out 250ms;
+}
+.indisponivel.btn:hover::before {
+    width: 100%;
+  }
+
+.valido.btn:hover {
+    background-color: #10113B;
+    color: green;
+  }
+
+.valido.btn::before {
+    content: '';
+    display: block;
+    height: 5px;
+    width: 0%;
+    background-color: green;
+    position: relative;
+    top: 30px;
+    transition: all ease-in-out 250ms;
+}
+.valido.btn:hover::before {
+    width: 100%;
+  }
+  
+
+.btnicon {
+    width: 20px;
+    padding-top: 0px; 
+    margin-right: 5px;
+    align-self: center;
+}
+.fimdapag{
+    margin: 100px;
+}

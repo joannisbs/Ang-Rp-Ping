@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { companyFormGroup } from '../components/company-form/company.interface';
 import { addressFormGroup } from '../components/address-form/address.interface';
 
 import { CompanyService } from './../../../services/company/company.service';
@@ -15,64 +16,48 @@ import { CompanyService } from './../../../services/company/company.service';
 export class EditcompanyComponent implements OnInit {
 
   public formulario: FormGroup;
+  public imagebutton = '/assets/icons/xred.png';
+  public showimg = false;
+  public forsub = false;
 
   constructor(
     private formBuilder: FormBuilder,
     private companyService: CompanyService,
   ) { }
 
+  @Input() FomSub = false;
   ngOnInit() {
     this.formulario = this.formBuilder.group ({
-      inputNome: ['',
-                  [Validators.required,
-                  Validators.maxLength(12),
-                  Validators.pattern('[A-Z].*')]],
 
-      inputCNPJ: ['',
-        [Validators.required,
-        Validators.maxLength(18),
-        // tslint:disable-next-line:max-line-length
-        Validators.pattern('^([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}(-)?[0-9]{2})$|^([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}(()|(-))[0-9]{2})$')]],
-
-      inputResp: ['',
-        [Validators.required,
-        Validators.maxLength(45),
-        Validators.pattern('[A-Za-z ]{3,}')]],
-
-      inputEMAIL: ['',
-      [Validators.required,
-      Validators.maxLength(45),
-      Validators.pattern('[^@]+@[^@]+\.[a-zA-Z]{2,6}')]],
-
-      inputTel: ['',
-        [Validators.required,
-        Validators.maxLength(14),
-        Validators.pattern('[\(]?[0-9]{2}(( )|([\)])|()|(-))(([0-9]{4})|([0-9]{5}))(( )|(-)|)([0-9]{4})')]],
-
-      inputTela: ['',
-        [Validators.required,
-        Validators.maxLength(1),
-        Validators.pattern('[1-2]')]],
-
-      inputColuna: ['',
-        [Validators.required,
-        Validators.maxLength(2),
-        Validators.pattern('(10|[0-9])')]],
-
-      inputLinha: ['',
-        [Validators.required,
-        Validators.maxLength(2),
-        Validators.pattern('[0-9]+')]],
+        ...companyFormGroup,
         ...addressFormGroup,
 
     });
-  }
 
-  onSubmit(company) {
-    console.log(company);
-   this.companyService
-    .cadastrarCompany(company)
-    .subscribe(res => console.log(res));
+  }
+  showImage(value) {
+    this.showimg = true;
+    if (value) {
+      this.imagebutton = '/assets/icons/certoverde.png';
+    } else {
+      this.imagebutton = '/assets/icons/xred.png';
+    }
+  }
+  hideImage() {
+    this.showimg = false;
+  }
+  onSubmit(company, valido) {
+    if (valido) {
+      console.log(company);
+
+      this.companyService
+      .cadastrarCompany(company)
+      .subscribe(res => console.log(res));
+
+    } else {
+      this.forsub = true;
+
+    }
 
   }
 
