@@ -25,7 +25,7 @@ export class EditcompanyComponent implements OnInit {
     private companyService: CompanyService,
   ) { }
 
-  @Input() FomSub = false;
+
   ngOnInit() {
     this.formulario = this.formBuilder.group ({
 
@@ -54,11 +54,7 @@ export class EditcompanyComponent implements OnInit {
       .cadastrarCompany(company)
       .subscribe(res => console.log(res));
 
-    } else {
-      this.forsub = true;
-
     }
-
   }
 
 }

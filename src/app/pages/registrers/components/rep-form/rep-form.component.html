@@ -1,3 +1,302 @@
-<p>
-  rep-form works!
-</p>
+<div [formGroup]="repForm">
+  <!-- Linha 1  -->
+  <div class="form-row">
+        
+    <!-- Campo de input do nome do relógio -->
+    <div class="form-group col-lg-3">
+
+      <label class="LabelForm" for="rep_nome">Nome do Relógio:</label>
+      <div class="input-group">
+        
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="rep_nome" 
+          placeholder="Nome" 
+          formControlName="rep_nome" 
+          maxlength="12"
+        >
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' 
+          [class.d-none]="repForm.controls['rep_nome'].valid || !repForm.controls['rep_nome'].touched "
+        >
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+
+      <!-- Mensagem de ajuda -->
+      <small id="nameHelpBlock" 
+          class="form-text helptext" 
+          [class.texterror]="!repForm.controls['rep_nome'].valid && repForm.controls['rep_nome'].touched"
+          [class.text-muted]="repForm.controls['rep_nome'].valid || !repForm.controls['rep_nome'].touched ">
+        Será exibido na tela Ping.
+      </small>
+
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" 
+          class="form-text texterror" 
+          [class.d-none]="repForm.controls['rep_nome'].valid || !repForm.controls['rep_nome'].touched ">
+        Campo obrigatório, máximo 12 caracterers.
+      </small>
+    </div>
+
+    <!-- Campo de input do nome da empresa Dropdownchoise -->
+    <div class="form-group col-lg-3">
+
+     
+      <label class="LabelForm" for="emp_nome">Empresa:</label>
+      <div class="input-group">
+          
+          
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="emp_nome" 
+          placeholder="Nome" 
+          formControlName="emp_nome"     
+          (keyup)="ShowDrop(repForm.controls['emp_nome'].value)" 
+        > 
+            
+        <div class='input-group-addon' [class.d-none]="repForm.controls['emp_nome'].valid || !repForm.controls['emp_nome'].touched ">
+          <span >
+            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          </span>
+                </div>
+              <div class="input-group-append">
+              <!-- <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button> -->
+                <div class="dropdown-menu" [class.show]="show" >
+                  <li class="dropdown-item" (click)="Clickitem(item.name)" *ngFor="let item of companys" >{{item.name}}</li>
+          
+                </div>
+              </div>
+               
+
+          <!-- Icone de X has error -->
+          
+      </div>
+  
+        <!-- Mensagem de ajuda -->
+        <small id="nameHelpBlock" 
+            class="form-text helptext" 
+            [class.texterror]="!repForm.controls['emp_nome'].valid && repForm.controls['emp_nome'].touched"
+            [class.text-muted]="repForm.controls['emp_nome'].valid || !repForm.controls['emp_nome'].touched ">
+             Escolha uma opção.
+        </small>
+  
+        <!-- Mensagem de erro -->
+        <small id="nameHelpBlock" 
+            class="form-text texterror" 
+            [class.d-none]="repForm.controls['emp_nome'].valid || !repForm.controls['emp_nome'].touched ">
+          Campo obrigatório, máximo 12 caracterers, iniciar com letra maiúscula.
+        </small>
+      </div>
+
+    <!-- Campo de input do IP do Relógio -->
+    <div class="form-group col-lg-3">
+
+      <label class="LabelForm" for="rep_ip">IP:</label>
+      <div class="input-group">
+
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="rep_ip" 
+          placeholder="IP ou Hostname" 
+          formControlName="rep_ip"
+          maxlength="45"
+          
+        >
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' 
+          [class.d-none]="repForm.controls['rep_ip'].valid || !repForm.controls['rep_ip'].touched"
+        >
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small 
+        id="nameHelpBlock" 
+        class="form-text texterror" 
+        [class.d-none]="repForm.controls['rep_ip'].valid || !repForm.controls['rep_ip'].touched "
+      >
+        Campo obrigatório.
+      </small>
+    </div>
+
+    <!-- Campo de input da porta do rep -->
+    <div class="form-group col-lg-3">
+
+      <label class="LabelForm" for="rep_port">Porta:</label>
+      <div class="input-group">
+
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="rep_port" 
+          placeholder="Porta" 
+          formControlName="rep_port"
+          maxlength="45"
+        >
+
+        <!-- Icone de X has error -->
+        <span 
+          class='input-group-addon' 
+          [class.d-none]="repForm.controls['rep_port'].valid || !repForm.controls['rep_port'].touched"
+        >
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>  
+      <!-- Mensagem de erro -->
+      <small 
+        id="nameHelpBlock" 
+        class="form-text texterror" 
+        [class.d-none]="repForm.controls['rep_port'].valid || !repForm.controls['rep_port'].touched "
+      >
+        Campo obrigatório. 
+      </small>    
+    </div> 
+  </div>
+
+
+  <!-- Linha 2  -->
+  <div class="form-row">
+    <!-- Campo de input do nome da marca do rep Dropdownchoise -->
+    <div class="form-group col-lg-3">
+
+  
+      <label class="LabelForm" for="reps_marca">Marca:</label>
+      <div class="input-group">
+          
+          
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="reps_marca" 
+          placeholder="Pesquisar" 
+          formControlName="reps_marca"     
+          (keyup)="ShowDShowDropMarcaModelrep(repForm.controls['reps_marca'].value)" 
+        > 
+
+        <!-- Icone de X has error -->    
+        <div class='input-group-addon' [class.d-none]="repForm.controls['reps_marca'].valid || !repForm.controls['reps_marca'].touched ">
+          <span >
+            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          </span>
+        </div>
+        <div class="input-group-append">   
+          <div class="dropdown-menu" [class.show]="showmarcamodelo" >
+            <li class="dropdown-item" (click)="ClickitemMarcaModeloRep(item)" *ngFor="let item of marcamodelo" >{{item.marca}} {{item.modelo}}</li>
+          </div>
+        </div>  
+      </div>
+  
+    <!-- Mensagem de ajuda -->
+    <small id="nameHelpBlock" 
+        class="form-text helptext" 
+        [class.texterror]="!repForm.controls['reps_marca'].valid && repForm.controls['reps_marca'].touched"
+        [class.text-muted]="repForm.controls['reps_marca'].valid || !repForm.controls['reps_marca'].touched ">
+          Pesquise por marca ou modelo.
+    </small>
+
+    <!-- Mensagem de erro -->
+    <small id="nameHelpBlock" 
+        class="form-text texterror" 
+        [class.d-none]="repForm.controls['reps_marca'].valid || !repForm.controls['reps_marca'].touched ">
+      Campo obrigatório.
+    </small>
+  </div>
+
+    <!-- Campo de input do nome empresa do rep, readonly -->
+    <div class="form-group col-lg-4">
+
+      <label class="LabelForm" for="reps_modelo">Modelo:</label>
+      <div class="input-group">
+            
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="reps_modelo" 
+          placeholder="" 
+          formControlName="reps_modelo"     
+          [readonly]="true"
+        > 
+            
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' 
+          [class.d-none]="repForm.controls['reps_modelo'].valid || !repForm.controls['reps_modelo'].touched "
+        >
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" 
+          class="form-text texterror" 
+          [class.d-none]="repForm.controls['reps_modelo'].valid || !repForm.controls['reps_modelo'].touched ">
+        Campo obrigatório.
+      </small>
+    </div>
+
+    <!-- Campo de input do nome da empresa Dropdownchoise -->
+    <div class="form-group col-lg-2">
+
+      <label class="LabelForm" for="leitr_leitor">Leitor:</label>
+      <div class="input-group">
+        <select 
+          class="custom-select formm" 
+          id="leitr_leitor"
+          formControlName="leitr_leitor" 
+        >
+          <option selected>Choose...</option>
+          <option *ngFor="let item of leitores">{{item.leitor}}</option>
+            
+        </select>
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' 
+          [class.d-none]="repForm.controls['reps_marca'].valid || !repForm.controls['reps_marca'].touched "
+         >
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" 
+          class="form-text texterror" 
+          [class.d-none]="repForm.controls['reps_marca'].valid || !repForm.controls['reps_marca'].touched ">
+        Campo obrigatório.
+      </small>
+    </div>
+     <!-- Campo de input do nome do relógio -->
+     <div class="form-group col-lg-3">
+
+        <label class="LabelForm" for="repdata_serienum">Número de Série:</label>
+        <div class="input-group">
+          
+          <input 
+            type="text" 
+            class="form-control formm" 
+            id="repdata_serienum" 
+            placeholder="Numero do REP" 
+            formControlName="repdata_serienum" 
+            maxlength="17"
+          >
+  
+          <!-- Icone de X has error -->
+          <span class='input-group-addon' 
+            [class.d-none]="repForm.controls['repdata_serienum'].valid || !repForm.controls['repdata_serienum'].touched "
+          >
+            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          </span>
+        </div>
+
+        <!-- Mensagem de erro -->
+        <small id="nameHelpBlock" 
+            class="form-text texterror" 
+            [class.d-none]="repForm.controls['repdata_serienum'].valid || !repForm.controls['repdata_serienum'].touched ">
+          Campo obrigatório.
+        </small>
+      </div>
+  </div>
+</div>
