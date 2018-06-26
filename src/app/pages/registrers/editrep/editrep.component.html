@@ -1,6 +1,7 @@
 <div class="divis">
     <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
       <!-- <app-company-form [companyForm]="formulario"></app-company-form> -->
+      <app-rep-form [repForm]="formulario"></app-rep-form>
       <div class="form-row separador"></div>
       <app-address-form [addressForm]="formulario"></app-address-form>
       <button type="submit" class="btn btn-primary float-right btn">Salvar Alterações</button>
