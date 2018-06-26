@@ -66,7 +66,7 @@
               <div class="input-group-append">
               <!-- <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button> -->
                 <div class="dropdown-menu" [class.show]="show" >
-                  <li class="dropdown-item" (click)="Clickitem(item.name)" *ngFor="let item of companys" >{{item.name}}</li>
+                  <li class="dropdown-item" (click)="Clickitem(item.name)" *ngFor="let item of reps" >{{item.name}}</li>
           
                 </div>
               </div>
@@ -163,6 +163,7 @@
 
   <!-- Linha 2  -->
   <div class="form-row">
+
     <!-- Campo de input do nome da marca do rep Dropdownchoise -->
     <div class="form-group col-lg-3">
 
@@ -268,35 +269,213 @@
         Campo obrigatório.
       </small>
     </div>
-     <!-- Campo de input do nome do relógio -->
-     <div class="form-group col-lg-3">
 
-        <label class="LabelForm" for="repdata_serienum">Número de Série:</label>
-        <div class="input-group">
-          
-          <input 
-            type="text" 
-            class="form-control formm" 
-            id="repdata_serienum" 
-            placeholder="Numero do REP" 
-            formControlName="repdata_serienum" 
-            maxlength="17"
-          >
-  
-          <!-- Icone de X has error -->
-          <span class='input-group-addon' 
-            [class.d-none]="repForm.controls['repdata_serienum'].valid || !repForm.controls['repdata_serienum'].touched "
-          >
-            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
-          </span>
-        </div>
+    <!-- Campo de input do numero do relógio -->
+    <div class="form-group col-lg-3">
 
-        <!-- Mensagem de erro -->
-        <small id="nameHelpBlock" 
-            class="form-text texterror" 
-            [class.d-none]="repForm.controls['repdata_serienum'].valid || !repForm.controls['repdata_serienum'].touched ">
-          Campo obrigatório.
-        </small>
+      <label class="LabelForm" for="repdata_serienum">Número de Série:</label>
+      <div class="input-group">
+        
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="repdata_serienum" 
+          placeholder="Numero do REP" 
+          formControlName="repdata_serienum" 
+          maxlength="17"
+        >
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' 
+          [class.d-none]="repForm.controls['repdata_serienum'].valid || !repForm.controls['repdata_serienum'].touched "
+        >
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
       </div>
+
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" 
+          class="form-text texterror" 
+          [class.d-none]="repForm.controls['repdata_serienum'].valid || !repForm.controls['repdata_serienum'].touched ">
+        Campo obrigatório.
+      </small>
+    </div>
+
+  </div>
+
+  <!-- Linha 3  -->
+  <div class="form-row">
+    
+    <!-- Campo de input do CNPJ da empresa -->
+    <div class="form-group col-lg-3">
+
+      <label class="LabelForm" for="repdata_cnpjcompra">CNPJ de Compra:</label>
+      <div class="input-group">
+
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="repdata_cnpjcompra" 
+          placeholder="CNPJ ou CPF" 
+          formControlName="repdata_cnpjcompra"
+          maxlength="18"
+          (blur)="arrumaCNPJ(repForm.value.repdata_cnpjcompra)"
+        >
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' 
+          [class.d-none]="repForm.controls['repdata_cnpjcompra'].valid || !repForm.controls['repdata_cnpjcompra'].touched"
+        >
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small 
+        id="nameHelpBlock" 
+        class="form-text texterror" 
+        [class.d-none]="repForm.controls['repdata_cnpjcompra'].valid || !repForm.controls['repdata_cnpjcompra'].touched "
+      >
+        Campo obrigatório.
+      </small>
+    </div>
+
+    <!-- Campo de input da chave de registro -->
+    <div class="form-group col-lg-3" [class.d-none]="!showregister">
+
+      <label class="LabelForm" for="repdata_chaveregistro">Chave de registro:</label>
+      <div class="input-group">
+
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="repdata_chaveregistro" 
+          placeholder="CNPJ ou CPF" 
+          formControlName="repdata_chaveregistro"
+          maxlength="25"
+          
+        >
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' 
+          [class.d-none]="repForm.controls['repdata_chaveregistro'].valid || !repForm.controls['repdata_chaveregistro'].touched"
+        >
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small 
+        id="nameHelpBlock" 
+        class="form-text texterror" 
+        [class.d-none]="repForm.controls['repdata_chaveregistro'].valid || !repForm.controls['repdata_chaveregistro'].touched "
+      >
+        Campo obrigatório.
+      </small>
+    </div>
+
+    <!-- Campo de input da senha comunicacao -->
+    <div class="form-group col-lg-3" [class.d-none]="!showpswcomu">
+
+      <label class="LabelForm" for="repdata_senhacomunic">Senha de Comunicação:</label>
+      <div class="input-group">
+
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="repdata_senhacomunic" 
+          placeholder="Senha de Comunicação" 
+          formControlName="repdata_senhacomunic"
+          maxlength="25"
+          
+        >
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' 
+          [class.d-none]="repForm.controls['repdata_senhacomunic'].valid || !repForm.controls['repdata_senhacomunic'].touched"
+        >
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small 
+        id="nameHelpBlock" 
+        class="form-text texterror" 
+        [class.d-none]="repForm.controls['repdata_senhacomunic'].valid || !repForm.controls['repdata_senhacomunic'].touched "
+      >
+        Campo obrigatório.
+      </small>
+    </div>
+
+    <!-- Campo de input da usuário -->
+    <div class="form-group col-lg-3" [class.d-none]="!showusr">
+
+      <label class="LabelForm" for="repdata_usuario">Login:</label>
+      <div class="input-group">
+
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="repdata_usuario" 
+          placeholder="Usuário" 
+          formControlName="repdata_usuario"
+          maxlength="25"
+          
+        >
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' 
+          [class.d-none]="repForm.controls['repdata_usuario'].valid || !repForm.controls['repdata_usuario'].touched"
+        >
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small 
+        id="nameHelpBlock" 
+        class="form-text texterror" 
+        [class.d-none]="repForm.controls['repdata_usuario'].valid || !repForm.controls['repdata_usuario'].touched "
+      >
+        Campo obrigatório.
+      </small>
+    </div>
+
+    <!-- Campo de input da usuário -->
+    <div class="form-group col-lg-3" [class.d-none]="!showusr">
+
+      <label class="LabelForm" for="repdata_senha">Senha:</label>
+      <div class="input-group">
+
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="repdata_senha" 
+          placeholder="Senha" 
+          formControlName="repdata_senha"
+          maxlength="25"
+          
+        >
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' 
+          [class.d-none]="repForm.controls['repdata_senha'].valid || !repForm.controls['repdata_senha'].touched"
+        >
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small 
+        id="nameHelpBlock" 
+        class="form-text texterror" 
+        [class.d-none]="repForm.controls['repdata_senha'].valid || !repForm.controls['repdata_senha'].touched "
+      >
+        Campo obrigatório.
+      </small>
+    </div>
+
+      
   </div>
 </div>

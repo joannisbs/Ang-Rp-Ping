@@ -11,58 +11,58 @@ export class RepFormComponent implements OnInit {
   repForm;
 
 
-  modelsfull = [{id:  0, marca: 'Henry' , modelo: 'Prisma SF R01'}, // vermelho
-                {id:  1, marca: 'Henry' , modelo: 'Prisma SF R02'},
-                {id:  2, marca: 'Henry' , modelo: 'Prisma SF R03'},
-                {id:  3, marca: 'Henry' , modelo: 'Prisma SF R04'},
-                {id:  4, marca: 'Henry' , modelo: 'Prisma E'},
-                {id:  5, marca: 'Henry' , modelo: 'Prisma F'},
-                {id:  6, marca: 'Henry' , modelo: 'Prisma G'},
-                {id:  7, marca: 'Henry' , modelo: 'Prisma H'},
-                {id:  8, marca: 'Henry' , modelo: 'Prisma I'},
-                {id:  9, marca: 'Henry' , modelo: 'Prisma J'},
-                {id: 10, marca: 'Henry' , modelo: 'Prisma K'},
-                {id: 11, marca: 'Henry' , modelo: 'Hexa A'}, // branco e vermelho
-                {id: 12, marca: 'Henry' , modelo: 'Hexa B'}, // branco e vermelho
-                {id: 13, marca: 'Henry' , modelo: 'Hexa C'}, // branco e vermelho
-                {id: 14, marca: 'Henry' , modelo: 'Hexa D'}, // branco e vermelho
-                {id: 15, marca: 'Henry' , modelo: 'Hexa E'}, // branco e vermelho
-                {id: 16, marca: 'Henry' , modelo: 'Hexa Adv A'}, // branco e vermelho
-                {id: 17, marca: 'Henry' , modelo: 'Hexa Adv B'}, // branco e vermelho
-                {id: 18, marca: 'Henry' , modelo: 'Hexa Adv C'}, // branco e vermelho
-                {id: 19, marca: 'Henry' , modelo: 'Hexa Adv D'}, // branco e vermelho
-                {id: 20, marca: 'Henry' , modelo: 'Hexa Adv E'}, // branco e vermelho
-                {id: 21, marca: 'Henry' , modelo: 'Prisma SF Adv R1'}, // verde e vermelho
-                {id: 22, marca: 'Henry' , modelo: 'Prisma SF Adv R2'}, // verde e vermelho
-                {id: 23, marca: 'Henry' , modelo: 'Prisma SF Adv R3'}, // verde e vermelho
-                {id: 24, marca: 'Henry' , modelo: 'Prisma SF Adv R4'}, // verde e vermelho
-                {id: 25, marca: 'Henry' , modelo: 'Prisma SF Adv R5'}, // verde e vermelho
-                {id: 26, marca: 'Henry' , modelo: 'Orion 6 A'}, // vermelho
-                {id: 27, marca: 'Henry' , modelo: 'Orion 6 B'},
-                {id: 28, marca: 'Henry' , modelo: 'Orion 6 C'},
-                {id: 29, marca: 'Henry' , modelo: 'Orion 6 D'},
-                {id: 30, marca: 'Henry' , modelo: 'Orion 6 D'},
-                {id: 31, marca: 'Proveu' , modelo: 'Kurumim Rep II'},
-                {id: 32, marca: 'Proveu' , modelo: 'Kurumim Rep II PX'},
-                {id: 33, marca: 'Proveu' , modelo: 'Kurumim Rep II Bio'},
-                {id: 34, marca: 'Proveu' , modelo: 'Kurumim Rep II Bio NT'},
-                {id: 35, marca: 'Proveu' , modelo: 'Kurumim Rep II Max'},
-                {id: 36, marca: 'Proveu' , modelo: 'Kurumim Rep III BR NT'},
-                {id: 37, marca: 'Proveu' , modelo: 'Kurumim Rep III PX NT'},
-                {id: 38, marca: 'Proveu' , modelo: 'Kurumim Rep III Bio NT'},
-                {id: 39, marca: 'Proveu' , modelo: 'Kurumim Rep III MAX BR NT'},
-                {id: 40, marca: 'Proveu' , modelo: 'Kurumim Rep III MAX PX NT'},
-                {id: 41, marca: 'Proveu' , modelo: 'Kurumim Rep III MAX BR PX NT'},
-                {id: 42, marca: 'Top Data' , modelo: 'Inner Rep Plus'}, // branco
-                {id: 43, marca: 'Zpm' , modelo: 'R100'}, // azul
-                {id: 44, marca: 'Zpm' , modelo: 'R130'},
-                {id: 45, marca: 'Zpm' , modelo: 'R300'},
-                {id: 46, marca: 'Zpm' , modelo: 'Eco 500'},
-                {id: 47, marca: 'RHJ' , modelo: 'Bio Print'}, // vermelho
-                {id: 48, marca: 'RHJ' , modelo: 'Bio Print Prox'},
-                {id: 49, marca: 'RWTech' , modelo: 'point line'}, // vermelho
-                {id: 50, marca: 'RWTech' , modelo: 'point line imetro'}, // verde
-                {id: 51, marca: 'Ctrl Id' , modelo: 'Eco 500'}, // vermelho
+  modelsfull = [{id:  0, marca: 'Henry' , modelo: 'Prisma SF R01', senhacomunic: 0, loginpsw: 0, cpf: 0}, // vermelho
+                {id:  1, marca: 'Henry' , modelo: 'Prisma SF R02', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id:  2, marca: 'Henry' , modelo: 'Prisma SF R03', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id:  3, marca: 'Henry' , modelo: 'Prisma SF R04', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id:  4, marca: 'Henry' , modelo: 'Prisma E', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id:  5, marca: 'Henry' , modelo: 'Prisma F', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id:  6, marca: 'Henry' , modelo: 'Prisma G', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id:  7, marca: 'Henry' , modelo: 'Prisma H', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id:  8, marca: 'Henry' , modelo: 'Prisma I', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id:  9, marca: 'Henry' , modelo: 'Prisma J', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 10, marca: 'Henry' , modelo: 'Prisma K', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 11, marca: 'Henry' , modelo: 'Hexa A', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
+                {id: 12, marca: 'Henry' , modelo: 'Hexa B', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
+                {id: 13, marca: 'Henry' , modelo: 'Hexa C', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
+                {id: 14, marca: 'Henry' , modelo: 'Hexa D', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
+                {id: 15, marca: 'Henry' , modelo: 'Hexa E', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
+                {id: 16, marca: 'Henry' , modelo: 'Hexa Adv A', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
+                {id: 17, marca: 'Henry' , modelo: 'Hexa Adv B', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
+                {id: 18, marca: 'Henry' , modelo: 'Hexa Adv C', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
+                {id: 19, marca: 'Henry' , modelo: 'Hexa Adv D', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
+                {id: 20, marca: 'Henry' , modelo: 'Hexa Adv E', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
+                {id: 21, marca: 'Henry' , modelo: 'Prisma SF Adv R1', senhacomunic: 0, loginpsw: 0, cpf: 0}, // verde e vermelho
+                {id: 22, marca: 'Henry' , modelo: 'Prisma SF Adv R2', senhacomunic: 0, loginpsw: 0, cpf: 0}, // verde e vermelho
+                {id: 23, marca: 'Henry' , modelo: 'Prisma SF Adv R3', senhacomunic: 0, loginpsw: 0, cpf: 0}, // verde e vermelho
+                {id: 24, marca: 'Henry' , modelo: 'Prisma SF Adv R4', senhacomunic: 0, loginpsw: 0, cpf: 0}, // verde e vermelho
+                {id: 25, marca: 'Henry' , modelo: 'Prisma SF Adv R5', senhacomunic: 0, loginpsw: 0, cpf: 0}, // verde e vermelho
+                {id: 26, marca: 'Henry' , modelo: 'Orion 6 A', senhacomunic: 0, loginpsw: 0, cpf: 0}, // vermelho
+                {id: 27, marca: 'Henry' , modelo: 'Orion 6 B', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 28, marca: 'Henry' , modelo: 'Orion 6 C', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 29, marca: 'Henry' , modelo: 'Orion 6 D', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 30, marca: 'Henry' , modelo: 'Orion 6 D', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 31, marca: 'Proveu' , modelo: 'Kurumim Rep II', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 32, marca: 'Proveu' , modelo: 'Kurumim Rep II PX', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 33, marca: 'Proveu' , modelo: 'Kurumim Rep II Bio', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 34, marca: 'Proveu' , modelo: 'Kurumim Rep II Bio NT', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 35, marca: 'Proveu' , modelo: 'Kurumim Rep II Max', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 36, marca: 'Proveu' , modelo: 'Kurumim Rep III BR NT', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 37, marca: 'Proveu' , modelo: 'Kurumim Rep III PX NT', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 38, marca: 'Proveu' , modelo: 'Kurumim Rep III Bio NT', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 39, marca: 'Proveu' , modelo: 'Kurumim Rep III MAX BR NT', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 40, marca: 'Proveu' , modelo: 'Kurumim Rep III MAX PX NT', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 41, marca: 'Proveu' , modelo: 'Kurumim Rep III MAX BR PX NT', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 42, marca: 'Top Data' , modelo: 'Inner Rep Plus', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco
+                {id: 43, marca: 'Zpm' , modelo: 'R100', senhacomunic: 0, loginpsw: 0, cpf: 0}, // azul
+                {id: 44, marca: 'Zpm' , modelo: 'R130', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 45, marca: 'Zpm' , modelo: 'R300', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 46, marca: 'Zpm' , modelo: 'Eco 500', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 47, marca: 'RHJ' , modelo: 'Bio Print', senhacomunic: 0, loginpsw: 0, cpf: 0}, // vermelho
+                {id: 48, marca: 'RHJ' , modelo: 'Bio Print Prox', senhacomunic: 0, loginpsw: 0, cpf: 0},
+                {id: 49, marca: 'RWTech' , modelo: 'point line', senhacomunic: 0, loginpsw: 0, cpf: 0}, // vermelho
+                {id: 50, marca: 'RWTech' , modelo: 'point line imetro', senhacomunic: 0, loginpsw: 0, cpf: 0}, // verde
+                {id: 51, marca: 'Ctrl Id' , modelo: 'Eco 500', senhacomunic: 0, loginpsw: 0, cpf: 0} // vermelho
               ];
 leitorfull = [{id:  0, leitor: 'vermelho'},
               {id:  1, leitor: 'vermelho'},
@@ -140,8 +140,11 @@ leitorfull = [{id:  0, leitor: 'vermelho'},
   public marcamodelo = [];
   public leitores = [];
 
+  public showpswcomu = false;
   public show = false;
+  public showregister = false;
   public showmarcamodelo = false;
+  public showusr = false;
   constructor() { }
 
   ngOnInit() { }
@@ -164,7 +167,50 @@ leitorfull = [{id:  0, leitor: 'vermelho'},
   ClickitemMarcaModeloRep(value) {
     this.repForm.get('reps_marca').patchValue(value.marca);
     this.repForm.get('reps_modelo').patchValue(value.modelo);
+
     this.leitores = this.leitorfull.filter( obj => obj[ 'id' ] === value.id ) ;
+
     this.showmarcamodelo = false;
+    this.showregister = false;
+    this.showpswcomu = false;
+    this.showusr = false;
+
+    if (value.marca === 'Proveu') {
+      this.showregister = true;
+      this.showpswcomu = true;
+    }
+    if (value.marca === 'RHJ') {
+      this.showpswcomu = true;
+    }
+
+
+  }
+  arrumaCNPJ(cpf_cnpj) {
+    cpf_cnpj = cpf_cnpj.replace(/\./g , '');
+    cpf_cnpj = cpf_cnpj.replace('\-', '');
+    cpf_cnpj = cpf_cnpj.replace('\/', '');
+    console.log(cpf_cnpj);
+    if (cpf_cnpj.length === 11) {
+      let cpf = cpf_cnpj.substring(0, 3);
+      cpf = cpf + '.';
+      cpf = cpf + cpf_cnpj.substring(3, 6);
+      cpf = cpf + '.';
+      cpf = cpf + cpf_cnpj.substring(6, 9);
+      cpf = cpf + '-';
+      cpf = cpf + cpf_cnpj.substring(9, 11);
+      this.repForm.get('repdata_cnpjcompra').patchValue(cpf);
+    }
+    if (cpf_cnpj.length === 14) {
+      let cnpj = cpf_cnpj.substring(0, 2);
+      cnpj = cnpj + '.';
+      cnpj = cnpj + cpf_cnpj.substring(2, 5);
+      cnpj = cnpj + '.';
+      cnpj = cnpj + cpf_cnpj.substring(5, 8);
+      cnpj = cnpj + '/';
+      cnpj = cnpj + cpf_cnpj.substring(8, 12);
+      cnpj = cnpj + '-';
+      cnpj = cnpj + cpf_cnpj.substring(12, 14);
+      this.repForm.get('repdata_cnpjcompra').patchValue(cnpj);
+    }
   }
 }

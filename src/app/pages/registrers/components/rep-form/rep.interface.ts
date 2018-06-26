@@ -28,4 +28,25 @@ export const repFormGroup = {
 
     repdata_serienum: ['',
     [Validators.required]],
+
+    repdata_cnpjcompra: ['',
+    [Validators.required,
+    Validators.maxLength(18),
+    // tslint:disable-next-line:max-line-length
+    Validators.pattern('^([0-9]{2}[\.][0-9]{3}[\.][0-9]{3}[\/][0-9]{4}(-)[0-9]{2})$|'
+    + '^[0-9]{14}$|'
+    + '^([0-9]{3}[\.][0-9]{3}[\.][0-9]{3}(()|(-))[0-9]{2})$|'
+    + '^([0-9]{11})$')]],
+
+    repdata_chaveregistro: ['',
+    [Validators.required]],
+
+    repdata_senhacomunic: ['',
+    [Validators.required]],
+
+    repdata_usuario: ['',
+    [Validators.required]],
+
+    repdata_senha: ['',
+    [Validators.required]],
  };
