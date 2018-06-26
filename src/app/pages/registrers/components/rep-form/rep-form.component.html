@@ -66,7 +66,7 @@
               <div class="input-group-append">
               <!-- <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button> -->
                 <div class="dropdown-menu" [class.show]="show" >
-                  <li class="dropdown-item" (click)="Clickitem(item.name)" *ngFor="let item of reps" >{{item.name}}</li>
+                  <li class="dropdown-item" (click)="Clickitem(item.name)" *ngFor="let item of companys" >{{item.name}}</li>
           
                 </div>
               </div>
@@ -189,7 +189,7 @@
         </div>
         <div class="input-group-append">   
           <div class="dropdown-menu" [class.show]="showmarcamodelo" >
-            <li class="dropdown-item" (click)="ClickitemMarcaModeloRep(item)" *ngFor="let item of marcamodelo" >{{item.marca}} {{item.modelo}}</li>
+            <li class="dropdown-item" (click)="ClickitemMarcaModeloRep(item)" *ngFor="let item of marcamodelo" >{{item.reps_marca}} {{item.reps_modelo}}</li>
           </div>
         </div>  
       </div>
@@ -251,7 +251,7 @@
           id="leitr_leitor"
           formControlName="leitr_leitor" 
         >
-          <option selected>Choose...</option>
+          <option selected>Escolha...</option>
           <option *ngFor="let item of leitores">{{item.leitor}}</option>
             
         </select>
@@ -340,6 +340,40 @@
       </small>
     </div>
 
+    <!-- Campo de input do CNPJ da empresa -->
+    <div class="form-group col-lg-2">
+
+        <label class="LabelForm" for="repdata_mod">Modulo:</label>
+        <div class="input-group">
+  
+          <input 
+            type="text" 
+            class="form-control formm" 
+            id="repdata_mod" 
+            placeholder="Numero Modulo" 
+            formControlName="repdata_mod"
+            maxlength="18"
+            (blur)="arrumaCNPJ(repForm.value.repdata_mod)"
+          >
+  
+          <!-- Icone de X has error -->
+          <span class='input-group-addon' 
+            [class.d-none]="repForm.controls['repdata_mod'].valid || !repForm.controls['repdata_mod'].touched"
+          >
+            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          </span>
+        </div>
+  
+        <!-- Mensagem de erro -->
+        <small 
+          id="nameHelpBlock" 
+          class="form-text texterror" 
+          [class.d-none]="repForm.controls['repdata_mod'].valid || !repForm.controls['repdata_mod'].touched "
+        >
+          Campo obrigatório.
+        </small>
+      </div>
+
     <!-- Campo de input da chave de registro -->
     <div class="form-group col-lg-3" [class.d-none]="!showregister">
 
@@ -377,7 +411,7 @@
     <!-- Campo de input da senha comunicacao -->
     <div class="form-group col-lg-3" [class.d-none]="!showpswcomu">
 
-      <label class="LabelForm" for="repdata_senhacomunic">Senha de Comunicação:</label>
+      <label class="LabelForm" for="repdata_senhacomunic">Senha Comunicação:</label>
       <div class="input-group">
 
         <input 
@@ -409,7 +443,7 @@
     </div>
 
     <!-- Campo de input da usuário -->
-    <div class="form-group col-lg-3" [class.d-none]="!showusr">
+    <div class="form-group col-lg-2" [class.d-none]="!showusr">
 
       <label class="LabelForm" for="repdata_usuario">Login:</label>
       <div class="input-group">
@@ -442,8 +476,8 @@
       </small>
     </div>
 
-    <!-- Campo de input da usuário -->
-    <div class="form-group col-lg-3" [class.d-none]="!showusr">
+    <!-- Campo de input da Senha -->
+    <div class="form-group col-lg-2" [class.d-none]="!showusr">
 
       <label class="LabelForm" for="repdata_senha">Senha:</label>
       <div class="input-group">
@@ -475,6 +509,40 @@
         Campo obrigatório.
       </small>
     </div>
+
+        <!-- Campo de input do cpf do adv -->
+        <div class="form-group col-lg-3" [class.d-none]="!showcpf">
+
+            <label class="LabelForm" for="repdata_cpf">CPF:</label>
+            <div class="input-group">
+      
+              <input 
+                type="text" 
+                class="form-control formm" 
+                id="repdata_cpf" 
+                placeholder="Senha" 
+                formControlName="repdata_cpf"
+                maxlength="25"
+                
+              >
+      
+              <!-- Icone de X has error -->
+              <span class='input-group-addon' 
+                [class.d-none]="repForm.controls['repdata_cpf'].valid || !repForm.controls['repdata_cpf'].touched"
+              >
+                <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+              </span>
+            </div>
+      
+            <!-- Mensagem de erro -->
+            <small 
+              id="nameHelpBlock" 
+              class="form-text texterror" 
+              [class.d-none]="repForm.controls['repdata_cpf'].valid || !repForm.controls['repdata_cpf'].touched "
+            >
+              Campo obrigatório.
+            </small>
+          </div>
 
       
   </div>

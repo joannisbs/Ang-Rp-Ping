@@ -11,58 +11,59 @@ export class RepFormComponent implements OnInit {
   repForm;
 
 
-  modelsfull = [{id:  0, marca: 'Henry' , modelo: 'Prisma SF R01', senhacomunic: 0, loginpsw: 0, cpf: 0}, // vermelho
-                {id:  1, marca: 'Henry' , modelo: 'Prisma SF R02', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id:  2, marca: 'Henry' , modelo: 'Prisma SF R03', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id:  3, marca: 'Henry' , modelo: 'Prisma SF R04', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id:  4, marca: 'Henry' , modelo: 'Prisma E', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id:  5, marca: 'Henry' , modelo: 'Prisma F', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id:  6, marca: 'Henry' , modelo: 'Prisma G', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id:  7, marca: 'Henry' , modelo: 'Prisma H', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id:  8, marca: 'Henry' , modelo: 'Prisma I', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id:  9, marca: 'Henry' , modelo: 'Prisma J', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 10, marca: 'Henry' , modelo: 'Prisma K', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 11, marca: 'Henry' , modelo: 'Hexa A', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
-                {id: 12, marca: 'Henry' , modelo: 'Hexa B', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
-                {id: 13, marca: 'Henry' , modelo: 'Hexa C', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
-                {id: 14, marca: 'Henry' , modelo: 'Hexa D', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
-                {id: 15, marca: 'Henry' , modelo: 'Hexa E', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
-                {id: 16, marca: 'Henry' , modelo: 'Hexa Adv A', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
-                {id: 17, marca: 'Henry' , modelo: 'Hexa Adv B', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
-                {id: 18, marca: 'Henry' , modelo: 'Hexa Adv C', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
-                {id: 19, marca: 'Henry' , modelo: 'Hexa Adv D', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
-                {id: 20, marca: 'Henry' , modelo: 'Hexa Adv E', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco e vermelho
-                {id: 21, marca: 'Henry' , modelo: 'Prisma SF Adv R1', senhacomunic: 0, loginpsw: 0, cpf: 0}, // verde e vermelho
-                {id: 22, marca: 'Henry' , modelo: 'Prisma SF Adv R2', senhacomunic: 0, loginpsw: 0, cpf: 0}, // verde e vermelho
-                {id: 23, marca: 'Henry' , modelo: 'Prisma SF Adv R3', senhacomunic: 0, loginpsw: 0, cpf: 0}, // verde e vermelho
-                {id: 24, marca: 'Henry' , modelo: 'Prisma SF Adv R4', senhacomunic: 0, loginpsw: 0, cpf: 0}, // verde e vermelho
-                {id: 25, marca: 'Henry' , modelo: 'Prisma SF Adv R5', senhacomunic: 0, loginpsw: 0, cpf: 0}, // verde e vermelho
-                {id: 26, marca: 'Henry' , modelo: 'Orion 6 A', senhacomunic: 0, loginpsw: 0, cpf: 0}, // vermelho
-                {id: 27, marca: 'Henry' , modelo: 'Orion 6 B', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 28, marca: 'Henry' , modelo: 'Orion 6 C', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 29, marca: 'Henry' , modelo: 'Orion 6 D', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 30, marca: 'Henry' , modelo: 'Orion 6 D', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 31, marca: 'Proveu' , modelo: 'Kurumim Rep II', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 32, marca: 'Proveu' , modelo: 'Kurumim Rep II PX', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 33, marca: 'Proveu' , modelo: 'Kurumim Rep II Bio', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 34, marca: 'Proveu' , modelo: 'Kurumim Rep II Bio NT', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 35, marca: 'Proveu' , modelo: 'Kurumim Rep II Max', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 36, marca: 'Proveu' , modelo: 'Kurumim Rep III BR NT', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 37, marca: 'Proveu' , modelo: 'Kurumim Rep III PX NT', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 38, marca: 'Proveu' , modelo: 'Kurumim Rep III Bio NT', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 39, marca: 'Proveu' , modelo: 'Kurumim Rep III MAX BR NT', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 40, marca: 'Proveu' , modelo: 'Kurumim Rep III MAX PX NT', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 41, marca: 'Proveu' , modelo: 'Kurumim Rep III MAX BR PX NT', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 42, marca: 'Top Data' , modelo: 'Inner Rep Plus', senhacomunic: 0, loginpsw: 0, cpf: 0}, // branco
-                {id: 43, marca: 'Zpm' , modelo: 'R100', senhacomunic: 0, loginpsw: 0, cpf: 0}, // azul
-                {id: 44, marca: 'Zpm' , modelo: 'R130', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 45, marca: 'Zpm' , modelo: 'R300', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 46, marca: 'Zpm' , modelo: 'Eco 500', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 47, marca: 'RHJ' , modelo: 'Bio Print', senhacomunic: 0, loginpsw: 0, cpf: 0}, // vermelho
-                {id: 48, marca: 'RHJ' , modelo: 'Bio Print Prox', senhacomunic: 0, loginpsw: 0, cpf: 0},
-                {id: 49, marca: 'RWTech' , modelo: 'point line', senhacomunic: 0, loginpsw: 0, cpf: 0}, // vermelho
-                {id: 50, marca: 'RWTech' , modelo: 'point line imetro', senhacomunic: 0, loginpsw: 0, cpf: 0}, // verde
-                {id: 51, marca: 'Ctrl Id' , modelo: 'Eco 500', senhacomunic: 0, loginpsw: 0, cpf: 0} // vermelho
+  modelsfull = [{id:  0, reps_marca: 'Henry' , reps_modelo: 'Prisma SF R01', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 0},
+                {id:  1, reps_marca: 'Henry' , reps_modelo: 'Prisma SF R02', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 0},
+                {id:  2, reps_marca: 'Henry' , reps_modelo: 'Prisma SF R03', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 0},
+                {id:  3, reps_marca: 'Henry' , reps_modelo: 'Prisma SF R04', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 0},
+                {id:  4, reps_marca: 'Henry' , reps_modelo: 'Prisma E', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 0},
+                {id:  5, reps_marca: 'Henry' , reps_modelo: 'Prisma F', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 0},
+                {id:  6, reps_marca: 'Henry' , reps_modelo: 'Prisma G', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 0},
+                {id:  7, reps_marca: 'Henry' , reps_modelo: 'Prisma H', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 0},
+                {id:  8, reps_marca: 'Henry' , reps_modelo: 'Prisma I', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 0},
+                {id:  9, reps_marca: 'Henry' , reps_modelo: 'Prisma J', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 0},
+                {id: 10, reps_marca: 'Henry' , reps_modelo: 'Prisma K', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 0},
+                {id: 11, reps_marca: 'Henry' , reps_modelo: 'Hexa A', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 0},
+                {id: 12, reps_marca: 'Henry' , reps_modelo: 'Hexa B', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 0},
+                {id: 13, reps_marca: 'Henry' , reps_modelo: 'Hexa C', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 0},
+                {id: 14, reps_marca: 'Henry' , reps_modelo: 'Hexa D', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 0},
+                {id: 15, reps_marca: 'Henry' , reps_modelo: 'Hexa E', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 0},
+                {id: 16, reps_marca: 'Henry' , reps_modelo: 'Hexa Adv A', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 1},
+                {id: 17, reps_marca: 'Henry' , reps_modelo: 'Hexa Adv B', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 1},
+                {id: 18, reps_marca: 'Henry' , reps_modelo: 'Hexa Adv C', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 1},
+                {id: 19, reps_marca: 'Henry' , reps_modelo: 'Hexa Adv D', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 1},
+                {id: 20, reps_marca: 'Henry' , reps_modelo: 'Hexa Adv E', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 1},
+                {id: 21, reps_marca: 'Henry' , reps_modelo: 'Prisma SF Adv R1', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 1},
+                {id: 22, reps_marca: 'Henry' , reps_modelo: 'Prisma SF Adv R2', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 1},
+                {id: 23, reps_marca: 'Henry' , reps_modelo: 'Prisma SF Adv R3', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 1},
+                {id: 24, reps_marca: 'Henry' , reps_modelo: 'Prisma SF Adv R4', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 1},
+                {id: 25, reps_marca: 'Henry' , reps_modelo: 'Prisma SF Adv R5', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 1},
+                {id: 26, reps_marca: 'Henry' , reps_modelo: 'Orion 6 A', senhacomunic: 0, loginpsw: 0, chave: 0, cpf: 0},
+                {id: 27, reps_marca: 'Henry' , reps_modelo: 'Orion 6 B', senhacomunic: 0, loginpsw: 0, chave: 0, cpf: 0},
+                {id: 28, reps_marca: 'Henry' , reps_modelo: 'Orion 6 C', senhacomunic: 0, loginpsw: 0, chave: 0, cpf: 0},
+                {id: 29, reps_marca: 'Henry' , reps_modelo: 'Orion 6 D', senhacomunic: 0, loginpsw: 0, chave: 0, cpf: 0},
+                {id: 30, reps_marca: 'Henry' , reps_modelo: 'Orion 6 D', senhacomunic: 0, loginpsw: 0, chave: 0, cpf: 0},
+                {id: 32, reps_marca: 'Proveu' , reps_modelo: 'Kurumim Rep II PX', senhacomunic: 1, loginpsw: 0, chave: 1, cpf: 0},
+                {id: 33, reps_marca: 'Proveu' , reps_modelo: 'Kurumim Rep II Bio', senhacomunic: 1, loginpsw: 0, chave: 1, cpf: 0},
+                {id: 34, reps_marca: 'Proveu' , reps_modelo: 'Kurumim Rep II Bio NT', senhacomunic: 1, loginpsw: 0, chave: 1, cpf: 0},
+                {id: 35, reps_marca: 'Proveu' , reps_modelo: 'Kurumim Rep II Max', senhacomunic: 1, loginpsw: 0, chave: 1, cpf: 0},
+                {id: 36, reps_marca: 'Proveu' , reps_modelo: 'Kurumim Rep III BR NT', senhacomunic: 1, loginpsw: 0, chave: 1, cpf: 0},
+                {id: 37, reps_marca: 'Proveu' , reps_modelo: 'Kurumim Rep III PX NT', senhacomunic: 1, loginpsw: 0, chave: 1, cpf: 0},
+                {id: 38, reps_marca: 'Proveu' , reps_modelo: 'Kurumim Rep III Bio NT', senhacomunic: 1, loginpsw: 0, chave: 1, cpf: 0},
+                {id: 39, reps_marca: 'Proveu' , reps_modelo: 'Kurumim Rep III MAX BR NT', senhacomunic: 1, loginpsw: 0, chave: 1, cpf: 0},
+                {id: 40, reps_marca: 'Proveu' , reps_modelo: 'Kurumim Rep III MAX PX NT', senhacomunic: 1, loginpsw: 0, chave: 1, cpf: 0},
+
+                // tslint:disable-next-line:max-line-length
+                {id: 41, reps_marca: 'Proveu' , reps_modelo: 'Kurumim Rep III MAX BR PX NT', senhacomunic: 1, loginpsw: 0, chave: 1, cpf: 0},
+                {id: 42, reps_marca: 'Top Data' , reps_modelo: 'Inner Rep Plus', senhacomunic: 0, loginpsw: 0, chave: 0, cpf: 0},
+                {id: 43, reps_marca: 'Zpm' , reps_modelo: 'R100', senhacomunic: 0, loginpsw: 0, chave: 0, cpf: 0},
+                {id: 44, reps_marca: 'Zpm' , reps_modelo: 'R130', senhacomunic: 0, loginpsw: 0, chave: 0, cpf: 0},
+                {id: 45, reps_marca: 'Zpm' , reps_modelo: 'R300', senhacomunic: 0, loginpsw: 0, chave: 0, cpf: 0},
+                {id: 46, reps_marca: 'Zpm' , reps_modelo: 'Eco 500', senhacomunic: 0, loginpsw: 0, chave: 0, cpf: 0},
+                {id: 47, reps_marca: 'RHJ' , reps_modelo: 'Bio Print', senhacomunic: 0, loginpsw: 0, chave: 0, cpf: 0},
+                {id: 48, reps_marca: 'RHJ' , reps_modelo: 'Bio Print Prox', senhacomunic: 0, loginpsw: 0, chave: 0, cpf: 0},
+                {id: 49, reps_marca: 'RWTech' , reps_modelo: 'point line', senhacomunic: 0, loginpsw: 0, chave: 0, cpf: 0},
+                {id: 50, reps_marca: 'RWTech' , reps_modelo: 'point line imetro', senhacomunic: 0, loginpsw: 0, chave: 0, cpf: 0},
+                {id: 51, reps_marca: 'Ctrl Id' , reps_modelo: 'Eco 500', senhacomunic: 0, loginpsw: 0, chave: 0, cpf: 0}
               ];
 leitorfull = [{id:  0, leitor: 'vermelho'},
               {id:  1, leitor: 'vermelho'},
@@ -145,6 +146,7 @@ leitorfull = [{id:  0, leitor: 'vermelho'},
   public showregister = false;
   public showmarcamodelo = false;
   public showusr = false;
+  public showcpf = false;
   constructor() { }
 
   ngOnInit() { }
@@ -158,15 +160,15 @@ leitorfull = [{id:  0, leitor: 'vermelho'},
   }
 
   ShowDShowDropMarcaModelrep(value) {
-    const marca = this.modelsfull.filter( obj => obj[ 'marca' ].toLowerCase().match( value ) );
-    const modelo = this.modelsfull.filter( obj => obj[ 'modelo' ].toLowerCase().match( value ) );
+    const marca = this.modelsfull.filter( obj => obj[ 'reps_marca' ].toLowerCase().match( value ) );
+    const modelo = this.modelsfull.filter( obj => obj[ 'reps_modelo' ].toLowerCase().match( value ) );
     Object.keys(marca).forEach(function(key) { modelo[key] = marca[key]; });
     this.marcamodelo = modelo;
     this.showmarcamodelo = true;
   }
   ClickitemMarcaModeloRep(value) {
-    this.repForm.get('reps_marca').patchValue(value.marca);
-    this.repForm.get('reps_modelo').patchValue(value.modelo);
+    this.repForm.get('reps_marca').patchValue(value.reps_marca);
+    this.repForm.get('reps_modelo').patchValue(value.reps_modelo);
 
     this.leitores = this.leitorfull.filter( obj => obj[ 'id' ] === value.id ) ;
 
@@ -174,13 +176,19 @@ leitorfull = [{id:  0, leitor: 'vermelho'},
     this.showregister = false;
     this.showpswcomu = false;
     this.showusr = false;
+    this.showcpf = false;
 
-    if (value.marca === 'Proveu') {
+    if (value.chave === 1) {
       this.showregister = true;
+    }
+    if (value.senhacomunic === 1) {
       this.showpswcomu = true;
     }
-    if (value.marca === 'RHJ') {
-      this.showpswcomu = true;
+    if (value.loginpsw === 1) {
+      this.showusr = true;
+    }
+    if (value.cpf === 1) {
+      this.showcpf = true;
     }
 
 

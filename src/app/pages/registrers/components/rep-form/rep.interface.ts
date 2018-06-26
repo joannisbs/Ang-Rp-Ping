@@ -49,4 +49,10 @@ export const repFormGroup = {
 
     repdata_senha: ['',
     [Validators.required]],
+
+    repdata_cpf: ['',
+    [Validators.required]],
+
+    repdata_mod: ['',
+    [Validators.required]],
  };
