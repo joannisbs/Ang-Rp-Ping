@@ -4,7 +4,22 @@
       <app-rep-form [repForm]="formulario"></app-rep-form>
       <div class="form-row separador"></div>
       <app-address-form [addressForm]="formulario"></app-address-form>
-      <button type="submit" class="btn btn-primary float-right btn">Salvar Alterações</button>
-    </form>
-  </div>
-  
+      <div class="float-right" (mouseenter)="showImage(formulario.valid)" (mouseleave)="hideImage()" >
+          <button 
+            type="submit" 
+            class="btn btn-primary btn"
+            [class.indisponivel]="formulario.invalid" 
+            [class.valido]="formulario.valid"
+          >
+            <img src= "{{ imagebutton }}" 
+              alt='icon' 
+              class='btnicon' 
+              [class.d-none]="!showimg"
+            >
+            Salvar Alterações
+          </button>
+        </div>
+      </form>
+      <br />
+      <div class="divis fimdapag"></div>
+    </div>

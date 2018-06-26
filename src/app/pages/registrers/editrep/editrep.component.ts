@@ -13,7 +13,8 @@ import { repFormGroup } from '../components/rep-form/rep.interface';
 export class EditrepComponent implements OnInit {
 
   public formulario: FormGroup;
-
+  public imagebutton = '/assets/icons/xred.png';
+  public showimg = false;
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -25,4 +26,17 @@ export class EditrepComponent implements OnInit {
   onSubmit() {
     console.log(this.formulario.value);
   }
+  hideImage() {
+    this.showimg = false;
+  }
+  showImage(value) {
+    this.showimg = true;
+    if (value) {
+      this.imagebutton = '/assets/icons/certoverde.png';
+    } else {
+      this.imagebutton = '/assets/icons/xred.png';
+    }
+
+  }
+
 }
