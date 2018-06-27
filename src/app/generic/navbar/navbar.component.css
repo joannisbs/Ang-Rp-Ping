@@ -27,14 +27,19 @@
   margin-right: 20px;
   width: 40px;
 }
+/* .justs{
 
+} */
 .border {
   border-color: #21237b;
   border-radius: 10px;
   border-width: 5px;
   background: #21237b;
 }
-
+.separador{
+  /* padding-right: 10px; */
+  /* padding-left: 10px; */
+}
 .itemmenu1 {
   color: #ffffff !important;
   text-decoration: none;
@@ -43,7 +48,10 @@
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.2em;
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
   align-self: center;
   border-radius: 10px;
 }

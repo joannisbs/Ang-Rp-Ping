@@ -1,23 +1,23 @@
 <div class="divis border">
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg ">
 
-
-
-    <a href="./home.php">
-      <img src="/assets/icons/lrp32.png" alt="LogoRp" class="logo">
-    </a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="MenuIcon()" data-target="#navbarSite">
-      <img src= "{{ url_icon }}" alt="LogoRp" class="iconmenu">
-    </button>
-
-    <div class="collapse navbar-collapse " id="navbarSite">
-      <label class="itemmenu1 align-self-center"> Bem Vindo {{ user_name }}!</label>
+    
+    
+      <a href="./home.php">
+        <img src="/assets/icons/lrp32.png" alt="LogoRp" class="logo">
+      </a>
+  
+      <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="MenuIcon()" data-target="#navbarSite">
+        <img src= "{{ url_icon }}" alt="LogoRp" class="iconmenu">
+      </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSite">
+      <!-- <label class="itemmenu1 align-self-center">{{ user_name }}</label> -->
       <ul class="navbar-nav ml-auto">
 
 
-        <li class="nav-item dropdown" (click)="clickDropdpown(1)" (mouseleave)="mouseLeave()">
-          <a class="nav-link itemmenu itemmenu1 align-self-center" id="navDrop">Cadastro</a>
+        <li class="nav-item dropdown separador" (click)="clickDropdpown(1)" (mouseleave)="mouseLeave()">
+          <a class="nav-link itemmenu itemmenu1 align-self-center" id="navDrop"><img src="/assets/icons/maozinha.png" alt="icon" class="icon">Cadastro</a>
           <div class="dropdown-menu" [class.show]="idNav === 1">
             <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/empresa"> 
                 <img src="/assets/icons/empw.png" alt="icon" class="icon">Empresa</a>
@@ -28,13 +28,13 @@
             <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/usuarios">
                 <img src="/assets/icons/filaw.png" alt="icon" class="icon">Usuários</a>
             <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/equipamento">
-                <img src="/assets/icons/filaw.png" alt="icon" class="icon">Equipamento</a>
+                <img src="/assets/icons/maozinha.png" alt="icon" class="icon">Equipamento</a>
           </div>
         </li>
 
 
-        <li class="nav-item dropdown" (click)="clickDropdpown(2)" (mouseleave)="mouseLeave()">
-          <a class="nav-link itemmenu itemmenu1 align-self-center" href="#" id="navDrop">Monitoramento</a>
+        <li class="nav-item dropdown separador" (click)="clickDropdpown(2)" (mouseleave)="mouseLeave()">
+          <a class="nav-link itemmenu itemmenu1 align-self-center" href="#" id="navDrop"><img src="/assets/icons/monit.png" alt="icon" class="icon">Monitoramento</a>
           <div class="dropdown-menu" [class.show]="idNav === 2">
             <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#">Resumo</a>
             <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="teste">Empresas</a>
@@ -43,23 +43,23 @@
         </li>
 
 
-        <li class="nav-item dropdown" (click)="clickDropdpown(3)" (mouseleave)="mouseLeave()">
-          <a class="nav-link itemmenu itemmenu1 align-self-center" href="#" id="navDrop">Usuários</a>
+        <!-- <li class="nav-item dropdown separador" (click)="clickDropdpown(3)" (mouseleave)="mouseLeave()">
+          <a class="nav-link itemmenu itemmenu1 align-self-center" href="#" id="navDrop"><img src="/assets/icons/filaw.png" alt="icon" class="icon">Usuários</a>
           <div class="dropdown-menu" [class.show]="idNav === 3">
             <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#">Gerenciar</a>
             <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="teste">Log de Acessos</a>
           </div>
-        </li>
-        <li class="nav-item dropdown" (click)="clickDropdpown(4)" (mouseleave)="mouseLeave()">
-          <a class="nav-link itemmenu itemmenu1 align-self-center" href="#" id="navDrop">Manutenção</a>
+        </li> -->
+        <li class="nav-item dropdown separador" (click)="clickDropdpown(4)" (mouseleave)="mouseLeave()">
+          <a class="nav-link itemmenu itemmenu1 align-self-center" href="#" id="navDrop"><img src="/assets/icons/config.png" alt="icon" class="icon">Manutenção</a>
           <div class="dropdown-menu" [class.show]="idNav === 4">
             <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#">Empresas</a>
             <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="teste">Relógios</a>
             <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="teste">Usuários</a>
           </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link itemmenu itemmenu1 align-self-center" href="#">Sair</a>
+        <li class="nav-item separador">
+          <a class="nav-link itemmenu itemmenu1 align-self-center" href="#"><img src="/assets/icons/sair.png" alt="icon" class="icon">Sair</a>
         </li>
       </ul>
     </div>
