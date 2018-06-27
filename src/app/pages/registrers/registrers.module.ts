@@ -10,6 +10,9 @@ import { EditrepComponent } from './editrep/editrep.component';
 import { AddressFormComponent } from './components/address-form/address-form.component';
 import { CompanyFormComponent } from './components/company-form/company-form.component';
 import { RepFormComponent } from './components/rep-form/rep-form.component';
+import { CreateequipComponent } from './createequip/createequip.component';
+import { EdituserComponent } from './edituser/edituser.component';
+import { EditclientesComponent } from './editclientes/editclientes.component';
 
 @NgModule({
   imports: [
@@ -26,11 +29,15 @@ import { RepFormComponent } from './components/rep-form/rep-form.component';
     EditrepComponent,
     AddressFormComponent,
     CompanyFormComponent,
-    RepFormComponent
+    RepFormComponent,
+    CreateequipComponent,
+    EdituserComponent,
+    EditclientesComponent
    ],
    entryComponents: [
     AddressFormComponent,
-    CompanyFormComponent
+    CompanyFormComponent,
+    RepFormComponent
   ]
 
 })
