@@ -17,8 +17,10 @@
 
 
         <li class="nav-item dropdown separador" (click)="clickDropdpown(1)" (mouseleave)="mouseLeave()">
-          <a class="nav-link itemmenu itemmenu1 align-self-center" id="navDrop"><img src="/assets/icons/maozinha.png" alt="icon" class="icon">Cadastro</a>
-          <div class="dropdown-menu" [class.show]="idNav === 1">
+          <a class="nav-link itemmenu itemmenu1 align-self-center" id="navDrop">
+            <img src="/assets/icons/maozinha.png" alt="icon" class="icon">Cadastro</a>
+          
+            <div class="dropdown-menu" [class.show]="idNav === 1">
             <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/empresa"> 
                 <img src="/assets/icons/empw.png" alt="icon" class="icon">Empresa</a>
             <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/relogio">
@@ -34,11 +36,16 @@
 
 
         <li class="nav-item dropdown separador" (click)="clickDropdpown(2)" (mouseleave)="mouseLeave()">
-          <a class="nav-link itemmenu itemmenu1 align-self-center" href="#" id="navDrop"><img src="/assets/icons/monit.png" alt="icon" class="icon">Monitoramento</a>
+          <a class="nav-link itemmenu itemmenu1 align-self-center" id="navDrop">
+            <img src="/assets/icons/monithopbranco.png" alt="icon" class="icon">Monitoramento</a>
+          
           <div class="dropdown-menu" [class.show]="idNav === 2">
-            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#">Resumo</a>
-            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="teste">Empresas</a>
-            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="teste">Operadoras</a>
+            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#">
+              <img src="/assets/icons/resumobraco.png" alt="icon" class="icon">Resumo</a>
+            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="teste">
+              <img src="/assets/icons/empw.png" alt="icon" class="icon">Empresas</a>
+            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="teste">
+              <img src="/assets/icons/torrew.png" alt="icon" class="icon">Operadoras</a>
           </div>
         </li>
 
@@ -48,18 +55,24 @@
           <div class="dropdown-menu" [class.show]="idNav === 3">
             <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#">Gerenciar</a>
             <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="teste">Log de Acessos</a>
-          </div>
+          </div>torrew
         </li> -->
         <li class="nav-item dropdown separador" (click)="clickDropdpown(4)" (mouseleave)="mouseLeave()">
-          <a class="nav-link itemmenu itemmenu1 align-self-center" href="#" id="navDrop"><img src="/assets/icons/config.png" alt="icon" class="icon">Manutenção</a>
+          <a class="nav-link itemmenu itemmenu1 align-self-center" id="navDrop">
+            <img src="/assets/icons/config.png" alt="icon" class="icon">Manutenção</a>
+          
           <div class="dropdown-menu" [class.show]="idNav === 4">
-            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#">Empresas</a>
-            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="teste">Relógios</a>
-            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="teste">Usuários</a>
+            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#">
+              <img src="/assets/icons/empw.png" alt="icon" class="icon">Empresas</a>
+            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="teste">
+              <img src="/assets/icons/repw.png" alt="icon" class="icon">Relógios</a>
+            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="teste">
+              <img src="/assets/icons/filaw.png" alt="icon" class="icon">Usuários</a>
           </div>
         </li>
         <li class="nav-item separador">
-          <a class="nav-link itemmenu itemmenu1 align-self-center" href="#"><img src="/assets/icons/sair.png" alt="icon" class="icon">Sair</a>
+          <a class="nav-link itemmenu itemmenu1 align-self-center" href="#">
+            <img src="/assets/icons/sair.png" alt="icon" class="icon">Sair</a>
         </li>
       </ul>
     </div>
