@@ -3,11 +3,12 @@
     margin-right: 75px;
     margin-top: 30px;
   }
-.classDivTitel{
+.classDivTitle{
     margin: auto;
 }
 .classLabelTitle{
-    align-content: center;
+    width: 100%;
+    text-align: center;
     padding-top: 3px;
     color: #21237b;
     border: none;
