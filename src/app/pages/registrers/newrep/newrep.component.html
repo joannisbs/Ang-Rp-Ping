@@ -6,29 +6,31 @@
 
   <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
     
-    <div class="form-row classLinhaDivisora"></div>
+  <div class="form-row classLinhaDivisora"></div>
 
-    <!-- Chama Componete referente ao cadastro do relogio -->  
-    <app-rep-form [repForm]="formulario"></app-rep-form>
-    
-    <div class="form-row classLinhaDivisora"></div>
+  <!-- Chama Componete referente ao cadastro do relogio -->  
+  <app-rep-form [repForm]="formulario"></app-rep-form>
+  
+  <div class="form-row classLinhaDivisora"></div>
 
-    <!-- Chama Componete referente ao cadastro do relogio -->
-    <app-address-form [addressForm]="formulario"></app-address-form>
-    
-    <!-- Botão submit -->
-    <div class="float-right" (mouseenter)="showImage(formulario.valid)" (mouseleave)="hideImage()" >
-        <button 
-          type="submit" 
-          class="btn-primary classSubmitButton"
-          [class.classFormInvalido]="formulario.invalid" 
-          [class.classFormValido]="formulario.valid"
-        >
-          Salvar Alterações
-        </button>
-      </div>
-    </form>
-    <br />
-    <!-- Margem no final da Página -->
-    <div class="classMargemLateral classMargimFimPagina"></div>
-  </div>
+  <!-- Chama Componete referente ao cadastro do relogio -->
+  <app-address-form [addressForm]="formulario"></app-address-form>
+  
+  <div class="form-row classLinhaDivisora"></div>
+
+  <!-- Botão submit -->
+  <div class="float-right" (mouseenter)="showImage(formulario.valid)" (mouseleave)="hideImage()" >
+      <button 
+        type="submit" 
+        class="btn-primary classSubmitButton"
+        [class.classFormInvalido]="formulario.invalid" 
+        [class.classFormValido]="formulario.valid"
+      >
+        Salvar Alterações
+      </button>
+    </div>
+  </form>
+  <br />
+  <!-- Margem no final da Página -->
+  <div class="classMargemLateral classMargimFimPagina"></div>
+</div>

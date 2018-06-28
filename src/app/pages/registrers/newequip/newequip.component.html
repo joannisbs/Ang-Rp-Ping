@@ -1,26 +1,32 @@
 
+<!-- Divisória tamanho das laterais -->
 <div class="classMargemLateral">
+
+    <!-- Titulo -->
+    <label class="classLabelTitle">Cadastro De Um Modelo Novo De Relógio</label>
+  
     <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
       
+      <div class="form-row classLinhaDivisora"></div>
+  
+      <!-- Chama Componete referente ao cadastro de um modelo novo de relógio -->  
       <app-equip-form [equipForm]="formulario"></app-equip-form>
-      <div class="form-row separador"></div>
-
+      
+      <div class="form-row classLinhaDivisora"></div>
+      
+      <!-- Botão submit -->
       <div class="float-right" (mouseenter)="showImage(formulario.valid)" (mouseleave)="hideImage()" >
           <button 
             type="submit" 
-            class="btn btn-primary btn"
-            [class.indisponivel]="formulario.invalid" 
-            [class.valido]="formulario.valid"
+            class="btn-primary classSubmitButton"
+            [class.classFormInvalido]="formulario.invalid" 
+            [class.classFormValido]="formulario.valid"
           >
-            <img src= "{{ imagebutton }}" 
-              alt='icon' 
-              class='btnicon' 
-              [class.d-none]="!showimg"
-            >
             Salvar Alterações
           </button>
         </div>
       </form>
       <br />
+      <!-- Margem no final da Página -->
       <div class="classMargemLateral classMargimFimPagina"></div>
     </div>
