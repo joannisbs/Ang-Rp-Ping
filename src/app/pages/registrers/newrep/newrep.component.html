@@ -1,5 +1,9 @@
 <div class="divis">
-    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div class="classDivTitel col-8">
+      <label class="classLabelTitle">Cadastro de Relógios dos Clientes</label>
+  </div>  
+  
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
       
       <app-rep-form [repForm]="formulario"></app-rep-form>
       <div class="form-row separador"></div>

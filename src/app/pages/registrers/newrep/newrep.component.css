@@ -86,3 +86,19 @@
 .fimdapag{
   margin: 100px;
 }
+.classLabelTitle{
+  align-content: center;
+  padding-top: 3px;
+  color: #21237b;
+  border: none;
+  font-size: 25px;
+  font-weight: 900;
+  font-style: italic;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.classDivTitel{
+  margin: auto;
+}
