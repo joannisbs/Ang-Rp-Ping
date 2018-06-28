@@ -3,3 +3,28 @@
   </h1>
   
 
+<div class="divis">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      
+      <app-equip-form [equipForm]="formulario"></app-equip-form>
+      <div class="form-row separador"></div>
+
+      <div class="float-right" (mouseenter)="showImage(formulario.valid)" (mouseleave)="hideImage()" >
+          <button 
+            type="submit" 
+            class="btn btn-primary btn"
+            [class.indisponivel]="formulario.invalid" 
+            [class.valido]="formulario.valid"
+          >
+            <img src= "{{ imagebutton }}" 
+              alt='icon' 
+              class='btnicon' 
+              [class.d-none]="!showimg"
+            >
+            Salvar Alterações
+          </button>
+        </div>
+      </form>
+      <br />
+      <div class="divis fimdapag"></div>
+    </div>
