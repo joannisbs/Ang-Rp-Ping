@@ -35,11 +35,12 @@
   border-radius: 10px;
   border-width: 5px;
   background: #21237b;
-}
+/* }
 .separador{
   /* padding-right: 10px; */
   /* padding-left: 10px; */
-}
+} 
+
 .itemmenu1 {
   color: #ffffff !important;
   text-decoration: none;
@@ -79,7 +80,7 @@
   user-select: none;
 }
 
-.divis {
+.classMargemLateral {
   margin-left: 60px;
   margin-right: 60px;
 }
