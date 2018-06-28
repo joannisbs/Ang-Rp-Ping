@@ -28,7 +28,7 @@
 }
 
 .LabelForm{
-    width: 75px;
+    width: 100px;
     align-content: center;
     padding-top: 3px;
     color: #21237b;
@@ -43,7 +43,7 @@
     user-select: none;
 }
 
-.separador{
+.classSeparador{
     padding: 10px;
 }
 
