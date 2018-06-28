@@ -54,6 +54,11 @@
   padding-right: 50px;
   align-self: center;
   border-radius: 10px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .itemmenu2 {
@@ -67,6 +72,11 @@
   padding: 20px;
   align-self: center;
   border-radius: 5px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .divis {
