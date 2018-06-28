@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-equip-form',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./equip-form.component.css']
 })
 export class EquipFormComponent implements OnInit {
+
+  @Input()
+  equipForm;
 
   constructor() { }
 

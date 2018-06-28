@@ -1,3 +1,88 @@
-<p>
-  equip-form works!
-</p>
+<div [formGroup]="equipForm">
+  
+  <!-- Linha 1  -->
+  <div class="form-row">
+        
+    <!-- Campo de input do nome da empresa -->
+    <div class="form-group col-lg-4">
+
+      <label class="LabelForm" for="reps_marca">Marca:</label>
+      <div class="input-group">
+        
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="reps_marca" 
+          placeholder="Marca" 
+          formControlName="reps_marca" 
+        >
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' 
+          [class.d-none]="equipForm.controls['reps_marca'].valid || !equipForm.controls['reps_marca'].touched "
+        >
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+
+
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" 
+          class="form-text texterror" 
+          [class.d-none]="equipForm.controls['reps_marca'].valid || !equipForm.controls['reps_marca'].touched ">
+        Campo obrigatório.
+      </small>
+    </div>
+
+    <!-- Campo de input do nome da empresa -->
+    <div class="form-group col-lg-4">
+
+      <label class="LabelForm" for="reps_modelo">Modelo:</label>
+      <div class="input-group">
+        
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="reps_modelo" 
+          placeholder="Modelo" 
+          formControlName="reps_modelo" 
+        >
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' 
+          [class.d-none]="equipForm.controls['reps_modelo'].valid || !equipForm.controls['reps_modelo'].touched "
+        >
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" 
+          class="form-text texterror" 
+          [class.d-none]="equipForm.controls['reps_modelo'].valid || !equipForm.controls['reps_modelo'].touched ">
+        Campo obrigatório.
+      </small>
+    </div>
+
+
+    <div class="form-group col-lg-4">
+      
+      <div class="borderchek ">
+        <div class="alinhamentoLeitor">
+          <label class="LabelForm" for="reps_modelo">Leitor:</label>
+        </div>
+        
+        <div class="alinhamentoColuna">
+          <label class="checkbox-inline LabelForm check"><input type="checkbox" value="">Azul</label>
+          <label class="checkbox-inline LabelForm check"><input type="checkbox" value="">Verde</label>
+        </div>
+        <div class="alinhamentoColuna">
+          <label class="checkbox-inline LabelForm check"><input type="checkbox" value="">Branco</label>
+          <label class="checkbox-inline LabelForm check"><input type="checkbox" value="">Vermelho</label>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+</div>
