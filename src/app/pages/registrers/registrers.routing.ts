@@ -8,6 +8,7 @@ import { NewrepComponent } from './newrep/newrep.component';
 import { NewcompanyComponent } from './newcompany/newcompany.component';
 import { NewclientesComponent } from './newclientes/newclientes.component';
 import { NewequipComponent } from './newequip/newequip.component';
+import { NewuserComponent } from './newuser/newuser.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,7 @@ const routes: Routes = [
       { path: 'newrelogio', component: NewrepComponent },
       { path: 'editrelogio', component: EditrepComponent },
       { path: 'newequipamento', component: NewequipComponent },
-      { path: 'newusuarios', component: EdituserComponent },
+      { path: 'newusuarios', component: NewuserComponent },
       { path: 'newclientes', component: NewclientesComponent },
       { path: 'editequipamento', component: NewequipComponent },
       { path: 'editusuarios', component: EdituserComponent },
