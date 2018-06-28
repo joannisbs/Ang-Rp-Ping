@@ -3,12 +3,53 @@
     <label class="classLabelTitle">Cadastro De Clientes</label>
   </div>
   
-  
 
   <form [formGroup]="formulario" (ngSubmit)="onSubmit(formulario.value, formulario.valid)">
     
     <div class="form-row separador"></div>
     <app-user-comum-form [userComumForm]="formulario"></app-user-comum-form>
+    
+    <div class="form-group col-md-6 classCentro">
+      
+      <div class="input-group">
+        <label class="LabelForm" for="emp_nome">Empresa:</label>      
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="emp_nome" 
+          placeholder="Pesquisar" 
+          formControlName="emp_nome"     
+          (keyup)="ShowDrop(formulario.controls['emp_nome'].value)" 
+        > 
+                
+        <div class='input-group-addon' [class.d-none]="formulario.controls['emp_nome'].valid || !formulario.controls['emp_nome'].touched ">
+          <span >
+            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          </span>
+        </div>
+        <div class="input-group-append"> 
+          <div class="dropdown-menu" [class.show]="show" >
+            <li class="dropdown-item" (click)="Clickitem(item.name)" *ngFor="let item of companys" >{{item.name}}</li>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mensagem de ajuda -->
+      <small id="nameHelpBlock" 
+          class="form-text helptext" 
+          [class.texterror]="!formulario.controls['emp_nome'].valid && formulario.controls['emp_nome'].touched"
+          [class.text-muted]="formulario.controls['emp_nome'].valid || !formulario.controls['emp_nome'].touched ">
+            Escolha uma opção.
+      </small>
+
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" 
+          class="form-text texterror" 
+          [class.d-none]="formulario.controls['emp_nome'].valid || !formulario.controls['emp_nome'].touched ">
+        Campo obrigatório, máximo 12 caracterers, iniciar com letra maiúscula.
+      </small>
+    </div>
+
     <div class="form-row separador"></div>
       
     <div class="float-right" (mouseenter)="showImage(formulario.valid)" (mouseleave)="hideImage()" >
