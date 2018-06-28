@@ -22,6 +22,7 @@ import { NewcompanyComponent } from './newcompany/newcompany.component';
 import { NewequipComponent } from './newequip/newequip.component';
 import { NewrepComponent } from './newrep/newrep.component';
 import { UserComumFormComponent } from './components/user-comum-form/user-comum-form.component';
+import { NewuserComponent } from './newuser/newuser.component';
 
 @NgModule({
   imports: [
@@ -46,7 +47,8 @@ import { UserComumFormComponent } from './components/user-comum-form/user-comum-
     NewcompanyComponent,
     NewrepComponent,
     EquipFormComponent,
-    UserComumFormComponent
+    UserComumFormComponent,
+    NewuserComponent
    ],
    entryComponents: [
     AddressFormComponent,
