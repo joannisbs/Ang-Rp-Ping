@@ -1,27 +1,34 @@
 <div class="divis">
-    <form [formGroup]="formulario" (ngSubmit)="onSubmit(formulario.value, formulario.valid)">
-      <app-company-form [companyForm]="formulario"></app-company-form>
-      <div class="form-row separador"></div>
-      <app-address-form [addressForm]="formulario"></app-address-form>
-      <div class="float-right" (mouseenter)="showImage(formulario.valid)" (mouseleave)="hideImage()" >
-        <button 
-          type="submit" 
-          class="btn btn-primary btn"
-          [class.indisponivel]="formulario.invalid" 
-          [class.valido]="formulario.valid"
+  
+  <label class="classLabelTitle">Cadastro De Uma Nova Empresa No Ping</label>
+  
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit(formulario.value, formulario.valid)">
+    <div class="form-row separador"></div>
+
+    <app-company-form [companyForm]="formulario"></app-company-form>
+    <div class="form-row separador"></div>
+    
+    <app-address-form [addressForm]="formulario"></app-address-form>
+      
+    <div class="float-right" (mouseenter)="showImage(formulario.valid)" (mouseleave)="hideImage()" >
+      <button 
+        type="submit" 
+        class="btn btn-primary btn"
+        [class.indisponivel]="formulario.invalid" 
+        [class.valido]="formulario.valid"
+      >
+        <img src= "{{ imagebutton }}" 
+          alt='icon' 
+          class='btnicon' 
+          [class.d-none]="!showimg"
         >
-          <img src= "{{ imagebutton }}" 
-            alt='icon' 
-            class='btnicon' 
-            [class.d-none]="!showimg"
-          >
-          Salvar Alterações
-        </button>
-      </div>
-    </form>
-    <br />
-    <div class="divis fimdapag"></div>
-  </div>
+        Salvar Alterações
+      </button>
+    </div>
+  </form>
+  <br />
+  <div class="divis fimdapag"></div>
+</div>
   
   
   
