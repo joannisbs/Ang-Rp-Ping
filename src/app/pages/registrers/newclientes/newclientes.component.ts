@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { UserComumFormGroup } from '../components/user-comum-form/user-comum.interface';
 
 @Component({
   selector: 'app-newclientes',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewclientesComponent implements OnInit {
 
-  constructor() { }
+
+  public formulario: FormGroup;
+  public imagebutton = '/assets/icons/xred.png';
+  public showimg = false;
+  public forsub = false;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    // private companyService: CompanyService,
+  ) { }
+
 
   ngOnInit() {
+    this.formulario = this.formBuilder.group ({
+      ...UserComumFormGroup,
+
+
+    });
+
   }
 
 }
