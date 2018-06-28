@@ -2,7 +2,7 @@
   
     
     <!-- Campo de input do nome da empresa -->
-    <div class="form-group col-lg-6">
+    <div class="form-group col-md-4 classCentro">
 
       
       <div class="input-group">
@@ -11,7 +11,7 @@
           type="text" 
           class="form-control formm" 
           id="user_login" 
-          placeholder="Marca" 
+          placeholder="Digite o Login" 
           formControlName="user_login" 
         >
 
@@ -32,16 +32,16 @@
       </small>
   
 
-
+      <div class="separador"></div>
       
       <div class="input-group">
         <label class="LabelForm" for="user_psw">Senha:</label>
-        
+
         <input 
           type="text" 
           class="form-control formm" 
           id="user_psw" 
-          placeholder="Modelo" 
+          placeholder="Digite a Senha" 
           formControlName="user_psw" 
         >
 
@@ -59,8 +59,36 @@
           [class.d-none]="userComumForm.controls['user_psw'].valid || !userComumForm.controls['user_psw'].touched ">
         Campo obrigatório.
       </small>
-    </div>
+    
  
+    <div class="separador"></div>
+      
+      <div class="input-group">
+        <label class="LabelForm" for="user_re_psw">Senha:</label>
+
+        <input 
+          type="text" 
+          class="form-control formm" 
+          id="user_re_psw" 
+          placeholder="Confirme a Senha" 
+          formControlName="user_re_psw" 
+        >
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' 
+          [class.d-none]="userComumForm.controls['user_re_psw'].valid || !userComumForm.controls['user_re_psw'].touched "
+        >
+          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" 
+          class="form-text texterror" 
+          [class.d-none]="userComumForm.controls['user_re_psw'].valid || !userComumForm.controls['user_re_psw'].touched ">
+        Campo obrigatório.
+      </small>
+    </div>
 
 </div>
 

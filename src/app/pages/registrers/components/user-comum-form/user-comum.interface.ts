@@ -11,6 +11,11 @@ export const UserComumFormGroup = {
         Validators.maxLength(30),
         Validators.pattern('.*')]],
 
+    user_re_psw: ['',
+        [Validators.required,
+        Validators.maxLength(30),
+        Validators.pattern('.*')]],
+
 
 };
 
