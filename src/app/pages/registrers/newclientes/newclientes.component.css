@@ -1,0 +1,106 @@
+.divis {
+    margin-left: 75px;
+    margin-right: 75px;
+    margin-top: 30px;
+  }
+.classDivTitel{
+    margin: auto;
+}
+.classLabelTitle{
+    align-content: center;
+    padding-top: 3px;
+    color: #21237b;
+    border: none;
+    font-size: 25px;
+    font-weight: 900;
+    font-style: italic;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+.separador{
+    margin: 5px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-top: 1px solid #21237b;
+}
+
+.btn{
+    background-color: #21237b; 
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    padding-bottom: 15px;
+    /* padding-left: 60px; */
+}
+
+.btn:hover {
+    background-color: #10113B;
+    color: #ffffff;
+  }
+  
+.btn::before {
+    content: '';
+    display: block;
+    height: 5px;
+    width: 0%;
+    background-color: #ffffff;
+    position: relative;
+    top: 30px;
+    transition: all ease-in-out 250ms;
+  }
+  
+.btn:hover::before {
+    width: 100%;
+  }
+
+.indisponivel.btn:hover {
+    background-color: #10113B;
+    color: red;
+  }
+
+.indisponivel.btn::before {
+    content: '';
+    display: block;
+    height: 5px;
+    width: 0%;
+    background-color: red;
+    position: relative;
+    top: 30px;
+    transition: all ease-in-out 250ms;
+}
+.indisponivel.btn:hover::before {
+    width: 100%;
+  }
+
+.valido.btn:hover {
+    background-color: #10113B;
+    color: green;
+  }
+
+.valido.btn::before {
+    content: '';
+    display: block;
+    height: 5px;
+    width: 0%;
+    background-color: green;
+    position: relative;
+    top: 30px;
+    transition: all ease-in-out 250ms;
+}
+.valido.btn:hover::before {
+    width: 100%;
+  }
+  
+
+.btnicon {
+    width: 20px;
+    padding-top: 0px; 
+    margin-right: 5px;
+    align-self: center;
+}
+.fimdapag{
+    margin: 100px;
+}

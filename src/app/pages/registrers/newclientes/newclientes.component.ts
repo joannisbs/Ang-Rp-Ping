@@ -29,5 +29,16 @@ export class NewclientesComponent implements OnInit {
     });
 
   }
+  showImage(value) {
+    this.showimg = true;
+    if (value) {
+      this.imagebutton = '/assets/icons/certoverde.png';
+    } else {
+      this.imagebutton = '/assets/icons/xred.png';
+    }
+  }
+  hideImage() {
+    this.showimg = false;
+  }
 
 }
