@@ -1,33 +1,36 @@
-<div class="divis">
+<!-- Divisória tamanho das laterais -->
+<div class="classMargemLateral">
   
+  <!-- Titulo -->
   <label class="classLabelTitle">Cadastro De Uma Nova Empresa No Ping</label>
   
   <form [formGroup]="formulario" (ngSubmit)="onSubmit(formulario.value, formulario.valid)">
-    <div class="form-row separador"></div>
-
-    <app-company-form [companyForm]="formulario"></app-company-form>
-    <div class="form-row separador"></div>
     
+    <div class="form-row classLinhaDivisora"></div>
+
+    <!-- Chama Componete referente ao cadastro da empresa -->
+    <app-company-form [companyForm]="formulario"></app-company-form>
+
+    <div class="form-row classLinhaDivisora"></div>
+
+    <!-- Chama Componete referente ao cadastro de endereço -->
     <app-address-form [addressForm]="formulario"></app-address-form>
-      
+    
+    <!-- Botão submit -->
     <div class="float-right" (mouseenter)="showImage(formulario.valid)" (mouseleave)="hideImage()" >
       <button 
         type="submit" 
-        class="btn btn-primary btn"
-        [class.indisponivel]="formulario.invalid" 
-        [class.valido]="formulario.valid"
+        class="btn-primary classSubmitButton"
+        [class.classFormInvalido]="formulario.invalid" 
+        [class.classFormValido]="formulario.valid"
       >
-        <img src= "{{ imagebutton }}" 
-          alt='icon' 
-          class='btnicon' 
-          [class.d-none]="!showimg"
-        >
         Salvar Alterações
       </button>
     </div>
   </form>
   <br />
-  <div class="divis fimdapag"></div>
+  <!-- Margem no final da Página -->
+  <div class="classMargemLateral classMargimFimPagina"></div>
 </div>
   
   
