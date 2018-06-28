@@ -10,5 +10,13 @@ export const equipFormGroup = {
         [Validators.required,
         Validators.maxLength(12),
         Validators.pattern('[A-Z].*')]],
+
+    reps_CheckAzul: [''],
+
+    reps_CheckVerde: [''],
+
+    reps_CheckBranco: [''],
+
+    reps_CheckVermelho: [''],
 };
 

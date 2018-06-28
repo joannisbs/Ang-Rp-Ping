@@ -105,4 +105,8 @@
     user-select: none;
     /* margin-left: calc(25% - 50px); */
 }
-   
+.icon {
+    width: 15px;
+    margin-bottom: 5px;
+    margin-right: 3px;
+  }
