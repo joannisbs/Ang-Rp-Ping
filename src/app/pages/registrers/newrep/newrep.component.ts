@@ -14,6 +14,7 @@ export class NewrepComponent implements OnInit {
   public formulario: FormGroup;
   public imagebutton = '/assets/icons/xred.png';
   public showimg = false;
+  public ocorreuSbmit = false;
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -23,6 +24,7 @@ export class NewrepComponent implements OnInit {
     });
   }
   onSubmit() {
+    this.ocorreuSbmit = true;
     console.log(this.formulario.value);
   }
   hideImage() {
