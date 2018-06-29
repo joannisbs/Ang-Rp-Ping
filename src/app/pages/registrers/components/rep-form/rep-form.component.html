@@ -10,7 +10,10 @@
         
         <input 
           type="text" 
-          class="form-control formm" 
+          class="form-control formm"            
+          autocomplete="false"                   
+          [class.classBorderInvalid]="!showErrors( 'rep_nome' )"
+
           id="rep_nome" 
           placeholder="Nome" 
           formControlName="rep_nome" 
@@ -19,7 +22,7 @@
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' 
-          [class.d-none]="repForm.controls['rep_nome'].valid || !repForm.controls['rep_nome'].touched "
+          [class.d-none]="showErrors( 'rep_nome' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
@@ -28,15 +31,15 @@
       <!-- Mensagem de ajuda -->
       <small id="nameHelpBlock" 
           class="form-text helptext" 
-          [class.texterror]="!repForm.controls['rep_nome'].valid && repForm.controls['rep_nome'].touched"
-          [class.text-muted]="repForm.controls['rep_nome'].valid || !repForm.controls['rep_nome'].touched ">
+          [class.texterror]="!showErrors( 'rep_nome' )"
+          [class.text-muted]="showErrors( 'rep_nome' )">
         Será exibido na tela Ping.
       </small>
 
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
           class="form-text texterror" 
-          [class.d-none]="repForm.controls['rep_nome'].valid || !repForm.controls['rep_nome'].touched ">
+          [class.d-none]="showErrors( 'rep_nome' )">
         Campo obrigatório, máximo 12 caracterers.
       </small>
     </div>
@@ -51,14 +54,16 @@
           
         <input 
           type="text" 
-          class="form-control formm" 
+          class="form-control formm"           
+          autocomplete="false"                   
+          [class.classBorderInvalid]="!showErrors( 'emp_nome' )"
           id="emp_nome" 
           placeholder="Nome" 
           formControlName="emp_nome"     
           (keyup)="ShowDrop(repForm.controls['emp_nome'].value)" 
         > 
             
-        <div class='input-group-addon' [class.d-none]="repForm.controls['emp_nome'].valid || !repForm.controls['emp_nome'].touched ">
+        <div class='input-group-addon' [class.d-none]="showErrors( 'emp_nome' )">
           <span >
             <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
           </span>
@@ -79,15 +84,15 @@
         <!-- Mensagem de ajuda -->
         <small id="nameHelpBlock" 
             class="form-text helptext" 
-            [class.texterror]="!repForm.controls['emp_nome'].valid && repForm.controls['emp_nome'].touched"
-            [class.text-muted]="repForm.controls['emp_nome'].valid || !repForm.controls['emp_nome'].touched ">
+            [class.texterror]="!showErrors( 'emp_nome' )"
+            [class.text-muted]="showErrors( 'emp_nome' )">
              Escolha uma opção.
         </small>
   
         <!-- Mensagem de erro -->
         <small id="nameHelpBlock" 
             class="form-text texterror" 
-            [class.d-none]="repForm.controls['emp_nome'].valid || !repForm.controls['emp_nome'].touched ">
+            [class.d-none]="showErrors( 'emp_nome' )">
           Campo obrigatório, máximo 12 caracterers, iniciar com letra maiúscula.
         </small>
       </div>
@@ -100,7 +105,9 @@
 
         <input 
           type="text" 
-          class="form-control formm" 
+          class="form-control formm"            
+          autocomplete="false"                   
+          [class.classBorderInvalid]="!showErrors( 'rep_ip' )"
           id="rep_ip" 
           placeholder="IP ou Hostname" 
           formControlName="rep_ip"
@@ -110,7 +117,7 @@
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' 
-          [class.d-none]="repForm.controls['rep_ip'].valid || !repForm.controls['rep_ip'].touched"
+          [class.d-none]="showErrors( 'rep_ip' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
@@ -120,7 +127,7 @@
       <small 
         id="nameHelpBlock" 
         class="form-text texterror" 
-        [class.d-none]="repForm.controls['rep_ip'].valid || !repForm.controls['rep_ip'].touched "
+        [class.d-none]="showErrors( 'rep_ip' )"
       >
         Campo obrigatório.
       </small>
@@ -134,7 +141,9 @@
 
         <input 
           type="text" 
-          class="form-control formm" 
+          class="form-control formm"            
+          autocomplete="false"                   
+          [class.classBorderInvalid]="!showErrors( 'rep_port' )"
           id="rep_port" 
           placeholder="Porta" 
           formControlName="rep_port"
@@ -144,7 +153,7 @@
         <!-- Icone de X has error -->
         <span 
           class='input-group-addon' 
-          [class.d-none]="repForm.controls['rep_port'].valid || !repForm.controls['rep_port'].touched"
+          [class.d-none]="showErrors( 'rep_port' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
@@ -153,7 +162,7 @@
       <small 
         id="nameHelpBlock" 
         class="form-text texterror" 
-        [class.d-none]="repForm.controls['rep_port'].valid || !repForm.controls['rep_port'].touched "
+        [class.d-none]="showErrors( 'rep_port' )"
       >
         Campo obrigatório. 
       </small>    
@@ -174,7 +183,9 @@
           
         <input 
           type="text" 
-          class="form-control formm" 
+          class="form-control formm"            
+          autocomplete="false"                   
+          [class.classBorderInvalid]="!showErrors( 'reps_marca' )"
           id="reps_marca" 
           placeholder="Pesquisar" 
           formControlName="reps_marca"     
@@ -182,7 +193,7 @@
         > 
 
         <!-- Icone de X has error -->    
-        <div class='input-group-addon' [class.d-none]="repForm.controls['reps_marca'].valid || !repForm.controls['reps_marca'].touched ">
+        <div class='input-group-addon' [class.d-none]="showErrors( 'reps_marca' )">
           <span >
             <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
           </span>
@@ -197,15 +208,15 @@
     <!-- Mensagem de ajuda -->
     <small id="nameHelpBlock" 
         class="form-text helptext" 
-        [class.texterror]="!repForm.controls['reps_marca'].valid && repForm.controls['reps_marca'].touched"
-        [class.text-muted]="repForm.controls['reps_marca'].valid || !repForm.controls['reps_marca'].touched ">
+        [class.texterror]="!showErrors( 'reps_marca' )"
+        [class.text-muted]="showErrors( 'reps_marca' )">
           Pesquise por marca ou modelo.
     </small>
 
     <!-- Mensagem de erro -->
     <small id="nameHelpBlock" 
         class="form-text texterror" 
-        [class.d-none]="repForm.controls['reps_marca'].valid || !repForm.controls['reps_marca'].touched ">
+        [class.d-none]="showErrors( 'reps_marca' )">
       Campo obrigatório.
     </small>
   </div>
@@ -218,7 +229,9 @@
             
         <input 
           type="text" 
-          class="form-control formm" 
+          class="form-control formm"            
+          autocomplete="false"                   
+          [class.classBorderInvalid]="!showErrors( 'reps_modelo' )"
           id="reps_modelo" 
           placeholder="" 
           formControlName="reps_modelo"     
@@ -227,7 +240,7 @@
             
         <!-- Icone de X has error -->
         <span class='input-group-addon' 
-          [class.d-none]="repForm.controls['reps_modelo'].valid || !repForm.controls['reps_modelo'].touched "
+          [class.d-none]="showErrors( 'reps_modelo' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
@@ -236,7 +249,7 @@
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
           class="form-text texterror" 
-          [class.d-none]="repForm.controls['reps_modelo'].valid || !repForm.controls['reps_modelo'].touched ">
+          [class.d-none]="showErrors( 'reps_modelo' )">
         Campo obrigatório.
       </small>
     </div>
@@ -250,6 +263,7 @@
           class="custom-select formm" 
           id="leitr_leitor"
           formControlName="leitr_leitor" 
+          [class.classBorderInvalid]="!showErrors( 'leitr_leitor' )"
         >
           <option selected>Escolha...</option>
           <option *ngFor="let item of leitores">{{item.leitor}}</option>
@@ -257,7 +271,7 @@
         </select>
         <!-- Icone de X has error -->
         <span class='input-group-addon' 
-          [class.d-none]="repForm.controls['reps_marca'].valid || !repForm.controls['reps_marca'].touched "
+          [class.d-none]="showErrors( 'leitr_leitor' )"
          >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
@@ -265,7 +279,7 @@
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
           class="form-text texterror" 
-          [class.d-none]="repForm.controls['reps_marca'].valid || !repForm.controls['reps_marca'].touched ">
+          [class.d-none]="showErrors( 'leitr_leitor' )">
         Campo obrigatório.
       </small>
     </div>
@@ -278,7 +292,9 @@
         
         <input 
           type="text" 
-          class="form-control formm" 
+          class="form-control formm"            
+          autocomplete="false"                   
+          [class.classBorderInvalid]="!showErrors( 'repdata_serienum' )"
           id="repdata_serienum" 
           placeholder="Numero do REP" 
           formControlName="repdata_serienum" 
@@ -287,7 +303,7 @@
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' 
-          [class.d-none]="repForm.controls['repdata_serienum'].valid || !repForm.controls['repdata_serienum'].touched "
+          [class.d-none]="showErrors( 'repdata_serienum' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
@@ -296,7 +312,7 @@
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
           class="form-text texterror" 
-          [class.d-none]="repForm.controls['repdata_serienum'].valid || !repForm.controls['repdata_serienum'].touched ">
+          [class.d-none]="showErrors( 'repdata_serienum' )">
         Campo obrigatório.
       </small>
     </div>
@@ -314,7 +330,9 @@
 
         <input 
           type="text" 
-          class="form-control formm" 
+          class="form-control formm"            
+          autocomplete="false"                   
+          [class.classBorderInvalid]="!showErrors( 'repdata_cnpjcompra' )"
           id="repdata_cnpjcompra" 
           placeholder="CNPJ ou CPF" 
           formControlName="repdata_cnpjcompra"
@@ -324,7 +342,7 @@
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' 
-          [class.d-none]="repForm.controls['repdata_cnpjcompra'].valid || !repForm.controls['repdata_cnpjcompra'].touched"
+          [class.d-none]="showErrors( 'repdata_cnpjcompra' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
@@ -334,7 +352,7 @@
       <small 
         id="nameHelpBlock" 
         class="form-text texterror" 
-        [class.d-none]="repForm.controls['repdata_cnpjcompra'].valid || !repForm.controls['repdata_cnpjcompra'].touched "
+        [class.d-none]="showErrors( 'repdata_cnpjcompra' )"
       >
         Campo obrigatório.
       </small>
@@ -348,7 +366,9 @@
   
           <input 
             type="text" 
-            class="form-control formm" 
+            class="form-control formm"            
+            autocomplete="false"                   
+            [class.classBorderInvalid]="!showErrors( 'repdata_mod' )"
             id="repdata_mod" 
             placeholder="Numero Modulo" 
             formControlName="repdata_mod"
@@ -358,7 +378,7 @@
   
           <!-- Icone de X has error -->
           <span class='input-group-addon' 
-            [class.d-none]="repForm.controls['repdata_mod'].valid || !repForm.controls['repdata_mod'].touched"
+            [class.d-none]="showErrors( 'repdata_mod' )"
           >
             <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
           </span>
@@ -368,7 +388,7 @@
         <small 
           id="nameHelpBlock" 
           class="form-text texterror" 
-          [class.d-none]="repForm.controls['repdata_mod'].valid || !repForm.controls['repdata_mod'].touched "
+          [class.d-none]="showErrors( 'repdata_mod' )"
         >
           Campo obrigatório.
         </small>
@@ -382,7 +402,9 @@
 
         <input 
           type="text" 
-          class="form-control formm" 
+          class="form-control formm"            
+          autocomplete="false"                   
+          [class.classBorderInvalid]="!showErrors( 'repdata_chaveregistro' )"
           id="repdata_chaveregistro" 
           placeholder="CNPJ ou CPF" 
           formControlName="repdata_chaveregistro"
@@ -392,7 +414,7 @@
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' 
-          [class.d-none]="repForm.controls['repdata_chaveregistro'].valid || !repForm.controls['repdata_chaveregistro'].touched"
+          [class.d-none]="showErrors( 'repdata_chaveregistro' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
@@ -402,7 +424,7 @@
       <small 
         id="nameHelpBlock" 
         class="form-text texterror" 
-        [class.d-none]="repForm.controls['repdata_chaveregistro'].valid || !repForm.controls['repdata_chaveregistro'].touched "
+        [class.d-none]="showErrors( 'repdata_chaveregistro' )"
       >
         Campo obrigatório.
       </small>
@@ -416,7 +438,9 @@
 
         <input 
           type="text" 
-          class="form-control formm" 
+          class="form-control formm"            
+          autocomplete="false"                   
+          [class.classBorderInvalid]="!showErrors( 'repdata_senhacomunic' )"
           id="repdata_senhacomunic" 
           placeholder="Senha de Comunicação" 
           formControlName="repdata_senhacomunic"
@@ -426,7 +450,7 @@
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' 
-          [class.d-none]="repForm.controls['repdata_senhacomunic'].valid || !repForm.controls['repdata_senhacomunic'].touched"
+          [class.d-none]="showErrors( 'repdata_senhacomunic' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
@@ -436,7 +460,7 @@
       <small 
         id="nameHelpBlock" 
         class="form-text texterror" 
-        [class.d-none]="repForm.controls['repdata_senhacomunic'].valid || !repForm.controls['repdata_senhacomunic'].touched "
+        [class.d-none]="showErrors( 'repdata_senhacomunic' )"
       >
         Campo obrigatório.
       </small>
@@ -450,7 +474,7 @@
 
         <input 
           type="text" 
-          class="form-control formm" 
+          class="form-control formm"            autocomplete="false"                   [class.classBorderInvalid]="!showErrors( 'end_ref' )"
           id="repdata_usuario" 
           placeholder="Usuário" 
           formControlName="repdata_usuario"
@@ -460,7 +484,7 @@
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' 
-          [class.d-none]="repForm.controls['repdata_usuario'].valid || !repForm.controls['repdata_usuario'].touched"
+          [class.d-none]="showErrors( 'end_ref' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
@@ -470,7 +494,7 @@
       <small 
         id="nameHelpBlock" 
         class="form-text texterror" 
-        [class.d-none]="repForm.controls['repdata_usuario'].valid || !repForm.controls['repdata_usuario'].touched "
+        [class.d-none]="showErrors( 'end_ref' )"
       >
         Campo obrigatório.
       </small>
@@ -484,7 +508,7 @@
 
         <input 
           type="text" 
-          class="form-control formm" 
+          class="form-control formm"            autocomplete="false"                   [class.classBorderInvalid]="!showErrors( 'end_ref' )"
           id="repdata_senha" 
           placeholder="Senha" 
           formControlName="repdata_senha"
@@ -494,7 +518,7 @@
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' 
-          [class.d-none]="repForm.controls['repdata_senha'].valid || !repForm.controls['repdata_senha'].touched"
+          [class.d-none]="showErrors( 'end_ref' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
@@ -504,7 +528,7 @@
       <small 
         id="nameHelpBlock" 
         class="form-text texterror" 
-        [class.d-none]="repForm.controls['repdata_senha'].valid || !repForm.controls['repdata_senha'].touched "
+        [class.d-none]="showErrors( 'end_ref' )"
       >
         Campo obrigatório.
       </small>
@@ -518,7 +542,7 @@
       
               <input 
                 type="text" 
-                class="form-control formm" 
+                class="form-control formm"            autocomplete="false"                   [class.classBorderInvalid]="!showErrors( 'end_ref' )"
                 id="repdata_cpf" 
                 placeholder="Senha" 
                 formControlName="repdata_cpf"
@@ -528,7 +552,7 @@
       
               <!-- Icone de X has error -->
               <span class='input-group-addon' 
-                [class.d-none]="repForm.controls['repdata_cpf'].valid || !repForm.controls['repdata_cpf'].touched"
+                [class.d-none]="showErrors( 'end_ref' )"
               >
                 <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
               </span>
@@ -538,7 +562,7 @@
             <small 
               id="nameHelpBlock" 
               class="form-text texterror" 
-              [class.d-none]="repForm.controls['repdata_cpf'].valid || !repForm.controls['repdata_cpf'].touched "
+              [class.d-none]="showErrors( 'end_ref' )"
             >
               Campo obrigatório.
             </small>

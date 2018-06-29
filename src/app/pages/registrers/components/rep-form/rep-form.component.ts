@@ -10,6 +10,8 @@ export class RepFormComponent implements OnInit {
   @Input()
   repForm;
 
+  @Input()
+  ocorreuSubmit;
 
   modelsfull = [{id:  0, reps_marca: 'Henry' , reps_modelo: 'Prisma SF R01', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 0},
                 {id:  1, reps_marca: 'Henry' , reps_modelo: 'Prisma SF R02', senhacomunic: 0, loginpsw: 1, chave: 0, cpf: 0},
@@ -192,6 +194,9 @@ leitorfull = [{id:  0, leitor: 'vermelho'},
     }
 
 
+  }
+  showErrors(value) {
+    return this.repForm.controls[ value ].valid || !(this.repForm.controls[ value].touched || this.ocorreuSubmit);
   }
   arrumaCNPJ(cpf_cnpj) {
     cpf_cnpj = cpf_cnpj.replace(/\./g , '');
