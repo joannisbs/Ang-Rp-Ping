@@ -1,3 +1,49 @@
-<p>
-  newuser works!
-</p>
+<!-- Divisória tamanho das laterais -->
+<div class="classMargemLateral">
+  
+    <!-- Titulo -->
+    <label class="classLabelTitle">Cadastro De Uma Nova Empresa No Ping</label>
+    
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit(formulario.value, formulario.valid)">
+      
+      <div class="form-row classLinhaDivisora"></div>
+  
+      <!-- Chama Componete referente ao cadastro da empresa -->
+      <app-user-comum-form [userComumForm]="formulario"></app-user-comum-form>
+
+      <div class="form-group col-md-6 classCentro">
+          
+      <div class="classDivSelect">
+          <label class="classLabelForm" for="emp_nome">Tipo:</label>  
+          <select class="classSelect">
+            <option value="0">Tipo de Conta:</option>
+            <option value="1">Administrador</option>
+            <option value="2">Usuário Comum</option>
+            <option value="3">Usuário Master</option>
+          </select>
+        </div>
+      </div>
+   
+
+          
+      <div class="form-row classLinhaDivisora"></div>
+  
+      <!-- Botão submit -->
+      <div class="float-right" (mouseenter)="showImage(formulario.valid)" (mouseleave)="hideImage()" >
+        <button 
+          type="submit" 
+          class="btn-primary classSubmitButton"
+          [class.classFormInvalido]="formulario.invalid" 
+          [class.classFormValido]="formulario.valid"
+        >
+          Salvar Alterações
+        </button>
+      </div>
+    </form>
+    <br />
+    <!-- Margem no final da Página -->
+    <div class="classMargemLateral classMargimFimPagina"></div>
+  </div>
+    
+    
+    
