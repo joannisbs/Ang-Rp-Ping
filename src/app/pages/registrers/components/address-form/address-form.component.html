@@ -1,4 +1,4 @@
-<div [formGroup]="addressForm">
+<div [formGroup]="addressForm" autocomplete="nope">
 
   <!-- Linha 1 -->
   <div class="form-row">
@@ -11,7 +11,10 @@
 
         <input 
           type="text" 
-          class="form-control formm" 
+          autocomplete="nope" 
+         class="form-control formm"            
+         [class.classBorderInvalid]="!showErrors( 'end_cep' )"
+          
           id="end_cep" 
           placeholder="Cep" 
           formControlName="end_cep" 
@@ -39,7 +42,8 @@
       <label class="LabelForm" for="end_rua">Rua:</label>
       <div class="input-group">
 
-        <input type="text" class="form-control formm" id="end_rua" placeholder="Logradouro" formControlName="end_rua" maxlength="60">
+        <input type="text" autocomplete="nope"class="form-control formm"            
+        [class.classBorderInvalid]="!showErrors( 'end_rua' )"id="end_rua" placeholder="Logradouro" formControlName="end_rua" maxlength="60">
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' [class.d-none]="showErrors( 'end_rua' )">
@@ -60,7 +64,8 @@
       <label class="LabelForm" for="end_num">Número:</label>
       <div class="input-group">
 
-        <input type="text" class="form-control formm" id="end_num" placeholder="Número" formControlName="end_num" maxlength="6">
+        <input type="text" autocomplete="nope"class="form-control formm"            
+        [class.classBorderInvalid]="!showErrors( 'end_num' )"id="end_num" placeholder="Número" formControlName="end_num" maxlength="6">
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' [class.d-none]="showErrors( 'end_num' )">
@@ -81,7 +86,8 @@
       <label class="LabelForm" for="end_comp">Complemento:</label>
 
       <div class="input-group">
-        <input type="text" class="form-control formm" id="end_comp" placeholder="Complemento" formControlName="end_comp" maxlength="45">
+        <input type="text"  autocomplete="nope"class="form-control formm"            
+        [class.classBorderInvalid]="!showErrors( 'end_comp' )"id="end_comp" placeholder="Complemento" formControlName="end_comp" maxlength="45">
       </div>
     </div>
   </div>
@@ -94,7 +100,8 @@
       <label class="LabelForm" for="end_uf">Uf:</label>
 
       <div class="input-group">
-        <input type="text" class="form-control formm" id="end_uf" placeholder="UF" formControlName="end_uf" maxlength="2">
+        <input type="text"  autocomplete="nope"class="form-control formm"            
+        [class.classBorderInvalid]="!showErrors( 'end_uf' )"id="end_uf" placeholder="UF" formControlName="end_uf" maxlength="2">
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' [class.d-none]="showErrors( 'end_uf' )">
@@ -112,7 +119,8 @@
     <div class="form-group col-lg-3">
       <label class="LabelForm" for="end_cidade">Cidade:</label>
       <div class="input-group">
-        <input type="text" class="form-control formm" id="end_cidade" placeholder="Cidade" formControlName="end_cidade" maxlength="45">
+        <input type="text"class="form-control formm"            
+        [class.classBorderInvalid]="!showErrors( 'end_cidade' )"id="end_cidade" placeholder="Cidade" formControlName="end_cidade" maxlength="45">
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' [class.d-none]="showErrors( 'end_cidade' )">
@@ -131,7 +139,8 @@
       <label class="LabelForm" for="end_bairro">Bairro:</label>
       <div class="input-group">
 
-        <input type="text" class="form-control formm" id="end_bairro" placeholder="Bairro" formControlName="end_bairro" maxlength="45">
+        <input type="text" autocomplete="nope"class="form-control formm"            
+        [class.classBorderInvalid]="!showErrors( 'end_bairro' )"id="end_bairro" placeholder="Bairro" formControlName="end_bairro" maxlength="45">
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' [class.d-none]="showErrors( 'end_bairro' )">
@@ -152,7 +161,9 @@
       <div class="input-group">
 
         <input type="text" 
-          class="form-control formm" 
+        autocomplete="nope"
+         class="form-control formm"            
+         [class.classBorderInvalid]="!showErrors( 'end_ref' )"
           id="end_ref" 
           placeholder="Referência" 
           formControlName="end_ref" 
