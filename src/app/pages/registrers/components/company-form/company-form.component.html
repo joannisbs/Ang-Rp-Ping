@@ -1,5 +1,5 @@
 
-<div [formGroup]="companyForm">
+<div [formGroup]="companyForm" autocomplete="no">
 
   <!-- Linha 1  -->
   <div class="form-row">
@@ -12,6 +12,7 @@
         
         <input 
           type="text" 
+          autocomplete="no" 
           class="form-control formm" 
           [class.classBorderInvalid]="!showErrors( 'emp_nome' )"
           id="emp_nome" 
@@ -52,6 +53,7 @@
 
         <input 
           type="text" 
+          autocomplete="no" 
           class="form-control formm" 
           [class.classBorderInvalid]="!showErrors( 'empdata_cnpj' )"
           id="empdata_cnpj" 
@@ -87,6 +89,7 @@
 
         <input 
           type="text" 
+          autocomplete="no" 
           class="form-control formm" 
           [class.classBorderInvalid]="!showErrors( 'empdata_resp' )" 
           id="empdata_resp" 
@@ -125,6 +128,7 @@
 
         <input 
           type="text" 
+          autocomplete="no" 
           class="form-control formm" 
           [class.classBorderInvalid]="!showErrors( 'empdata_razao' )" 
           id="empdata_razao" 
@@ -161,6 +165,7 @@
 
         <input 
           type="text" 
+          autocomplete="no" 
           class="form-control formm" 
           [class.classBorderInvalid]="!showErrors( 'empdata_tel' )" 
           id="empdata_tel" 
@@ -201,12 +206,14 @@
         
         <input 
           type="text" 
+          autocomplete="no" 
           class="form-control formm" 
           [class.classBorderInvalid]="!showErrors( 'empdata_email' )" 
           id="empdata_email" 
           placeholder="user@email.com" 
           formControlName="empdata_email"
           maxlength="45"
+          
         >
         
         <!-- Icone de X has error -->
@@ -236,6 +243,7 @@
 
         <input 
           type="text" 
+          autocomplete="no" 
           class="form-control formm" 
           [class.classBorderInvalid]="!showErrors( 'emp_tela' )" 
           id="emp_tela" 
@@ -281,6 +289,7 @@
         
         <input 
           type="text" 
+          autocomplete="no" 
           class="form-control formm" 
           [class.classBorderInvalid]="!showErrors( 'emp_linha' )" 
           id="emp_linha" 
@@ -325,6 +334,7 @@
         
         <input 
           type="text" 
+          autocomplete="no" 
           class="form-control formm" 
           [class.classBorderInvalid]="!showErrors( 'emp_coluna' )" 
           id="emp_coluna" 

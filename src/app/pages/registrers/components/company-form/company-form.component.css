@@ -4,14 +4,20 @@
     margin-top: 30px;
   }
 .classBorderInvalid {
-    border: 1px solid red !important;
-    border-radius: 10px;
+    border: 2px solid red !important;
+    background-color: rgb(255, 200, 200, 0.2);
+    border-radius: 12px;
+
     
 }
 .formm {
     border-color:#21237b;
     border-radius: 10px !important;
    
+}
+.formm:focus {
+    background-color: rgba(117, 165, 255, 0.226);
+    border: 2px solid #21237b !important;
 }
 .erroicon {
     width: 20px;
