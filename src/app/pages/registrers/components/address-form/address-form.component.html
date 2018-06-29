@@ -20,14 +20,14 @@
         >
 
         <!-- Icone de X has error -->
-        <span class='input-group-addon' [class.d-none]="addressForm.controls['end_cep'].valid || !addressForm.controls['end_cep'].touched ">
+        <span class='input-group-addon' [class.d-none]="showErrors( 'end_cep' )">
 
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
-      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="addressForm.controls['end_cep'].valid || !addressForm.controls['end_cep'].touched ">
+      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="showErrors( 'end_cep' )">
         Cep inválido.
       </small>
 
@@ -42,14 +42,14 @@
         <input type="text" class="form-control formm" id="end_rua" placeholder="Logradouro" formControlName="end_rua" maxlength="60">
 
         <!-- Icone de X has error -->
-        <span class='input-group-addon' [class.d-none]="addressForm.controls['end_rua'].valid || !addressForm.controls['end_rua'].touched">
+        <span class='input-group-addon' [class.d-none]="showErrors( 'end_rua' )">
 
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
-      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="addressForm.controls['end_rua'].valid || !addressForm.controls['end_rua'].touched ">
+      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="showErrors( 'end_rua' )">
 
         Campo obrigatório.
       </small>
@@ -63,14 +63,14 @@
         <input type="text" class="form-control formm" id="end_num" placeholder="Número" formControlName="end_num" maxlength="6">
 
         <!-- Icone de X has error -->
-        <span class='input-group-addon' [class.d-none]="addressForm.controls['end_num'].valid || !addressForm.controls['end_num'].touched">
+        <span class='input-group-addon' [class.d-none]="showErrors( 'end_num' )">
 
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
-      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="addressForm.controls['end_num'].valid || !addressForm.controls['end_num'].touched ">
+      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="showErrors( 'end_num' )">
 
         Campo obrigatório.
       </small>
@@ -97,13 +97,13 @@
         <input type="text" class="form-control formm" id="end_uf" placeholder="UF" formControlName="end_uf" maxlength="2">
 
         <!-- Icone de X has error -->
-        <span class='input-group-addon' [class.d-none]="addressForm.controls['end_uf'].valid || !addressForm.controls['end_uf'].touched ">
+        <span class='input-group-addon' [class.d-none]="showErrors( 'end_uf' )">
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
-      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="addressForm.controls['end_uf'].valid || !addressForm.controls['end_uf'].touched ">
+      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="showErrors( 'end_uf' )">
         Campo obrigatório, utilize sigla.
       </small>
     </div>
@@ -115,13 +115,13 @@
         <input type="text" class="form-control formm" id="end_cidade" placeholder="Cidade" formControlName="end_cidade" maxlength="45">
 
         <!-- Icone de X has error -->
-        <span class='input-group-addon' [class.d-none]="addressForm.controls['end_cidade'].valid || !addressForm.controls['end_cidade'].touched">
+        <span class='input-group-addon' [class.d-none]="showErrors( 'end_cidade' )">
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
-      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="addressForm.controls['end_cidade'].valid || !addressForm.controls['end_cidade'].touched ">
+      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="showErrors( 'end_cidade' )">
         Campo obrigatório.
       </small>
     </div>
@@ -134,13 +134,13 @@
         <input type="text" class="form-control formm" id="end_bairro" placeholder="Bairro" formControlName="end_bairro" maxlength="45">
 
         <!-- Icone de X has error -->
-        <span class='input-group-addon' [class.d-none]="addressForm.controls['end_bairro'].valid || !addressForm.controls['end_bairro'].touched">
+        <span class='input-group-addon' [class.d-none]="showErrors( 'end_bairro' )">
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
-      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="addressForm.controls['end_bairro'].valid || !addressForm.controls['end_bairro'].touched ">
+      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="showErrors( 'end_bairro' )">
         Campo obrigatório.
       </small>
     </div>
@@ -160,13 +160,13 @@
         >
 
         <!-- Icone de X has error -->
-        <span class='input-group-addon' [class.d-none]="addressForm.controls['end_ref'].valid || !addressForm.controls['end_ref'].touched">
+        <span class='input-group-addon' [class.d-none]="showErrors( 'end_ref' )">
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
       </div>
       
       <!-- Mensagem de erro -->
-      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="addressForm.controls['end_ref'].valid || !addressForm.controls['end_ref'].touched ">
+      <small id="nameHelpBlock" class="form-text texterror" [class.d-none]="showErrors( 'end_ref' )">
         Campo obrigatório.
       </small>
     </div>

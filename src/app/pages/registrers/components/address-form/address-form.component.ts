@@ -13,12 +13,18 @@ export class AddressFormComponent implements OnInit, OnDestroy {
   @Input()
   addressForm: FormGroup;
 
+  @Input()
+  ocorreuSubmit;
+
   private subcription: Subscription;
 
   constructor(private cepService: CepService) { }
 
   ngOnInit() { }
 
+  showErrors(value) {
+    return this.addressForm.controls[ value ].valid || !(this.addressForm.controls[ value].touched || this.ocorreuSubmit);
+  }
   buscarCep(cep) {
     if (!cep) { return; }
     cep.replace('[-]', '');
