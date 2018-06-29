@@ -13,6 +13,7 @@
         <input 
           type="text" 
           class="form-control formm" 
+          [class.classBorderInvalid]="!showErrors( 'emp_nome' )"
           id="emp_nome" 
           placeholder="Nome" 
           formControlName="emp_nome" 
@@ -52,6 +53,7 @@
         <input 
           type="text" 
           class="form-control formm" 
+          [class.classBorderInvalid]="!showErrors( 'empdata_cnpj' )"
           id="empdata_cnpj" 
           placeholder="CNPJ ou CPF" 
           formControlName="empdata_cnpj"
@@ -86,6 +88,7 @@
         <input 
           type="text" 
           class="form-control formm" 
+          [class.classBorderInvalid]="!showErrors( 'empdata_resp' )" 
           id="empdata_resp" 
           placeholder="Nome Sobrenome" 
           formControlName="empdata_resp"
@@ -123,6 +126,7 @@
         <input 
           type="text" 
           class="form-control formm" 
+          [class.classBorderInvalid]="!showErrors( 'empdata_razao' )" 
           id="empdata_razao" 
           placeholder="Razão Social" 
           formControlName="empdata_razao"
@@ -158,6 +162,7 @@
         <input 
           type="text" 
           class="form-control formm" 
+          [class.classBorderInvalid]="!showErrors( 'empdata_tel' )" 
           id="empdata_tel" 
           placeholder="Fixo ou Celular" 
           formControlName="empdata_tel"
@@ -197,6 +202,7 @@
         <input 
           type="text" 
           class="form-control formm" 
+          [class.classBorderInvalid]="!showErrors( 'empdata_email' )" 
           id="empdata_email" 
           placeholder="user@email.com" 
           formControlName="empdata_email"
@@ -231,6 +237,7 @@
         <input 
           type="text" 
           class="form-control formm" 
+          [class.classBorderInvalid]="!showErrors( 'emp_tela' )" 
           id="emp_tela" 
           placeholder="Tela" 
           formControlName="emp_tela" 
@@ -275,6 +282,7 @@
         <input 
           type="text" 
           class="form-control formm" 
+          [class.classBorderInvalid]="!showErrors( 'emp_linha' )" 
           id="emp_linha" 
           placeholder="Linha" 
           formControlName="emp_linha" 
@@ -318,6 +326,7 @@
         <input 
           type="text" 
           class="form-control formm" 
+          [class.classBorderInvalid]="!showErrors( 'emp_coluna' )" 
           id="emp_coluna" 
           placeholder="Coluna" 
           formControlName="emp_coluna" 

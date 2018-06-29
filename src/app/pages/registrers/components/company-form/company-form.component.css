@@ -3,8 +3,8 @@
     margin-right: 75px;
     margin-top: 30px;
   }
-.ng-invalid.ng-touched.formm {
-    border: 1px solid red;
+.classBorderInvalid {
+    border: 1px solid red !important;
     border-radius: 10px;
     
 }
