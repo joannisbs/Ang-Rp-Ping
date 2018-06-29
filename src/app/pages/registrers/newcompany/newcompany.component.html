@@ -3,6 +3,7 @@
   
   <!-- Titulo -->
   <label class="classLabelTitle">Cadastro De Uma Nova Empresa No Ping</label>
+  <label class="classLabelTitle classTextError" [class.d-none]="!ocorreuSubmit">O formulário contém erros, porfavor corrigi-los antes de Salvar.</label>
   
   <form [formGroup]="formulario" (ngSubmit)="onSubmit(formulario.value, formulario.valid)">
     
@@ -14,12 +15,12 @@
     <div class="form-row classLinhaDivisora"></div>
 
     <!-- Chama Componete referente ao cadastro de endereço -->
-    <app-address-form [addressForm]="formulario"></app-address-form>
+    <app-address-form [addressForm]="formulario" [ocorreuSubmit]="ocorreuSubmit"></app-address-form>
     
     <div class="form-row classLinhaDivisora"></div>
 
     <!-- Botão submit -->
-    <div class="float-right" (mouseenter)="showImage(formulario.valid)" (mouseleave)="hideImage()" >
+    <div class="float-right">
       <button 
         type="submit" 
         class="btn-primary classSubmitButton"
@@ -28,6 +29,30 @@
       >
         Salvar Alterações
       </button>
+      <!-- Modal -->
+      <div class="modal modal-backdrop fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" [class.show]=" showModal " [style.display]=" showModal ? 'block' : 'none'">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content classModalTamanho ">
+              <div class="modal-header">
+                <h5 class="modal-title classModalLabalsTitle" id="exampleModalLabel">Parabéns, os dados foram salvos com sucesso!</h5>
+                
+                  
+              </div>
+              
+                  <label class="classModalLabals"> O que deseja fazer?</label>
+              
+              <div class="modal-footer">
+              
+                <button type="button" class="classModalBotao" (click)="ClearForm()">Cadastrar outra empresa</button>
+                
+                <button type="button" class="classModalBotao" onclick="window.location.href='#/pages/register'">Voltar ao monitoramento</button>
+                
+                <button type="button" class="classModalBotao" onclick="window.location.href='#/pages/register/newrelogio'">Cadastrar um relógio</button>
+              
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
   </form>
   <br />
