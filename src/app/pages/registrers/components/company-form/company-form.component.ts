@@ -12,10 +12,16 @@ export class CompanyFormComponent implements OnInit {
   @Input()
   companyForm;
 
+  @Input()
+  ocorreuSubmit;
+
   constructor() { }
 
   ngOnInit() { }
 
+  showErrors(value) {
+    return this.companyForm.controls[ value ].valid || !(this.companyForm.controls[ value].touched || this.ocorreuSubmit);
+  }
   arrumaCNPJ(cpf_cnpj) {
     cpf_cnpj = cpf_cnpj.replace(/\./g , '');
     cpf_cnpj = cpf_cnpj.replace('\-', '');

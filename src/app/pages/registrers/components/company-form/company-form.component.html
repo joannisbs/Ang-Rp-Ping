@@ -1,6 +1,6 @@
 
 <div [formGroup]="companyForm">
- 
+
   <!-- Linha 1  -->
   <div class="form-row">
         
@@ -21,7 +21,7 @@
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' 
-          [class.d-none]="companyForm.controls['emp_nome'].valid || !companyForm.controls['emp_nome'].touched "
+          [class.d-none]=" showErrors( 'emp_nome' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
@@ -30,15 +30,15 @@
       <!-- Mensagem de ajuda -->
       <small id="nameHelpBlock" 
           class="form-text" 
-          [class.texterror]="!companyForm.controls['emp_nome'].valid && companyForm.controls['emp_nome'].touched"
-          [class.text-muted]="companyForm.controls['emp_nome'].valid || !companyForm.controls['emp_nome'].touched ">
+          [class.texterror]=" !showErrors( 'emp_nome' )"
+          [class.text-muted]=" showErrors( 'emp_nome' )">
         Será exibido na tela Ping.
       </small>
 
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
           class="form-text texterror" 
-          [class.d-none]="companyForm.controls['emp_nome'].valid || !companyForm.controls['emp_nome'].touched ">
+          [class.d-none]=" showErrors( 'emp_nome' )">
         Campo obrigatório, máximo 12 caracterers, iniciar com letra maiúscula.
       </small>
     </div>
@@ -61,7 +61,7 @@
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' 
-          [class.d-none]="companyForm.controls['empdata_cnpj'].valid || !companyForm.controls['empdata_cnpj'].touched"
+          [class.d-none]=" showErrors( 'empdata_cnpj' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
@@ -71,7 +71,7 @@
       <small 
         id="nameHelpBlock" 
         class="form-text texterror" 
-        [class.d-none]="companyForm.controls['empdata_cnpj'].valid || !companyForm.controls['empdata_cnpj'].touched "
+        [class.d-none]=" showErrors( 'empdata_cnpj' )"
       >
         Campo obrigatório.
       </small>
@@ -95,7 +95,7 @@
         <!-- Icone de X has error -->
         <span 
           class='input-group-addon' 
-          [class.d-none]="companyForm.controls['empdata_resp'].valid || !companyForm.controls['empdata_resp'].touched"
+          [class.d-none]="showErrors( 'empdata_resp' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
@@ -104,7 +104,7 @@
       <small 
         id="nameHelpBlock" 
         class="form-text texterror" 
-        [class.d-none]="companyForm.controls['empdata_resp'].valid || !companyForm.controls['empdata_resp'].touched "
+        [class.d-none]="showErrors( 'empdata_resp' )"
       >
         Campo obrigatório. 
       </small>    
@@ -132,7 +132,7 @@
         <!-- Icone de X has error -->
         <span 
           class='input-group-addon' 
-          [class.d-none]="companyForm.controls['empdata_razao'].valid || !companyForm.controls['empdata_razao'].touched"
+          [class.d-none]="showErrors( 'empdata_razao' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
@@ -142,7 +142,7 @@
       <small 
         id="nameHelpBlock" 
         class="form-text texterror" 
-        [class.d-none]="companyForm.controls['empdata_razao'].valid || !companyForm.controls['empdata_razao'].touched "
+        [class.d-none]="showErrors( 'empdata_razao' )"
       >
         Campo obrigatório.
       </small>
@@ -168,7 +168,7 @@
         <!-- Icone de X has error -->
         <span 
           class='input-group-addon' 
-          [class.d-none]="companyForm.controls['empdata_tel'].valid || !companyForm.controls['empdata_tel'].touched " 
+          [class.d-none]="showErrors( 'empdata_tel' )" 
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
@@ -177,7 +177,7 @@
       <small 
         id="nameHelpBlock" 
         class="form-text texterror" 
-        [class.d-none]="companyForm.controls['empdata_tel'].valid || !companyForm.controls['empdata_tel'].touched"
+        [class.d-none]="showErrors( 'empdata_tel' )"
       >
         Campo obrigatório, coloque o DDD
       </small>
@@ -206,7 +206,7 @@
         <!-- Icone de X has error -->
         <span 
           class='input-group-addon' 
-          [class.d-none]="companyForm.controls['empdata_email'].valid || !companyForm.controls['empdata_email'].touched"
+          [class.d-none]="showErrors( 'empdata_email' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
@@ -216,7 +216,7 @@
       <small 
         id="nameHelpBlock" 
         class="form-text texterror" 
-        [class.d-none]="companyForm.controls['empdata_email'].valid || !companyForm.controls['empdata_email'].touched "
+        [class.d-none]="showErrors( 'empdata_email' )"
       >
         Campo Obrigatório.
       </small>
@@ -240,7 +240,7 @@
         <!-- Icone de X has error -->
         <span 
           class='input-group-addon' 
-          [class.d-none]="companyForm.controls['emp_tela'].valid || !companyForm.controls['emp_tela'].touched"
+          [class.d-none]="showErrors( 'emp_tela' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
@@ -249,8 +249,8 @@
       <!-- Mensagem de ajuda --> 
       <small id="nameHelpBlock" 
         class="form-text" 
-        [class.texterror]="!companyForm.controls['emp_tela'].valid && companyForm.controls['emp_tela'].touched"
-        [class.text-muted]="companyForm.controls['emp_tela'].valid || !companyForm.controls['emp_tela'].touched "
+        [class.texterror]="!showErrors( 'emp_tela' )"
+        [class.text-muted]="showErrors( 'emp_tela' ) "
       >
 
         A tela do ping que será exibido a empresa.
@@ -260,7 +260,7 @@
       <small 
         id="nameHelpBlock" 
         class="form-text texterror" 
-        [class.d-none]="companyForm.controls['emp_tela'].valid || !companyForm.controls['emp_tela'].touched "
+        [class.d-none]="showErrors( 'emp_tela' )"
       >
 
         Campo obrigatório, 1 ou 2. 
@@ -282,7 +282,8 @@
         >
 
         <!-- Icone de X has error -->
-        <span class='input-group-addon' [class.d-none]="companyForm.controls['emp_linha'].valid || !companyForm.controls['emp_linha'].touched">
+        <span class='input-group-addon' 
+          [class.d-none]="showErrors( 'emp_linha' )">
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
       </div>  
@@ -291,8 +292,8 @@
       <small 
         id="nameHelpBlock" 
         class="form-text" 
-        [class.texterror]="!companyForm.controls['emp_linha'].valid && companyForm.controls['emp_linha'].touched"
-        [class.text-muted]="companyForm.controls['emp_linha'].valid || !companyForm.controls['emp_linha'].touched "
+        [class.texterror]="!showErrors( 'emp_linha' )"
+        [class.text-muted]="showErrors( 'emp_linha' ) "
       >
 
         A linha do ping que será exibido a empresa.
@@ -302,7 +303,7 @@
       <small 
         id="nameHelpBlock" 
         class="form-text texterror" 
-        [class.d-none]="companyForm.controls['emp_linha'].valid || !companyForm.controls['emp_linha'].touched "
+        [class.d-none]="showErrors( 'emp_linha' )"
       >
         Campo obrigatório, 0-10. 
       </small>    
@@ -326,7 +327,7 @@
         <!-- Icone de X has error -->
         <span 
           class='input-group-addon' 
-          [class.d-none]="companyForm.controls['emp_coluna'].valid || !companyForm.controls['emp_coluna'].touched"
+          [class.d-none]="showErrors( 'emp_coluna' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
         </span>
@@ -335,8 +336,8 @@
       <!-- Mensagem de ajuda --> 
       <small id="nameHelpBlock" 
         class="form-text" 
-        [class.texterror]="!companyForm.controls['emp_coluna'].valid && companyForm.controls['emp_coluna'].touched"
-        [class.text-muted]="companyForm.controls['emp_coluna'].valid || !companyForm.controls['emp_coluna'].touched "
+        [class.texterror]="!showErrors( 'emp_coluna' )"
+        [class.text-muted]="showErrors( 'emp_coluna' ) "
       >
         A coluna do ping que será exibido a empresa.
       </small> 
@@ -345,7 +346,7 @@
       <small 
         id="nameHelpBlock" 
         class="form-text texterror" 
-        [class.d-none]="companyForm.controls['emp_coluna'].valid || !companyForm.controls['emp_coluna'].touched "
+        [class.d-none]="showErrors( 'emp_coluna' ) "
       >
         Campo obrigatório. 
       </small>    

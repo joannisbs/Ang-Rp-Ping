@@ -17,6 +17,8 @@ export class NewcompanyComponent implements OnInit {
   public imagebutton = '/assets/icons/xred.png';
   public showimg = false;
   public forsub = false;
+  public ocorreuSubmit = false;
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -45,6 +47,7 @@ export class NewcompanyComponent implements OnInit {
     this.showimg = false;
   }
   onSubmit(company, valido) {
+    this.ocorreuSubmit = true;
     if (valido) {
       console.log(company);
 
