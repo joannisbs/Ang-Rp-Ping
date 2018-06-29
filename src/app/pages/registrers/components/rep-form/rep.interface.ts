@@ -11,7 +11,12 @@ export const repFormGroup = {
 
     rep_ip: ['',
     [Validators.required,
-    Validators.maxLength(12)]],
+    Validators.maxLength(45),
+    Validators.pattern('(10\.26\..{1,3}\..{1,3})|' +
+        '(10\.115\..{1,3}\..{1,3})|' +
+        '(10\.50\..{1,3}\..{1,3})|' +
+        '(172\.40\..{1,3}\..{1,3})|' +
+        '([a-z]+\.modrp\.com)')]],
 
     rep_port: ['',
     [Validators.required,

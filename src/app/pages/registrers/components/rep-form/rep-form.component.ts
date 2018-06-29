@@ -1,3 +1,4 @@
+import { Validators } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -159,8 +160,9 @@ leitorfull = [{id:  0, leitor: 'vermelho'},
   Clickitem(value) {
     this.repForm.get('emp_nome').patchValue(value);
     this.show = false;
-  }
 
+  }
+ 
   ShowDShowDropMarcaModelrep(value) {
     const marca = this.modelsfull.filter( obj => obj[ 'reps_marca' ].toLowerCase().match( value ) );
     const modelo = this.modelsfull.filter( obj => obj[ 'reps_modelo' ].toLowerCase().match( value ) );

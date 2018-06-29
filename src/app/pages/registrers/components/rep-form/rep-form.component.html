@@ -60,42 +60,37 @@
           id="emp_nome" 
           placeholder="Nome" 
           formControlName="emp_nome"     
-          (keyup)="ShowDrop(repForm.controls['emp_nome'].value)" 
+          (keyup)="ShowDrop(repForm.controls['emp_nome'].value)"
+           
         > 
             
         <div class='input-group-addon' [class.d-none]="showErrors( 'emp_nome' )">
-          <span >
+          <span>
             <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
           </span>
-                </div>
-              <div class="input-group-append">
-              <!-- <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button> -->
-                <div class="dropdown-menu" [class.show]="show" >
-                  <li class="dropdown-item" (click)="Clickitem(item.name)" *ngFor="let item of companys" >{{item.name}}</li>
-          
-                </div>
-              </div>
-               
+        </div>
+        <div class="input-group-append">
+          <div class="dropdown-menu" [class.show]="show">
+            <li class="dropdown-item" (click)="Clickitem(item.name)" *ngFor="let item of companys">{{item.name}}</li>
+          </div>
+        </div>   
+      </div>
 
-          <!-- Icone de X has error -->
-          
-      </div>
-  
-        <!-- Mensagem de ajuda -->
-        <small id="nameHelpBlock" 
-            class="form-text helptext" 
-            [class.texterror]="!showErrors( 'emp_nome' )"
-            [class.text-muted]="showErrors( 'emp_nome' )">
-             Escolha uma opção.
-        </small>
-  
-        <!-- Mensagem de erro -->
-        <small id="nameHelpBlock" 
-            class="form-text texterror" 
-            [class.d-none]="showErrors( 'emp_nome' )">
-          Campo obrigatório, máximo 12 caracterers, iniciar com letra maiúscula.
-        </small>
-      </div>
+      <!-- Mensagem de ajuda -->
+      <small id="nameHelpBlock" 
+          class="form-text helptext" 
+          [class.texterror]="!showErrors( 'emp_nome' )"
+          [class.text-muted]="showErrors( 'emp_nome' )">
+            Escolha uma opção.
+      </small>
+
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" 
+          class="form-text texterror" 
+          [class.d-none]="showErrors( 'emp_nome' )">
+        Campo obrigatório, máximo 12 caracterers, iniciar com letra maiúscula.
+      </small>
+    </div>
 
     <!-- Campo de input do IP do Relógio -->
     <div class="form-group col-lg-3">
