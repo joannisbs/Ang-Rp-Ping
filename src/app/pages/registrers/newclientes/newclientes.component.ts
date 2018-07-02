@@ -19,6 +19,7 @@ export class NewclientesComponent implements OnInit {
   // tslint:disable-next-line:max-line-length
   public companysfull = [ { name: 'henry'} , {name: 'jaime'} , {name: 'carrocel'} , {name: 'Acre'} , {name: 'Alagoas'} , {name: 'Amapá'} , {name: 'Amazonas'} , {name: 'Bahia'} , {name: 'Ceará'} , {name: 'Distrito Federal'} , {name: 'Espírito Santo'} , {name: 'Goiás'} , {name: 'Maranhão'} , {name: 'Mato Grosso'} , {name: 'Mato Grosso do Sul'} , {name: 'Minas Gerais'} , {name: 'Pará'} , {name: 'Paraíba'} , {name: 'Paraná'} , {name: 'Pernambuco'} , {name: 'Piauí'} , {name: 'Rio de Janeiro'} , {name: 'Rio Grande do Norte'} , {name: 'Rio Grande do Sul'} , {name: 'Rondônia'} , {name: 'Roraima'} , {name: 'Santa Catarina'} , {name: 'São Paulo'} , {name: 'Sergipe'} , {name: 'Tocantins'} ];
   public companys = [];
+  public ocorreuSubmit = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,7 +36,9 @@ export class NewclientesComponent implements OnInit {
       Validators.maxLength(12)]]
 
     });
-
+  }
+  showErrors(value) {
+    return this.formulario.controls[ value ].valid || !(this.formulario.controls[ value].touched || this.ocorreuSubmit);
   }
   ShowDrop(value) {
     this.companys = this.companysfull.filter( obj => obj[ 'name' ].match( value ) );
@@ -45,19 +48,10 @@ export class NewclientesComponent implements OnInit {
     this.formulario.get('emp_nome').patchValue(value);
     this.show = false;
   }
-  showImage(value) {
-    this.showimg = true;
-    if (value) {
-      this.imagebutton = '/assets/icons/certoverde.png';
-    } else {
-      this.imagebutton = '/assets/icons/xred.png';
-    }
-  }
-  hideImage() {
-    this.showimg = false;
-  }
+
   onSubmit() {
     console.log(this.formulario.value);
+    this.ocorreuSubmit = true;
   }
 
 }

@@ -5,8 +5,8 @@
   
 
   <form [formGroup]="formulario" (ngSubmit)="onSubmit(formulario.value, formulario.valid)">
-    
-    <div class="form-row separador"></div>
+  
+    <div class="card classCardForm">
     
     <app-user-comum-form [userComumForm]="formulario"></app-user-comum-form>
     
@@ -17,13 +17,14 @@
         <input 
           type="text" 
           class="form-control classImputForm" 
+          [class.classBorderInvalid]="!showErrors( 'emp_nome' )"
           id="emp_nome" 
           placeholder="Pesquisar" 
           formControlName="emp_nome"     
           (keyup)="ShowDrop(formulario.controls['emp_nome'].value)" 
         > 
                 
-        <div class='input-group-addon' [class.d-none]="formulario.controls['emp_nome'].valid || !formulario.controls['emp_nome'].touched ">
+        <div class='input-group-addon' [class.d-none]="showErrors( 'emp_nome' )">
           <span >
             <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
           </span>
@@ -38,22 +39,22 @@
       <!-- Mensagem de ajuda -->
       <small id="nameHelpBlock" 
           class="form-text helptext" 
-          [class.classTextodeErro]="!formulario.controls['emp_nome'].valid && formulario.controls['emp_nome'].touched"
-          [class.text-muted]="formulario.controls['emp_nome'].valid || !formulario.controls['emp_nome'].touched ">
+          [class.classTextodeErro]="!showErrors( 'emp_nome' )"
+          [class.text-muted]="showErrors( 'emp_nome' ) ">
             Escolha uma opção.
       </small>
 
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
           class="form-text classTextodeErro" 
-          [class.d-none]="formulario.controls['emp_nome'].valid || !formulario.controls['emp_nome'].touched ">
+          [class.d-none]="showErrors( 'emp_nome' )">
         Campo obrigatório, máximo 12 caracterers, iniciar com letra maiúscula.
       </small>
     </div>
 
-    <div class="form-row separador"></div>
+    </div>
       
-    <div class="float-right" (mouseenter)="showImage(formulario.valid)" (mouseleave)="hideImage()" >
+    <div class="float-right">
       <button 
         type="submit" 
         class="btn-primary classSubmitButton"
