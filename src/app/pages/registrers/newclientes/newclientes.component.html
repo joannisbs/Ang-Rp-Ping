@@ -7,6 +7,7 @@
   <form [formGroup]="formulario" (ngSubmit)="onSubmit(formulario.value, formulario.valid)">
     
     <div class="form-row separador"></div>
+    
     <app-user-comum-form [userComumForm]="formulario"></app-user-comum-form>
     
     <div class="form-group col-md-6 classCentro">
@@ -55,16 +56,11 @@
     <div class="float-right" (mouseenter)="showImage(formulario.valid)" (mouseleave)="hideImage()" >
       <button 
         type="submit" 
-        class="btn btn-primary btn"
-        [class.indisponivel]="formulario.invalid" 
-        [class.valido]="formulario.valid"
+        class="btn-primary classSubmitButton"
+        [class.classFormInvalido]="formulario.invalid" 
+        [class.classFormValido]="formulario.valid"
       >
-        <img src= "{{ imagebutton }}" 
-          alt='icon' 
-          class='btnicon' 
-          [class.d-none]="!showimg"
-        >
-          Salvar Alterações
+        Salvar Alterações
       </button>
     </div>
   </form>
