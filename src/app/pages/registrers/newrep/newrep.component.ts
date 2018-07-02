@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { addressFormGroup } from '../components/address-form/address.interface';
 import { repFormGroup } from '../components/rep-form/rep.interface';
+import { telFormGroup } from '../components/tel-form/tel-form.interface';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class NewrepComponent implements OnInit {
   ngOnInit() {
     this.formulario = this.formBuilder.group ({
         ...repFormGroup,
-        ...addressFormGroup
+        ...addressFormGroup,
+        ...telFormGroup,
     });
   }
   onSubmit() {
