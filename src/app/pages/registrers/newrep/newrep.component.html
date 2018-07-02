@@ -6,17 +6,19 @@
 
   <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
     
-  <div class="form-row classLinhaDivisora"></div>
+  <div class="card classCardForm">
 
   <!-- Chama Componete referente ao cadastro do relogio -->  
   <app-rep-form [repForm]="formulario"[ocorreuSubmit]="ocorreuSbmit"></app-rep-form>
+</div>
+  <div class="card classCardForm">
   
-  <div class="form-row classLinhaDivisora"></div>
-
   <!-- Chama Componete referente ao cadastro do relogio -->
   <app-address-form [addressForm]="formulario" [ocorreuSubmit]="ocorreuSbmit"></app-address-form>
   
-  <div class="form-row classLinhaDivisora"></div>
+  </div>
+
+
 
   <!-- Botão submit -->
   <div class="float-right">
