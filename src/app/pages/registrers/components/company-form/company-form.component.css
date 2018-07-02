@@ -1,3 +1,4 @@
+
 .classMargemLateral {
     margin-left: 75px;
     margin-right: 75px;
@@ -43,38 +44,3 @@
     /* text-shadow: 1px 1px #6b86ff; */
     
 }
-.separador{
-    margin: 5px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    border-top: 1px solid #21237b;
-}
-
-.btn{
-    background-color: #21237b; 
-    font-size: 14px;
-    font-weight: 700;
-    color: #ffffff;
-    padding-bottom: 15px;
-}
-
-.btn:hover {
-    background-color: #10113B;
-    color: #ffffff;
-  }
-  
-.btn::before {
-    content: '';
-    display: block;
-    height: 5px;
-    width: 0%;
-    background-color: #ffffff;
-    position: relative;
-    top: 30px;
-    transition: all ease-in-out 250ms;
-  }
-  
-.btn:hover::before {
-    width: 100%;
-  }
-   

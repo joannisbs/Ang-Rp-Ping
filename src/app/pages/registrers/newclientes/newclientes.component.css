@@ -1,15 +1,6 @@
 @import url(./../../../generic/css-generico/botaoSubmit.css);
 @import url(./../../../generic/css-generico/tilulodapagina.css);
-
-.classMargemLateral {
-    margin-left: 75px;
-    margin-right: 75px;
-    margin-top: 30px;
-  }
-.classDivTitle{
-    margin: auto;
-}
-
+@import url(./../../../generic/css-generico/corpodepagina.css);
 
 .separador{
     margin: 5px;

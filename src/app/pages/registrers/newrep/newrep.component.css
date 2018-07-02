@@ -1,27 +1,3 @@
 @import url(./../../../generic/css-generico/botaoSubmit.css);
 @import url(./../../../generic/css-generico/tilulodapagina.css);
-
-/* Linha Divisora */
-.classLinhaDivisora{
-  /* Alterações de Corpo */
-  margin: 5px;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  /* Caracteristicas da Linha */
-  border-top: 1px solid #21237b;
-}
-
-/* Margem Lateral */
-.classMargemLateral {
-  /* Alterações de Corpo */
-  margin-left: 75px;
-  margin-right: 75px;
-  margin-top: 30px;
-}
-
-/* Margem Final da Página */
-.classMargimFimPagina{
-margin: 100px;
-}
-
-
+@import url(./../../../generic/css-generico/corpodepagina.css);
