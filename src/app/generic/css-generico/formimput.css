@@ -8,11 +8,16 @@
 .classImputForm {
     border-color:#21237b;
     border-radius: 10px !important;
+    background-color: white;
    
 }
 .classImputForm:focus {
     background-color: rgba(117, 165, 255, 0.226);
     border: 2px solid #21237b !important;
+}
+.classImputForm:read-only {
+    background-color: whitesmoke;
+   
 }
 .classIconedeInvalido {
     width: 20px;
