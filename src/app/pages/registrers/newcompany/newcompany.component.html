@@ -7,18 +7,20 @@
   
   <form [formGroup]="formulario" (ngSubmit)="onSubmit(formulario.value, formulario.valid)">
     
-    <div class="form-row classLinhaDivisora"></div>
+    <!-- <div class="form-row classLinhaDivisora"></div> -->
 
     <!-- Chama Componete referente ao cadastro da empresa -->
-    <div class="card classCard">
+    <div class="card classCardForm">
       <app-company-form [companyForm]="formulario" [ocorreuSubmit]="ocorreuSubmit"></app-company-form>
     </div>
-    <div class="form-row classLinhaDivisora"></div>
+    <!-- <div class="form-row classLinhaDivisora"></div> -->
 
     <!-- Chama Componete referente ao cadastro de endereço -->
+    <div class="card classCardForm">
     <app-address-form [addressForm]="formulario" [ocorreuSubmit]="ocorreuSubmit"></app-address-form>
-    
-    <div class="form-row classLinhaDivisora"></div>
+    </div>
+
+    <!-- <div class="form-row classLinhaDivisora"></div> -->
 
     <!-- Botão submit -->
     <div class="float-right">
