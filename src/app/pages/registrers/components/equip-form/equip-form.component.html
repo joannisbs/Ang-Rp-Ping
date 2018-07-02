@@ -6,7 +6,7 @@
     <!-- Campo de input do nome da empresa -->
     <div class="form-group col-lg-4">
 
-      <label class="LabelForm" for="reps_marca">Marca:</label>
+      <label class="classLabelForm" for="reps_marca">Marca:</label>
       <div class="input-group">
         
         <input 
@@ -37,7 +37,7 @@
     <!-- Campo de input do nome da empresa -->
     <div class="form-group col-lg-4">
 
-      <label class="LabelForm" for="reps_modelo">Modelo:</label>
+      <label class="classLabelForm" for="reps_modelo">Modelo:</label>
       <div class="input-group">
         
         <input 
@@ -69,28 +69,28 @@
       
       <div class="borderchek ">
         <div class="alinhamentoLeitor">
-          <label class="LabelForm" for="reps_modelo">Leitor:</label>
+          <label class="classLabelForm" for="reps_modelo">Leitor:</label>
         </div>
         
         <div class="alinhamentoColuna">
-          <label class="checkbox-inline LabelForm check" (click)="showImage(!equipForm.controls['reps_CheckAzul'].value , 0)">
+          <label class="checkbox-inline classLabelForm check" (click)="showImage(!equipForm.controls['reps_CheckAzul'].value , 0)">
             <img src="{{ imagebutton[0] }}" alt="icon" class="icon">
             <input formControlName="reps_CheckAzul" id="reps_CheckAzul" class="d-none" type="checkbox" value="">Azul
           </label>
 
-          <label class="checkbox-inline LabelForm check" (click)="showImage(!equipForm.controls['reps_CheckVerde'].value , 1)">
+          <label class="checkbox-inline classLabelForm check" (click)="showImage(!equipForm.controls['reps_CheckVerde'].value , 1)">
             <img src="{{ imagebutton[1] }}" alt="icon" class="icon">
             <input formControlName="reps_CheckVerde" id="reps_CheckVerde"  type="checkbox" class="d-none" value="">Verde
           </label>
         </div>
 
         <div class="alinhamentoColuna">
-          <label class="checkbox-inline LabelForm check" (click)="showImage(!equipForm.controls['reps_CheckBranco'].value , 2)">
+          <label class="checkbox-inline classLabelForm check" (click)="showImage(!equipForm.controls['reps_CheckBranco'].value , 2)">
             <img src="{{ imagebutton[2] }}" alt="icon" class="icon">
             <input formControlName="reps_CheckBranco"  id="reps_CheckBranco"  class="d-none" type="checkbox" value="">Branco
           </label>
 
-          <label class="checkbox-inline LabelForm check" (click)="showImage(!equipForm.controls['reps_CheckVermelho'].value , 3)">
+          <label class="checkbox-inline classLabelForm check" (click)="showImage(!equipForm.controls['reps_CheckVermelho'].value , 3)">
             <img src="{{ imagebutton[3] }}" alt="icon" class="icon">
             <input formControlName="reps_CheckVermelho" id="reps_CheckVermelho"  class="d-none" type="checkbox" value="">Vermelho
           </label>
