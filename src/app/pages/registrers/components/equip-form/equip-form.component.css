@@ -3,15 +3,21 @@
     margin-right: 75px;
     margin-top: 30px;
   }
-.ng-invalid.ng-touched.formm {
-    border: 1px solid red;
-    border-radius: 10px;
+.classBorderInvalid {
+    border: 2px solid red !important;
+    background-color: rgb(255, 200, 200, 0.2);
+    border-radius: 12px;
+
     
 }
 .formm {
     border-color:#21237b;
     border-radius: 10px !important;
    
+}
+.formm:focus {
+    background-color: rgba(117, 165, 255, 0.226);
+    border: 2px solid #21237b !important;
 }
 .erroicon {
     width: 20px;
