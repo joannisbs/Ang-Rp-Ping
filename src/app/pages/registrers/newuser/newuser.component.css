@@ -1,22 +1,17 @@
 @import url(./../../../generic/css-generico/botaoSubmit.css);
 @import url(./../../../generic/css-generico/tilulodapagina.css);
 @import url(./../../../generic/css-generico/corpodepagina.css);
+@import url(./../../../generic/css-generico/formimput.css);
+@import url(./../../../generic/css-generico/cardform.css);
 
-  .classLabelForm{
-    width: 100px;
-    align-content: center;
-    padding-top: 3px;
-    color: #21237b;
-    border: none;
-    margin-left: 5px;
-    font-size: 18px;
-    font-weight: 700;
-    font-style: italic;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
+.classLabelForm{
+  width: 100px;
+  align-content: center;
+  padding-top: 3px;
+  
+  margin-left: 5px;
+  
+}
   
 
 /* Customisa Campo de Escolha do Tipo De COnta */
