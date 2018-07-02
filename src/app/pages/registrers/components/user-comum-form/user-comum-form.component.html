@@ -10,6 +10,7 @@
         <input 
           type="text" 
           class="form-control classImputForm" 
+          [class.classBorderInvalid]=" !showErrors( 'user_login' )"
           id="user_login" 
           placeholder="Digite o Login" 
           formControlName="user_login" 
@@ -17,7 +18,7 @@
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' 
-          [class.d-none]="userComumForm.controls['user_login'].valid || !userComumForm.controls['user_login'].touched "
+          [class.d-none]="showErrors( 'user_login' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
@@ -27,7 +28,7 @@
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
           class="form-text classTextodeErro" 
-          [class.d-none]="userComumForm.controls['user_login'].valid || !userComumForm.controls['user_login'].touched ">
+          [class.d-none]="showErrors( 'user_login' )">
         Campo obrigatório.
       </small>
   
@@ -40,6 +41,7 @@
         <input 
           type="text" 
           class="form-control classImputForm" 
+          [class.classBorderInvalid]=" !showErrors( 'user_psw' )"
           id="user_psw" 
           placeholder="Digite a Senha" 
           formControlName="user_psw" 
@@ -47,7 +49,7 @@
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' 
-          [class.d-none]="userComumForm.controls['user_psw'].valid || !userComumForm.controls['user_psw'].touched "
+          [class.d-none]="showErrors( 'user_psw' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
@@ -56,7 +58,7 @@
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
           class="form-text classTextodeErro" 
-          [class.d-none]="userComumForm.controls['user_psw'].valid || !userComumForm.controls['user_psw'].touched ">
+          [class.d-none]="showErrors( 'user_psw' )">
         Campo obrigatório.
       </small>
     
@@ -68,6 +70,7 @@
 
         <input 
           type="text" 
+          [class.classBorderInvalid]=" !showErrors( 'user_re_psw' )"
           class="form-control classImputForm" 
           id="user_re_psw" 
           placeholder="Confirme a Senha" 
@@ -76,7 +79,7 @@
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' 
-          [class.d-none]="userComumForm.controls['user_re_psw'].valid || !userComumForm.controls['user_re_psw'].touched "
+          [class.d-none]="showErrors( 'user_re_psw' )"
         >
           <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
@@ -85,7 +88,7 @@
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
           class="form-text classTextodeErro" 
-          [class.d-none]="userComumForm.controls['user_re_psw'].valid || !userComumForm.controls['user_re_psw'].touched ">
+          [class.d-none]="showErrors( 'user_re_psw' )">
         Campo obrigatório.
       </small>
       <div class="classSeparador"></div>

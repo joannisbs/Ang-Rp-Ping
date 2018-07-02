@@ -10,9 +10,15 @@ export class UserComumFormComponent implements OnInit {
   @Input()
   userComumForm;
 
+  @Input()
+  ocorreuSubmit;
+
 
   constructor() { }
 
   ngOnInit() { }
 
+  showErrors(value) {
+    return this.userComumForm.controls[ value ].valid || !(this.userComumForm.controls[ value].touched || this.ocorreuSubmit);
+  }
 }
