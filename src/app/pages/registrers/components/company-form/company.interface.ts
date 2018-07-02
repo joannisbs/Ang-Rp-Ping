@@ -27,7 +27,7 @@ export const companyFormGroup = {
     empdata_email: ['',
         [Validators.required,
         Validators.maxLength(45),
-        Validators.pattern('[^@]+@[^@]+\.[a-zA-Z]{2,6}')]],
+        Validators.pattern(/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i)]],
 
     empdata_tel: ['',
         [Validators.required,
