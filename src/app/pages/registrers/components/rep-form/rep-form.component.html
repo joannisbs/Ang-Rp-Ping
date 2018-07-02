@@ -24,21 +24,21 @@
         <span class='input-group-addon' 
           [class.d-none]="showErrors( 'rep_nome' )"
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de ajuda -->
       <small id="nameHelpBlock" 
           class="form-text helptext" 
-          [class.texterror]="!showErrors( 'rep_nome' )"
+          [class.classTextodeErro]="!showErrors( 'rep_nome' )"
           [class.text-muted]="showErrors( 'rep_nome' )">
         Será exibido na tela Ping.
       </small>
 
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
-          class="form-text texterror" 
+          class="form-text classTextodeErro" 
           [class.d-none]="showErrors( 'rep_nome' )">
         Campo obrigatório, máximo 12 caracterers.
       </small>
@@ -66,7 +66,7 @@
             
         <div class='input-group-addon' [class.d-none]="showErrors( 'emp_nome' )">
           <span>
-            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+            <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
           </span>
         </div>
         <div class="input-group-append">
@@ -79,14 +79,14 @@
       <!-- Mensagem de ajuda -->
       <small id="nameHelpBlock" 
           class="form-text helptext" 
-          [class.texterror]="!showErrors( 'emp_nome' )"
+          [class.classTextodeErro]="!showErrors( 'emp_nome' )"
           [class.text-muted]="showErrors( 'emp_nome' )">
             Escolha uma opção.
       </small>
 
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
-          class="form-text texterror" 
+          class="form-text classTextodeErro" 
           [class.d-none]="showErrors( 'emp_nome' )">
         Campo obrigatório, máximo 12 caracterers, iniciar com letra maiúscula.
       </small>
@@ -114,14 +114,14 @@
         <span class='input-group-addon' 
           [class.d-none]="showErrors( 'rep_ip' )"
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
       <small 
         id="nameHelpBlock" 
-        class="form-text texterror" 
+        class="form-text classTextodeErro" 
         [class.d-none]="showErrors( 'rep_ip' )"
       >
         Campo obrigatório.
@@ -150,13 +150,13 @@
           class='input-group-addon' 
           [class.d-none]="showErrors( 'rep_port' )"
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>  
       <!-- Mensagem de erro -->
       <small 
         id="nameHelpBlock" 
-        class="form-text texterror" 
+        class="form-text classTextodeErro" 
         [class.d-none]="showErrors( 'rep_port' )"
       >
         Campo obrigatório. 
@@ -190,7 +190,7 @@
         <!-- Icone de X has error -->    
         <div class='input-group-addon' [class.d-none]="showErrors( 'reps_marca' )">
           <span >
-            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+            <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
           </span>
         </div>
         <div class="input-group-append">   
@@ -203,14 +203,14 @@
     <!-- Mensagem de ajuda -->
     <small id="nameHelpBlock" 
         class="form-text helptext" 
-        [class.texterror]="!showErrors( 'reps_marca' )"
+        [class.classTextodeErro]="!showErrors( 'reps_marca' )"
         [class.text-muted]="showErrors( 'reps_marca' )">
           Pesquise por marca ou modelo.
     </small>
 
     <!-- Mensagem de erro -->
     <small id="nameHelpBlock" 
-        class="form-text texterror" 
+        class="form-text classTextodeErro" 
         [class.d-none]="showErrors( 'reps_marca' )">
       Campo obrigatório.
     </small>
@@ -237,13 +237,13 @@
         <span class='input-group-addon' 
           [class.d-none]="showErrors( 'reps_modelo' )"
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
-          class="form-text texterror" 
+          class="form-text classTextodeErro" 
           [class.d-none]="showErrors( 'reps_modelo' )">
         Campo obrigatório.
       </small>
@@ -268,12 +268,12 @@
         <span class='input-group-addon' 
           [class.d-none]="showErrors( 'leitr_leitor' )"
          >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
-          class="form-text texterror" 
+          class="form-text classTextodeErro" 
           [class.d-none]="showErrors( 'leitr_leitor' )">
         Campo obrigatório.
       </small>
@@ -300,13 +300,13 @@
         <span class='input-group-addon' 
           [class.d-none]="showErrors( 'repdata_serienum' )"
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
-          class="form-text texterror" 
+          class="form-text classTextodeErro" 
           [class.d-none]="showErrors( 'repdata_serienum' )">
         Campo obrigatório.
       </small>
@@ -339,14 +339,14 @@
         <span class='input-group-addon' 
           [class.d-none]="showErrors( 'repdata_cnpjcompra' )"
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
       <small 
         id="nameHelpBlock" 
-        class="form-text texterror" 
+        class="form-text classTextodeErro" 
         [class.d-none]="showErrors( 'repdata_cnpjcompra' )"
       >
         Campo obrigatório.
@@ -375,14 +375,14 @@
           <span class='input-group-addon' 
             [class.d-none]="showErrors( 'repdata_mod' )"
           >
-            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+            <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
           </span>
         </div>
   
         <!-- Mensagem de erro -->
         <small 
           id="nameHelpBlock" 
-          class="form-text texterror" 
+          class="form-text classTextodeErro" 
           [class.d-none]="showErrors( 'repdata_mod' )"
         >
           Campo obrigatório.
@@ -411,14 +411,14 @@
         <span class='input-group-addon' 
           [class.d-none]="showErrors( 'repdata_chaveregistro' )"
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
       <small 
         id="nameHelpBlock" 
-        class="form-text texterror" 
+        class="form-text classTextodeErro" 
         [class.d-none]="showErrors( 'repdata_chaveregistro' )"
       >
         Campo obrigatório.
@@ -447,14 +447,14 @@
         <span class='input-group-addon' 
           [class.d-none]="showErrors( 'repdata_senhacomunic' )"
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
       <small 
         id="nameHelpBlock" 
-        class="form-text texterror" 
+        class="form-text classTextodeErro" 
         [class.d-none]="showErrors( 'repdata_senhacomunic' )"
       >
         Campo obrigatório.
@@ -481,14 +481,14 @@
         <span class='input-group-addon' 
           [class.d-none]="showErrors( 'end_ref' )"
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
       <small 
         id="nameHelpBlock" 
-        class="form-text texterror" 
+        class="form-text classTextodeErro" 
         [class.d-none]="showErrors( 'end_ref' )"
       >
         Campo obrigatório.
@@ -515,14 +515,14 @@
         <span class='input-group-addon' 
           [class.d-none]="showErrors( 'end_ref' )"
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
       <small 
         id="nameHelpBlock" 
-        class="form-text texterror" 
+        class="form-text classTextodeErro" 
         [class.d-none]="showErrors( 'end_ref' )"
       >
         Campo obrigatório.
@@ -552,14 +552,14 @@
           <span class='input-group-addon' 
             [class.d-none]="showErrors( 'end_ref' )"
           >
-            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+            <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
           </span>
         </div>
   
         <!-- Mensagem de erro -->
         <small 
           id="nameHelpBlock" 
-          class="form-text texterror" 
+          class="form-text classTextodeErro" 
           [class.d-none]="showErrors( 'end_ref' )"
         >
           Campo obrigatório.

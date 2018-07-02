@@ -25,7 +25,7 @@
                 
         <div class='input-group-addon' [class.d-none]="formulario.controls['emp_nome'].valid || !formulario.controls['emp_nome'].touched ">
           <span >
-            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+            <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
           </span>
         </div>
         <div class="input-group-append"> 
@@ -38,14 +38,14 @@
       <!-- Mensagem de ajuda -->
       <small id="nameHelpBlock" 
           class="form-text helptext" 
-          [class.texterror]="!formulario.controls['emp_nome'].valid && formulario.controls['emp_nome'].touched"
+          [class.classTextodeErro]="!formulario.controls['emp_nome'].valid && formulario.controls['emp_nome'].touched"
           [class.text-muted]="formulario.controls['emp_nome'].valid || !formulario.controls['emp_nome'].touched ">
             Escolha uma opção.
       </small>
 
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
-          class="form-text texterror" 
+          class="form-text classTextodeErro" 
           [class.d-none]="formulario.controls['emp_nome'].valid || !formulario.controls['emp_nome'].touched ">
         Campo obrigatório, máximo 12 caracterers, iniciar com letra maiúscula.
       </small>

@@ -21,14 +21,14 @@
         <span class='input-group-addon' 
           [class.d-none]="equipForm.controls['reps_marca'].valid || !equipForm.controls['reps_marca'].touched "
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
 
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
-          class="form-text texterror" 
+          class="form-text classTextodeErro" 
           [class.d-none]="equipForm.controls['reps_marca'].valid || !equipForm.controls['reps_marca'].touched ">
         Campo obrigatório.
       </small>
@@ -52,13 +52,13 @@
         <span class='input-group-addon' 
           [class.d-none]="equipForm.controls['reps_modelo'].valid || !equipForm.controls['reps_modelo'].touched "
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
-          class="form-text texterror" 
+          class="form-text classTextodeErro" 
           [class.d-none]="equipForm.controls['reps_modelo'].valid || !equipForm.controls['reps_modelo'].touched ">
         Campo obrigatório.
       </small>

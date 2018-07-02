@@ -19,14 +19,14 @@
         <span class='input-group-addon' 
           [class.d-none]="userComumForm.controls['user_login'].valid || !userComumForm.controls['user_login'].touched "
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
 
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
-          class="form-text texterror" 
+          class="form-text classTextodeErro" 
           [class.d-none]="userComumForm.controls['user_login'].valid || !userComumForm.controls['user_login'].touched ">
         Campo obrigatório.
       </small>
@@ -49,13 +49,13 @@
         <span class='input-group-addon' 
           [class.d-none]="userComumForm.controls['user_psw'].valid || !userComumForm.controls['user_psw'].touched "
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
-          class="form-text texterror" 
+          class="form-text classTextodeErro" 
           [class.d-none]="userComumForm.controls['user_psw'].valid || !userComumForm.controls['user_psw'].touched ">
         Campo obrigatório.
       </small>
@@ -78,13 +78,13 @@
         <span class='input-group-addon' 
           [class.d-none]="userComumForm.controls['user_re_psw'].valid || !userComumForm.controls['user_re_psw'].touched "
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
-          class="form-text texterror" 
+          class="form-text classTextodeErro" 
           [class.d-none]="userComumForm.controls['user_re_psw'].valid || !userComumForm.controls['user_re_psw'].touched ">
         Campo obrigatório.
       </small>

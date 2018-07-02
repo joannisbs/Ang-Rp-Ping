@@ -25,21 +25,21 @@
         <span class='input-group-addon' 
           [class.d-none]=" showErrors( 'emp_nome' )"
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de ajuda -->
       <small id="nameHelpBlock" 
           class="form-text" 
-          [class.texterror]=" !showErrors( 'emp_nome' )"
+          [class.classTextodeErro]=" !showErrors( 'emp_nome' )"
           [class.text-muted]=" showErrors( 'emp_nome' )">
         Será exibido na tela Ping.
       </small>
 
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" 
-          class="form-text texterror" 
+          class="form-text classTextodeErro" 
           [class.d-none]=" showErrors( 'emp_nome' )">
         Campo obrigatório, máximo 12 caracterers, iniciar com letra maiúscula.
       </small>
@@ -67,14 +67,14 @@
         <span class='input-group-addon' 
           [class.d-none]=" showErrors( 'empdata_cnpj' )"
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
       <small 
         id="nameHelpBlock" 
-        class="form-text texterror" 
+        class="form-text classTextodeErro" 
         [class.d-none]=" showErrors( 'empdata_cnpj' )"
       >
         Campo obrigatório.
@@ -103,13 +103,13 @@
           class='input-group-addon' 
           [class.d-none]="showErrors( 'empdata_resp' )"
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>  
       <!-- Mensagem de erro -->
       <small 
         id="nameHelpBlock" 
-        class="form-text texterror" 
+        class="form-text classTextodeErro" 
         [class.d-none]="showErrors( 'empdata_resp' )"
       >
         Campo obrigatório. 
@@ -142,14 +142,14 @@
           class='input-group-addon' 
           [class.d-none]="showErrors( 'empdata_razao' )"
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
       <small 
         id="nameHelpBlock" 
-        class="form-text texterror" 
+        class="form-text classTextodeErro" 
         [class.d-none]="showErrors( 'empdata_razao' )"
       >
         Campo obrigatório.
@@ -180,13 +180,13 @@
           class='input-group-addon' 
           [class.d-none]="showErrors( 'empdata_tel' )" 
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
       <!-- Mensagem de erro -->
       <small 
         id="nameHelpBlock" 
-        class="form-text texterror" 
+        class="form-text classTextodeErro" 
         [class.d-none]="showErrors( 'empdata_tel' )"
       >
         Campo obrigatório, coloque o DDD
@@ -222,14 +222,14 @@
           class='input-group-addon' 
           [class.d-none]="showErrors( 'empdata_email' )"
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->   
       <small 
         id="nameHelpBlock" 
-        class="form-text texterror" 
+        class="form-text classTextodeErro" 
         [class.d-none]="showErrors( 'empdata_email' )"
       >
         Campo Obrigatório.
@@ -258,14 +258,14 @@
           class='input-group-addon' 
           [class.d-none]="showErrors( 'emp_tela' )"
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de ajuda --> 
       <small id="nameHelpBlock" 
         class="form-text" 
-        [class.texterror]="!showErrors( 'emp_tela' )"
+        [class.classTextodeErro]="!showErrors( 'emp_tela' )"
         [class.text-muted]="showErrors( 'emp_tela' ) "
       >
 
@@ -275,7 +275,7 @@
       <!-- Mensagem de erro -->  
       <small 
         id="nameHelpBlock" 
-        class="form-text texterror" 
+        class="form-text classTextodeErro" 
         [class.d-none]="showErrors( 'emp_tela' )"
       >
 
@@ -302,7 +302,7 @@
         <!-- Icone de X has error -->
         <span class='input-group-addon' 
           [class.d-none]="showErrors( 'emp_linha' )">
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>  
 
@@ -310,7 +310,7 @@
       <small 
         id="nameHelpBlock" 
         class="form-text" 
-        [class.texterror]="!showErrors( 'emp_linha' )"
+        [class.classTextodeErro]="!showErrors( 'emp_linha' )"
         [class.text-muted]="showErrors( 'emp_linha' ) "
       >
 
@@ -320,7 +320,7 @@
       <!-- Mensagem de erro -->  
       <small 
         id="nameHelpBlock" 
-        class="form-text texterror" 
+        class="form-text classTextodeErro" 
         [class.d-none]="showErrors( 'emp_linha' )"
       >
         Campo obrigatório, 0-10. 
@@ -349,14 +349,14 @@
           class='input-group-addon' 
           [class.d-none]="showErrors( 'emp_coluna' )"
         >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div> 
 
       <!-- Mensagem de ajuda --> 
       <small id="nameHelpBlock" 
         class="form-text" 
-        [class.texterror]="!showErrors( 'emp_coluna' )"
+        [class.classTextodeErro]="!showErrors( 'emp_coluna' )"
         [class.text-muted]="showErrors( 'emp_coluna' ) "
       >
         A coluna do ping que será exibido a empresa.
@@ -365,7 +365,7 @@
       <!-- Mensagem de erro -->
       <small 
         id="nameHelpBlock" 
-        class="form-text texterror" 
+        class="form-text classTextodeErro" 
         [class.d-none]="showErrors( 'emp_coluna' ) "
       >
         Campo obrigatório. 

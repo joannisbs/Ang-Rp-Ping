@@ -10,7 +10,7 @@
     border-radius: 10px !important;
    
 }
-.erroicon {
+.classIconedeInvalido {
     width: 20px;
     padding-top: 4px; 
     align-self: center;
@@ -19,7 +19,7 @@
     border-radius: 10px;
 
 }
-.texterror{
+.classTextodeErro{
     color: red;
     -webkit-user-select: none;
     -moz-user-select: none;
