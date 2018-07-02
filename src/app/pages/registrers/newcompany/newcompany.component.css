@@ -3,15 +3,6 @@
 @import url(./../../../generic/css-generico/corpodepagina.css);
 @import url(./../../../generic/css-generico/cardform.css);
     
-/* Atributos Texto de Erro */
-.classTextError{
-    color: red !important;
-   
-    font-size: 30px !important;
-    font-style: normal !important;
-    text-shadow: 1px 3px darkred;
-    font-weight: 1200 !important;
-}
 /* Modal Customisação */
 .modal-backdrop{
 

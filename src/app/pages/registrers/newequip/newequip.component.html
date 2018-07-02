@@ -7,12 +7,12 @@
   
     <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
       
-      <div class="form-row classLinhaDivisora"></div>
+      <div class="card classCardForm">
   
       <!-- Chama Componete referente ao cadastro de um modelo novo de relógio -->  
       <app-equip-form [equipForm]="formulario"></app-equip-form>
       
-      <div class="form-row classLinhaDivisora"></div>
+      </div>
       
       <!-- Botão submit -->
       <div class="float-right" (mouseenter)="showImage(formulario.valid)" (mouseleave)="hideImage()" >
