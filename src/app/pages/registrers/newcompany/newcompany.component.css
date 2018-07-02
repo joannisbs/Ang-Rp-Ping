@@ -136,6 +136,7 @@ margin: 100px;
         border-color:transparent;
         border-bottom: 2px solid green !important;
         border-right: 2px solid green !important;
+        margin-top: 12px !important;
     }
     /* Evento de hover */
     .classFormValido.classSubmitButton:hover {
