@@ -1,3 +1,4 @@
+@import url(./../../../generic/css-generico/botaoSubmit.css);
 
 /* Label Title */
 .classLabelTitle{
@@ -46,119 +47,6 @@ margin: 100px;
 }
 
 
-/* Botão de Submit*/
-.classSubmitButton{
-    /* Alterações de Corpo */
-    background-color: #21237b; 
-    border: 4px solid #21237b;
-    border-radius: 15px;
-    padding-top: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 15px;
-    box-shadow: 2px 5px #10113B; 
-    
-    /* ALterações de Texto */
-    font-size: 14px;
-    font-weight: 700;
-    color: #ffffff;
-
-    /* Deixar Objeto Não Selecionavel */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
-}
-
-/* Caso Formulario Invalido */
-    /* Bloqueando cursor e tirando borda */
-    .classFormInvalido{
-        cursor: not-allowed;
-        outline: none;
-        box-shadow: 2px 5px #10113B; 
-    }
-
-    /* Removendo quadrado de foco */
-    .classFormInvalido:focus{
-        outline-style:none;
-        box-shadow: 2px 5px #10113B; 
-        border-color:transparent;
-    }
-    /* Evento Click */
-    .classFormInvalido.classSubmitButton:active{
-        outline-style:none;
-        box-shadow: 2px 5px #10113B !important; 
-        border-color:transparent;
-    }
-
-    /* Evento de hover */
-    .classFormInvalido.classSubmitButton:hover {
-        background-color: #10113B;
-        color: red;
-        border: 4px solid red;
-
-    }
-    /* Criando Barra Sublinhada */
-    .classFormInvalido.classSubmitButton::before {
-        content: '';
-        display: block;
-        height: 5px;
-        width: 0%;
-        background-color: red;
-        position: relative;
-        top: 30px;
-        transition: all ease-in-out 250ms;
-    }
-    /* Tamanho máximo da Barra */
-    .classFormInvalido.classSubmitButton:hover::before {
-        width: 100%;
-    }
-
-
-/* Caso Valido */
-    .classFormValido{
-        cursor: pointer;
-        outline: none;
-        box-shadow: 2px 5px #10113B; 
-    }
-
-    /* Removendo quadrado de foco */
-    .classFormValido:focus{
-        outline-style:none;
-        box-shadow: 2px 5px #10113B; 
-        border-color:transparent;
-    }
-    /* Evento Click */
-    .classFormValido.classSubmitButton:active{
-        outline-style:none;
-        box-shadow: 1px 2px #0C0D2E !important; 
-        border-color:transparent;
-        border-bottom: 2px solid green !important;
-        border-right: 2px solid green !important;
-        margin-top: 12px !important;
-    }
-    /* Evento de hover */
-    .classFormValido.classSubmitButton:hover {
-        background-color: #10113B;
-        color: green;
-        border: 4px solid green;
-    }
-     /* Criando Barra Sublinhada */
-    .classFormValido.classSubmitButton::before {
-        content: '';
-        display: block;
-        height: 5px;
-        width: 0%;
-        background-color: green;
-        position: relative;
-        top: 30px;
-        transition: all ease-in-out 250ms;
-    }
-    /* Tamanho máximo da Barra */
-    .classFormValido.classSubmitButton:hover::before {
-        width: 100%;
-    }
     
 /* Atributos Texto de Erro */
 .classTextError{
@@ -278,4 +166,8 @@ margin: 100px;
 /* Tamanho máximo da Barra */
 .classModalBotao:hover::before {
     width: 100%;
+}
+
+.classCard{
+    padding: 20px;
 }

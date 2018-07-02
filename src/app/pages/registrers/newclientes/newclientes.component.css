@@ -1,3 +1,5 @@
+@import url(./../../../generic/css-generico/botaoSubmit.css);
+
 .classMargemLateral {
     margin-left: 75px;
     margin-right: 75px;
@@ -36,64 +38,6 @@
     padding-bottom: 15px;
     /* padding-left: 60px; */
 }
-
-.btn:hover {
-    background-color: #10113B;
-    color: #ffffff;
-  }
-  
-.btn::before {
-    content: '';
-    display: block;
-    height: 5px;
-    width: 0%;
-    background-color: #ffffff;
-    position: relative;
-    top: 30px;
-    transition: all ease-in-out 250ms;
-  }
-  
-.btn:hover::before {
-    width: 100%;
-  }
-
-.indisponivel.btn:hover {
-    background-color: #10113B;
-    color: red;
-  }
-
-.indisponivel.btn::before {
-    content: '';
-    display: block;
-    height: 5px;
-    width: 0%;
-    background-color: red;
-    position: relative;
-    top: 30px;
-    transition: all ease-in-out 250ms;
-}
-.indisponivel.btn:hover::before {
-    width: 100%;
-  }
-
-.valido.btn:hover {
-    background-color: #10113B;
-    color: green;
-  }
-
-.valido.btn::before {
-    content: '';
-    display: block;
-    height: 5px;
-    width: 0%;
-    background-color: green;
-    position: relative;
-    top: 30px;
-    transition: all ease-in-out 250ms;
-}
-.valido.btn:hover::before {
-    width: 100%;
-  }
   
 
 .btnicon {
