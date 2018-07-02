@@ -26,5 +26,6 @@
         cnpj = cnpj + cpf_cnpj.substring(12, 14);
         return (cnpj);
     }
-}
+    return 'ValorInvalido';
+};
 

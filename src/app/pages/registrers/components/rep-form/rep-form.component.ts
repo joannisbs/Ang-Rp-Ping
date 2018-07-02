@@ -203,9 +203,10 @@ leitorfull = [{id:  0, leitor: 'vermelho'},
     return this.repForm.controls[ value ].valid || !(this.repForm.controls[ value].touched || this.ocorreuSubmit);
   }
   arrumaCNPJ(value, campo) {
-    let res = arrumaCNPJouCpf(value);
+    const res = arrumaCNPJouCpf(value);
     this.repForm.get(campo).patchValue(res);
   }
-};
+}
+
 
 
