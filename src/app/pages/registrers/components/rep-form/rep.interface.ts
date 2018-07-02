@@ -12,11 +12,8 @@ export const repFormGroup = {
     rep_ip: ['',
     [Validators.required,
     Validators.maxLength(45),
-    Validators.pattern('(10\.26\..{1,3}\..{1,3})|' +
-        '(10\.115\..{1,3}\..{1,3})|' +
-        '(10\.50\..{1,3}\..{1,3})|' +
-        '(172\.40\..{1,3}\..{1,3})|' +
-        '([a-z]+\.modrp\.com)')]],
+    // tslint:disable-next-line:max-line-length
+    Validators.pattern(/(10\.26\..{1,3}\..{1,3})|(10\.115\..{1,3}\..{1,3})|(10\.50\..{1,3}\..{1,3})(172\.40\..{1,3}\..{1,3})([a-z]+\.modrp\.com)/ig )]],
 
     rep_port: ['',
     [Validators.required,
@@ -32,7 +29,8 @@ export const repFormGroup = {
     [Validators.required]],
 
     repdata_serienum: ['',
-    [Validators.required]],
+    [Validators.required,
+    Validators.minLength(17)]],
 
     repdata_cnpjcompra: ['',
     [Validators.required,
@@ -44,7 +42,8 @@ export const repFormGroup = {
     + '^([0-9]{11})$')]],
 
     repdata_chaveregistro: ['',
-    [Validators.required]],
+    [Validators.required,
+    Validators.maxLength(12)]],
 
     repdata_senhacomunic: ['',
     [Validators.required]],
@@ -56,7 +55,9 @@ export const repFormGroup = {
     [Validators.required]],
 
     repdata_cpf: ['',
-    [Validators.required]],
+    [Validators.required,
+    Validators.pattern('^([0-9]{3}[\.][0-9]{3}[\.][0-9]{3}(()|(-))[0-9]{2})$|'
+    + '^([0-9]{11})$')]],
 
     repdata_mod: ['',
     [Validators.required]],

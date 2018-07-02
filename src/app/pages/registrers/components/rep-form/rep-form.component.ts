@@ -1,6 +1,8 @@
 import { Validators } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
 
+import { arrumaCNPJouCpf } from './../../../../generic/funcoes-genericas/arrumaCPFouCNPJ.function';
+
 @Component({
   selector: 'app-rep-form',
   templateUrl: './rep-form.component.html',
@@ -162,7 +164,7 @@ leitorfull = [{id:  0, leitor: 'vermelho'},
     this.show = false;
 
   }
- 
+
   ShowDShowDropMarcaModelrep(value) {
     const marca = this.modelsfull.filter( obj => obj[ 'reps_marca' ].toLowerCase().match( value ) );
     const modelo = this.modelsfull.filter( obj => obj[ 'reps_modelo' ].toLowerCase().match( value ) );
@@ -200,32 +202,10 @@ leitorfull = [{id:  0, leitor: 'vermelho'},
   showErrors(value) {
     return this.repForm.controls[ value ].valid || !(this.repForm.controls[ value].touched || this.ocorreuSubmit);
   }
-  arrumaCNPJ(cpf_cnpj) {
-    cpf_cnpj = cpf_cnpj.replace(/\./g , '');
-    cpf_cnpj = cpf_cnpj.replace('\-', '');
-    cpf_cnpj = cpf_cnpj.replace('\/', '');
-    console.log(cpf_cnpj);
-    if (cpf_cnpj.length === 11) {
-      let cpf = cpf_cnpj.substring(0, 3);
-      cpf = cpf + '.';
-      cpf = cpf + cpf_cnpj.substring(3, 6);
-      cpf = cpf + '.';
-      cpf = cpf + cpf_cnpj.substring(6, 9);
-      cpf = cpf + '-';
-      cpf = cpf + cpf_cnpj.substring(9, 11);
-      this.repForm.get('repdata_cnpjcompra').patchValue(cpf);
-    }
-    if (cpf_cnpj.length === 14) {
-      let cnpj = cpf_cnpj.substring(0, 2);
-      cnpj = cnpj + '.';
-      cnpj = cnpj + cpf_cnpj.substring(2, 5);
-      cnpj = cnpj + '.';
-      cnpj = cnpj + cpf_cnpj.substring(5, 8);
-      cnpj = cnpj + '/';
-      cnpj = cnpj + cpf_cnpj.substring(8, 12);
-      cnpj = cnpj + '-';
-      cnpj = cnpj + cpf_cnpj.substring(12, 14);
-      this.repForm.get('repdata_cnpjcompra').patchValue(cnpj);
-    }
+  arrumaCNPJ(value, campo) {
+    let res = arrumaCNPJouCpf(value);
+    this.repForm.get(campo).patchValue(res);
   }
-}
+};
+
+

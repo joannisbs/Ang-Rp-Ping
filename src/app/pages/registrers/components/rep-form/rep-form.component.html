@@ -332,7 +332,7 @@
           placeholder="CNPJ ou CPF" 
           formControlName="repdata_cnpjcompra"
           maxlength="18"
-          (blur)="arrumaCNPJ(repForm.value.repdata_cnpjcompra)"
+          (blur)="arrumaCNPJ(repForm.value.repdata_cnpjcompra, 'repdata_cnpjcompra' )"
         >
 
         <!-- Icone de X has error -->
@@ -529,39 +529,42 @@
       </small>
     </div>
 
-        <!-- Campo de input do cpf do adv -->
-        <div class="form-group col-lg-3" [class.d-none]="!showcpf">
+    <!-- Campo de input do cpf do adv -->
+    <div class="form-group col-lg-3" [class.d-none]="!showcpf">
 
-            <label class="LabelForm" for="repdata_cpf">CPF:</label>
-            <div class="input-group">
-      
-              <input 
-                type="text" 
-                class="form-control formm"            autocomplete="false"                   [class.classBorderInvalid]="!showErrors( 'end_ref' )"
-                id="repdata_cpf" 
-                placeholder="Senha" 
-                formControlName="repdata_cpf"
-                maxlength="25"
-                
-              >
-      
-              <!-- Icone de X has error -->
-              <span class='input-group-addon' 
-                [class.d-none]="showErrors( 'end_ref' )"
-              >
-                <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
-              </span>
-            </div>
-      
-            <!-- Mensagem de erro -->
-            <small 
-              id="nameHelpBlock" 
-              class="form-text texterror" 
-              [class.d-none]="showErrors( 'end_ref' )"
-            >
-              Campo obrigatório.
-            </small>
-          </div>
+        <label class="LabelForm" for="repdata_cpf">CPF:</label>
+        <div class="input-group">
+  
+          <input 
+            type="text" 
+            class="form-control formm"            
+            autocomplete="false"                   
+            [class.classBorderInvalid]="!showErrors( 'repdata_cpf' )"
+            id="repdata_cpf" 
+            placeholder="Senha" 
+            formControlName="repdata_cpf"
+            maxlength="14"
+            (blur)="arrumaCNPJ(repForm.value.repdata_cpf , 'repdata_cpf')"
+            
+          > 
+  
+          <!-- Icone de X has error -->
+          <span class='input-group-addon' 
+            [class.d-none]="showErrors( 'end_ref' )"
+          >
+            <img src='/assets/icons/xred.png' alt='ERRO' class='erroicon'>
+          </span>
+        </div>
+  
+        <!-- Mensagem de erro -->
+        <small 
+          id="nameHelpBlock" 
+          class="form-text texterror" 
+          [class.d-none]="showErrors( 'end_ref' )"
+        >
+          Campo obrigatório.
+        </small>
+      </div>
 
       
   </div>
