@@ -1,9 +1,4 @@
 
-.classMargemLateral {
-    margin-left: 75px;
-    margin-right: 75px;
-    margin-top: 30px;
-  }
 .classBorderInvalid {
     border: 2px solid red !important;
     background-color: rgb(255, 200, 200, 0.2);
@@ -11,12 +6,12 @@
 
     
 }
-.formm {
+.classImputForm {
     border-color:#21237b;
     border-radius: 10px !important;
    
 }
-.formm:focus {
+.classImputForm:focus {
     background-color: rgba(117, 165, 255, 0.226);
     border: 2px solid #21237b !important;
 }

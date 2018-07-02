@@ -17,12 +17,12 @@
 
     
 }
-.formm {
+.classImputForm {
     border-color:#21237b;
     border-radius: 10px !important;
    
 }
-.formm:focus {
+.classImputForm:focus {
     background-color: rgba(117, 165, 255, 0.226);
     border: 2px solid #21237b !important;
 }

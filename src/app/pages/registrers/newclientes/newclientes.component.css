@@ -29,12 +29,12 @@
     margin: 100px;
 }
 
-.ng-invalid.ng-touched.formm {
+.ng-invalid.ng-touched.classImputForm {
     border: 1px solid red;
     border-radius: 10px;
     
 }
-.formm {
+.classImputForm {
     border-color:#21237b;
     border-radius: 10px !important;
    
