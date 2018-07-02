@@ -1,23 +1,34 @@
 @import url(./../../../../generic/css-generico/formimput.css);
 
-.borderchek{
+.classCentro{
+    margin: auto;
+}
+.classLabelForm{
+    width: 100px;
+}
+
+.classBorderchek{
     border-width: 2px;
     border-color: #21237b;
     border-style: solid;
     border-radius: 10px;
+    width: calc(100% - 105px);
+    background-color: white;
      
 }
-.alinhamentoLeitor{
-    margin-left: calc(50% - 35px);
-    margin-right: 50%;
-}
+
 .alinhamentoColuna{
-    margin-left: calc(50% - 90px);
+    margin-left: calc(50% - 200px);
     /* margin-right: 50%; */
 }
 
-.check{
+.classCheckOption{
     width: 100px;
+    height: 25px;
+    margin-top: 5px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-bottom: 5px;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
