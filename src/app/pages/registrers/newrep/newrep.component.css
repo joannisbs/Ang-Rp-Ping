@@ -1,27 +1,5 @@
 @import url(./../../../generic/css-generico/botaoSubmit.css);
-
-/* Label Title */
-.classLabelTitle{
-
-  /* Alterações de Corpo */
-  border: none;
-  padding-top: 3px;
-  width: 100%;
-
-  /* ALterações de Texto */
-  text-align: center;
-  color: #21237b;
- 
-  font-size: 25px;
-  font-style: italic;
-  font-weight: 900;
-  
-  /* Deixar Objeto Não Selecionavel */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+@import url(./../../../generic/css-generico/tilulodapagina.css);
 
 /* Linha Divisora */
 .classLinhaDivisora{
