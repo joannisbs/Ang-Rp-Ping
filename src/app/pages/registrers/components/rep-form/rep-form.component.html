@@ -92,41 +92,43 @@
       </small>
     </div>
 
-    <!-- Campo de input do IP do Relógio -->
-    <div class="form-group col-lg-3">
+       <!-- Campo de input do CNPJ da empresa -->
+       <div class="form-group col-lg-3">
 
-      <label class="classLabelForm" for="rep_ip">IP:</label>
-      <div class="input-group">
+          <label class="classLabelForm" for="repdata_cnpjcompra">CNPJ de Compra:</label>
+          <div class="input-group">
+    
+            <input 
+              type="text" 
+              class="form-control classImputForm"            
+              autocomplete="false"                   
+              [class.classBorderInvalid]="!showErrors( 'repdata_cnpjcompra' )"
+              id="repdata_cnpjcompra" 
+              placeholder="CNPJ ou CPF" 
+              formControlName="repdata_cnpjcompra"
+              maxlength="18"
+              (blur)="arrumaCNPJ(repForm.value.repdata_cnpjcompra, 'repdata_cnpjcompra' )"
+            >
+    
+            <!-- Icone de X has error -->
+            <span class='input-group-addon' 
+              [class.d-none]="showErrors( 'repdata_cnpjcompra' )"
+            >
+              <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+            </span>
+          </div>
+    
+          <!-- Mensagem de erro -->
+          <small 
+            id="nameHelpBlock" 
+            class="form-text classTextodeErro" 
+            [class.d-none]="showErrors( 'repdata_cnpjcompra' )"
+          >
+            Campo obrigatório.
+          </small>
+        </div>
+    
 
-        <input 
-          type="text" 
-          class="form-control classImputForm"            
-          autocomplete="false"                   
-          [class.classBorderInvalid]="!showErrors( 'rep_ip' )"
-          id="rep_ip" 
-          placeholder="IP ou Hostname" 
-          formControlName="rep_ip"
-          maxlength="45"
-          
-        >
-
-        <!-- Icone de X has error -->
-        <span class='input-group-addon' 
-          [class.d-none]="showErrors( 'rep_ip' )"
-        >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
-        </span>
-      </div>
-
-      <!-- Mensagem de erro -->
-      <small 
-        id="nameHelpBlock" 
-        class="form-text classTextodeErro" 
-        [class.d-none]="showErrors( 'rep_ip' )"
-      >
-        Campo obrigatório.
-      </small>
-    </div>
 
     <!-- Campo de input da porta do rep -->
     <div class="form-group col-lg-3">
@@ -317,78 +319,7 @@
   <!-- Linha 3  -->
   <div class="form-row">
     
-    <!-- Campo de input do CNPJ da empresa -->
-    <div class="form-group col-lg-3">
-
-      <label class="classLabelForm" for="repdata_cnpjcompra">CNPJ de Compra:</label>
-      <div class="input-group">
-
-        <input 
-          type="text" 
-          class="form-control classImputForm"            
-          autocomplete="false"                   
-          [class.classBorderInvalid]="!showErrors( 'repdata_cnpjcompra' )"
-          id="repdata_cnpjcompra" 
-          placeholder="CNPJ ou CPF" 
-          formControlName="repdata_cnpjcompra"
-          maxlength="18"
-          (blur)="arrumaCNPJ(repForm.value.repdata_cnpjcompra, 'repdata_cnpjcompra' )"
-        >
-
-        <!-- Icone de X has error -->
-        <span class='input-group-addon' 
-          [class.d-none]="showErrors( 'repdata_cnpjcompra' )"
-        >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
-        </span>
-      </div>
-
-      <!-- Mensagem de erro -->
-      <small 
-        id="nameHelpBlock" 
-        class="form-text classTextodeErro" 
-        [class.d-none]="showErrors( 'repdata_cnpjcompra' )"
-      >
-        Campo obrigatório.
-      </small>
-    </div>
-
-    <!-- Campo de input do CNPJ da empresa -->
-    <div class="form-group col-lg-2">
-
-        <label class="classLabelForm" for="repdata_mod">Modulo:</label>
-        <div class="input-group">
-  
-          <input 
-            type="text" 
-            class="form-control classImputForm"            
-            autocomplete="false"                   
-            [class.classBorderInvalid]="!showErrors( 'repdata_mod' )"
-            id="repdata_mod" 
-            placeholder="Numero Modulo" 
-            formControlName="repdata_mod"
-            maxlength="18"
-            (blur)="arrumaCNPJ(repForm.value.repdata_mod)"
-          >
-  
-          <!-- Icone de X has error -->
-          <span class='input-group-addon' 
-            [class.d-none]="showErrors( 'repdata_mod' )"
-          >
-            <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
-          </span>
-        </div>
-  
-        <!-- Mensagem de erro -->
-        <small 
-          id="nameHelpBlock" 
-          class="form-text classTextodeErro" 
-          [class.d-none]="showErrors( 'repdata_mod' )"
-        >
-          Campo obrigatório.
-        </small>
-      </div>
-
+ 
     <!-- Campo de input da chave de registro -->
     <div class="form-group col-lg-3" [class.d-none]="!showregister">
 
