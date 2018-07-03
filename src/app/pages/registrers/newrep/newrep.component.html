@@ -22,7 +22,7 @@
       *ngFor="let tel of formarray(); let i = index;">
       <div [formGroupName]="i">
           <div class="form-row">
-              <div class="form-group col-lg-4">
+              <div class="form-group col-lg-5">
           
                 <label class="classLabelForm animated bounceIn" for="tel_number">Telefone:</label>
                 <div class="input-group">
@@ -90,13 +90,12 @@
                   Campo obrigatório. 
                 </small>    
               </div> 
-              <button 
+              <button *ngIf="i>0"
                 type="button" 
                 class="classButtonRemover"
                 (click)="removeTel(tel)"
               >
-              <img src="/assets/icons/rmvtelbranco.png" alt="icon" class="icon">
-                Remover Telefone
+              <img src="/assets/icons/lixoBranco.png" alt="icon" class="classButtonRemoveIcon">
               </button>
             </div> 
         

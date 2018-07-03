@@ -10,6 +10,7 @@
     width: 20px;
   }
 
+
 .classButtonAdcionar{
     margin: auto !important;
     /* Alterações de Corpo */
@@ -54,8 +55,8 @@
     border-color:transparent;
     border-bottom: 2px solid #167500 !important;
     border-right: 2px solid #167500 !important;
-    margin-top: 12px !important;
-    margin-bottom: 5px;
+    margin-top: 4px !important;
+    
 }
 /* Evento de hover */
 .classButtonAdcionar:hover {
@@ -78,25 +79,24 @@
     width: 100%;
 }
 
+.classButtonRemoveIcon{
+    width: 20px;
+    height: 20px;
+
+}
 .classButtonRemover{
+    margin: auto;
     /* Alterações de Corpo */
-    /* width: 200px; */
-    background-color: #880006; 
-    border: 4px solid #880006;
-    border-radius: 15px;
-    padding-top: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 15px;
-    box-shadow: 2px 5px #3B0003; 
-    /* margin-right: 130px; */
-    margin-top: 20px;
-    margin-bottom: 20px;
-    
-    /* ALterações de Texto */
-    font-size: 14px;
-    font-weight: 700;
-    color: #ffffff;
+    width: 50px;
+    height: 50px;
+    background-color: #C70011; 
+    border: none;
+    border-radius: 30px;
+
+    padding-bottom: 6px;
+
+    margin-top: 30px;
+
 
     /* Deixar Objeto Não Selecionavel */
     -webkit-user-select: none;
@@ -111,36 +111,18 @@
 /* Removendo quadrado de foco */
 .classButtonRemover:focus{
     outline-style:none;
-    box-shadow: 2px 5px #210003; 
     border-color:transparent;
 }
 /* Evento Click */
 .classButtonRemover:active{
     outline-style:none;
-    box-shadow: 1px 2px #210003 !important; 
+    background-color: #210003 !important;
     border-color:transparent;
-    border-bottom: 2px solid #3B0003 !important;
-    border-right: 2px solid #3B0003 !important;
-    margin-top: 12px !important;
-    margin-bottom: 5px;
+   
+   
 }
 /* Evento de hover */
 .classButtonRemover:hover {
-    background-color: #3B0003;
-    border: 4px solid #3B0003;
-}
- /* Criando Barra Sublinhada */
-.classButtonRemover::before {
-    content: '';
-    display: block;
-    height: 5px;
-    width: 0%;
-    background-color: white;
-    position: relative;
-    top: 30px;
-    transition: all ease-in-out 250ms;
-}
-/* Tamanho máximo da Barra */
-.classButtonRemover:hover::before {
-    width: 100%;
+    background-color: #610008;
+  
 }
