@@ -14,10 +14,11 @@ import { arrumaTelefone } from '../../../generic/funcoes-genericas/arrumaTel.fun
 export class NewrepComponent implements OnInit {
 
   public formulario: FormGroup;
-  public imagebutton = '/assets/icons/xred.png';
-  public showimg = false;
+  public ctl_lixo = 0;
+  public telefoneInvalido = false;
   public ocorreuSbmit = false;
   public tels;
+
   constructor(private formBuilder: FormBuilder) { }
 
 
@@ -34,23 +35,36 @@ export class NewrepComponent implements OnInit {
     });
 
   }
+  lixo(i) {
+    this.ctl_lixo = i;
+  }
+
   onSubmit() {
     this.ocorreuSbmit = true;
     console.log(this.formulario.value);
   }
   addTel(): void {
-
+    scrollTo(0, 100000);
     this.tels = this.formulario.get('tels') as FormArray;
     this.tels.push( this.createItem() );
   }
-  showErrors(value) {
-    return true;
-    // return this.formulario.controls[ value ].valid || !(this.formulario.controls[ value].touched || this.ocorreuSbmit);
+  showErrorsFormArray(value, index) {
+
+    const tels = this.formulario.get('tels') as FormArray;
+
+    return tels.at(index).get(value).valid || !(tels.at(index).get(value).touched || this.ocorreuSbmit);
+
   }
+  //   if (value === 'tel_resp') {
+  //     return this.formulario.get('tel').valid || !(this.formulario.controls[ value].touched || this.ocorreuSbmit);
+  //   }
+  //  return this.formulario.controls[ value ].valid || !(this.formulario.controls[ value].touched || this.ocorreuSbmit);
+  // }
   arrumaTel(value , index) {
     const tels = this.formulario.get('tels') as FormArray;
     const res = arrumaTelefone(value);
     tels.at(index).get('tel_number').patchValue(res);
+
   }
   removeTel(tel) {
     this.tels = this.formulario.get('tels') as FormArray;
@@ -63,12 +77,11 @@ export class NewrepComponent implements OnInit {
       tel_number: ['',
         [Validators.required,
         Validators.maxLength(14),
-        Validators.pattern('[\(]?[0-9]{2}(( )|([\)])|()|(-))(([0-9]{4})|([0-9]{5}))(( )|(-)|)([0-9]{4})')]],
+        Validators.pattern(/[\(][0-9]{2}([\)])(([0-9]{4})|([0-9]{5}))(-)([0-9]{4})/ig)]],
 
       tel_resp: ['',
         [Validators.required,
-        Validators.maxLength(1),
-        Validators.pattern('[1-2]')]],
+        Validators.maxLength(45)]],
     });
   }
 

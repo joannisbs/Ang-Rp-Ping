@@ -30,7 +30,7 @@
                     type="text" 
                     autocomplete="no" 
                     class="form-control classImputForm animated bounceIn" 
-                    [class.classBorderInvalid]="!showErrors( 'tel_number')" 
+                    [class.classBorderInvalid]="!showErrorsFormArray( 'tel_number' , i )"
                     id="tel_number" 
                     placeholder="Fixo ou Celular" 
                     formControlName="tel_number"
@@ -41,7 +41,7 @@
                   <!-- Icone de X has error -->
                   <span 
                     class='input-group-addon' 
-                    [class.d-none]="showErrors( 'tel_number' )" 
+                    [class.d-none]="showErrorsFormArray( 'tel_number' , i )" 
                   >
                     <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
                   </span>
@@ -51,7 +51,7 @@
                 <small 
                   id="nameHelpBlock" 
                   class="form-text classTextodeErro" 
-                  [class.d-none]="showErrors( 'tel_number' )"
+                  [class.d-none]="showErrorsFormArray( 'tel_number' , i )"
                 >
                   Campo obrigatório, coloque o DDD
                 </small>
@@ -66,7 +66,7 @@
                     type="text" 
                     autocomplete="no" 
                     class="form-control classImputForm animated bounceIn" 
-                    [class.classBorderInvalid]="!showErrors( 'tel_resp' )" 
+                    [class.classBorderInvalid]="!showErrorsFormArray( 'tel_resp' , i )" 
                     id="tel_resp" 
                     placeholder="Nome Sobrenome" 
                     formControlName="tel_resp"
@@ -76,7 +76,7 @@
                   <!-- Icone de X has error -->
                   <span 
                     class='input-group-addon' 
-                    [class.d-none]="showErrors( 'tel_resp' )"
+                    [class.d-none]="showErrorsFormArray( 'tel_resp' , i )"
                   >
                     <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
                   </span>
@@ -85,7 +85,7 @@
                 <small 
                   id="nameHelpBlock" 
                   class="form-text classTextodeErro" 
-                  [class.d-none]="showErrors( 'tel_resp' )"
+                  [class.d-none]="showErrorsFormArray( 'tel_resp' , i)"
                 >
                   Campo obrigatório. 
                 </small>    
@@ -93,9 +93,12 @@
               <button *ngIf="i>0"
                 type="button" 
                 class="classButtonRemover"
-                (click)="removeTel(tel)"
+                (mouseenter)="lixo(i)"
+                (mouseleave)="lixo(0)"lixoBrancoaberto
+                (click)="removeTel(i)" 
               >
-              <img src="/assets/icons/lixoBranco.png" alt="icon" class="classButtonRemoveIcon">
+              <img src="/assets/icons/lixoBrancoaberto.png" *ngIf="ctl_lixo === i"  class="classButtonRemoveIcon">
+              <img src="/assets/icons/lixoBranco1.png" *ngIf="ctl_lixo !== i"  class="classButtonRemoveIcon">
               </button>
             </div> 
         
