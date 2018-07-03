@@ -52,7 +52,7 @@ export class NewrepComponent implements OnInit {
     const res = arrumaTelefone(value);
     tels.at(index).get('tel_number').patchValue(res);
   }
-  removeItem(tel) {
+  removeTel(tel) {
     this.tels = this.formulario.get('tels') as FormArray;
     this.tels.removeAt(tel);
   }

@@ -1,4 +1,4 @@
-<div [formGroup]="addressForm" autocomplete="nope">
+<div [formGroup]="addressForm" autocomplete="nope" autocomplete="off">
 
   <!-- Linha 1 -->
   <div class="form-row">
@@ -119,7 +119,7 @@
     <div class="form-group col-lg-3">
       <label class="classLabelForm" for="end_cidade">Cidade:</label>
       <div class="input-group">
-        <input type="text"class="form-control classImputForm"            
+        <input type="text" autocomplete="off" class="form-control classImputForm"            
         [class.classBorderInvalid]="!showErrors( 'end_cidade' )"id="end_cidade" placeholder="Cidade" formControlName="end_cidade" maxlength="45">
 
         <!-- Icone de X has error -->
