@@ -1,4 +1,5 @@
 export const arrumaTelefone = (tel) => {
+    const entrada = tel;
     tel = tel.replace(/\(/g, '');
     tel = tel.replace(/\)/g, '');
     tel = tel.replace(/-/g, '');
@@ -20,7 +21,12 @@ export const arrumaTelefone = (tel) => {
       cel = cel + tel.substring(2, 7);
       cel = cel + '-';
       cel = cel + tel.substring(7, 11);
-      return cel;
+
+      if (tel[2] !== '9') {
+        return tel;
+      } else {
+        return cel;
+      }
     }
-    return 'TelefoneInvalido';
+    return entrada;
   };
