@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { addressFormGroup } from '../components/address-form/address.interface';
 import { repFormGroup } from '../components/rep-form/rep.interface';
 import { arrumaTelefone } from '../../../generic/funcoes-genericas/arrumaTel.function';
+import { moduleFormGroup } from '../components/module-form/module-form.interface';
 
 
 
@@ -29,6 +30,7 @@ export class NewrepComponent implements OnInit {
     this.formulario = this.formBuilder.group ({
         ...repFormGroup,
         ...addressFormGroup,
+        ...moduleFormGroup,
         tels: this.formBuilder.array([ this.createItem() ]),
 
         // ...telFormGroup,
