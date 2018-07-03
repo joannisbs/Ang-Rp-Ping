@@ -1,0 +1,227 @@
+<div [formGroup]="moduleForm">
+  <!-- Linha 1  -->
+  <div class="form-row">
+
+    <!-- Campo de input do CNPJ da empresa -->
+    <div class="form-group col-lg-3">
+
+      <label class="classLabelForm" for="repdata_mod">Modulo:</label>
+      <div class="input-group">
+
+        <input type="text" class="form-control classImputForm" autocomplete="false" [class.classBorderInvalid]="!showErrors( 'repdata_mod' )"
+          id="repdata_mod" placeholder="Numero Modulo" formControlName="repdata_mod" maxlength="18">
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' [class.d-none]="showErrors( 'repdata_mod' )">
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" class="form-text classTextodeErro" [class.d-none]="showErrors( 'repdata_mod' )">
+        Campo obrigatório.
+      </small>
+    </div>
+
+    <!-- Campo de input do IP do Modulo -->
+    <div class="form-group col-lg-6">
+
+      <label class="classLabelForm" for="mod_ip">IP:</label>
+      <div class="input-group">
+
+        <input type="text" class="form-control" [class.classReadOnly]="formPassive" [class.classImputForm]="!formPassive" [readonly]="formPassive"
+          autocomplete="false" id="mod_ip" placeholder="IP ou Hostname" formControlName="mod_ip" maxlength="45">
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' *ngIf="!formPassive"  [class.d-none]="showErrors( 'mod_ip' )">
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrors( 'mod_ip' )">
+        Campo obrigatório.
+      </small>
+    </div>
+
+    <!-- Campo de input do Versao do Modulo -->
+    <div class="form-group col-lg-3">
+
+      <label class="classLabelForm" for="mod_Vmodulo">Versão do Módulo:</label>
+      <div class="input-group">
+
+        <input type="text" class="form-control" [class.classReadOnly]="formPassive" [class.classImputForm]="!formPassive" [readonly]="formPassive"
+          autocomplete="false" id="mod_Vmodulo" placeholder="IP ou Hostname" formControlName="mod_Vmodulo" maxlength="45">
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrors( 'mod_Vmodulo' )">
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrors( 'mod_Vmodulo' )">
+        Campo obrigatório.
+      </small>
+    </div>
+
+
+  </div>
+  <!-- Linha 2  -->
+  <div class="form-row">
+
+        <!-- Campo de input do Versao do Tp-Link -->
+        <div class="form-group col-lg-3">
+
+            <label class="classLabelForm" for="mod_Vtplink">Versão Tp-Link:</label>
+            <div class="input-group">
+      
+              <input type="text" class="form-control" [class.classReadOnly]="formPassive" [class.classImputForm]="!formPassive" [readonly]="formPassive"
+                autocomplete="false" id="mod_Vtplink" placeholder="IP ou Hostname" formControlName="mod_Vtplink" maxlength="45">
+      
+              <!-- Icone de X has error -->
+              <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrors( 'mod_Vtplink' )">
+                <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+              </span>
+            </div>
+      
+            <!-- Mensagem de erro -->
+            <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrors( 'mod_Vtplink' )">
+              Campo obrigatório.
+            </small>
+          </div>
+
+    <!-- Campo de input do Modelo do Modem -->
+    <div class="form-group col-lg-3">
+
+      <label class="classLabelForm" for="mod_Vmodem">Modelo do Modem:</label>
+      <div class="input-group">
+
+        <input type="text" class="form-control" [class.classReadOnly]="formPassive" [class.classImputForm]="!formPassive" [readonly]="formPassive"
+          autocomplete="false" id="mod_Vmodem" placeholder="IP ou Hostname" formControlName="mod_Vmodem" maxlength="45">
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrors( 'mod_Vmodem' )">
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrors( 'mod_Vmodem' )">
+        Campo obrigatório.
+      </small>
+    </div>
+
+  <!-- Campo de input do IMEI -->
+  <div class="form-group col-lg-3">
+
+      <label class="classLabelForm" for="mod_imei">Número do Imei:</label>
+      <div class="input-group">
+
+        <input type="text" class="form-control" [class.classReadOnly]="formPassive" [class.classImputForm]="!formPassive" [readonly]="formPassive"
+          autocomplete="false" id="mod_imei" placeholder="IP ou Hostname" formControlName="mod_imei" maxlength="45">
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrors( 'mod_imei' )">
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrors( 'mod_imei' )">
+        Campo obrigatório.
+      </small>
+    </div>
+
+      <!-- Campo de input do Numero do Chip -->
+      <div class="form-group col-lg-3">
+
+          <label class="classLabelForm" for="mod_Numchip">Número do Chip:</label>
+          <div class="input-group">
+    
+            <input type="text" class="form-control" [class.classReadOnly]="formPassive" [class.classImputForm]="!formPassive" [readonly]="formPassive"
+              autocomplete="false" id="mod_Numchip" placeholder="IP ou Hostname" formControlName="mod_Numchip" maxlength="45">
+    
+            <!-- Icone de X has error -->
+            <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrors( 'mod_Numchip' )">
+              <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+            </span>
+          </div>
+    
+          <!-- Mensagem de erro -->
+          <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrors( 'mod_Numchip' )">
+            Campo obrigatório.
+          </small>
+        </div>
+
+      </div>
+      <!-- Linha 3  -->
+      <div class="form-row">
+
+          <!-- Campo de input da Operadora -->
+    <div class="form-group col-lg-3">
+
+        <label class="classLabelForm" for="mod_Operadora">Operadora:</label>
+        <div class="input-group">
+  
+          <input type="text" class="form-control" [class.classReadOnly]="formPassive" [class.classImputForm]="!formPassive" [readonly]="formPassive"
+            autocomplete="false" id="mod_Operadora" placeholder="IP ou Hostname" formControlName="mod_Operadora" maxlength="45">
+  
+          <!-- Icone de X has error -->
+          <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrors( 'mod_Operadora' )">
+            <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+          </span>
+        </div>
+  
+        <!-- Mensagem de erro -->
+        <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrors( 'mod_Operadora' )">
+          Campo obrigatório.
+        </small>
+      </div>
+
+              <!-- Campo de input do numero do lacre -->
+    <div class="form-group col-lg-3">
+
+        <label class="classLabelForm" for="mod_lacre">Lacre:</label>
+        <div class="input-group">
+  
+          <input type="text" class="form-control" [class.classReadOnly]="formPassive" [class.classImputForm]="!formPassive" [readonly]="formPassive"
+            autocomplete="false" id="mod_lacre" placeholder="IP ou Hostname" formControlName="mod_lacre" maxlength="45">
+  
+          <!-- Icone de X has error -->
+          <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrors( 'mod_lacre' )">
+            <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+          </span>
+        </div>
+  
+        <!-- Mensagem de erro -->
+        <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrors( 'mod_lacre' )">
+          Campo obrigatório.
+        </small>
+      </div>
+
+              <!-- Campo de input da Operadora -->
+    <div class="form-group col-lg-6">
+
+        <label class="classLabelForm" for="mod_resp">Responsável:</label>
+        <div class="input-group">
+  
+          <input type="text" class="form-control" [class.classReadOnly]="formPassive" [class.classImputForm]="!formPassive" [readonly]="formPassive"
+            autocomplete="false" id="mod_resp" placeholder="IP ou Hostname" formControlName="mod_resp" maxlength="45">
+  
+          <!-- Icone de X has error -->
+          <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrors( 'mod_resp' )">
+            <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+          </span>
+        </div>
+  
+        <!-- Mensagem de erro -->
+        <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrors( 'mod_resp' )">
+          Campo obrigatório.
+        </small>
+      </div>
+  
+
+  </div>
+
+</div>
