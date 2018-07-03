@@ -33,6 +33,7 @@ import { TelFormComponent } from './components/tel-form/tel-form.component';
     RouterModule,
     HttpModule,
     routing
+
   ],
   declarations: [
     RegistrersComponent,

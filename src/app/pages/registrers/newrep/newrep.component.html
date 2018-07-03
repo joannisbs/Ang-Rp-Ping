@@ -18,7 +18,113 @@
   
   </div>
   <div class="card classCardForm">
-    <app-tel-form [telForm]="formulario" [ocorreuSubmit]="ocorreuSbmit"></app-tel-form>
+      <div formArrayName="tels"
+      *ngFor="let tel of formarray(); let i = index;">
+      <div [formGroupName]="i">
+          <div class="form-row">
+              <div class="form-group col-lg-4">
+          
+                <label class="classLabelForm animated bounceIn" for="tel_number">Telefone:</label>
+                <div class="input-group">
+                  <input 
+                    type="text" 
+                    autocomplete="no" 
+                    class="form-control classImputForm animated bounceIn" 
+                    [class.classBorderInvalid]="!showErrors( 'tel_number')" 
+                    id="tel_number" 
+                    placeholder="Fixo ou Celular" 
+                    formControlName="tel_number"
+                    maxlength="15"
+                    (blur)="arrumaTel(tel.get('tel_number').value, i )"
+                  >
+          
+                  <!-- Icone de X has error -->
+                  <span 
+                    class='input-group-addon' 
+                    [class.d-none]="showErrors( 'tel_number' )" 
+                  >
+                    <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+                  </span>
+                </div>
+          
+                <!-- Mensagem de erro -->
+                <small 
+                  id="nameHelpBlock" 
+                  class="form-text classTextodeErro" 
+                  [class.d-none]="showErrors( 'tel_number' )"
+                >
+                  Campo obrigatório, coloque o DDD
+                </small>
+              </div>
+          
+              <div class="form-group col-lg-6">
+          
+                <label class="classLabelForm animated bounceIn" for="tel_resp">Responsável:</label>
+                <div class="input-group">
+          
+                  <input 
+                    type="text" 
+                    autocomplete="no" 
+                    class="form-control classImputForm animated bounceIn" 
+                    [class.classBorderInvalid]="!showErrors( 'tel_resp' )" 
+                    id="tel_resp" 
+                    placeholder="Nome Sobrenome" 
+                    formControlName="tel_resp"
+                    maxlength="45"
+                  >
+          
+                  <!-- Icone de X has error -->
+                  <span 
+                    class='input-group-addon' 
+                    [class.d-none]="showErrors( 'tel_resp' )"
+                  >
+                    <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+                  </span>
+                </div>  
+                <!-- Mensagem de erro -->
+                <small 
+                  id="nameHelpBlock" 
+                  class="form-text classTextodeErro" 
+                  [class.d-none]="showErrors( 'tel_resp' )"
+                >
+                  Campo obrigatório. 
+                </small>    
+              </div> 
+              <button 
+                type="button" 
+                class="classButtonRemover"
+                (click)="addTel()"
+              >
+      <img src="/assets/icons/adcionarTelBranco.png" alt="icon" class="icon">
+        Remover Telefone
+      </button>
+            </div> 
+        
+        
+        
+        
+        
+        
+        <!-- <input formControlName="tel_number" placeholder="Item name">
+        <input formControlName="tel_resp" placeholder="Item description">
+        
+        <button class="btn btn-danger" (click)="removeItem(tel)">remover</button> -->
+  
+      </div>
+    </div>
+  
+
+
+
+
+    <button 
+        type="button" 
+        class="classButtonAdcionar"
+        (click)="addTel()"
+      >
+      <img src="/assets/icons/adcionarTelBranco.png" alt="icon" class="icon">
+        Adcionar Telefone
+      </button>
   </div>
   <!-- Botão submit -->
   <div class="float-right">
@@ -36,3 +142,5 @@
   <!-- Margem no final da Página -->
   <div class="classMargemLateral classMargimFimPagina"></div>
 </div>
+
+
