@@ -9,6 +9,7 @@ import { NewcompanyComponent } from './newcompany/newcompany.component';
 import { NewclientesComponent } from './newclientes/newclientes.component';
 import { NewequipComponent } from './newequip/newequip.component';
 import { NewuserComponent } from './newuser/newuser.component';
+import { NewmoduleComponent } from './newmodule/newmodule.component';
 
 const routes: Routes = [
   {
@@ -16,15 +17,16 @@ const routes: Routes = [
     component: RegistrersComponent,
     children: [
       { path: 'newempresa', component: NewcompanyComponent },
-      { path: 'editempresa', component: EditcompanyComponent },
+      { path: 'newmodulo', component: NewmoduleComponent },
       { path: 'newrelogio', component: NewrepComponent },
-      { path: 'editrelogio', component: EditrepComponent },
       { path: 'newequipamento', component: NewequipComponent },
       { path: 'newusuarios', component: NewuserComponent },
       { path: 'newclientes', component: NewclientesComponent },
       { path: 'editequipamento', component: NewequipComponent },
       { path: 'editusuarios', component: EdituserComponent },
       { path: 'editclientes', component: EditclientesComponent },
+      { path: 'editempresa', component: EditcompanyComponent },
+      { path: 'editrelogio', component: EditrepComponent },
     ]
   }
 ];
