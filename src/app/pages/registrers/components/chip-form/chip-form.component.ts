@@ -20,5 +20,8 @@ export class ChipFormComponent implements OnInit {
 
   ngOnInit() {
   }
+  showErrors(value) {
+    return this.chipForm.controls[ value ].valid || !(this.chipForm.controls[ value].touched || this.ocorreuSubmit);
+  }
 
 }
