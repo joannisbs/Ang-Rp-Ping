@@ -25,6 +25,7 @@ import { UserComumFormComponent } from './components/user-comum-form/user-comum-
 import { NewuserComponent } from './newuser/newuser.component';
 import { ModuleFormComponent } from './components/module-form/module-form.component';
 import { NewmoduleComponent } from './newmodule/newmodule.component';
+import { ChipFormComponent } from './components/chip-form/chip-form.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { NewmoduleComponent } from './newmodule/newmodule.component';
     UserComumFormComponent,
     NewuserComponent,
     ModuleFormComponent,
-    NewmoduleComponent
+    NewmoduleComponent,
+    ChipFormComponent
    ],
    entryComponents: [
     AddressFormComponent,

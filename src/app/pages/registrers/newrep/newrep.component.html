@@ -19,6 +19,12 @@
   </div>
 
   <div class="card classCardForm">
+
+    <!-- Chama Componete referente ao cadastro do chip -->  
+    <app-chip-form [chipForm]="formulario"[ocorreuSubmit]="ocorreuSbmit" [formPassive]="true"></app-chip-form>
+  </div>
+
+  <div class="card classCardForm">
   
   <!-- Chama Componete referente ao cadastro do relogio -->
   <app-address-form [addressForm]="formulario" [ocorreuSubmit]="ocorreuSbmit"></app-address-form>
