@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-newchip',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewchipComponent implements OnInit {
 
-  constructor() { }
+  public formulario: FormGroup;
+  public ocorreuSubmit = false;
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.formulario = this.formBuilder.group ({
+      // ...moduleFormGroup,
+    });
   }
+  onSubmit() {
+    console.log(this.formulario.value);
+    this.ocorreuSubmit = true;
+  }
+
 
 }

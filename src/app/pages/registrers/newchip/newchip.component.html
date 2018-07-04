@@ -1,3 +1,25 @@
-<p>
-  newchip works!
-</p>
+<!-- Divisória tamanho das laterais -->
+<div class="classMargemLateral">
+
+  <!-- Titulo -->
+  <label class="classLabelTitle">Cadastro De Relógio Do Cliente No Ping</label>
+
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+    <div class="card classCardForm">
+
+
+      <!-- Chama Componete referente ao cadastro do chip -->
+      <app-chip-form [chipForm]="formulario" [ocorreuSubmit]="ocorreuSubmit" [formPassive]="false"></app-chip-form>
+    </div>
+    <!-- Botão submit -->
+    <div class="float-right">
+      <button type="submit" class="btn-primary classSubmitButton" [class.classFormInvalido]="formulario.invalid" [class.classFormValido]="formulario.valid">
+        Salvar Alterações
+      </button>
+    </div>
+  </form>
+  <br />
+  <!-- Margem no final da Página -->
+  <div class="classMargemLateral classMargimFimPagina"></div>
+</div>
