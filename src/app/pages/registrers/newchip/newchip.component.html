@@ -9,9 +9,6 @@
     <div class="card classCardForm">
 
 
-      <!-- Chama Componete referente ao cadastro do chip
-      <app-chip-form [chipForm]="formulario" [ocorreuSubmit]="ocorreuSubmit" [formPassive]="false"></app-chip-form> -->
-
 
       <div formArrayName="chips" *ngFor="let chip of formarray(); let i = index;">
         <div [formGroupName]="i">
@@ -21,8 +18,8 @@
               <label class="classLabelForm" for="chip_Numchip">Número do Chip:</label>
               <div class="input-group">
 
-                <input type="text" class="form-control classImputForm" 
-                   id="chip_Numchip" placeholder="Número do Chip" formControlName="chip_Numchip" maxlength="45">
+                <input type="text" class="form-control classImputForm" id="chip_Numchip" placeholder="Número do Chip" formControlName="chip_Numchip"
+                  maxlength="45">
 
                 <!-- Icone de X has error -->
                 <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrorsFormArray( 'chip_Numchip' , i )">
@@ -42,8 +39,8 @@
               <label class="classLabelForm" for="chip_ip">IP:</label>
               <div class="input-group">
 
-                <input type="text" class="form-control classImputForm" 
-                   id="chip_ip" placeholder="IP ou Hostname" formControlName="chip_ip" maxlength="45">
+                <input type="text" class="form-control classImputForm" id="chip_ip" placeholder="IP ou Hostname" formControlName="chip_ip"
+                  maxlength="45">
 
                 <!-- Icone de X has error -->
                 <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrorsFormArray( 'chip_ip' , i )">
@@ -62,8 +59,8 @@
               <label class="classLabelForm" for="chip_Operadora">Operadora:</label>
               <div class="input-group">
 
-                <input type="text" class="form-control classImputForm" 
-                   id="chip_Operadora" placeholder="Operadora" formControlName="chip_Operadora" maxlength="45">
+                <input type="text" class="form-control classImputForm" id="chip_Operadora" placeholder="Operadora" formControlName="chip_Operadora"
+                  maxlength="45">
 
                 <!-- Icone de X has error -->
                 <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrorsFormArray( 'chip_Operadora' , i )">
@@ -76,51 +73,51 @@
                 Campo obrigatório.
               </small>
             </div>
-      
-        <div class="form-group col-lg-3" *ngIf="i<1" >
 
-            <label class="classLabelForm" for="chip_Data">Data:</label>
-            <div class="input-group">
-  
-              <input type="date" class="form-control classImputForm date" 
-                 id="chip_Data" placeholder="Operadora" formControlName="chip_Data" maxlength="45">
-      
-             
+            <div class="form-group col-lg-3" *ngIf="i<1">
+
+              <label class="classLabelForm" for="chip_Data">Data:</label>
+              <div class="input-group">
+
+                <input type="date" class="form-control classImputForm date" id="chip_Data" placeholder="Operadora" formControlName="chip_Data"
+                  maxlength="45">
+
+
+              </div>
+
+              <!-- Mensagem de erro -->
+              <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrorsFormArray( 'chip_Data' , i )">
+                Campo obrigatório.
+              </small>
             </div>
-      
-            <!-- Mensagem de erro -->
-            <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrorsFormArray( 'chip_Data' , i )">
-              Campo obrigatório.
-            </small>
-          </div>
-          <div class="form-group" style="margin: auto !important;" *ngIf="i>0">
-              <button type="button" class="classButtonRemover" (mouseenter)="lixo(i)" (mouseleave)="lixo(0)"
-                (click)="removeChip(i)">
+            <div class="form-group" style="margin: auto !important;" *ngIf="i>0">
+              <button type="button" class="classButtonRemover" (mouseenter)="lixo(i)" (mouseleave)="lixo(0)" (click)="removeChip(i)">
                 <img src="/assets/icons/lixoBrancoaberto.png" *ngIf="ctl_lixo === i" class="classButtonRemoveIcon">
                 <img src="/assets/icons/lixoBranco1.png" *ngIf="ctl_lixo !== i" class="classButtonRemoveIcon">
               </button>
             </div>
-          
+
+          </div>
         </div>
       </div>
+
+      <button type="button" class="classButtonAdcionar" (click)="addChip()">Adcionar Chip
+        <!-- <img src="/assets/icons/add.png" alt="icon" class="icon">  -->
+      </button>
     </div>
 
-        <button type="button" class="classButtonAdcionar" (click)="addChip()">Adcionar Chip
-          <!-- <img src="/assets/icons/add.png" alt="icon" class="icon">  -->
-        </button>
-      </div>
 
 
 
-
-      <!-- Botão submit -->
-      <div class="float-right">
-        <button type="submit" class="btn-primary classSubmitButton" (mouseenter)="preencheData()"  [class.classFormInvalido]="formulario.invalid" [class.classFormValido]="formulario.valid">
-          Salvar Alterações
-        </button>
-      </div>
+    <!-- Botão submit -->
+    <div class="float-right">
+      <button type="submit" class="btn-primary classSubmitButton" (mouseenter)="preencheData()" [class.classFormInvalido]="formulario.invalid"
+        [class.classFormValido]="formulario.valid">
+        Salvar Alterações
+      </button>
+    </div>
   </form>
   <br />
   <!-- Margem no final da Página -->
   <div class="classMargemLateral classMargimFimPagina"></div>
-  </div>
+</div>
