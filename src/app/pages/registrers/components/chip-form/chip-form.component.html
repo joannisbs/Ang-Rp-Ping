@@ -8,14 +8,14 @@
         <div class="input-group">
   
           <input type="text" class="form-control" [class.classReadOnly]="formPassive" [class.classImputForm]="!formPassive" [readonly]="formPassive"
-            autocomplete="false" id="chip_Numchip" placeholder="Número do Chip" formControlName="chip_Numchip" maxlength="45">
+             id="chip_Numchip" placeholder="Número do Chip" formControlName="chip_Numchip" maxlength="45">
   
           <!-- Icone de X has error -->
           <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrors( 'chip_Numchip' )">
             <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
           </span>
         </div>
-  
+         
         <!-- Mensagem de erro -->
         <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrors( 'chip_Numchip' )">
           Campo obrigatório.
@@ -28,8 +28,8 @@
         <label class="classLabelForm" for="chip_ip">IP:</label>
         <div class="input-group">
   
-          <input type="text" class="form-control" [class.classReadOnly]="formPassive" [class.classImputForm]="!formPassive" [readonly]="formPassive"
-            autocomplete="false" id="chip_ip" placeholder="IP ou Hostname" formControlName="chip_ip" maxlength="45">
+          <input type="text" class="form-control classReadOnly" readonly
+             id="chip_ip" placeholder="IP ou Hostname" formControlName="chip_ip" maxlength="45">
   
           <!-- Icone de X has error -->
           <span class='input-group-addon' *ngIf="!formPassive"  [class.d-none]="showErrors( 'chip_ip' )">
@@ -48,8 +48,8 @@
           <label class="classLabelForm" for="chip_Operadora">Operadora:</label>
           <div class="input-group">
     
-            <input type="text" class="form-control" [class.classReadOnly]="formPassive" [class.classImputForm]="!formPassive" [readonly]="formPassive"
-              autocomplete="false" id="chip_Operadora" placeholder="Operadora" formControlName="chip_Operadora" maxlength="45">
+            <input type="text" class="form-control classReadOnly" readonly
+               id="chip_Operadora" placeholder="Operadora" formControlName="chip_Operadora" maxlength="45">
     
             <!-- Icone de X has error -->
             <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrors( 'chip_Operadora' )">
@@ -69,8 +69,8 @@
           <label class="classLabelForm" for="chip_Data">Data:</label>
           <div class="input-group">
     
-            <input type="text" class="form-control" [class.classReadOnly]="formPassive" [class.classImputForm]="!formPassive" [readonly]="formPassive"
-              autocomplete="false" id="chip_Data" placeholder="Operadora" formControlName="chip_Data" maxlength="45">
+            <input type="text" class="form-control classReadOnly" readonly
+               id="chip_Data" placeholder="Operadora" formControlName="chip_Data" maxlength="45">
     
             <!-- Icone de X has error -->
             <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrors( 'chip_Data' )">
