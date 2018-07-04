@@ -5,20 +5,20 @@
     <!-- Campo de input do CNPJ da empresa -->
     <div class="form-group col-lg-3">
 
-      <label class="classLabelForm" for="repdata_mod">Modulo:</label>
+      <label class="classLabelForm" for="mod_num">Modulo:</label>
       <div class="input-group">
 
-        <input type="text" class="form-control classImputForm" autocomplete="false" [class.classBorderInvalid]="!showErrors( 'repdata_mod' )"
-          id="repdata_mod" placeholder="Numero Modulo" formControlName="repdata_mod" maxlength="18">
+        <input type="text" class="form-control classImputForm" autocomplete="false" [class.classBorderInvalid]="!showErrors( 'mod_num' )"
+          id="mod_num" placeholder="Numero Modulo" formControlName="mod_num" maxlength="18">
 
         <!-- Icone de X has error -->
-        <span class='input-group-addon' [class.d-none]="showErrors( 'repdata_mod' )">
+        <span class='input-group-addon' [class.d-none]="showErrors( 'mod_num' )">
           <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
-      <small id="nameHelpBlock" class="form-text classTextodeErro" [class.d-none]="showErrors( 'repdata_mod' )">
+      <small id="nameHelpBlock" class="form-text classTextodeErro" [class.d-none]="showErrors( 'mod_num' )">
         Campo obrigatório.
       </small>
     </div>
