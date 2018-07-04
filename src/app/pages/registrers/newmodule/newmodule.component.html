@@ -1,3 +1,32 @@
-<p>
-  newmodule works!
-</p>
+
+<!-- Divisória tamanho das laterais -->
+<div class="classMargemLateral">
+
+    <!-- Titulo -->
+    <label class="classLabelTitle">Cadastro De Um Novo Módulo</label>
+  
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      
+      <div class="card classCardForm">
+  
+      <!-- Chama Componete referente ao cadastro de um modelo novo de relógio -->  
+      <app-module-form [moduleForm]="formulario"[ocorreuSubmit]="ocorreuSubmit" [formPassive]="false"></app-module-form>
+      
+      </div>
+      
+      <!-- Botão submit -->
+      <div class="float-right">
+          <button 
+            type="submit" 
+            class="btn-primary classSubmitButton"
+            [class.classFormInvalido]="formulario.invalid" 
+            [class.classFormValido]="formulario.valid"
+          >
+            Salvar Alterações
+          </button>
+        </div>
+      </form>
+      <br />
+      <!-- Margem no final da Página -->
+      <div class="classMargemLateral classMargimFimPagina"></div>
+    </div>
