@@ -23,42 +23,63 @@
       </div>
 
         <!-- Campo de input do IP do Modulo -->
-    <div class="form-group col-lg-6">
+    <div class="form-group col-lg-4">
 
-        <label class="classLabelForm" for="mod_ip">IP:</label>
+        <label class="classLabelForm" for="chip_ip">IP:</label>
         <div class="input-group">
   
           <input type="text" class="form-control" [class.classReadOnly]="formPassive" [class.classImputForm]="!formPassive" [readonly]="formPassive"
-            autocomplete="false" id="mod_ip" placeholder="IP ou Hostname" formControlName="mod_ip" maxlength="45">
+            autocomplete="false" id="chip_ip" placeholder="IP ou Hostname" formControlName="chip_ip" maxlength="45">
   
           <!-- Icone de X has error -->
-          <span class='input-group-addon' *ngIf="!formPassive"  [class.d-none]="showErrors( 'mod_ip' )">
+          <span class='input-group-addon' *ngIf="!formPassive"  [class.d-none]="showErrors( 'chip_ip' )">
             <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
           </span>
         </div>
   
         <!-- Mensagem de erro -->
-        <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrors( 'mod_ip' )">
+        <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrors( 'chip_ip' )">
           Campo obrigatório.
         </small>
       </div>
       <!-- Campo de input da Operadora -->
       <div class="form-group col-lg-3">
 
-          <label class="classLabelForm" for="mod_Operadora">Operadora:</label>
+          <label class="classLabelForm" for="chip_Operadora">Operadora:</label>
           <div class="input-group">
     
             <input type="text" class="form-control" [class.classReadOnly]="formPassive" [class.classImputForm]="!formPassive" [readonly]="formPassive"
-              autocomplete="false" id="mod_Operadora" placeholder="Operadora" formControlName="mod_Operadora" maxlength="45">
+              autocomplete="false" id="chip_Operadora" placeholder="Operadora" formControlName="chip_Operadora" maxlength="45">
     
             <!-- Icone de X has error -->
-            <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrors( 'mod_Operadora' )">
+            <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrors( 'chip_Operadora' )">
               <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
             </span>
           </div>
     
           <!-- Mensagem de erro -->
-          <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrors( 'mod_Operadora' )">
+          <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrors( 'chip_Operadora' )">
+            Campo obrigatório.
+          </small>
+        </div>
+
+        <!-- Campo de input da Operadora -->
+      <div class="form-group col-lg-2">
+
+          <label class="classLabelForm" for="chip_Data">Data:</label>
+          <div class="input-group">
+    
+            <input type="text" class="form-control" [class.classReadOnly]="formPassive" [class.classImputForm]="!formPassive" [readonly]="formPassive"
+              autocomplete="false" id="chip_Data" placeholder="Operadora" formControlName="chip_Data" maxlength="45">
+    
+            <!-- Icone de X has error -->
+            <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrors( 'chip_Data' )">
+              <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+            </span>
+          </div>
+    
+          <!-- Mensagem de erro -->
+          <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrors( 'chip_Data' )">
             Campo obrigatório.
           </small>
         </div>
