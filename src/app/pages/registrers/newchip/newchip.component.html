@@ -11,7 +11,55 @@
 
       <!-- Chama Componete referente ao cadastro do chip -->
       <app-chip-form [chipForm]="formulario" [ocorreuSubmit]="ocorreuSubmit" [formPassive]="false"></app-chip-form>
+
+   
+      <div formArrayName="chips"
+      *ngFor="let chip of formarray(); let i = index;">
+      <div [formGroupName]="i" *ngIf="i>0">
+          <div class="form-row">
+              <pre>Teste</pre>
+              <button *ngIf="i>0"
+                type="button" 
+                class="classButtonRemover"
+                (mouseenter)="lixo(i)"
+                (mouseleave)="lixo(0)"lixoBrancoaberto
+                (click)="removeChip(i)" 
+              >
+              <img src="/assets/icons/lixoBrancoaberto.png" *ngIf="ctl_lixo === i"  class="classButtonRemoveIcon">
+              <img src="/assets/icons/lixoBranco1.png" *ngIf="ctl_lixo !== i"  class="classButtonRemoveIcon">
+              </button>
+            </div> 
+        
+        
+        
+        
+        
+        
+        <!-- <input formControlName="tel_number" placeholder="Item name">
+        <input formControlName="tel_resp" placeholder="Item description">
+        
+        <button class="btn btn-danger" (click)="removeItem(tel)">remover</button> -->
+  
+      </div>
     </div>
+  
+
+
+
+
+    <button 
+        type="button" 
+        class="classButtonAdcionar"
+        (click)="addChip()"
+      >
+      <img src="/assets/icons/addtelbranco.png" alt="icon" class="icon">
+        Adcionar Telefone
+      </button>
+  </div>
+
+
+
+    
     <!-- Botão submit -->
     <div class="float-right">
       <button type="submit" class="btn-primary classSubmitButton" [class.classFormInvalido]="formulario.invalid" [class.classFormValido]="formulario.valid">
