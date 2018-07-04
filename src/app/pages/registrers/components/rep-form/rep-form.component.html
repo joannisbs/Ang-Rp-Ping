@@ -251,19 +251,19 @@
       </small>
     </div>
 
-    <!-- Campo de input do nome da empresa Dropdownchoise -->
+    <!-- Campo de input do nome da leior Dropdownchoise -->
     <div class="form-group col-lg-2">
 
       <label class="classLabelForm" for="leitr_leitor">Leitor:</label>
       <div class="input-group">
         <select 
-          class="custom-select classImputForm" 
+          class="custom-select classImputForm classSelect" 
           id="leitr_leitor"
           formControlName="leitr_leitor" 
           [class.classBorderInvalid]="!showErrors( 'leitr_leitor' )"
         >
-          <option selected>Escolha...</option>
-          <option *ngFor="let item of leitores">{{item.leitor}}</option>
+          <option selected class="classOption selected">Escolha...</option>
+          <option class="classOption" *ngFor="let item of leitores">{{item.leitor}}</option>
             
         </select>
         <!-- Icone de X has error -->
