@@ -13,12 +13,13 @@ export class NewchipComponent implements OnInit {
   public ocorreuSubmit = false;
   public ctl_lixo = 0;
   public chips;
+  public index = 0;
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.formulario = this.formBuilder.group({
-      ...chipFormGroup,
+      // ...chipFormGroup,
       chips: this.formBuilder.array([this.createItem()]),
     });
   }
@@ -30,10 +31,12 @@ export class NewchipComponent implements OnInit {
     return this.formulario.get('chips').controls;
   }
   addChip(): void {
+    this.index ++;
     scrollTo(0, 100000);
     this.chips = this.formulario.get('chips') as FormArray;
     this.chips.push(this.createItem());
-  }
+    this.preencheData ();
+ }
   showErrorsFormArray(value, index) {
 
     const chips = this.formulario.get('chips') as FormArray;
@@ -45,9 +48,20 @@ export class NewchipComponent implements OnInit {
   removeChip(chip) {
     this.chips = this.formulario.get('chips') as FormArray;
     this.chips.removeAt(chip);
+    this.index --;
   }
   lixo(i) {
     this.ctl_lixo = i;
+  }
+  preencheData () {
+    if (this.index > 0) {
+    this.chips = this.formulario.get('chips') as FormArray;
+      const tamanho = this.chips.length;
+      const valor =  this.chips.at(0).get('chip_Data').value;
+      for (let i = 0; i < tamanho; i++) {
+        this.chips.at(i).get('chip_Data').patchValue(valor);
+      }
+    }
   }
   createItem(): FormGroup {
     return this.formBuilder.group({
@@ -62,9 +76,10 @@ export class NewchipComponent implements OnInit {
         [Validators.required,
         Validators.maxLength(45)]],
       chip_Data: ['',
-        [Validators.required,
+      [Validators.required,
         Validators.maxLength(45)]],
     });
   }
 }
+
 

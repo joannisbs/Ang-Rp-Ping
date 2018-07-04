@@ -2,72 +2,125 @@
 <div class="classMargemLateral">
 
   <!-- Titulo -->
-  <label class="classLabelTitle">Entrada De Um Novo Chip</label>
+  <label class="classLabelTitle">Entrada de um novo chip</label>
 
-  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()" autocomplete="off">
 
     <div class="card classCardForm">
 
 
-      <!-- Chama Componete referente ao cadastro do chip -->
-      <app-chip-form [chipForm]="formulario" [ocorreuSubmit]="ocorreuSubmit" [formPassive]="false"></app-chip-form>
+      <!-- Chama Componete referente ao cadastro do chip
+      <app-chip-form [chipForm]="formulario" [ocorreuSubmit]="ocorreuSubmit" [formPassive]="false"></app-chip-form> -->
 
-   
-      <div formArrayName="chips"
-      *ngFor="let chip of formarray(); let i = index;">
-      <div [formGroupName]="i" *ngIf="i>0">
+
+      <div formArrayName="chips" *ngFor="let chip of formarray(); let i = index;">
+        <div [formGroupName]="i">
           <div class="form-row">
-              <pre>Teste</pre>
-              <button *ngIf="i>0"
-                type="button" 
-                class="classButtonRemover"
-                (mouseenter)="lixo(i)"
-                (mouseleave)="lixo(0)"lixoBrancoaberto
-                (click)="removeChip(i)" 
-              >
-              <img src="/assets/icons/lixoBrancoaberto.png" *ngIf="ctl_lixo === i"  class="classButtonRemoveIcon">
-              <img src="/assets/icons/lixoBranco1.png" *ngIf="ctl_lixo !== i"  class="classButtonRemoveIcon">
-              </button>
-            </div> 
-        
-        
-        
-        
-        
-        
-        <!-- <input formControlName="tel_number" placeholder="Item name">
-        <input formControlName="tel_resp" placeholder="Item description">
-        
-        <button class="btn btn-danger" (click)="removeItem(tel)">remover</button> -->
+            <div class="form-group col-lg-3">
+
+              <label class="classLabelForm" for="chip_Numchip">Número do Chip:</label>
+              <div class="input-group">
+
+                <input type="text" class="form-control classImputForm" 
+                   id="chip_Numchip" placeholder="Número do Chip" formControlName="chip_Numchip" maxlength="45">
+
+                <!-- Icone de X has error -->
+                <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrorsFormArray( 'chip_Numchip' , i )">
+                  <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+                </span>
+              </div>
+
+              <!-- Mensagem de erro -->
+              <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrorsFormArray( 'chip_Numchip' , i )">
+                Campo obrigatório.
+              </small>
+            </div>
+
+            <!-- Campo de input do IP do Modulo -->
+            <div class="form-group col-lg-4">
+
+              <label class="classLabelForm" for="chip_ip">IP:</label>
+              <div class="input-group">
+
+                <input type="text" class="form-control classImputForm" 
+                   id="chip_ip" placeholder="IP ou Hostname" formControlName="chip_ip" maxlength="45">
+
+                <!-- Icone de X has error -->
+                <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrorsFormArray( 'chip_ip' , i )">
+                  <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+                </span>
+              </div>
+
+              <!-- Mensagem de erro -->
+              <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrorsFormArray( 'chip_ip' , i )">
+                Campo obrigatório.
+              </small>
+            </div>
+            <!-- Campo de input da Operadora -->
+            <div class="form-group col-lg-2">
+
+              <label class="classLabelForm" for="chip_Operadora">Operadora:</label>
+              <div class="input-group">
+
+                <input type="text" class="form-control classImputForm" 
+                   id="chip_Operadora" placeholder="Operadora" formControlName="chip_Operadora" maxlength="45">
+
+                <!-- Icone de X has error -->
+                <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrorsFormArray( 'chip_Operadora' , i )">
+                  <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+                </span>
+              </div>
+
+              <!-- Mensagem de erro -->
+              <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrorsFormArray( 'chip_Operadora' , i )">
+                Campo obrigatório.
+              </small>
+            </div>
+      
+        <div class="form-group col-lg-3" *ngIf="i<1" >
+
+            <label class="classLabelForm" for="chip_Data">Data:</label>
+            <div class="input-group">
   
+              <input type="date" class="form-control classImputForm date" 
+                 id="chip_Data" placeholder="Operadora" formControlName="chip_Data" maxlength="45">
+      
+             
+            </div>
+      
+            <!-- Mensagem de erro -->
+            <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrorsFormArray( 'chip_Data' , i )">
+              Campo obrigatório.
+            </small>
+          </div>
+          <div class="form-group" style="margin: auto !important;" *ngIf="i>0">
+              <button type="button" class="classButtonRemover" (mouseenter)="lixo(i)" (mouseleave)="lixo(0)"
+                (click)="removeChip(i)">
+                <img src="/assets/icons/lixoBrancoaberto.png" *ngIf="ctl_lixo === i" class="classButtonRemoveIcon">
+                <img src="/assets/icons/lixoBranco1.png" *ngIf="ctl_lixo !== i" class="classButtonRemoveIcon">
+              </button>
+            </div>
+          
+        </div>
       </div>
     </div>
-  
+
+        <button type="button" class="classButtonAdcionar" (click)="addChip()">Adcionar Chip
+          <!-- <img src="/assets/icons/add.png" alt="icon" class="icon">  -->
+        </button>
+      </div>
 
 
 
 
-    <button 
-        type="button" 
-        class="classButtonAdcionar"
-        (click)="addChip()"
-      >
-      <img src="/assets/icons/addtelbranco.png" alt="icon" class="icon">
-        Adcionar Telefone
-      </button>
-  </div>
-
-
-
-    
-    <!-- Botão submit -->
-    <div class="float-right">
-      <button type="submit" class="btn-primary classSubmitButton" [class.classFormInvalido]="formulario.invalid" [class.classFormValido]="formulario.valid">
-        Salvar Alterações
-      </button>
-    </div>
+      <!-- Botão submit -->
+      <div class="float-right">
+        <button type="submit" class="btn-primary classSubmitButton" (mouseenter)="preencheData()"  [class.classFormInvalido]="formulario.invalid" [class.classFormValido]="formulario.valid">
+          Salvar Alterações
+        </button>
+      </div>
   </form>
   <br />
   <!-- Margem no final da Página -->
   <div class="classMargemLateral classMargimFimPagina"></div>
-</div>
+  </div>

@@ -23,7 +23,11 @@ export const moduleFormGroup = {
     mod_resp: ['',
         [Validators.required,
         Validators.maxLength(45)]],
-    mod_status: ['',
+    mod_status1: ['',
         [Validators.required,
         Validators.maxLength(45)]],
+
+    mod_status2: ['',
+    [Validators.required,
+    Validators.maxLength(45)]],
 };
