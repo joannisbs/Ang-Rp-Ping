@@ -58,11 +58,7 @@ export class NewrepComponent implements OnInit {
     return tels.at(index).get(value).valid || !(tels.at(index).get(value).touched || this.ocorreuSbmit);
 
   }
-  //   if (value === 'tel_resp') {
-  //     return this.formulario.get('tel').valid || !(this.formulario.controls[ value].touched || this.ocorreuSbmit);
-  //   }
-  //  return this.formulario.controls[ value ].valid || !(this.formulario.controls[ value].touched || this.ocorreuSbmit);
-  // }
+
   arrumaTel(value , index) {
     const tels = this.formulario.get('tels') as FormArray;
     const res = arrumaTelefone(value);
