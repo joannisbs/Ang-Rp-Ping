@@ -155,6 +155,58 @@
               Campo obrigatório.
             </small>
           </div>
+
+          <!-- Campo de input do Responsável -->
+        <div class="form-group col-lg-2" *ngIf="formPassive">
+
+            <label class="classLabelForm" for="mod_status1">Status:</label>
+            <div class="input-group">
+      
+              <input type="text" class="form-control" [class.classReadOnly]="formPassive" [class.classImputForm]="!formPassive" [readonly]="formPassive"
+                autocomplete="false" id="mod_status1" placeholder="Responsável" formControlName="mod_status1" maxlength="45">
+      
+              <!-- Icone de X has error -->
+              <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrors( 'mod_status1' )">
+                <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+              </span>
+            </div>
+      
+            <!-- Mensagem de erro -->
+            <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrors( 'mod_status1' )">
+              Campo obrigatório.
+            </small>
+          </div>
+
+          <div class="form-group col-lg-2" *ngIf="!formPassive">
+
+                  <label class="classLabelForm" for="mod_status2">Status:</label>
+                  <div class="input-group">
+                    <select 
+                      class="custom-select classImputForm" 
+                      id="mod_status2"
+                      formControlName="mod_status2" 
+                      [class.classBorderInvalid]="!showErrors( 'mod_status2' )"
+                    >
+                      <option selected>Escolha...</option>
+                      <option value="Estoque">Estoque</option>
+                      <option value="Produção">Produção</option>
+                      <option value="Teste">Teste</option>
+                    </select>
+                    <!-- Icone de X has error -->
+                    <span class='input-group-addon' 
+                      [class.d-none]="showErrors( 'mod_status2' )"
+                     >
+                      <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+                    </span>
+                  </div>
+                  <!-- Mensagem de erro -->
+                  <small id="nameHelpBlock" 
+                      class="form-text classTextodeErro" 
+                      [class.d-none]="showErrors( 'mod_status2' )">
+                    Campo obrigatório.
+                  </small>
+             
+            
       
 
   </div>
