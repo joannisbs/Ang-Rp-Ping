@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { moduleFormGroup } from '../components/module-form/module-form.interface';
+
+import { chipFormGroup } from '../components/chip-form/chip.interface';
+import { moduleFormGroup } from '../components/module-form/module.interface';
 
 @Component({
   selector: 'app-newmodule',
@@ -18,6 +20,7 @@ export class NewmoduleComponent implements OnInit {
   ngOnInit() {
     this.formulario = this.formBuilder.group ({
       ...moduleFormGroup,
+      ...chipFormGroup,
     });
   }
   onSubmit() {

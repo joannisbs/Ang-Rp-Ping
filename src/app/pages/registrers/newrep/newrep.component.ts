@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { addressFormGroup } from '../components/address-form/address.interface';
 import { repFormGroup } from '../components/rep-form/rep.interface';
 import { arrumaTelefone } from '../../../generic/funcoes-genericas/arrumaTel.function';
-import { moduleFormGroup } from '../components/module-form/module-form.interface';
-
+import { moduleFormGroup } from '../components/module-form/module.interface';
+import { chipFormGroup } from '../components/chip-form/chip.interface';
 
 
 @Component({
@@ -31,6 +31,7 @@ export class NewrepComponent implements OnInit {
         ...repFormGroup,
         ...addressFormGroup,
         ...moduleFormGroup,
+        ...chipFormGroup,
         tels: this.formBuilder.array([ this.createItem() ]),
 
         // ...telFormGroup,
