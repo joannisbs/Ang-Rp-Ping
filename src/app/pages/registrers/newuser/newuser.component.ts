@@ -12,7 +12,7 @@ export class NewuserComponent implements OnInit {
 
   public formulario: FormGroup;
   public imagebutton = '/assets/icons/xred.png';
-  public showimg = false;
+  public ocorreuSubmit = false;
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -22,17 +22,7 @@ export class NewuserComponent implements OnInit {
   }
   onSubmit() {
     console.log(this.formulario.value);
+    this.ocorreuSubmit = true;
   }
-  hideImage() {
-    this.showimg = false;
-  }
-  showImage(value) {
-    this.showimg = true;
-    if (value) {
-      this.imagebutton = '/assets/icons/certoverde.png';
-    } else {
-      this.imagebutton = '/assets/icons/xred.png';
-    }
 
-  }
 }
