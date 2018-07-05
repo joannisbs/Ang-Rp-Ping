@@ -1,9 +1,9 @@
 <!-- Divisória tamanho das laterais -->
-<div class="classMargemLateral">
+<div class="classMargemLateral animated bounceInUp">
   
   <!-- Titulo -->
   <label class="classLabelTitle">Cadastro De Uma Nova Empresa No Ping</label>
-  <label class="classLabelTitle classTextError" [class.d-none]="!ocorreuSubmit">O formulário contém erros, porfavor corrigi-los antes de Salvar.</label>
+  <label class="classTextTitleError animated shake" [class.d-none]="!ocorreuSubmit">O formulário contém erros, porfavor corrigi-los antes de Salvar.</label>
   
   <form [formGroup]="formulario" autocomplete="off" (ngSubmit)="onSubmit(formulario.value, formulario.valid)">
     
