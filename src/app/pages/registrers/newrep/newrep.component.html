@@ -3,31 +3,32 @@
 
   <!-- Titulo -->
   <label class="classLabelTitle">Cadastro De Relógio Do Cliente No Ping</label>
+  <label class="classTextTitleError animated shake" [class.d-none]="!ocorreuSubmit">O formulário contém erros, porfavor corrigi-los antes de Salvar.</label>
 
   <form [formGroup]="formulario" autocomplete="off" (ngSubmit)="onSubmit()">
     
   <div class="card classCardForm">
 
   <!-- Chama Componete referente ao cadastro do relogio -->  
-  <app-rep-form [repForm]="formulario"[ocorreuSubmit]="ocorreuSbmit"></app-rep-form>
+  <app-rep-form [repForm]="formulario"[ocorreuSubmit]="ocorreuSubmit"></app-rep-form>
 </div>
 
   <div class="card classCardForm">
 
     <!-- Chama Componete referente ao cadastro do relogio -->  
-    <app-module-form [moduleForm]="formulario"[ocorreuSubmit]="ocorreuSbmit" [formPassive]="true"></app-module-form>
+    <app-module-form [moduleForm]="formulario"[ocorreuSubmit]="ocorreuSubmit" [formPassive]="true"></app-module-form>
   </div>
 
   <div class="card classCardForm">
 
     <!-- Chama Componete referente ao cadastro do chip -->  
-    <app-chip-form [chipForm]="formulario"[ocorreuSubmit]="ocorreuSbmit" [formPassive]="true"></app-chip-form>
+    <app-chip-form [chipForm]="formulario"[ocorreuSubmit]="ocorreuSubmit" [formPassive]="true"></app-chip-form>
   </div>
 
   <div class="card classCardForm">
   
   <!-- Chama Componete referente ao cadastro do relogio -->
-  <app-address-form [addressForm]="formulario" [ocorreuSubmit]="ocorreuSbmit"></app-address-form>
+  <app-address-form [addressForm]="formulario" [ocorreuSubmit]="ocorreuSubmit"></app-address-form>
   
   </div>
   <div class="card classCardForm">

@@ -17,7 +17,7 @@ export class NewrepComponent implements OnInit {
   public formulario: FormGroup;
   public ctl_lixo = 0;
   public telefoneInvalido = false;
-  public ocorreuSbmit = false;
+  public ocorreuSubmit = false;
   public tels;
 
   constructor(private formBuilder: FormBuilder) { }
@@ -43,7 +43,7 @@ export class NewrepComponent implements OnInit {
   }
 
   onSubmit() {
-    this.ocorreuSbmit = true;
+    this.ocorreuSubmit = true;
     console.log(this.formulario.value);
   }
   addTel(): void {
@@ -55,7 +55,7 @@ export class NewrepComponent implements OnInit {
 
     const tels = this.formulario.get('tels') as FormArray;
 
-    return tels.at(index).get(value).valid || !(tels.at(index).get(value).touched || this.ocorreuSbmit);
+    return tels.at(index).get(value).valid || !(tels.at(index).get(value).touched || this.ocorreuSubmit);
 
   }
 

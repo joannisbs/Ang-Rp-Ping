@@ -3,6 +3,7 @@
 
   <!-- Titulo -->
   <label class="classLabelTitle">Entrada de um novo chip</label>
+  <label class="classTextTitleError animated shake" [class.d-none]="!ocorreuSubmit">O formulário contém erros, porfavor corrigi-los antes de Salvar.</label>
 
   <form [formGroup]="formulario" (ngSubmit)="onSubmit()" autocomplete="off">
 

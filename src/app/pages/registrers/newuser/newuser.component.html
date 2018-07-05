@@ -3,6 +3,7 @@
   
     <!-- Titulo -->
     <label class="classLabelTitle">Cadastro De Uma Novo Usuário</label>
+    <label class="classTextTitleError animated shake" [class.d-none]="!ocorreuSubmit">O formulário contém erros, porfavor corrigi-los antes de Salvar.</label>
     
     <form [formGroup]="formulario" autocomplete="off" (ngSubmit)="onSubmit(formulario.value, formulario.valid)">
       
@@ -32,7 +33,7 @@
       </div>
   
       <!-- Botão submit -->
-      <div class="float-right" (mouseenter)="showImage(formulario.valid)" (mouseleave)="hideImage()" >
+      <div class="float-right">
         <button 
           type="submit" 
           class="btn-primary classSubmitButton"
