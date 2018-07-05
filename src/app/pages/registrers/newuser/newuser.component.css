@@ -19,7 +19,7 @@
     margin: auto;
 }
 .classSelect{
-    width: calc(100% - 105px);
+    width: calc(100% - 120px)  !important;
     border-color:#21237b;
     border-radius: 10px !important;
     height: 38px;
