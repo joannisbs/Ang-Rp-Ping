@@ -7,6 +7,7 @@ import { addressFormGroup } from '../components/address-form/address.interface';
 import { CompanyService } from './../../../services/company/company.service';
 import { Subscription } from 'rxjs';
 
+import { playAudioError } from '../../../generic/funcoes-genericas/soundfunctions/soundError';
 
 @Component({
   selector: 'app-newcompany',
@@ -43,6 +44,7 @@ export class NewcompanyComponent implements OnInit, OnDestroy {
 
     // caso Válido realisar metodo de envio
     if (valido) {
+
       console.log(company);
       this.ocorreuSubmit = false;
       this.companyService
@@ -56,6 +58,7 @@ export class NewcompanyComponent implements OnInit, OnDestroy {
     } else {
       // Variavel que da o feedback do botão precionado para os componets do form
       this.ocorreuSubmit = true;
+      playAudioError();
       scrollTo(0, 0);
 
     }
@@ -68,3 +71,5 @@ export class NewcompanyComponent implements OnInit, OnDestroy {
     }
   }
 }
+
+
