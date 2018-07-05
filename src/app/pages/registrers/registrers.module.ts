@@ -27,6 +27,8 @@ import { ModuleFormComponent } from './components/module-form/module-form.compon
 import { NewmoduleComponent } from './newmodule/newmodule.component';
 import { ChipFormComponent } from './components/chip-form/chip-form.component';
 import { NewchipComponent } from './newchip/newchip.component';
+import { NewrequisitionComponent } from './newrequisition/newrequisition.component';
+import { ReqFormComponent } from './components/req-form/req-form.component';
 
 
 @NgModule({
@@ -58,7 +60,9 @@ import { NewchipComponent } from './newchip/newchip.component';
     ModuleFormComponent,
     NewmoduleComponent,
     ChipFormComponent,
-    NewchipComponent
+    NewchipComponent,
+    NewrequisitionComponent,
+    ReqFormComponent
    ],
    entryComponents: [
     AddressFormComponent,

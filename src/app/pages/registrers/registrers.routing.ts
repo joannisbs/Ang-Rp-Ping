@@ -13,6 +13,7 @@ import { NewcompanyComponent } from './newcompany/newcompany.component';
 import { NewequipComponent } from './newequip/newequip.component';
 import { NewmoduleComponent } from './newmodule/newmodule.component';
 import { NewrepComponent } from './newrep/newrep.component';
+import { NewrequisitionComponent } from './newrequisition/newrequisition.component';
 import { NewuserComponent } from './newuser/newuser.component';
 
 
@@ -28,6 +29,7 @@ const routes: Routes = [
       { path: 'newequipamento', component: NewequipComponent },
       { path: 'newmodulo', component: NewmoduleComponent },
       { path: 'newrelogio', component: NewrepComponent },
+      { path: 'newreq', component: NewrequisitionComponent },
       { path: 'newusuarios', component: NewuserComponent },
 
       { path: 'editequipamento', component: NewequipComponent },
