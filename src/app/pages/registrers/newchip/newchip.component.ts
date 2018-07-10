@@ -105,12 +105,17 @@ export class NewchipComponent implements OnInit {
         [
           Validators.required,
           Validators.maxLength(45),
-              
+          // tslint:disable-next-line:max-line-length
+          Validators.pattern(/(^((10\.26\.)|(172\.40\.)|(10\.50\.)|(10\.115\.)).)|(^host$)/)
         ]
       ],
+
       chip_Operadora: ['',
         [Validators.required,
-        Validators.maxLength(45)]],
+        Validators.maxLength(45),
+        Validators.pattern(/([0-9]{3})/g)
+      ]],
+
       chip_Data: ['',
       [Validators.required,
         Validators.maxLength(45)]],
