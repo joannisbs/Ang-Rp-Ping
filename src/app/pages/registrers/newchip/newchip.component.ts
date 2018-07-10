@@ -110,15 +110,9 @@ export class NewchipComponent implements OnInit {
         ]
       ],
 
-      chip_Operadora: ['',
-        [Validators.required,
-        Validators.maxLength(45),
-        Validators.pattern(/([0-9]{3})/g)
-      ]],
+      chip_Operadora: ['', [Validators.required]],
 
-      chip_Data: ['',
-      [Validators.required,
-        Validators.maxLength(45)]],
+      chip_Data: ['', [Validators.required]],
     });
   }
 
