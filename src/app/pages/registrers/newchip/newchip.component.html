@@ -5,7 +5,7 @@
   <label class="classLabelTitle">Entrada de um novo chip</label>
   <label class="classTextTitleError animated shake" [class.d-none]="!ocorreuSubmit">O formulário contém erros, porfavor corrigi-los antes de Salvar.</label>
 
-  <form [formGroup]="formulario" (ngSubmit)="onSubmit()" autocomplete="off">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit( formulario.value,  formulario.valid)" autocomplete="off">
 
     <div class="card classCardForm">
 
@@ -16,11 +16,11 @@
           <div class="form-row">
             <div class="form-group col-lg-3">
 
-              <label class="classLabelForm animated bounceIn" for="chip_Numchip">Número do Chip:</label>
+              <label class="classLabelForm" [class.animated]='i>0' [class.bounceInLeft]='i>0' for="chip_Numchip">Número do Chip:</label>
               <div class="input-group">
 
-                <input type="text" class="form-control classImputForm animated bounceIn" id="chip_Numchip" placeholder="Número do Chip" formControlName="chip_Numchip"
-                  maxlength="45">
+                <input type="text" class="form-control classImputForm" id="chip_Numchip" placeholder="Número do Chip" formControlName="chip_Numchip"
+                  maxlength="8">
 
                 <!-- Icone de X has error -->
                 <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrorsFormArray( 'chip_Numchip' , i )">
@@ -30,17 +30,17 @@
 
               <!-- Mensagem de erro -->
               <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrorsFormArray( 'chip_Numchip' , i )">
-                Campo obrigatório.
+                Campo obrigatório, Digite os últimos 8 Digitos.
               </small>
             </div>
 
             <!-- Campo de input do IP do Modulo -->
             <div class="form-group col-lg-3">
 
-              <label class="classLabelForm animated bounceIn" for="chip_ip">IP:</label>
+              <label class="classLabelForm" [class.animated]='i>0' [class.bounceInLeft]='i>0' for="chip_ip">IP:</label>
               <div class="input-group">
 
-                <input type="text" class="form-control classImputForm animated bounceIn" id="chip_ip" placeholder="IP ou Hostname" formControlName="chip_ip"
+                <input type="text" class="form-control classImputForm" id="chip_ip" placeholder="IP ou Hostname" formControlName="chip_ip"
                   maxlength="45">
 
                 <!-- Icone de X has error -->
@@ -57,10 +57,10 @@
             <!-- Campo de input da Operadora -->
             <div class="form-group col-lg-3">
 
-              <label class="classLabelForm animated bounceIn" for="chip_Operadora">Operadora:</label>
+              <label class="classLabelForm" [class.animated]='i>0' [class.bounceInLeft]='i>0' for="chip_Operadora">Operadora:</label>
               <div class="input-group">
 
-                <input type="text" class="form-control classImputForm animated bounceIn" id="chip_Operadora" placeholder="Operadora" formControlName="chip_Operadora"
+                <input type="text" class="form-control classImputForm" id="chip_Operadora" placeholder="Operadora" formControlName="chip_Operadora"
                   maxlength="45">
 
                 <!-- Icone de X has error -->
@@ -77,10 +77,10 @@
 
             <div class="form-group col-lg-3" *ngIf="i<1">
 
-              <label class="classLabelForm animated bounceIn" for="chip_Data">Data:</label>
+              <label class="classLabelForm" [class.animated]='i>0' [class.bounceInLeft]='i>0' for="chip_D=ata">Data:</label>
               <div class="input-group">
 
-                <input type="date" class="form-control classImputForm animated bounceIn date" id="chip_Data" placeholder="Operadora" formControlName="chip_Data"
+                <input type="date" class="form-control classImputForm date" id="chip_Data" placeholder="Operadora" formControlName="chip_Data"
                   maxlength="45">
 
 
