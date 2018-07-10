@@ -1,5 +1,6 @@
+
 <!-- Divisória tamanho das laterais -->
-<div class="classMargemLateral animated bounceInUp">
+<div class="classMargemLateral" [class.animated,class.bounceInUp]="!showModal">
 
   <!-- Titulo -->
   <label class="classLabelTitle">Entrada de um novo chip</label>
@@ -117,7 +118,30 @@
         [class.classFormValido]="formulario.valid">
         Salvar Alterações
       </button>
+       <!-- Modal -->
+       <div class="modal modal-backdrop fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" [class.show]=" showModal " [style.display]=" showModal ? 'block' : 'none'">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content classModalTamanho ">
+            <div class="modal-header">
+              <h5 class="modal-title classModalLabalsTitle" id="ModalLabel">Parabéns, os dados foram salvos com sucesso!</h5>
+              
+                
+            </div>
+            
+                <label class="classModalLabals"> O que deseja fazer?</label>
+            
+            <div class="modal-footer justify-content-around">
+            
+              <button type="button" class="classModalBotao" (click)="ClearForm()">Cadastrar outros chips</button>
+              
+              <button type="button" class="classModalBotao" onclick="window.location.href='#/pages/register'">Voltar ao monitoramento</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    
   </form>
   <br />
   <!-- Margem no final da Página -->
