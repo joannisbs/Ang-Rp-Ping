@@ -25,6 +25,8 @@ export class NewchipComponent implements OnInit , OnDestroy {
   public ctl_lixo = 0;
   public index = 0;
 
+  public showModal = false;
+
   private subcription: Subscription;
 
 
@@ -133,7 +135,10 @@ export class NewchipComponent implements OnInit , OnDestroy {
     this.ctl_lixo = i;
   }
 
-
+  ClearForm() {
+    this.formulario.reset();
+    this.showModal = false;
+  }
 
   // Methodos relacionados ao Submit
 
@@ -147,6 +152,7 @@ export class NewchipComponent implements OnInit , OnDestroy {
       .cadastrarChip(chips)
       .subscribe(res => {
         console.log(res);
+        this.showModal = true;
       }
       );
     } else {
