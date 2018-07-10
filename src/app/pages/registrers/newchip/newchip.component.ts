@@ -93,11 +93,21 @@ export class NewchipComponent implements OnInit {
     return this.formBuilder.group({
 
       chip_Numchip: ['',
-        [Validators.required,
-        Validators.maxLength(45)]],
+        [
+          Validators.required,
+          Validators.maxLength(45),
+          Validators.minLength(8),
+          Validators.pattern(/[0-9]{8}/ig)
+        ]
+      ],
+
       chip_ip: ['',
-        [Validators.required,
-        Validators.maxLength(45)]],
+        [
+          Validators.required,
+          Validators.maxLength(45),
+              
+        ]
+      ],
       chip_Operadora: ['',
         [Validators.required,
         Validators.maxLength(45)]],
@@ -123,9 +133,12 @@ export class NewchipComponent implements OnInit {
 
   // Methodos relacionados ao Submit
 
-  onSubmit() {
-    console.log(this.formulario.value);
+  onSubmit(valor, valido) {
+    console.log(valor);
     this.ocorreuSubmit = true;
+    if (valido) {
+      console.log('Valido');
+    }
   }
 }
 
