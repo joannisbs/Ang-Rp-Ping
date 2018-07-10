@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+import { ChipService } from 'src/app/services/chip/chip.service';
+import { Subscription } from 'rxjs';
 
 
 
@@ -11,7 +13,7 @@ import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 
 
 
-export class NewchipComponent implements OnInit {
+export class NewchipComponent implements OnInit , OnDestroy {
 
   // declaração do formulário
   public formulario: FormGroup;
@@ -23,11 +25,14 @@ export class NewchipComponent implements OnInit {
   public ctl_lixo = 0;
   public index = 0;
 
-
+  private subcription: Subscription;
 
 
   // Declaração do construtor.
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private chipService: ChipService,
+  ) { }
 
 
 
@@ -132,11 +137,25 @@ export class NewchipComponent implements OnInit {
 
   // Methodos relacionados ao Submit
 
-  onSubmit(valor, valido) {
-    console.log(valor);
-    this.ocorreuSubmit = true;
+  onSubmit(chips, valido) {
+    console.log(chips);
+
     if (valido) {
       console.log('Valido');
+      this.ocorreuSubmit = false;
+      this.chipService
+      .cadastrarChip(chips)
+      .subscribe(res => {
+        console.log(res);
+      }
+      );
+    } else {
+      this.ocorreuSubmit = true;
+    }
+  }
+  ngOnDestroy() {
+    if (this.subcription) {
+      this.subcription.unsubscribe();
     }
   }
 }
