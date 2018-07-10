@@ -60,13 +60,14 @@
               <label class="classLabelForm" [class.animated]='i>0' [class.bounceInLeft]='i>0' for="chip_Operadora">Operadora:</label>
               <div class="input-group">
 
-                <input type="text" class="form-control classImputForm" id="chip_Operadora" placeholder="Operadora" formControlName="chip_Operadora"
-                  maxlength="45">
-
-                <!-- Icone de X has error -->
-                <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrorsFormArray( 'chip_Operadora' , i )">
-                  <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
-                </span>
+                <select class="classSelect classImputForm" formControlName="chip_Operadora">
+                  <option class="classOption" value="Vivo">Vivo</option>
+                  <option class="classOption" value="Claro">Claro</option>
+                  <option class="classOption" value="OI">OI</option>
+                  <option class="classOption" value="Porto">Porto</option>
+                  <option class="classOption" value="4G">4G</option>
+                </select>
+              
               </div>
 
               <!-- Mensagem de erro -->
