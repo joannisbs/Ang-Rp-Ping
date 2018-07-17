@@ -24,7 +24,8 @@ export class NewrepComponent implements OnInit {
 
 
   formarray () {
-    return this.formulario.get('tels').controls;
+    const formstring  = this.formulario.get('tels') as FormArray;
+    return formstring;
   }
   ngOnInit() {
     this.formulario = this.formBuilder.group ({

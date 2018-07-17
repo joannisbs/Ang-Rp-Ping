@@ -33,7 +33,7 @@
   </div>
   <div class="card classCardForm">
       <div formArrayName="tels"
-      *ngFor="let tel of formarray(); let i = index;">
+      *ngFor="let tel of formarray().controls; let i = index;">
       <div [formGroupName]="i">
           <div class="form-row">
               <div class="form-group col-lg-5">

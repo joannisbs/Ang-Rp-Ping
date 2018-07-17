@@ -12,7 +12,7 @@
 
 
 
-      <div formArrayName="chips" *ngFor="let chip of formarray(); let i = index;">
+      <div formArrayName="chips" *ngFor="let chip of formarray().controls; let i = index;">
         <div [formGroupName]="i">
           <div class="form-row">
             <div class="form-group col-lg-3">

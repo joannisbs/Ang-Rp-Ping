@@ -57,7 +57,8 @@ export class NewchipComponent implements OnInit , OnDestroy {
 
   // Cria o array do controle dos inputs.
   formarray () {
-    return this.formulario.get('chips').controls;
+    const formstring =  this.formulario.get('chips')as FormArray;
+    return formstring;
   }
 
 
