@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CepService } from './cep/cep.service';
 import { CompanyService } from './company/company.service';
+import { AuthService } from './login/auth.service';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { CompanyService } from './company/company.service';
   declarations: [],
   providers: [
     CepService,
-    CompanyService
+    CompanyService,
+    AuthService,
   ],
 })
 export class ServicesModule { }

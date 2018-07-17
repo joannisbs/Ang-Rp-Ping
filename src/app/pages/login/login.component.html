@@ -1,3 +1,29 @@
-<p>
-  login works!
-</p>
+
+    <div class="container">
+        <div class="card card-container">
+           
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            
+            
+            <form [formGroup]="formulario">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="text" autocomplete="nope" class="form-control"
+                    id="user_name" placeholder="username" formControlName="user_name" autofocus>  
+                <input type="password" autocomplete="nope" class="form-control"
+                    id="user_pass" placeholder="Password" formControlName="user_pass">  
+                
+                   
+                
+                <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" (click)='validarlogin(formulario.value)'  type="submit">Sign in</button>
+            </form><!-- /form -->
+            <a href="#" class="forgot-password">
+                Forgot the password?
+            </a>
+        </div><!-- /card-container -->
+    </div><!-- /container -->
