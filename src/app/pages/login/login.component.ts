@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.formulario = this.formBuilder.group ({
-      user_name: ['',
+      user_nome: ['',
       [Validators.required]],
       user_pass: ['',
       [Validators.required]],
@@ -31,8 +31,10 @@ export class LoginComponent implements OnInit {
     })
   }
   validarlogin(usuario){
-    console.log(this.formulario.value);
-    this.authService.fazerLogin(usuario);
+    this.authService.fazerLogin(usuario).
+    subscribe(res => {
+      console.log(res);
+    })
   }
 
 }
