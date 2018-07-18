@@ -5,6 +5,7 @@ import { environment } from '../../../environments/environment';
 import { UserInteface } from '../../models/user/user';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { LoginInteface } from '../../models/login/login';
 
 
 
@@ -20,13 +21,24 @@ export class AuthService {
 
   constructor(private http: Http, private router: Router) { }
 
-  fazerLogin(usuario: UserInteface):Observable<any>{
+  fazerLogin(usuario: UserInteface):Observable<LoginInteface>{
 
     return  this.http
       .post(`${this.api}/api/login/`, usuario)
       .map(res => res.json());
 
     }
+  ValidarLogin(token, status, nivel, ids, user) {
+    console.log(status);
+    if (status === "True"){
+      this.userAuth = true;
+      this.showNavEmmt.emit(true);
+      this.router.navigate(['/pages/register/newchip'])
+    } else{
+      this.userAuth = false;
+      this.showNavEmmt.emit(false);
+    }
+  }
     // console.log(resposta);
 
 

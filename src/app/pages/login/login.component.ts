@@ -32,9 +32,9 @@ export class LoginComponent implements OnInit {
   }
   validarlogin(usuario){
     this.authService.fazerLogin(usuario).
-    subscribe(res => {
-      console.log(res);
-    })
+    subscribe(({ token, status, nivel, ids, user}) => {
+      this.authService.ValidarLogin(token, status, nivel, ids, user);
+    });
   }
 
 }
