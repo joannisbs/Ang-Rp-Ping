@@ -56,7 +56,6 @@ export class AuthService {
   getToken(){
     if (this.userAuth){
       return this.objectToken;              
-      
     }
   }
 

@@ -18,7 +18,7 @@ export class NewUserService {
 
   newUser(token: LoginInteface ,usuario: newUserInteface): Observable<any> {
     return this.http
-      .post(`${this.api}/user/newuser`, [token ,usuario])
+      .post(`${this.api}/api/user/newUser/`, [token ,usuario])
       .map(res => res.json());
   }
 
