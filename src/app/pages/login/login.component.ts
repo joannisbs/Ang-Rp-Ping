@@ -1,7 +1,8 @@
-import { AuthService } from './../../services/login/auth.service';
+import { AuthService } from '../../services/login/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { UserInteface } from './../../models/user/user'
+import { UserInteface } from '../../models/user/user'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -15,6 +16,8 @@ export class LoginComponent implements OnInit {
   
   private usuario: UserInteface =  new UserInteface();
 
+  private subcription: Subscription;
+  
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService) {
@@ -30,11 +33,17 @@ export class LoginComponent implements OnInit {
 
     })
   }
+  
   validarlogin(usuario){
-    this.authService.fazerLogin(usuario).
-    subscribe(({ token, status, nivel, ids, user}) => {
-      this.authService.ValidarLogin(token, status, nivel, ids, user);
+    this.subcription = this.authService.fazerLogin(usuario).
+      subscribe(( objeto ) => {
+        this.authService.validarLogin( objeto );
     });
   }
 
+  ngOnDestroy() {
+    if (this.subcription) {
+      this.subcription.unsubscribe();
+    }
+  }
 }
