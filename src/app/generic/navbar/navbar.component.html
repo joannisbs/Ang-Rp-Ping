@@ -16,24 +16,24 @@
       <ul class="navbar-nav ml-auto">
 
 
-        <li class="nav-item dropdown separador" (click)="clickDropdpown(1)" (mouseleave)="mouseLeave()">
+        <li class="nav-item dropdown separador"  (click)="clickDropdpown(1)" (mouseleave)="mouseLeave()">
           <a class="nav-link itemmenu itemmenu1 align-self-center" id="navDrop">
             <img src="/assets/icons/maozinha.png" alt="icon" class="icon">Cadastro</a>
 
           <div class="dropdown-menu" [class.show]="idNav === 1">
-            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/newempresa">
+            <a *ngIf="nivel!=7" class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/newempresa">
               <img src="/assets/icons/empw.png" alt="icon" class="icon">Empresa</a>
-            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/newrelogio">
+            <a *ngIf="nivel!=7" class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/newrelogio">
               <img src="/assets/icons/repw.png" alt="icon" class="icon">Relógios</a>
-            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/newclientes">
+            <a *ngIf="nivel!=7" class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/newclientes">
               <img src="/assets/icons/cliw2.png" alt="icon" class="icon">Clientes</a>
-            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/newusuarios">
+            <a *ngIf="nivel!=7" class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/newusuarios">
               <img src="/assets/icons/filaw.png" alt="icon" class="icon">Usuários</a>
-            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/newequipamento">
+            <a *ngIf="nivel!=7" class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/newequipamento">
               <img src="/assets/icons/equipbranco.png" alt="icon" class="icon">Equipamento</a>
-            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/newmodulo">
+            <a *ngIf="nivel!=7" class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/newmodulo">
               <img src="/assets/icons/modbranco.png" alt="icon" class="icon">Módulos</a>
-            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/newchip">
+            <a *ngIf="nivel!=7" class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/newchip">
               <img src="/assets/icons/simbranco.png" alt="icon" class="icon">Chips</a>
             <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/newreq">
               <img src="/assets/icons/reqbranco.png" alt="icon" class="icon">Requisição</a>

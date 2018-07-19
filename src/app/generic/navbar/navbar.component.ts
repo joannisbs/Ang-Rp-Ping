@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AuthService } from '../../services/login/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +11,9 @@ export class NavbarComponent implements OnInit {
   @Input()
   showNav;
   
+  @Input()
+  nivel;
+
   public idNav = null;
   public user_name = 'User';
   public url_icon = '/assets/icons/menuwhite.png';

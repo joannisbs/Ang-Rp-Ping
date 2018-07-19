@@ -15,7 +15,7 @@ import { LoginInteface } from '../../models/login/login';
 export class AuthService {
   //TokenAuthVariables
   private objectToken;
-
+  private nivel;
 
 
   private userAuth: boolean = false;
@@ -23,6 +23,7 @@ export class AuthService {
   private api = environment.api_url;
 
   showNavEmmt = new EventEmitter<boolean>();
+  nivelEmmt   = new EventEmitter();
 
   constructor(private http: Http, private router: Router) { }
 
@@ -33,13 +34,16 @@ export class AuthService {
       .map(res => res.json());
 
     }
-  validarLogin(objeto) {
+  validarLogin(objeto:LoginInteface) {
   
     this.objectToken = objeto;
+    this.nivel = objeto.nivel;
+    
 
     if (objeto.status === "True"){
       
       this.userAuth = true;
+      this.nivelEmmt.emit(objeto.nivel);
       this.showNavEmmt.emit(true);
       this.router.navigate(['/pages/register/newchip'])
     } else{
@@ -57,6 +61,9 @@ export class AuthService {
     if (this.userAuth){
       return this.objectToken;              
     }
+  }
+  getNivel(){
+    return this.nivel;
   }
 
     // console.log(resposta);

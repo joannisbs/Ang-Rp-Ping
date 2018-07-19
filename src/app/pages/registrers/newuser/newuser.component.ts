@@ -20,9 +20,10 @@ export class NewuserComponent implements OnInit {
   private users: newUserInteface = new newUserInteface;
 
   public formulario: FormGroup;
-  public imagebutton = '/assets/icons/xred.png';
+
   public ocorreuSubmit = false;
   public diferencasenha = false;
+  public showModal = false;
   
   constructor(
     private formBuilder: FormBuilder,
@@ -47,7 +48,11 @@ export class NewuserComponent implements OnInit {
 
     });
   }
-  
+  ClearForm() {
+    this.formulario.reset();
+    this.showModal = false;
+  }
+
   onSubmit(usuario, valido) {
     if (valido) {  
       const senha1 = this.formulario.get('user_psw').value;
@@ -63,15 +68,18 @@ export class NewuserComponent implements OnInit {
         .newUser(token,this.users)
         .subscribe(res => {
           console.log(res);
-          // this.showModal = true;
+          this.showModal = true;
+          this.ocorreuSubmit = false;
         }
         );
       } else {
         this.ocorreuSubmit = true;
         this.diferencasenha = true;
-      }
-      this.ocorreuSubmit = true;      
+      }   
     }
+    else {
+      this.ocorreuSubmit = true;    
+  }
   }
   ngOnDestroy() {
     if (this.subcription) {
