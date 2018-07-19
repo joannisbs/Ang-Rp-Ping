@@ -13,6 +13,11 @@ import { LoginInteface } from '../../models/login/login';
   providedIn: 'root'
 })
 export class AuthService {
+  //TokenAuthVariables
+  private objectToken;
+
+
+
   private userAuth: boolean = false;
   
   private api = environment.api_url;
@@ -24,21 +29,37 @@ export class AuthService {
   fazerLogin(usuario: UserInteface):Observable<LoginInteface>{
 
     return  this.http
-      .post(`${this.api}/api/login/`, usuario)
+      .post(`${this.api}/api/user/login/`, usuario)
       .map(res => res.json());
 
     }
-  ValidarLogin(token, status, nivel, ids, user) {
-    console.log(status);
-    if (status === "True"){
+  validarLogin(objeto) {
+  
+    this.objectToken = objeto;
+
+    if (objeto.status === "True"){
+      
       this.userAuth = true;
       this.showNavEmmt.emit(true);
       this.router.navigate(['/pages/register/newchip'])
     } else{
       this.userAuth = false;
       this.showNavEmmt.emit(false);
+      alert("SENHA INVALIDA");
     }
   }
+
+  CheckUserAuthenticate(){
+    return this.userAuth;
+  }
+
+  getToken(){
+    if (this.userAuth){
+      return this.objectToken;              
+      
+    }
+  }
+
     // console.log(resposta);
 
 
