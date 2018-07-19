@@ -13,6 +13,7 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
+      
       { path: 'register', 
           loadChildren: './registrers/registrers.module#RegistrersModule',
           canActivate:[AuthGuard]}

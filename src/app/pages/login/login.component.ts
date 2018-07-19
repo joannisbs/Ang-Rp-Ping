@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   public formulario: FormGroup;
   
-  private usuario: UserInteface =  new UserInteface();
+  //private usuario: UserInteface =  new UserInteface();
 
   private subcription: Subscription;
   
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
 
     })
   }
-  
+
   validarlogin(usuario){
     this.subcription = this.authService.fazerLogin(usuario).
       subscribe(( objeto ) => {
