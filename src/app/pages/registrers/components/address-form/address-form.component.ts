@@ -1,4 +1,4 @@
-import { CepService } from './../../../../services/cep/cep.service';
+import { CepService } from '../../../../services/cep/cep.service';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
