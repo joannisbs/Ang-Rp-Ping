@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { companyFormGroup } from '../components/company-form/company.interface';
 import { addressFormGroup } from '../components/address-form/address.interface';
 
-import { CompanyService } from './../../../services/company/company.service';
+import { CompanyService } from '../../../services/company/company.service';
 
 @Component({
   selector: 'app-editcompany',

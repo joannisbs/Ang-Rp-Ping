@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { companyFormGroup } from '../components/company-form/company.interface';
 import { addressFormGroup } from '../components/address-form/address.interface';
 
-import { CompanyService } from './../../../services/company/company.service';
+import { CompanyService } from '../../../services/company/company.service';
 import { Subscription } from 'rxjs';
 
 import { playAudioError } from '../../../generic/funcoes-genericas/soundfunctions/soundError';

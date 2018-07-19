@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
-import { ChipService } from 'src/app/services/chip/chip.service';
+import { ChipService } from '../../../services/chip/chip.service';
 import { Subscription } from 'rxjs';
 
 
@@ -149,7 +149,7 @@ export class NewchipComponent implements OnInit , OnDestroy {
     if (valido) {
       console.log('Valido');
       this.ocorreuSubmit = false;
-      this.chipService
+      this.subcription = this.chipService
       .cadastrarChip(chips)
       .subscribe(res => {
         console.log(res);

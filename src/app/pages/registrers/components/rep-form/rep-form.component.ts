@@ -1,7 +1,7 @@
 import { Validators } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
 
-import { arrumaCNPJouCpf } from './../../../../generic/funcoes-genericas/arrumaCPFouCNPJ.function';
+import { arrumaCNPJouCpf } from '../../../../generic/funcoes-genericas/arrumaCPFouCNPJ.function';
 
 @Component({
   selector: 'app-rep-form',
