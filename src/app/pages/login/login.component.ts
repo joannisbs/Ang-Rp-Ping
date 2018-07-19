@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserInteface } from '../../models/user/user'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { sha256 } from 'js-sha256';
 
 
 @Component({
@@ -17,6 +18,8 @@ export class LoginComponent implements OnInit {
   //private usuario: UserInteface =  new UserInteface();
 
   private subcription: Subscription;
+
+  private login: UserInteface = new UserInteface;
   
   constructor(
     private formBuilder: FormBuilder,
@@ -34,8 +37,16 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  validarlogin(usuario){
-    this.subcription = this.authService.fazerLogin(usuario).
+  montaobjct(){
+    this.login.user_nome = this.formulario.get('user_nome').value;
+    this.login.user_pass = this.formulario.get('user_pass').value;
+    this.login.user_pass = sha256(this.login.user_pass);
+ 
+  }
+
+  validarlogin(){
+    this.montaobjct();
+    this.subcription = this.authService.fazerLogin(this.login).
       subscribe(( objeto ) => {
         this.authService.validarLogin( objeto );
     });

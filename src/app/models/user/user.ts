@@ -1,5 +1,5 @@
 export class UserInteface {
-    user_name: string;
+    user_nome: string;
     user_pass: string;
 }
 export class newUserInteface {
