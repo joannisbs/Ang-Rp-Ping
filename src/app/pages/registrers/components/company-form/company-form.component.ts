@@ -1,8 +1,8 @@
 import { Validators } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
 
-import { arrumaCNPJouCpf } from './../../../../generic/funcoes-genericas/arrumaCPFouCNPJ.function';
-import { arrumaTelefone } from './../../../../generic/funcoes-genericas/arrumaTel.function';
+import { arrumaCNPJouCpf } from '../../../../generic/funcoes-genericas/arrumaCPFouCNPJ.function';
+import { arrumaTelefone } from '../../../../generic/funcoes-genericas/arrumaTel.function';
 
 @Component({
   selector: 'app-company-form',
