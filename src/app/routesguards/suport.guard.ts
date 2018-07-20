@@ -24,8 +24,7 @@ export class SuportGuard implements CanActivate{
       if (this.authService.getNivel()===7){
         return true;
       }
-      //this.router.navigate(['/registers'])
-      //return false;
+      return false;
   }
 
 }
