@@ -1,19 +1,34 @@
-import { NgModule } from '@angular/core';
+// imports angular
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PagesComponent } from './pages.component';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { routing } from './pages.routing';
+
+//imports componets
+import { PagesComponent } from './pages.component';
 import { LoginComponent } from './login/login.component';
 
+//import rota
+import { routing } from './pages.routing';
+
+
 @NgModule({
-  imports: [
+
+  imports: 
+  [
     CommonModule,
     FormsModule,
-    RouterModule,
     ReactiveFormsModule,
+
+    RouterModule,
     routing
   ],
-  declarations: [PagesComponent, LoginComponent],
+
+  declarations: 
+  [
+    LoginComponent,
+    PagesComponent 
+  ],
+
 })
 export class PagesModule { }
