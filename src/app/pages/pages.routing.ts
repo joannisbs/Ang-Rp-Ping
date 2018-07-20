@@ -1,26 +1,36 @@
-import { AuthService } from '../services/login/auth.service';
-import { Routes, RouterModule, CanActivate } from '@angular/router';
+// imports do angular
 import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-import { PagesComponent } from './pages.component';
-import { LoginComponent } from './login/login.component';
+//imports de guadas
 import { AuthGuard } from '../routesguards/auth.guard';
+
+//imports de componentes
+import { LoginComponent } from './login/login.component';
+import { PagesComponent } from './pages.component';
+
 
 export const routes: Routes = [
   {
     path: 'pages',
-    component: PagesComponent,
-    children: [
-      { path: '', redirectTo: 'login', pathMatch: 'full' },
-      { path: 'login', component: LoginComponent },
-      
-      { path: 'register', 
-          loadChildren: './registrers/registrers.module#RegistrersModule',
-          canActivate:[AuthGuard]},
-      { path: 'monitor', 
-          loadChildren:'./monitor/monitor.module#MonitorModule',
-          canActivate:[AuthGuard]}
-    ]
+      component: PagesComponent, 
+      children: [
+        
+        { path: '', redirectTo: 'login', pathMatch: 'full' },
+
+
+        { path: 'login', component: LoginComponent },
+        
+
+        { path: 'register', 
+            loadChildren: './registrers/registrers.module#RegistrersModule',
+            canActivate:[AuthGuard]},
+
+            
+        { path: 'monitor', 
+            loadChildren:'./monitor/monitor.module#MonitorModule',
+            canActivate:[AuthGuard]}
+      ]
   }
 ];
 
