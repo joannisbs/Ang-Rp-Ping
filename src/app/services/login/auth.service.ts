@@ -52,7 +52,7 @@ export class AuthService {
       alert("SENHA INVALIDA");
     }
   }
-
+  
   CheckUserAuthenticate(){
     return this.userAuth;
   }

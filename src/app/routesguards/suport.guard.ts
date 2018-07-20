@@ -9,7 +9,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 })
 
 @Injectable()
-export class AuthGuard implements CanActivate{
+export class SuportGuard implements CanActivate{
 
 
   constructor(
@@ -21,12 +21,11 @@ export class AuthGuard implements CanActivate{
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable <boolean> | boolean{
-      if (this.authService.CheckUserAuthenticate()){
+      if (this.authService.getNivel()===7){
         return true;
       }
-      this.router.navigate(['/login'])
-      return false;
+      //this.router.navigate(['/registers'])
+      //return false;
   }
 
 }
-

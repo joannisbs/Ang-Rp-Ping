@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserComumFormGroup } from '../components/user-comum-form/user-comum.interface';
-import { NewUserService } from './../../../services/user/user.service';
+import { NewUserService } from '../../../services/user/user.service';
 import { AuthService } from '../../../services/login/auth.service';
 import { Subscription } from 'rxjs';
 import { sha256 } from 'js-sha256';
