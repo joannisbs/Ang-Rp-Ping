@@ -21,7 +21,12 @@ const routes: Routes = [
       {
         path: 'newusuarios', 
         loadChildren: 'src/app/pages/registrers/newuser/newuser.module#NewUserModule',
-
+        canActivate:[AuthGuard,
+          SuportGuard,
+          ModuloGuard,
+          ModuloProjetoGuard,
+          ExpedicaoGuard,
+          ProjetoGuard] ,
       },
       {
         path: 'newchip', 
