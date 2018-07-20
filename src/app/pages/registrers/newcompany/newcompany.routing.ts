@@ -1,9 +1,9 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NewcompanyComponent } from './newcompany.component';
-import { AuthGuard } from 'src/app/routesguards/auth.guard';
-import { SuportGuard } from 'src/app/routesguards/suport.guard';
-import { ExpedicaoGuard } from 'src/app/routesguards/expedicao.guard';
-import { ProjetoGuard } from 'src/app/routesguards/projeto.guard';
+import { AuthGuard } from '../../../routesguards/auth.guard';
+import { SuportGuard } from '../../../routesguards/suport.guard';
+import { ExpedicaoGuard } from '../../../routesguards/expedicao.guard';
+import { ProjetoGuard } from '../../../routesguards/projeto.guard';
 
 
 const routes: Routes = [

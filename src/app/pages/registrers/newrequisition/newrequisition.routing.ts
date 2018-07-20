@@ -1,8 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NewrequisitionComponent } from './newrequisition.component';
-import { AuthGuard } from 'src/app/routesguards/auth.guard';
-import { ExpedicaoGuard } from 'src/app/routesguards/expedicao.guard';
-import { ProjetoGuard } from 'src/app/routesguards/projeto.guard';
+import { AuthGuard } from '../../../routesguards/auth.guard';
+import { ExpedicaoGuard } from '../../../routesguards/expedicao.guard';
+import { ProjetoGuard } from '../../../routesguards/projeto.guard';
 
 
 const routes: Routes = [

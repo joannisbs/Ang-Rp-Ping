@@ -1,17 +1,17 @@
 import { Routes, RouterModule } from '@angular/router';
-import { NewuserComponent } from './newuser.component';
-import { AuthGuard } from 'src/app/routesguards/auth.guard';
-import { SuportGuard } from 'src/app/routesguards/suport.guard';
-import { ModuloGuard } from 'src/app/routesguards/modulo.guard';
-import { ModuloProjetoGuard } from 'src/app/routesguards/modulo_projeto.guard';
-import { ExpedicaoGuard } from 'src/app/routesguards/expedicao.guard';
-import { ProjetoGuard } from 'src/app/routesguards/projeto.guard';
+import { AuthGuard } from '../../../routesguards/auth.guard';
+import { SuportGuard } from '../../../routesguards/suport.guard';
+import { ModuloGuard } from '../../../routesguards/modulo.guard';
+import { ModuloProjetoGuard } from '../../../routesguards/modulo_projeto.guard';
+import { ExpedicaoGuard } from '../../../routesguards/expedicao.guard';
+import { ProjetoGuard } from '../../../routesguards/projeto.guard';
+import { NewrepComponent } from 'src/app/pages/registrers/newrep/newrep.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: NewuserComponent,
+    component: NewrepComponent,
     canActivate:[AuthGuard,
                   SuportGuard,
                   ModuloGuard,
