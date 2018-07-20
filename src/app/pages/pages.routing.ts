@@ -12,9 +12,11 @@ import { PagesComponent } from './pages.component';
 
 export const routes: Routes = [
   {
+    
     path: 'pages',
       component: PagesComponent, 
-      children: [
+      children: 
+      [
         
         { path: '', redirectTo: 'login', pathMatch: 'full' },
 
@@ -22,13 +24,13 @@ export const routes: Routes = [
         { path: 'login', component: LoginComponent },
         
 
-        { path: 'register', 
-            loadChildren: './registrers/registrers.module#RegistrersModule',
-            canActivate:[AuthGuard]},
-
-            
         { path: 'monitor', 
             loadChildren:'./monitor/monitor.module#MonitorModule',
+            canActivate:[AuthGuard]},
+
+
+        { path: 'register', 
+            loadChildren: './registrers/registrers.module#RegistrersModule',
             canActivate:[AuthGuard]}
       ]
   }
