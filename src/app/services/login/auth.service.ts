@@ -45,14 +45,14 @@ export class AuthService {
       this.userAuth = true;
       this.nivelEmmt.emit(objeto.nivel);
       this.showNavEmmt.emit(true);
-      this.router.navigate(['/pages/register/newchip'])
+      this.router.navigate(['/pages/monitor/visaogeral'])
     } else{
       this.userAuth = false;
       this.showNavEmmt.emit(false);
       alert("SENHA INVALIDA");
     }
   }
-  
+
   CheckUserAuthenticate(){
     return this.userAuth;
   }
