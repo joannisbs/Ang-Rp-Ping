@@ -21,10 +21,10 @@ export class ModuloGuard implements CanActivate{
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable <boolean> | boolean{
-      if (this.authService.getNivel()===3){
-        return true;
+      if (this.authService.getNivel()==='3'){
+        return false;
       }
-      return false;
+      return true;
   }
 
 }

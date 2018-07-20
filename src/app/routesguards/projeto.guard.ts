@@ -21,10 +21,10 @@ export class ProjetoGuard implements CanActivate{
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable <boolean> | boolean{
-      if (this.authService.getNivel()===4){
-        return true;
+      if (this.authService.getNivel()==='4'){
+        return false;
       }
-      return false;
+      return true;
   }
 
 }

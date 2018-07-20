@@ -21,10 +21,10 @@ export class SuportGuard implements CanActivate{
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable <boolean> | boolean{
-      if (this.authService.getNivel()===7){
-        return true;
+      if (this.authService.getNivel()==='7'){
+        return false;
       }
-      return false;
+      return true;
   }
 
 }
