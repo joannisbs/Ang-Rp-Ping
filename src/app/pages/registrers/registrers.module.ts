@@ -7,29 +7,6 @@ import { RouterModule } from '@angular/router';
 import { RegistrersComponent } from './registrers.components';
 import { routing } from './registrers.routing';
 
-import { AddressFormComponent } from './components/address-form/address-form.component';
-import { CompanyFormComponent } from './components/company-form/company-form.component';
-import { EquipFormComponent } from './components/equip-form/equip-form.component';
-import { RepFormComponent } from './components/rep-form/rep-form.component';
-
-import { EditclientesComponent } from './editclientes/editclientes.component';
-import { EditcompanyComponent } from './editcompany/editcompany.component';
-import { EditrepComponent } from './editrep/editrep.component';
-import { EdituserComponent } from './edituser/edituser.component';
-
-import { NewclientesComponent } from './newclientes/newclientes.component';
-import { NewcompanyComponent } from './newcompany/newcompany.component';
-import { NewequipComponent } from './newequip/newequip.component';
-import { NewrepComponent } from './newrep/newrep.component';
-import { UserComumFormComponent } from './components/user-comum-form/user-comum-form.component';
-import { NewuserComponent } from './newuser/newuser.component';
-import { ModuleFormComponent } from './components/module-form/module-form.component';
-import { NewmoduleComponent } from './newmodule/newmodule.component';
-import { ChipFormComponent } from './components/chip-form/chip-form.component';
-import { NewchipComponent } from './newchip/newchip.component';
-import { NewrequisitionComponent } from './newrequisition/newrequisition.component';
-import { ReqFormComponent } from './components/req-form/req-form.component';
-
 
 @NgModule({
   imports: [
@@ -43,31 +20,9 @@ import { ReqFormComponent } from './components/req-form/req-form.component';
   ],
   declarations: [
     RegistrersComponent,
-    EditcompanyComponent,
-    EditrepComponent,
-    AddressFormComponent,
-    CompanyFormComponent,
-    RepFormComponent,
-    NewequipComponent,
-    EdituserComponent,
-    EditclientesComponent,
-    NewclientesComponent,
-    NewcompanyComponent,
-    NewrepComponent,
-    EquipFormComponent,
-    UserComumFormComponent,
-    NewuserComponent,
-    ModuleFormComponent,
-    NewmoduleComponent,
-    ChipFormComponent,
-    NewchipComponent,
-    NewrequisitionComponent,
-    ReqFormComponent
+   
    ],
    entryComponents: [
-    AddressFormComponent,
-    CompanyFormComponent,
-    RepFormComponent
   ]
 
 })
