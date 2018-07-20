@@ -1,4 +1,4 @@
-import { AuthService } from './../services/login/auth.service';
+import { AuthService } from '../services/login/auth.service';
 import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 
@@ -16,8 +16,10 @@ export const routes: Routes = [
       
       { path: 'register', 
           loadChildren: './registrers/registrers.module#RegistrersModule',
+          canActivate:[AuthGuard]},
+      { path: 'monitor', 
+          loadChildren:'./monitor/monitor.module#MonitorModule',
           canActivate:[AuthGuard]}
-          
     ]
   }
 ];
