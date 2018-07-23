@@ -27,7 +27,8 @@ import { routing } from './pages.routing';
   declarations: 
   [
     LoginComponent,
-    PagesComponent 
+    PagesComponent
+
   ],
 
 })

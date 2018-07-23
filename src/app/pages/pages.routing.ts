@@ -31,7 +31,11 @@ export const routes: Routes = [
 
         { path: 'register', 
             loadChildren: './registrers/registrers.module#RegistrersModule',
-            canActivate:[AuthGuard]}
+            canActivate:[AuthGuard]},
+
+        { path: 'manager', 
+            loadChildren: './manager/manager.module#ManagerModule',
+            canActivate:[AuthGuard]}  
       ]
   }
 ];
