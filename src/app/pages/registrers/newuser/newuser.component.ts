@@ -90,17 +90,4 @@ export class NewuserComponent implements OnInit {
 }
 
 
-// class NewUserToSend {
-//     user_name:string;
-//     user_pasw:string;
-//     user_pasr:string;
-//     user_tipe:string;
-
-//     constructor(){
-//       this.user_name = ;
-//       this.user_pasw = ;
-//       this.user_pasr = ;
-//       this.user_tipe = ;
-//     }
-
-// }
+ 

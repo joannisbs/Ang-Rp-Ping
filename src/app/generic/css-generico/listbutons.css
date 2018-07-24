@@ -1,0 +1,220 @@
+.disabled{
+    cursor: disabled !important;
+
+}
+.classContagemDeDados{
+    color: #21237b;
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+    font-style: italic;
+    /* letter-spacing: 0.2em; */
+    /* text-shadow: 1px 1px #6b86ff; */
+    /* Deixar Objeto Não Selecionavel */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 100%;
+    text-align: end;
+}
+
+.classButtonLupa{
+    width: 20px;
+    padding-top: 6px; 
+    align-self: center;
+    margin-left: -30px; 
+    position: relative;
+    border-radius: 10px;
+    z-index:3;
+
+}
+.classButtonIcon{
+    width: 20px;
+    height: 20px;
+}
+
+.classButtonIconNext{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    z-index:3;
+}
+
+
+.classButtonPage{
+   
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+
+    /* Deixar Objeto Não Selecionavel */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    cursor: pointer;
+    outline: none;
+    z-index:2;
+}
+.classButtonPage:hover{
+
+    width: 30px;
+    height: 30px;
+    background-color: rgb(144, 255, 190);
+    border: none;
+    border-radius: 50px;
+
+    /* Deixar Objeto Não Selecionavel */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    cursor: pointer;
+    outline: none;
+    z-index:2;
+}
+
+.Remover{
+    background-color: #C70011;  
+    padding-bottom: 10px;
+}
+.Remover:hover{
+    background-color: #4e0107; 
+}
+.Remover:active{
+    background-color: #210003; 
+}
+
+.Editar{
+    background-color: #0000b0; 
+}
+.Editar:hover{
+    background-color: #000060; 
+}
+.Editar:active{
+    background-color: #000030; 
+}
+
+.Listar{
+    background-color: #008000; 
+}
+.Listar:hover{
+    background-color: #006000; 
+}
+.Listar:active{
+    background-color: #004000; 
+}
+.classButton{
+    margin: auto;
+    /* Alterações de Corpo */
+    width: 40px; 
+    height: 40px; 
+    border: none;
+    border-radius: 50px;
+
+    /* Deixar Objeto Não Selecionavel */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    cursor: pointer;
+    outline: none;
+}
+/* Removendo quadrado de foco */
+.classButton:focus{
+    outline-style:none;
+    border-color:transparent;
+}
+/* Evento Click */
+.classCardForm{
+    /* height: 60px; */
+    border-radius: 30px;
+    background-color: rgba(143, 176, 197, 0.205);
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.classLabelFormHeader{
+    color: #21237b;
+    border: none;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    font-style: italic;
+    /* letter-spacing: 0.2em; */
+    /* text-shadow: 1px 1px #6b86ff; */
+    /* Deixar Objeto Não Selecionavel */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+   
+   
+
+}
+.classLabelFormList{
+    color: #21237b;
+    border: none;
+   
+    margin-left: 25px;
+    font-size: 18px;
+    font-weight: 700;
+    font-style: italic;
+    /* letter-spacing: 0.2em; */
+    /* text-shadow: 1px 1px #6b86ff; */
+    /* Deixar Objeto Não Selecionavel */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-right: 5px;
+   
+
+}
+.classCampoPesquisa{
+    position: relative;
+    width: 35%;
+    float: left;
+}
+
+.classCampoPage{
+    position: relative;
+    width: 30%;
+    float: left;
+}
+
+.classCampoContage{
+    position: relative;
+    width: 35%;
+    float: left;
+}
+.classTamanhoHeaderPage{
+    width: 60px;
+}
+.classAlinhamento{
+    margin-left: calc(50% - 60px);
+}
+.cabecalho{
+    margin-bottom: 10px;
+}
+.classImputSearch{
+    border-color:#21237b;
+    border-radius: 10px !important;
+    background-color: white;
+    font-style: italic;
+    color: #21237b;
+    font-size: 16px;
+    font-weight: 525;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 30px;
+    z-index:2;
+}

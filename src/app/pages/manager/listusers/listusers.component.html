@@ -1,18 +1,71 @@
-<p>
-  listusers works!
-</p> <br />
-<p>
-  listusers works!
-</p><br />
-<p>
-  listusers works!
-</p><br />
-<p>
-  listusers works!
-</p><br />
-<p>
-  listusers works!
-</p><br />
-<p>
-  listusers works!
-</p>
+<!-- Divisória tamanho das laterais -->
+<div class="classMargemLateral" [class.animated,class.bounceInUp]="!showModal">
+
+  <!-- Titulo -->
+  <label class="classLabelTitle">Lista de usuários</label>
+
+  <div class="cabecalho">
+    <div class="classCampoPesquisa">
+        <div class="input-group">
+
+            <input type="text" class="form-control classImputSearch" #search
+            (keyup)="Search(search.value)">
+
+            <!-- Icone de X has error -->
+            <span class='input-group-addon'>
+              <img src='/assets/icons/lupa.png' alt='Search' class='classButtonLupa'>
+            </span>
+          </div>
+    </div>
+    <div class="classCampoPage align-content-center">
+    <button class="classButtonPage classAlinhamento"(click)="PagePrevius(page > 1)">
+        <img src="/assets/icons/antverde.png" *ngIf="page > 1" class="classButtonIconNext">
+        <img src="/assets/icons/antcinza.png" *ngIf="page == 1" class="classButtonIconNext">
+    </button>
+      <label class="classLabelFormHeader classTamanhoHeaderPage" >{{ page }}</label>
+      <button class="classButtonPage" (click)="PageNext(!nextpage)">
+        <img src="/assets/icons/proxverd.png" *ngIf="!nextpage" class="classButtonIconNext">
+        <img src="/assets/icons/proxcinza.png" *ngIf="nextpage" class="classButtonIconNext">
+      </button>
+   
+  </div>
+    <div class="classCampoContage">
+      <label class="classContagemDeDados" >{{ contage }}</label>
+    </div>
+  </div>
+  <br />
+
+  <div *ngFor="let item of lists; let i = index;">
+    <div class="card classCardForm">
+      <div class="form-row"> 
+        <div class="form-group col-md-5">
+          <label class="classLabelFormList classtamanhonome">{{item[1]}}</label>
+        </div>
+        <div class="form-group col-md-4">
+          <label class="classLabelFormList classtamanhonome">{{lista[i]}}</label>
+        </div>
+
+        <div class="form-group col-md-1">
+          <button type="button" class="classButton Listar" (mouseenter)="acoes(i+1)" (mouseleave)="acoes(0)">
+            <img src="/assets/icons/lista1.png" *ngIf="ctl_acoes === i+1" class="classButtonIcon">
+            <img src="/assets/icons/lista2.png" *ngIf="ctl_acoes !== i+1" class="classButtonIcon">
+          </button>
+        </div>
+
+        <div class="form-group col-md-1">
+          <button type="button" class="classButton Editar" (mouseenter)="edit(i+1)" (mouseleave)="edit(0)">
+            <img src="/assets/icons/caneta2.png" *ngIf="ctl_edit === i+1" class="classButtonIcon">
+            <img src="/assets/icons/caneta3.png" *ngIf="ctl_edit !== i+1" class="classButtonIcon">
+          </button>
+        </div>
+
+        <div class="form-group col-md-1">
+          <button type="button" class="classButton Remover" (mouseenter)="lixo(i+1)" (mouseleave)="lixo(0)">
+            <img src="/assets/icons/lixoBrancoaberto.png" *ngIf="ctl_lixo === i+1" class="classButtonIcon">
+            <img src="/assets/icons/lixoBranco1.png" *ngIf="ctl_lixo !== i+1" class="classButtonIcon">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
