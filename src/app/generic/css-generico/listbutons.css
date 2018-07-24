@@ -37,13 +37,13 @@
 .classButtonIconNext{
     width: 20px;
     height: 20px;
-    margin-right: 5px;
+    margin: auto;
     z-index:3;
 }
 
 
 .classButtonPage{
-   
+    justify-content: center;
     width: 30px;
     height: 30px;
     background-color: white;

@@ -49,8 +49,8 @@ export class ListusersComponent implements OnInit {
   }
 
   formList(info) {
-    this.contage = "Monstrando " + String(info[0][0]) + "-" + 
-                    String(info[0][1]) + " de " + String(info[0][2]) + " usuários.";
+    this.contage = String(info[0][0]) + "-" + 
+                    String(info[0][1]) + " de " + String(info[0][2]) + " usuários";
     if (info[0][3]==='1') {
       this.nextpage = true;
     }
@@ -59,8 +59,9 @@ export class ListusersComponent implements OnInit {
     }
 
     this.lists = info.slice(1);
-    for (let i=0; i <= this.lists.length; i++) {
-      switch (this.lists[i][2]) {
+    for (let i=0; i < this.lists.length; i++) {
+      const valor = this.lists[i][2];
+      switch (valor) {
         case '7':
           this.lista.push('suporte');
           break;
