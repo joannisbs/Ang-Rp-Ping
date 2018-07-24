@@ -5,13 +5,12 @@ import { ModuloGuard } from '../../../routesguards/modulo.guard';
 import { ModuloProjetoGuard } from '../../../routesguards/modulo_projeto.guard';
 import { ExpedicaoGuard } from '../../../routesguards/expedicao.guard';
 import { ProjetoGuard } from '../../../routesguards/projeto.guard';
-import { NewrepComponent } from './newrep.component';
-
+import { ListhistoryusersComponent } from 'src/app/pages/manager/listhistoryusers/listhistoryusers.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: NewrepComponent,
+    component: ListhistoryusersComponent,
     canActivate:[AuthGuard,
                   SuportGuard,
                   ModuloGuard,
@@ -22,4 +21,4 @@ const routes: Routes = [
   }
 ];
 
-export const routing = RouterModule.forChild(routes);
+export const routingListhitoryusers = RouterModule.forChild(routes);

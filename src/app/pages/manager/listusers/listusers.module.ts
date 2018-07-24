@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListusersComponent } from 'src/app/pages/manager/listusers/listusers.component';
+import { ListusersComponent } from './listusers.component';
 import { routingListusers } from './listusers.routing';
 
 @NgModule({

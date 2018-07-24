@@ -5,7 +5,7 @@ import { ModuloGuard } from '../../../routesguards/modulo.guard';
 import { ModuloProjetoGuard } from '../../../routesguards/modulo_projeto.guard';
 import { ExpedicaoGuard } from '../../../routesguards/expedicao.guard';
 import { ProjetoGuard } from '../../../routesguards/projeto.guard';
-import { NewmoduleComponent } from 'src/app/pages/registrers/newmodule/newmodule.component';
+import { NewmoduleComponent } from './newmodule.component';
 
 
 const routes: Routes = [

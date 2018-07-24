@@ -5,33 +5,26 @@ import { LoginInteface } from '../../models/login/login';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { AuthService } from '../login/auth.service';
-import { Router } from '@angular/router';
+import { ListusersService } from 'src/app/services/user/listusers.service';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class ListusersService {
+export class ListhistoryUsersService {
 
   private api = environment.api_url;
 
-  private IDdoUsuarioSelecionado = 0;
 
   constructor(private http: Http,
     private authService: AuthService,
-    private router: Router) { }
+    private listuserService: ListusersService) { }
 
-    setIDdoUser(valor) {
-      this.IDdoUsuarioSelecionado = valor;
-      this.router.navigate(['/pages/manager/listhistoryusers'])
-    }
-    getIddoUser() {
-      return this.IDdoUsuarioSelecionado;
-    }
-    getList(page, filtro): Observable<any> {
+  getHistoryUserList(page, filtro): Observable<any> {
+    const Iddouser = this.listuserService.getIddoUser();
     const token: LoginInteface = this.authService.getToken();
       return this.http
-          .post(`${this.api}/api/user/ListUsers/`, [token, page , filtro])
+          .post(`${this.api}/api/user/HistoryUsers/`, [token, Iddouser, page , filtro])
           .map(res => res.json());
   }
   

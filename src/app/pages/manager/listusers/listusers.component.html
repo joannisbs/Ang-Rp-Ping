@@ -46,7 +46,7 @@
         </div>
 
         <div class="form-group col-md-1">
-          <button type="button" class="classButton Listar" (mouseenter)="acoes(i+1)" (mouseleave)="acoes(0)">
+          <button type="button" class="classButton Listar" (click)="History(i)" (mouseenter)="acoes(i+1)" (mouseleave)="acoes(0)">
             <img src="/assets/icons/lista1.png" *ngIf="ctl_acoes === i+1" class="classButtonIcon">
             <img src="/assets/icons/lista2.png" *ngIf="ctl_acoes !== i+1" class="classButtonIcon">
           </button>

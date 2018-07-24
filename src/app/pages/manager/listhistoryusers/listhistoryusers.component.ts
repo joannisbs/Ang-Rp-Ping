@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { ListusersService } from '../../../services/user/listusers.service'
+import { Subscription } from 'rxjs/internal/Subscription';
+import { ListhistoryUsersService } from 'src/app/services/user/listhystoryusers.service';
 
 @Component({
-  selector: 'app-listusers',
-  templateUrl: './listusers.component.html',
-  styleUrls: ['./listusers.component.css']
+  selector: 'app-listhistoryusers',
+  templateUrl: './listhistoryusers.component.html',
+  styleUrls: ['./listhistoryusers.component.css']
 })
-export class ListusersComponent implements OnInit {
+export class ListhistoryusersComponent implements OnInit {
 
   private subcription: Subscription;
 
@@ -23,7 +23,7 @@ export class ListusersComponent implements OnInit {
   public page = 1;
   public filter = "all";
 
-  constructor( private listusersService: ListusersService) { 
+  constructor( private listhistoryusersService: ListhistoryUsersService) { 
     this.GetList(1,"all");
   }
 
@@ -50,7 +50,7 @@ export class ListusersComponent implements OnInit {
 
   formList(info) {
     this.contage = String(info[0][0]) + "-" + 
-                    String(info[0][1]) + " de " + String(info[0][2]) + " usuários";
+                    String(info[0][1]) + " de " + String(info[0][2]) + " registros";
     if (info[0][3]==='1') {
       this.nextpage = true;
     }
@@ -59,37 +59,9 @@ export class ListusersComponent implements OnInit {
     }
 
     this.lists = info.slice(1);
-    for (let i=0; i < this.lists.length; i++) {
-      const valor = this.lists[i][2];
-      switch (valor) {
-        case '7':
-          this.lista.push('suporte');
-          break;
-        case '5':
-          this.lista.push('Expedição');
-          break;
-        case '4':
-          this.lista.push('Projetos');
-          break;
-        case '3':
-          this.lista.push('Módulo');
-          break;
-        case '2':
-          this.lista.push('Mod.Proj');
-          break;
-        case '1':
-          this.lista.push('Administrador');
-          break;
 
-      }
-
-    }
   }
-  History(index) {
-    const iddousuario = this.lists[index][0];
-    this.listusersService.setIDdoUser(iddousuario);
-  
-  }
+ 
   Search(valor){
     if (valor == ''){
       this.filter='all';
@@ -115,12 +87,9 @@ export class ListusersComponent implements OnInit {
   }
 
   GetList(pagina,filtro) {
-    this.subcription = this.listusersService.getList(pagina,filtro).
+    this.subcription = this.listhistoryusersService.getHistoryUserList(pagina,filtro).
     subscribe(( objeto ) => { this.formList(objeto); });
   } 
 
   
 }
-
-
-
