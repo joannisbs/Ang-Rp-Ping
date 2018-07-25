@@ -42,7 +42,7 @@
               <div class="input-group">
 
                 <input type="text" class="form-control classImputForm" id="chip_ip" placeholder="IP ou Hostname" formControlName="chip_ip"
-                  maxlength="45">
+                  maxlength="45" (blur)="ColocaOperadora(i)">
 
                 <!-- Icone de X has error -->
                 <span class='input-group-addon' *ngIf="!formPassive" [class.d-none]="showErrorsFormArray( 'chip_ip' , i )">
@@ -60,14 +60,17 @@
 
               <label class="classLabelForm" [class.animated]='i>0' [class.bounceInLeft]='i>0' for="chip_Operadora">Operadora:</label>
               <div class="input-group">
+                  
+                <input type="text" class="form-control classReadOnly" id="chip_Operadora" placeholder="Operadora" formControlName="chip_Operadora"
+                  maxlength="45" readonly>
 
-                <select class="classSelect classImputForm" formControlName="chip_Operadora">
+                <!-- <select class="classSelect classImputForm" formControlName="chip_Operadora">
                   <option class="classOption" value="Vivo">Vivo</option>
                   <option class="classOption" value="Claro">Claro</option>
                   <option class="classOption" value="OI">OI</option>
                   <option class="classOption" value="Porto">Porto</option>
                   <option class="classOption" value="4G">4G</option>
-                </select>
+                </select> -->
               
               </div>
 

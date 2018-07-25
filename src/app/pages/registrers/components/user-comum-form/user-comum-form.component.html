@@ -39,12 +39,13 @@
         <label class="classLabelForm" for="user_psw">Senha:</label>
 
         <input 
-          type="text" 
+          type="password" 
           class="form-control classImputForm" 
           [class.classBorderInvalid]=" !showErrors( 'user_psw' )"
           id="user_psw" 
           placeholder="Digite a Senha" 
           formControlName="user_psw" 
+          
         >
 
         <!-- Icone de X has error -->
@@ -69,12 +70,13 @@
         <label class="classLabelForm" for="user_re_psw">Senha:</label>
 
         <input 
-          type="text" 
+          type="password" 
           [class.classBorderInvalid]=" !showErrors( 'user_re_psw' )"
           class="form-control classImputForm" 
           id="user_re_psw" 
           placeholder="Confirme a Senha" 
           formControlName="user_re_psw" 
+          
         >
 
         <!-- Icone de X has error -->

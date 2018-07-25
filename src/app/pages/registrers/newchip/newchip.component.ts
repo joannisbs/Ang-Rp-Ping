@@ -26,7 +26,8 @@ export class NewchipComponent implements OnInit , OnDestroy {
   public index = 0;
 
   public showModal = false;
-
+  public listaFalhas = [];
+  public OcorreuFalhas = false;
   private subcription: Subscription;
 
 
@@ -48,7 +49,29 @@ export class NewchipComponent implements OnInit , OnDestroy {
   }
 
 
+  ColocaOperadora(i) {
+    this.chips = this.formulario.get('chips') as FormArray;
+    const valor = this.chips.at(i).get('chip_ip').value;
+      
+    console.log(valor);
+    let op = '';
+    if (valor.slice(0,2)==='10') {
 
+      if (valor.slice(2,5)==='.26') {
+        op = 'Vivo';
+      }else if (valor.slice(2,5)==='.50') {
+        op = 'Oi';
+      }else if(valor.slice(2,6)==='.115') {
+        op = 'Porto';
+      }
+    }else if (valor.slice(0,6)==='172.40'){
+      op = 'Claro';
+    }else if (valor.slice(0,4)==='host'){
+      op = '4G';
+    }else {op = 'INVALID'}
+    this.chips.at(i).get('chip_Operadora').patchValue(op);
+    
+  }
 
   // Methodos executados no HTML
 
@@ -142,7 +165,34 @@ export class NewchipComponent implements OnInit , OnDestroy {
   }
 
   // Methodos relacionados ao Submit
+  VerificaSeSalvouTudo(res){
+    this.listaFalhas = []
+    // # 1 Chip Existente
+    // # 2 Conflito de Ip
+    // # 3 dados Inconsistentes
+    for (let i=0; i < res.length; i++) 
+    {
+      if (res[i][0]=== false)
+      {
+        let motivo='';
+        if (res[i][1]==1)
+        {
+          motivo = 'Chip já cadastrado';
+        }else if (res[i][1]==2)
+        {
+          motivo = 'Conflito de ip com outro chip';
+        }else if (res[i][1]==3)
+        {
+          motivo = 'Os dados foram inconsistentes';
+        }
+          this.listaFalhas.push([res[i][2],motivo]);
+          this.OcorreuFalhas = true;
 
+      }
+    }
+    this.showModal = true;
+      console.log(this.listaFalhas);
+  }
   onSubmit(chips, valido) {
     console.log(chips);
 
@@ -152,8 +202,8 @@ export class NewchipComponent implements OnInit , OnDestroy {
       this.subcription = this.chipService
       .cadastrarChip(chips)
       .subscribe(res => {
-        console.log(res);
-        this.showModal = true;
+        this.VerificaSeSalvouTudo(res);
+        
       }
       );
     } else {

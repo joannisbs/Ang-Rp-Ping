@@ -75,3 +75,25 @@
     width: 100%;
     height: 40px !important;
 }
+.classReadOnly{
+    /* Deixar Objeto Não Selecionavel */
+    cursor:default !important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-color:#21237b;
+    border-radius: 10px !important;
+    background-color: whitesmoke;
+}
+.classReadOnly:focus{
+    /* Deixar Objeto Não Selecionavel */
+    cursor:default !important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-color:#21237b;
+    border-radius: 10px !important;
+    background-color: whitesmoke;
+}
