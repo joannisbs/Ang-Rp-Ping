@@ -60,6 +60,13 @@ export class ListhistoryusersComponent implements OnInit {
 
     this.lists = info.slice(1);
 
+    for (let i=0; i< this.lists.length; i++) {
+      const data = this.lists[i][1].slice(7,9) + '/'+
+        this.lists[i][1].slice(4,6) + '/'+
+        this.lists[i][1].slice(1,3) + ' às ' + this.lists[i][1].slice(10,15) ;
+      this.lists[i][1]=data
+    }
+
   }
  
   Search(valor){

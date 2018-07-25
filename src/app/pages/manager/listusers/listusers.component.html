@@ -38,28 +38,28 @@
   <div *ngFor="let item of lists; let i = index;">
     <div class="card classCardForm">
       <div class="form-row"> 
-        <div class="form-group col-md-5">
-          <label class="classLabelFormList classtamanhonome">{{item[1]}}</label>
+        <div class="form-group col-sm-5 classZeraMargem">
+          <label class="classLabelFormList">{{item[1]}}</label>
         </div>
-        <div class="form-group col-md-4">
-          <label class="classLabelFormList classtamanhonome">{{lista[i]}}</label>
+        <div class="form-group col-sm-4 classZeraMargem">
+          <label class="classLabelFormList">{{lista[i]}}</label>
         </div>
 
-        <div class="form-group col-md-1">
+        <div class="form-group col-sm-1 classZeraMargem">
           <button type="button" class="classButton Listar" (click)="History(i)" (mouseenter)="acoes(i+1)" (mouseleave)="acoes(0)">
             <img src="/assets/icons/lista1.png" *ngIf="ctl_acoes === i+1" class="classButtonIcon">
             <img src="/assets/icons/lista2.png" *ngIf="ctl_acoes !== i+1" class="classButtonIcon">
           </button>
         </div>
 
-        <div class="form-group col-md-1">
+        <div class="form-group col-sm-1 classZeraMargem">
           <button type="button" class="classButton Editar" (mouseenter)="edit(i+1)" (mouseleave)="edit(0)">
             <img src="/assets/icons/caneta2.png" *ngIf="ctl_edit === i+1" class="classButtonIcon">
             <img src="/assets/icons/caneta3.png" *ngIf="ctl_edit !== i+1" class="classButtonIcon">
           </button>
         </div>
 
-        <div class="form-group col-md-1">
+        <div class="form-group col-sm-1 classZeraMargem">
           <button type="button" class="classButton Remover" (mouseenter)="lixo(i+1)" (mouseleave)="lixo(0)">
             <img src="/assets/icons/lixoBrancoaberto.png" *ngIf="ctl_lixo === i+1" class="classButtonIcon">
             <img src="/assets/icons/lixoBranco1.png" *ngIf="ctl_lixo !== i+1" class="classButtonIcon">
