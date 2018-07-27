@@ -27,5 +27,12 @@ export class ListhistoryUsersService {
           .post(`${this.api}/api/user/HistoryUsers/`, [token, Iddouser, page , filtro])
           .map(res => res.json());
   }
+  DesativarConta() {
+    const Iddouser = this.listuserService.getIddoUser();
+    const token: LoginInteface = this.authService.getToken();
+      return this.http
+          .post(`${this.api}/api/user/DeleteUsers/`, [token, Iddouser])
+          .map(res => res.json());
+  }
   
 }

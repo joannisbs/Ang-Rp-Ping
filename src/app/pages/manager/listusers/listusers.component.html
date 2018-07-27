@@ -6,57 +6,99 @@
 
   <div class="cabecalho">
     <div class="classCampoPesquisa">
-        <div class="input-group">
+      <div class="input-group">
 
-            <input type="text" class="form-control classImputSearch" #search
-            (keyup)="Search(search.value)">
+        <input type="text" class="form-control classImputSearch" #search (keyup)="Search(search.value)">
 
-            <!-- Icone de X has error -->
-            <span class='input-group-addon'>
-              <img src='/assets/icons/lupa.png' alt='Search' class='classButtonLupa'>
-            </span>
-          </div>
+        <!-- Icone de X has error -->
+        <span class='input-group-addon'>
+          <img src='/assets/icons/lupa.png' alt='Search' class='classButtonLupa'>
+        </span>
+      </div>
     </div>
     <div class="classCampoPage align-content-center">
-    <button class="classButtonPage classAlinhamento"(click)="PagePrevius(page > 1)">
+      <button class="classButtonPage classAlinhamento" (click)="PagePrevius(page > 1)">
         <img src="/assets/icons/antverde.png" *ngIf="page > 1" class="classButtonIconNext">
         <img src="/assets/icons/antcinza.png" *ngIf="page == 1" class="classButtonIconNext">
-    </button>
-      <label class="classLabelFormHeader classTamanhoHeaderPage" >{{ page }}</label>
+      </button>
+      <label class="classLabelFormHeader classTamanhoHeaderPage">{{ page }}</label>
       <button class="classButtonPage" (click)="PageNext(!nextpage)">
         <img src="/assets/icons/proxverd.png" *ngIf="!nextpage" class="classButtonIconNext">
         <img src="/assets/icons/proxcinza.png" *ngIf="nextpage" class="classButtonIconNext">
       </button>
-   
-  </div>
+
+    </div>
     <div class="classCampoContage">
-      <label class="classContagemDeDados" >{{ contage }}</label>
+      <label class="classContagemDeDados">{{ contage }}</label>
     </div>
   </div>
   <br />
 
   <div *ngFor="let item of lists; let i = index;">
     <div class="card classCardForm">
-      <div class="form-row"> 
-        <div class="form-group col-sm-5 classZeraMargem">
-          <label class="classLabelFormList">{{item[1]}}</label>
-        </div>
+      <div class="form-row">
         <div class="form-group col-sm-4 classZeraMargem">
-          <label class="classLabelFormList">{{lista[i]}}</label>
+          <label class="classLabelFormList classLabelnomeconta">{{item[1]}}</label>
+        </div>
+
+        <div class="form-group col-sm-4 classZeraMargem">
+          <div class="classCentralizaEdit">
+          <div *ngIf="editar!==(i+1)">
+            <label class="classLabelFormList classTipodeConta">{{lista[i]}}</label>
+          </div>
+          <div *ngIf="editar===(i+1)">
+            <div class="classbotaoEdit">
+              <button type="button" class="classButtonSalve Listar" (click)="ResetSenha(i)" (mouseenter)="ctl_resetsenha=true;" (mouseleave)="ctl_resetsenha=false;">
+                  <img src="/assets/icons/cadeadoaberto.png" *ngIf="!ctl_resetsenha" class="classButtonIcon">
+                  <img src="/assets/icons/reset.png" *ngIf="ctl_resetsenha" class="classButtonIcon">
+              </button>
+              <span *ngIf='ctl_resetsenha' class="classtoltip Listar">Resetar senha</span>
+            </div>
+            <div class="classSelectTipe">
+            <select class="classSelect classImputForm" id="user_tipe" formControlName="user_tipe">
+              <option class="classOption selected" value="">Tipo de Conta:</option>
+              <option class="classOption" value="7">Usuário Suporte</option>
+              <!-- <option class="classOption" value="6">Usuário Cadastro</option> -->
+              <option class="classOption" value="5">Usuário Expedição</option>
+              <option class="classOption" value="4">Usuário Projetos</option>
+              <option class="classOption" value="3">Usuário Módulo</option>
+              <option class="classOption" value="2">Usuário Módulo + Projetos</option>
+              <option class="classOption" value="1">Administrador</option>
+            </select>
+          </div>
+            <div class="classbotaoEdit">
+            <button type="button" class="classButtonSalve Editar" (click)="Saves(i)" (mouseenter)="ctl_save=true;" (mouseleave)="ctl_save=false;">
+                <img src="/assets/icons/save.png" *ngIf="!ctl_save" class="classButtonIcon">
+                <img src="/assets/icons/savepro.png" *ngIf="ctl_save" class="classButtonIcon">
+              </button>
+              <span *ngIf='ctl_save' class="classtoltip Editar">Salvar tipo de conta</span>
+            </div>
+          </div>
+        </div>
         </div>
 
         <div class="form-group col-sm-1 classZeraMargem">
-          <button type="button" class="classButton Listar" (click)="History(i)" (mouseenter)="acoes(i+1)" (mouseleave)="acoes(0)">
-            <img src="/assets/icons/lista1.png" *ngIf="ctl_acoes === i+1" class="classButtonIcon">
-            <img src="/assets/icons/lista2.png" *ngIf="ctl_acoes !== i+1" class="classButtonIcon">
-          </button>
+
+        </div>
+        <div class="form-group col-sm-1 classZeraMargem">
+          
+            <button type="button" class="classButton Listar" (click)="History(i)" (mouseenter)="acoes(i+1)" (mouseleave)="acoes(0)">
+              <img src="/assets/icons/lista1.png" *ngIf="ctl_acoes === i+1" class="classButtonIcon">
+              <img src="/assets/icons/lista2.png" *ngIf="ctl_acoes !== i+1" class="classButtonIcon">
+            </button>
+          
+            <span *ngIf='ctl_acoes === i+1' class="classtoltip Listar">Listar histórico</span>
+          
         </div>
 
         <div class="form-group col-sm-1 classZeraMargem">
-          <button type="button" class="classButton Editar" (mouseenter)="edit(i+1)" (mouseleave)="edit(0)">
+          <button type="button" class="classButton Editar" (click)="EditUser(i+1)" (mouseenter)="edit(i+1)" (mouseleave)="edit(0)">
             <img src="/assets/icons/caneta2.png" *ngIf="ctl_edit === i+1" class="classButtonIcon">
             <img src="/assets/icons/caneta3.png" *ngIf="ctl_edit !== i+1" class="classButtonIcon">
           </button>
+
+          <span *ngIf='ctl_edit === i+1' class="classtoltip Editar">Editar conta</span>
+          
         </div>
 
         <div class="form-group col-sm-1 classZeraMargem">
@@ -64,6 +106,8 @@
             <img src="/assets/icons/lixoBrancoaberto.png" *ngIf="ctl_lixo === i+1" class="classButtonIcon">
             <img src="/assets/icons/lixoBranco1.png" *ngIf="ctl_lixo !== i+1" class="classButtonIcon">
           </button>
+          <span *ngIf='ctl_lixo === i+1' class="classtoltip Remover">Desativar conta</span>
+          
         </div>
       </div>
     </div>

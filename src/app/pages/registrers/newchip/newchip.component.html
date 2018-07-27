@@ -1,4 +1,3 @@
-
 <!-- Divisória tamanho das laterais -->
 <div class="classMargemLateral" [class.animated,class.bounceInUp]="!showModal">
 
@@ -60,7 +59,7 @@
 
               <label class="classLabelForm" [class.animated]='i>0' [class.bounceInLeft]='i>0' for="chip_Operadora">Operadora:</label>
               <div class="input-group">
-                  
+
                 <input type="text" class="form-control classReadOnly" id="chip_Operadora" placeholder="Operadora" formControlName="chip_Operadora"
                   maxlength="45" readonly>
 
@@ -71,13 +70,11 @@
                   <option class="classOption" value="Porto">Porto</option>
                   <option class="classOption" value="4G">4G</option>
                 </select> -->
-              
+
               </div>
 
-              <!-- Mensagem de erro -->
-              <small id="nameHelpBlock" *ngIf="!formPassive" class="form-text classTextodeErro" [class.d-none]="showErrorsFormArray( 'chip_Operadora' , i )">
-                Campo obrigatório.
-              </small>
+
+
             </div>
 
             <div class="form-group col-lg-3" *ngIf="i<1">
@@ -121,22 +118,44 @@
         [class.classFormValido]="formulario.valid">
         Salvar Alterações
       </button>
-       <!-- Modal -->
-       <div class="modal modal-backdrop fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" [class.show]=" showModal " [style.display]=" showModal ? 'block' : 'none'">
+      <!-- Modal -->
+      <div class="modal modal-backdrop fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" [class.show]=" showModal "
+        [style.display]=" showModal ? 'block' : 'none'">
         <div class="modal-dialog" role="document">
           <div class="modal-content classModalTamanho ">
             <div class="modal-header">
-              <h5 class="modal-title classModalLabalsTitle" id="ModalLabel">Parabéns, os dados foram salvos com sucesso!</h5>
-              
-                
+              <div  *ngIf="!OcorreuFalhas">
+                <h5 class="modal-title classModalLabalsTitle" id="ModalLabel">Parabéns, os dados foram salvos com sucesso!</h5>
+              </div>
+              <div *ngIf="OcorreuFalhas">
+                  <h5 class="modal-title classModalLabalsTitle" id="ModalLabel">Atenção, ocorreu erro ao salvar alguns dados.</h5>
+
+              </div>
             </div>
-            
-                <label class="classModalLabals"> O que deseja fazer?</label>
-            
+           
+            <div *ngIf="OcorreuFalhas">
+              <div *ngIf="OcorreuSucess">
+                <label class="classModalLabals"> Os seguintes chips foram salvos:</label>
+                <div *ngFor="let item of listaOK">
+                  <label class="classModalLabals"> Número: {{item}} </label>
+                </div>
+              </div>
+              <div *ngIf="!OcorreuSucess">
+                <label class="classModalLabals"> Nenhum chip foi salvo:</label>
+              </div>
+              <label class="classModalLabals"> Os seguintes chips estão com erro:</label>
+              <div *ngFor="let item of listaFalhas">
+                <label class="classModalLabals"> Número: {{item[0]}}, {{item[1]}} </label>
+
+              </div>
+            </div>
+
+            <label class="classModalLabals"> O que deseja fazer?</label>
+
             <div class="modal-footer justify-content-around">
-            
+
               <button type="button" class="classModalBotao" (click)="ClearForm()">Cadastrar outros chips</button>
-              
+
               <button type="button" class="classModalBotao" onclick="window.location.href='#/pages/register'">Voltar ao monitoramento</button>
 
             </div>
@@ -144,7 +163,7 @@
         </div>
       </div>
     </div>
-    
+
   </form>
   <br />
   <!-- Margem no final da Página -->

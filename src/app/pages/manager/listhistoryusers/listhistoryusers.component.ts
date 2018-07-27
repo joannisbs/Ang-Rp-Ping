@@ -58,8 +58,8 @@ export class ListhistoryusersComponent implements OnInit {
       this.nextpage = false;
     }
 
-    this.lists = info.slice(1);
-
+    
+    this.lists = info.slice(1).reverse();
     for (let i=0; i< this.lists.length; i++) {
       const data = this.lists[i][1].slice(7,9) + '/'+
         this.lists[i][1].slice(4,6) + '/'+
@@ -72,7 +72,8 @@ export class ListhistoryusersComponent implements OnInit {
   Search(valor){
     if (valor == ''){
       this.filter='all';
-    }else{
+    }
+    else{
       this.filter=valor;
       this.page = 1;
     }

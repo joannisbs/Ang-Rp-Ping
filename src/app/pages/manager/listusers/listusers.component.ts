@@ -16,12 +16,16 @@ export class ListusersComponent implements OnInit {
   public ctl_lixo = 0;
   public ctl_edit = 0;
   public ctl_acoes = 0;
+  public ctl_save = false;
+  public ctl_resetsenha = false;
 
   public contage = ''
 
   public nextpage = false;
   public page = 1;
   public filter = "all";
+
+  public editar = 0;
 
   constructor( private listusersService: ListusersService) { 
     this.GetList(1,"all");
@@ -37,6 +41,9 @@ export class ListusersComponent implements OnInit {
     }
   }
 
+  EditUser(i) {
+    this.editar = i;
+  }
   // Controle da lixeira abrindo.
   lixo(i) {
     this.ctl_lixo = i;
@@ -47,7 +54,12 @@ export class ListusersComponent implements OnInit {
   acoes(i) {
     this.ctl_acoes= i;
   }
-
+  ResetSenha(i) {
+    
+  }
+  Saves(i) {
+    
+  }
   formList(info) {
     this.contage = String(info[0][0]) + "-" + 
                     String(info[0][1]) + " de " + String(info[0][2]) + " usuários";

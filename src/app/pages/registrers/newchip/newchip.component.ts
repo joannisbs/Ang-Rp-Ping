@@ -27,7 +27,9 @@ export class NewchipComponent implements OnInit , OnDestroy {
 
   public showModal = false;
   public listaFalhas = [];
+  public listaOK  = [];
   public OcorreuFalhas = false;
+  public OcorreuSucess = false;
   private subcription: Subscription;
 
 
@@ -166,7 +168,10 @@ export class NewchipComponent implements OnInit , OnDestroy {
 
   // Methodos relacionados ao Submit
   VerificaSeSalvouTudo(res){
-    this.listaFalhas = []
+    this.OcorreuFalhas = false;
+    this.OcorreuSucess = false;
+    this.listaFalhas = [];
+    this.listaOK = [];
     // # 1 Chip Existente
     // # 2 Conflito de Ip
     // # 3 dados Inconsistentes
@@ -188,6 +193,9 @@ export class NewchipComponent implements OnInit , OnDestroy {
           this.listaFalhas.push([res[i][2],motivo]);
           this.OcorreuFalhas = true;
 
+      }else {
+        this.listaOK.push(res[i][2]);
+        this.OcorreuSucess = true;
       }
     }
     this.showModal = true;

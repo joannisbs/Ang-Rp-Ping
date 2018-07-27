@@ -17,13 +17,13 @@
 }
 
 .Editar{
-    background-color: #0000b0; 
+    background-color: #21237b; 
 }
 .Editar:hover{
-    background-color: #000060; 
+    background-color: #0f104e; 
 }
 .Editar:active{
-    background-color: #000030; 
+    background-color: #030436; 
 }
 
 .Listar{
@@ -44,7 +44,7 @@
     border-radius: 40px;
     margin-top: 5px;
     margin-bottom: 5px;
-    margin-left: 10%;
+    margin-left: 5%;
     /* Deixar Objeto Não Selecionavel */
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -76,7 +76,7 @@
     color: #21237b;
     border: none;
     margin-top: 10px;
-    margin-left: 10%;
+    
     font-size: 18px;
     font-weight: 700;
     font-style: italic;

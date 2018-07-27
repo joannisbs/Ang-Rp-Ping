@@ -25,8 +25,16 @@ export class ListusersService {
       this.IDdoUsuarioSelecionado = valor;
       this.router.navigate(['/pages/manager/listhistoryusers'])
     }
+
     getIddoUser() {
       return this.IDdoUsuarioSelecionado;
+    }
+    DesativarConta(valor) {
+      const Iddouser = valor;
+      const token: LoginInteface = this.authService.getToken();
+        return this.http
+            .post(`${this.api}/api/user/DeleteUsers/`, [token, Iddouser])
+            .map(res => res.json());
     }
     getList(page, filtro): Observable<any> {
     const token: LoginInteface = this.authService.getToken();
