@@ -38,9 +38,9 @@ export class LoginComponent implements OnInit {
   }
 
   montaobjct(){
-    this.login.user_nome = this.formulario.get('user_nome').value;
-    this.login.user_pass = this.formulario.get('user_pass').value;
-    this.login.user_pass = sha256(this.login.user_pass);
+    this.login.username = this.formulario.get('user_nome').value;
+    this.login.password = this.formulario.get('user_pass').value;
+    this.login.password = sha256(this.login.password);
  
   }
 

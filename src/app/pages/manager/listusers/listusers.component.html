@@ -102,7 +102,7 @@
         </div>
 
         <div class="form-group col-sm-1 classZeraMargem">
-          <button type="button" class="classButton Remover" (mouseenter)="lixo(i+1)" (mouseleave)="lixo(0)">
+          <button type="button" class="classButton Remover" (click)="DeleteUser(i)" (mouseenter)="lixo(i+1)" (mouseleave)="lixo(0)">
             <img src="/assets/icons/lixoBrancoaberto.png" *ngIf="ctl_lixo === i+1" class="classButtonIcon">
             <img src="/assets/icons/lixoBranco1.png" *ngIf="ctl_lixo !== i+1" class="classButtonIcon">
           </button>

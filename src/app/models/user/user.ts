@@ -1,6 +1,6 @@
 export class UserInteface {
-    user_nome: string;
-    user_pass: string;
+    username: string;
+    password: string;
 }
 export class newUserInteface {
     user_name:string;

@@ -6,6 +6,7 @@ import { UserInteface } from '../../models/user/user';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginInteface } from '../../models/login/login';
+import { StandartResponseInterface } from 'src/app/models/standartResponse/standartResponse';
 
 
 
@@ -27,32 +28,47 @@ export class AuthService {
 
   constructor(private http: Http, private router: Router) { }
 
-  fazerLogin(usuario: UserInteface):Observable<LoginInteface>{
+  fazerLogin(usuario: UserInteface):Observable<any>{
 
     return  this.http
       .post(`${this.api}/api/user/login/`, usuario)
       .map(res => res.json());
 
     }
-  validarLogin(objeto:LoginInteface) {
-  
-    this.objectToken = objeto;
-    this.nivel = objeto.nivel;
-    
 
-    if (objeto.status === "True"){
-      
-      this.userAuth = true;
-      this.nivelEmmt.emit(objeto.nivel);
-      this.showNavEmmt.emit(true);
-      this.router.navigate(['/pages/monitor/visaogeral'])
-    } else{
+  validarLogin(respostaServer) {
+    const respostaPadrao: StandartResponseInterface = respostaServer[0]
+    
+    if (respostaPadrao.sucess === true) {
+      const Token: LoginInteface = respostaServer[1]   
+      this.objectToken = Token;
+      this.nivel = Token.nivel;
+    
+      if (Token.status === "True"){
+        
+        this.userAuth = true;
+        this.nivelEmmt.emit(Token.nivel);
+        this.showNavEmmt.emit(true);
+        this.router.navigate(['/pages/monitor/visaogeral'])
+
+      } else{
+
+        this.userAuth = false;
+        this.showNavEmmt.emit(false);
+        alert("Login ou senha inválido");
+      }
+
+    }else{
       this.userAuth = false;
       this.showNavEmmt.emit(false);
-      alert("SENHA INVALIDA");
+      alert("Login ou senha inválido");
     }
+    
   }
-
+  Deslog(){
+    this.userAuth = false;
+    this.showNavEmmt.emit(false);
+  }
   CheckUserAuthenticate(){
     return this.userAuth;
   }

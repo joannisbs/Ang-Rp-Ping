@@ -54,6 +54,21 @@ export class ListusersComponent implements OnInit {
   acoes(i) {
     this.ctl_acoes= i;
   }
+  DeleteUser(idex){
+    const ids = this.lists[idex][0];
+    this.subcription = this.listusersService
+      .DesativarConta(ids)
+      .subscribe(res => {
+        if (res == true) {
+            alert("Usuário " + this.lists[idex][1] + " foi desativado!");
+        }else {
+          alert("Ocorreu um erro desconhecido.");
+        }
+        this.GetList(this.page,this.filter);
+        
+      });
+  }
+
   ResetSenha(i) {
     
   }
