@@ -4,7 +4,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { UserInteface } from '../../models/user/user';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { LoginInteface } from '../../models/login/login';
 import { StandartResponseInterface } from 'src/app/models/standartResponse/standartResponse';
 
@@ -14,10 +14,12 @@ import { StandartResponseInterface } from 'src/app/models/standartResponse/stand
   providedIn: 'root'
 })
 export class AuthService {
-  //TokenAuthVariables
-  private objectToken;
+  
+  //tokenAuthVariables
+  private object_token;
   private nivel;
 
+  private subcription: Subscription;
 
   private userAuth: boolean = false;
   
@@ -28,72 +30,67 @@ export class AuthService {
 
   constructor(private http: Http, private router: Router) { }
 
-  fazerLogin(usuario: UserInteface):Observable<any>{
-
-    return  this.http
-      .post(`${this.api}/api/user/login/`, usuario)
-      .map(res => res.json());
-
-    }
-
-  validarLogin(respostaServer) {
-    const respostaPadrao: StandartResponseInterface = respostaServer[0]
+  FazerLogin(response_login){
+    const standart_response: StandartResponseInterface = response_login[0];
+    if (standart_response.sucess === true) {
+      const token: LoginInteface = response_login[1]   
+      this.object_token = token;
+      this.nivel = token.nivel;
     
-    if (respostaPadrao.sucess === true) {
-      const Token: LoginInteface = respostaServer[1]   
-      this.objectToken = Token;
-      this.nivel = Token.nivel;
-    
-      if (Token.status === "True"){
-        
-        this.userAuth = true;
-        this.nivelEmmt.emit(Token.nivel);
-        this.showNavEmmt.emit(true);
+      if (token.status === "True"){
+        this.nivelEmmt.emit(token.nivel);
+        this.Logar();
         this.router.navigate(['/pages/monitor/visaogeral'])
-
       } else{
-
-        this.userAuth = false;
-        this.showNavEmmt.emit(false);
         alert("Login ou senha inválido");
+        this.Deslog();
       }
-
     }else{
-      this.userAuth = false;
-      this.showNavEmmt.emit(false);
       alert("Login ou senha inválido");
+      this.Deslog(); 
     }
-    
   }
-  Deslog(){
-    this.userAuth = false;
-    this.showNavEmmt.emit(false);
+
+  CheckStandartResponseLogin(respostaServer:StandartResponseInterface){
+    if (respostaServer.sucess) {
+      return true;
+    }
+    this.Deslog();
+    return false;
   }
+
   CheckUserAuthenticate(){
     return this.userAuth;
   }
 
-  getToken(){
+  GetToken(){
     if (this.userAuth){
-      return this.objectToken;              
+      return this.object_token;              
     }
+    this.router.navigate(['/pages/login']);
   }
-  getNivel(){
+
+  GetNivel(){
     return this.nivel;
   }
 
-    // console.log(resposta);
+  ApiLogin_MethodHttp(usuario: UserInteface):Observable<any>{
+    return  this.http
+      .post(`${this.api}/api/user/login/`, usuario)
+      .map(res => res.json());
+  }
 
+  Logar(){
+    this.userAuth = true;
+    this.showNavEmmt.emit(true);
+  }
 
-    // if (usuario.user_name === "user" && usuario.user_pass === "121314"){
-    //   this.userAuth = true;
-    //   this.showNavEmmt.emit(true);
-    //   //this.router.navigate(['/pages/register/newchip'])
-    // } else{
-    //   this.userAuth = false;
-    //   this.showNavEmmt.emit(false);
-    // }
+  Deslog(){
+    this.userAuth = false;
+    this.showNavEmmt.emit(false);
+    this.nivelEmmt.emit('0');
+    this.router.navigate(['/pages/login']);
+  }
 
-  
 
 }

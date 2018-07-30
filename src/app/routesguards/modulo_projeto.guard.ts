@@ -21,7 +21,7 @@ export class ModuloProjetoGuard implements CanActivate{
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable <boolean> | boolean{
-      if (this.authService.getNivel()==='2'){
+      if (this.authService.GetNivel()==='2'){
         return false;
       }
       return true;

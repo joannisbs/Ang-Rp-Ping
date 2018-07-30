@@ -37,18 +37,19 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  montaobjct(){
+  Montaobjct(){
     this.login.username = this.formulario.get('user_nome').value;
     this.login.password = this.formulario.get('user_pass').value;
     this.login.password = sha256(this.login.password);
  
   }
 
-  validarlogin(){
-    this.montaobjct();
-    this.subcription = this.authService.fazerLogin(this.login).
-      subscribe(( objeto ) => {
-        this.authService.validarLogin( objeto );
+  Validar_Login(){
+    this.Montaobjct();
+    this.subcription = this.authService.ApiLogin_MethodHttp(this.login).
+      subscribe(( response_server ) => {
+        this.subcription.unsubscribe();
+        this.authService.FazerLogin( response_server );
     });
   }
 

@@ -22,7 +22,7 @@ export class ListhistoryUsersService {
 
   getHistoryUserList(page, filtro): Observable<any> {
     const Iddouser = this.listuserService.getIddoUser();
-    const token: LoginInteface = this.authService.getToken();
+    const token: LoginInteface = this.authService.GetToken();
       return this.http
           .post(`${this.api}/api/user/HistoryUsers/`, [token, Iddouser, page , filtro])
           .map(res => res.json());

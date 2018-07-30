@@ -21,7 +21,7 @@ export class ExpedicaoGuard implements CanActivate{
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable <boolean> | boolean{
-      if (this.authService.getNivel()==='5'){
+      if (this.authService.GetNivel()==='5'){
         return false;
       }
       return true;

@@ -63,7 +63,7 @@ export class NewuserComponent implements OnInit {
         this.montaobjct();
         console.log(this.users);
         this.ocorreuSubmit = false;
-        const token = this.authService.getToken();
+        const token = this.authService.GetToken();
         this.subcription = this.newUserService
         .newUser(token,this.users)
         .subscribe(res => {

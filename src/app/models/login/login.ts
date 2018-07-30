@@ -3,6 +3,5 @@ export interface LoginInteface {
     status: string;
     nivel: string;
     ids: string;
-    user: string;
-    
+    user: string;   
 }

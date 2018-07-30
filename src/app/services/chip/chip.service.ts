@@ -20,7 +20,7 @@ export class ChipService {
     private authService: AuthService) { }
 
   cadastrarChip(chip): Observable<ChipInteface> {
-    const token = this.authService.getToken();
+    const token = this.authService.GetToken();
     return this.http
       .post(`${this.api}/api/user/newChip/`,[token ,chip])
       .map(res => res.json());
