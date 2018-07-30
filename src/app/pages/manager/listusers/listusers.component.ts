@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ListusersService } from '../../../services/user/listusers.service'
+import { GetListUserInteface, sizeoflistofuserInterface, personOfListUsersInterface } from 'src/app/models/user/user';
 
 @Component({
   selector: 'app-listusers',
@@ -26,8 +27,12 @@ export class ListusersComponent implements OnInit {
   public filter = "all";
 
   public editar = 0;
+  
+
+  private listuserfilters: GetListUserInteface = new GetListUserInteface;
 
   constructor( private listusersService: ListusersService) { 
+    
     this.GetList(1,"all");
   }
 
@@ -41,6 +46,8 @@ export class ListusersComponent implements OnInit {
     }
   }
 
+
+ 
   EditUser(i) {
     this.editar = i;
   }
@@ -54,6 +61,8 @@ export class ListusersComponent implements OnInit {
   acoes(i) {
     this.ctl_acoes= i;
   }
+
+
   DeleteUser(idex){
     const ids = this.lists[idex][0];
     this.subcription = this.listusersService
@@ -75,48 +84,53 @@ export class ListusersComponent implements OnInit {
   Saves(i) {
     
   }
+
   formList(info) {
-    this.contage = String(info[0][0]) + "-" + 
-                    String(info[0][1]) + " de " + String(info[0][2]) + " usuários";
-    if (info[0][3]==='1') {
+    const sizeof:sizeoflistofuserInterface = info[0];
+    const peaples = info[1];
+    let peaple:personOfListUsersInterface;
+    this.contage = String(Number(sizeof.initpag)+1) + "-" + 
+                    String(sizeof.endpag) + " de " + String(sizeof.size) + " usuários";
+    if (sizeof.next==='1') {
       this.nextpage = true;
     }
     else {
       this.nextpage = false;
     }
 
-    this.lists = info.slice(1);
-    for (let i=0; i < this.lists.length; i++) {
-      const valor = this.lists[i][2];
-      switch (valor) {
+    //this.lists = info.slice(1);
+    for (let i=0; i < peaples.length; i++) {
+      peaple = peaples[i];
+      switch (peaple.type) {
         case '7':
-          this.lista.push('suporte');
+          peaple.type ='suporte';
           break;
         case '5':
-          this.lista.push('Expedição');
+           peaple.type ='Expedição';
           break;
         case '4':
-          this.lista.push('Projetos');
+           peaple.type ='Projetos';
           break;
         case '3':
-          this.lista.push('Módulo');
+           peaple.type ='Módulo';
           break;
         case '2':
-          this.lista.push('Mod.Proj');
+           peaple.type ='Mod.Proj';
           break;
         case '1':
-          this.lista.push('Administrador');
+           peaple.type ='Administrador';
           break;
-
       }
+      this.lists.push([peaple.ids, peaple.user, peaple.type]);
 
     }
   }
+
   History(index) {
     const iddousuario = this.lists[index][0];
     this.listusersService.setIDdoUser(iddousuario);
-  
   }
+
   Search(valor){
     if (valor == ''){
       this.filter='all';
@@ -126,6 +140,7 @@ export class ListusersComponent implements OnInit {
     }
     this.GetList(this.page,this.filter);;
   }
+
   PageNext(condicion){
     if (condicion) {
       this.page++;
@@ -142,8 +157,14 @@ export class ListusersComponent implements OnInit {
   }
 
   GetList(pagina,filtro) {
-    this.subcription = this.listusersService.getList(pagina,filtro).
-    subscribe(( objeto ) => { this.formList(objeto); });
+    this.listuserfilters.page = pagina;
+    this.listuserfilters.filtro = filtro;
+
+    this.subcription = this.listusersService.getList_Server(this.listuserfilters).
+    subscribe(( response ) => { 
+      this.subcription.unsubscribe();
+      const listusers = this.listusersService.ValidateList(response);
+      this.formList(listusers); });
   } 
 
   

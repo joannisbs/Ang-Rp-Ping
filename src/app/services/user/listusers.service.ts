@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { AuthService } from '../login/auth.service';
 import { Router } from '@angular/router';
+import { StandartResponseInterface } from 'src/app/models/standartResponse/standartResponse';
+import { sizeoflistofuserInterface, personOfListUsersInterface } from 'src/app/models/user/user';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +18,7 @@ export class ListusersService {
   private api = environment.api_url;
 
   private IDdoUsuarioSelecionado = 0;
+
 
   constructor(private http: Http,
     private authService: AuthService,
@@ -36,18 +39,36 @@ export class ListusersService {
             .post(`${this.api}/api/user/DeleteUsers/`, [token, Iddouser])
             .map(res => res.json());
     }
-    getList_service(page, filtro) {
-      const response_server = this.getList(page, filtro);
+    ValidateList(response_server) {
+      let response = [];
       if (this.authService.CheckStandartResponseLogin(response_server[0])){
-        //algo
+        const sucessrequisition: StandartResponseInterface = response_server[1];
+
+        if (sucessrequisition.sucess = true) {
+          const sizeof: sizeoflistofuserInterface = response_server[2];
+
+          let listsofuser: Array<personOfListUsersInterface> = response_server[3]
+          const tamanhodeusuariosrecebidos = listsofuser.length;
+          let peaple = [];
+
+          for(let index=0; index < tamanhodeusuariosrecebidos;index++) {
+            let person:personOfListUsersInterface = listsofuser[index];
+            peaple.push(person);
+          }
+          response.push(sizeof);
+          response.push(peaple);
+          return response;
+        }
+        alert("Nenhum usuário foi encontrado.");
+        return 0;
       }
       this.router.navigate(['/login'])
     }
 
-    getList(page, filtro): Observable<any> {
+    getList_Server(filters): Observable<any> {
     const token: LoginInteface = this.authService.GetToken();
       return this.http
-          .post(`${this.api}/api/user/ListUsers/`, [token, page , filtro])
+          .post(`${this.api}/api/user/ListUsers/`, [token, filters])
           .map(res => res.json());
   }
   

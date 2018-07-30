@@ -1,9 +1,9 @@
 import { Http } from '@angular/http';
 import { Injectable, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { environment } from '../../../environments/environment';
 import { UserInteface } from '../../models/user/user';
-import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { LoginInteface } from '../../models/login/login';
 import { StandartResponseInterface } from 'src/app/models/standartResponse/standartResponse';
