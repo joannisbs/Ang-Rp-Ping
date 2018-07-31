@@ -32,6 +32,27 @@ export class ListusersService {
     getIddoUser() {
       return this.IDdoUsuarioSelecionado;
     }
+
+    ValidateDesactive(response_server) {
+      if (this.authService.CheckStandartResponseLogin(response_server[0])) {
+        const sucessrequisition: StandartResponseInterface = response_server[1];
+
+        if (sucessrequisition.sucess = true) {
+          return true;
+
+        }
+      }
+      return false
+    }
+
+    ReativarConta(valor) {
+      const Iddouser = valor;
+      const token: LoginInteface = this.authService.GetToken();
+        return this.http
+            .post(`${this.api}/api/user/ReactiveUsers/`, [token, Iddouser])
+            .map(res => res.json());
+    }
+
     DesativarConta(valor) {
       const Iddouser = valor;
       const token: LoginInteface = this.authService.GetToken();
@@ -65,11 +86,17 @@ export class ListusersService {
       this.router.navigate(['/login'])
     }
 
-    getList_Server(filters): Observable<any> {
-    const token: LoginInteface = this.authService.GetToken();
-      return this.http
-          .post(`${this.api}/api/user/ListUsers/`, [token, filters])
-          .map(res => res.json());
+    getList_Server(filters,condicion): Observable<any> {
+      const token: LoginInteface = this.authService.GetToken();
+      if (!condicion){
+        return this.http
+            .post(`${this.api}/api/user/ListUsers/`, [token, filters])
+            .map(res => res.json());
+      }else{
+        return this.http
+        .post(`${this.api}/api/user/ListDesactiveUsers/`, [token, filters])
+        .map(res => res.json());
+      }
   }
   
 }

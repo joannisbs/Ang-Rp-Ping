@@ -35,6 +35,15 @@
 .Listar:active{
     background-color: #004000; 
 }
+.reactive{
+    background-color: #00c3ff; 
+}
+.reactive:hover{
+    background-color: #0080a7; 
+}
+.reactive:active{
+    background-color: #005068; 
+}
 .classButton{
     margin: 0 auto;
     /* Alterações de Corpo */

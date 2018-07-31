@@ -80,3 +80,37 @@
 
     width:  40px;
 }
+.classred{
+    color: red !important;
+}
+.classbackblue{
+    background-color: #21237b !important;
+}
+.classCampoInativos{
+    position: relative;
+    float: left;
+    width: 100%;
+}
+.ClassBotaoVerDesativos{
+    justify-content: center;
+    margin-left: calc(50% - 200px);
+    width: 400px;
+    height: 30px;
+    background-color: red ;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    font-style: italic;
+    /* Deixar Objeto Não Selecionavel */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    cursor: pointer;
+    outline: none;
+    z-index:2;
+    
+}

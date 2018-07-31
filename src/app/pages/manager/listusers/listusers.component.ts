@@ -28,6 +28,13 @@ export class ListusersComponent implements OnInit {
 
   public editar = 0;
   
+  public tittle = "Lista de usuários ativos";
+  public Dtittle = "Lista de usuários desativados"
+
+  public button = "Vizualizar usuários desativos";
+  public dbutton = "Vizualizar usuários ativos";
+
+  public desativos = false;
 
   private listuserfilters: GetListUserInteface = new GetListUserInteface;
 
@@ -62,14 +69,14 @@ export class ListusersComponent implements OnInit {
     this.ctl_acoes= i;
   }
 
-
-  DeleteUser(idex){
-    const ids = this.lists[idex][0];
+  ReactiveUser(index){
+    const ids = this.lists[index][0];
     this.subcription = this.listusersService
-      .DesativarConta(ids)
-      .subscribe(res => {
-        if (res == true) {
-            alert("Usuário " + this.lists[idex][1] + " foi desativado!");
+      .ReativarConta(ids)
+      .subscribe(response_server => { 
+        const sucess = this.listusersService.ValidateDesactive(response_server)
+        if (sucess) {
+            alert("Usuário " + this.lists[index][1] + " foi reativado!");
         }else {
           alert("Ocorreu um erro desconhecido.");
         }
@@ -78,6 +85,34 @@ export class ListusersComponent implements OnInit {
       });
   }
 
+  DeleteUser(index){
+    const ids = this.lists[index][0];
+    this.subcription = this.listusersService
+      .DesativarConta(ids)
+      .subscribe(response_server => { 
+        const sucess = this.listusersService.ValidateDesactive(response_server)
+        if (sucess) {
+            alert("Usuário " + this.lists[index][1] + " foi desativado!");
+        }else {
+          alert("Ocorreu um erro desconhecido.");
+        }
+        
+        this.GetList(this.page,this.filter);
+        
+      });
+  }
+  VerDesativos() {
+    const name = this.tittle;
+    this.tittle = this.Dtittle;
+    this.Dtittle = name;
+    const ativo = this.button;
+    this.button = this.dbutton;
+    this.dbutton = ativo;
+    this.desativos = !this.desativos;
+    this.lists = [];
+    this.GetList(1,"all");
+
+  }
   ResetSenha(i) {
     
   }
@@ -99,6 +134,7 @@ export class ListusersComponent implements OnInit {
     }
 
     //this.lists = info.slice(1);
+    this.lists = [];
     for (let i=0; i < peaples.length; i++) {
       peaple = peaples[i];
       switch (peaple.type) {
@@ -157,10 +193,11 @@ export class ListusersComponent implements OnInit {
   }
 
   GetList(pagina,filtro) {
+    this.lists = [];
     this.listuserfilters.page = pagina;
     this.listuserfilters.filtro = filtro;
 
-    this.subcription = this.listusersService.getList_Server(this.listuserfilters).
+    this.subcription = this.listusersService.getList_Server(this.listuserfilters,this.desativos).
     subscribe(( response ) => { 
       this.subcription.unsubscribe();
       const listusers = this.listusersService.ValidateList(response);

@@ -2,7 +2,7 @@
 <div class="classMargemLateral" [class.animated,class.bounceInUp]="!showModal">
 
   <!-- Titulo -->
-  <label class="classLabelTitle">Lista de usuários</label>
+  <label class="classLabelTitle" [class.classred]="desativos">{{ tittle }}</label>
 
   <div class="cabecalho">
     <div class="classCampoPesquisa">
@@ -28,6 +28,7 @@
       </button>
 
     </div>
+    
     <div class="classCampoContage">
       <label class="classContagemDeDados">{{ contage }}</label>
     </div>
@@ -38,13 +39,13 @@
     <div class="card classCardForm">
       <div class="form-row">
         <div class="form-group col-sm-4 classZeraMargem">
-          <label class="classLabelFormList classLabelnomeconta">{{item[1]}}</label>
+          <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{item[1]}}</label>
         </div>
 
         <div class="form-group col-sm-4 classZeraMargem">
           <div class="classCentralizaEdit">
           <div *ngIf="editar!==(i+1)">
-            <label class="classLabelFormList classTipodeConta">{{lista[i]}}</label>
+            <label class="classLabelFormList classTipodeConta" [class.classred]="desativos">{{item[2]}}</label>
           </div>
           <div *ngIf="editar===(i+1)">
             <div class="classbotaoEdit">
@@ -101,7 +102,7 @@
           
         </div>
 
-        <div class="form-group col-sm-1 classZeraMargem">
+        <div class="form-group col-sm-1 classZeraMargem" *ngIf="!desativos">
           <button type="button" class="classButton Remover" (click)="DeleteUser(i)" (mouseenter)="lixo(i+1)" (mouseleave)="lixo(0)">
             <img src="/assets/icons/lixoBrancoaberto.png" *ngIf="ctl_lixo === i+1" class="classButtonIcon">
             <img src="/assets/icons/lixoBranco1.png" *ngIf="ctl_lixo !== i+1" class="classButtonIcon">
@@ -109,7 +110,20 @@
           <span *ngIf='ctl_lixo === i+1' class="classtoltip Remover">Desativar conta</span>
           
         </div>
+        <div class="form-group col-sm-1 classZeraMargem"  *ngIf="desativos">
+            <button type="button" class="classButton reactive" (click)="ReactiveUser(i)" (mouseenter)="lixo(i+1)" (mouseleave)="lixo(0)">
+              <img src="/assets/icons/reset.png" *ngIf="ctl_lixo === i+1" class="classButtonIcon">
+              <img src="/assets/icons/reactive.png" *ngIf="ctl_lixo !== i+1" class="classButtonIcon">
+            </button>
+            <span *ngIf='ctl_lixo === i+1' class="classtoltip reactive">Reativar conta</span>
+            
+          </div>
       </div>
     </div>
   </div>
+  <div class="classCampoInativos">
+      <button class="ClassBotaoVerDesativos" [class.classbackblue]="desativos" (click)="VerDesativos()">
+          {{ button }}
+        </button>
+    </div>
 </div>
