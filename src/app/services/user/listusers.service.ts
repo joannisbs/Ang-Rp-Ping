@@ -18,17 +18,20 @@ export class ListusersService {
   private api = environment.api_url;
 
   private IDdoUsuarioSelecionado = 0;
-
+  private UsuarioSelecionado = "NULL";
 
   constructor(private http: Http,
     private authService: AuthService,
     private router: Router) { }
 
-    setIDdoUser(valor) {
+    setIDdoUser(valor,valor2) {
       this.IDdoUsuarioSelecionado = valor;
+      this.UsuarioSelecionado = valor2;
       this.router.navigate(['/pages/manager/listhistoryusers'])
     }
-
+    getUserSelec() {
+      return this.UsuarioSelecionado;
+    }
     getIddoUser() {
       return this.IDdoUsuarioSelecionado;
     }
@@ -45,6 +48,14 @@ export class ListusersService {
       return false
     }
 
+    ResetarSenha ( valor ) {
+      const Iddouser = valor;
+      const token: LoginInteface = this.authService.GetToken();
+        return this.http
+        .post(`${this.api}/api/user/ResetPasswordUsers/`, [token, Iddouser])
+            .map(res => res.json());
+    }
+
     ReativarConta(valor) {
       const Iddouser = valor;
       const token: LoginInteface = this.authService.GetToken();
@@ -58,6 +69,13 @@ export class ListusersService {
       const token: LoginInteface = this.authService.GetToken();
         return this.http
             .post(`${this.api}/api/user/DeleteUsers/`, [token, Iddouser])
+            .map(res => res.json());
+    }
+    AlterarTipoConta(valor) {
+      const person = valor;
+      const token: LoginInteface = this.authService.GetToken();
+        return this.http
+            .post(`${this.api}/api/user/EditUser/`, [token, person])
             .map(res => res.json());
     }
     ValidateList(response_server) {

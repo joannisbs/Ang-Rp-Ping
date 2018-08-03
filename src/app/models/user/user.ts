@@ -23,4 +23,14 @@ export class personOfListUsersInterface {
     user:      string;
     type:      string;
 }
+export class GetListHistoryUserInteface {
+    page:      string;
+    filtro:    string;
+    ids:       string;
+}
 
+export class historyoflistofhistorysInterface {
+    event:     string;
+    hora:      string;
+    
+}

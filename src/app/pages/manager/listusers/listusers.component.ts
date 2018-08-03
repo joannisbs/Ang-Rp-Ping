@@ -27,7 +27,7 @@ export class ListusersComponent implements OnInit {
   public filter = "all";
 
   public editar = 0;
-  
+
   public tittle = "Lista de usuários ativos";
   public Dtittle = "Lista de usuários desativados"
 
@@ -38,13 +38,13 @@ export class ListusersComponent implements OnInit {
 
   private listuserfilters: GetListUserInteface = new GetListUserInteface;
 
-  constructor( private listusersService: ListusersService) { 
-    
-    this.GetList(1,"all");
+  constructor(private listusersService: ListusersService) {
+
+    this.GetList(1, "all");
   }
 
   ngOnInit() {
-    
+
   }
 
   ngOnDestroy() {
@@ -54,9 +54,13 @@ export class ListusersComponent implements OnInit {
   }
 
 
- 
+
   EditUser(i) {
+    if (i === this.editar){
+      this.editar = 0;
+    }else{
     this.editar = i;
+    }
   }
   // Controle da lixeira abrindo.
   lixo(i) {
@@ -66,39 +70,41 @@ export class ListusersComponent implements OnInit {
     this.ctl_edit = i;
   }
   acoes(i) {
-    this.ctl_acoes= i;
+    this.ctl_acoes = i;
   }
 
-  ReactiveUser(index){
+  ReactiveUser(index) {
     const ids = this.lists[index][0];
     this.subcription = this.listusersService
       .ReativarConta(ids)
-      .subscribe(response_server => { 
-        const sucess = this.listusersService.ValidateDesactive(response_server)
+      .subscribe(response_server => {
+        this.subcription.unsubscribe();
+        const sucess = this.listusersService.ValidateDesactive(response_server);
         if (sucess) {
-            alert("Usuário " + this.lists[index][1] + " foi reativado!");
-        }else {
+          alert("Usuário " + this.lists[index][1] + " foi reativado!");
+        } else {
           alert("Ocorreu um erro desconhecido.");
         }
-        this.GetList(this.page,this.filter);
-        
+        this.GetList(this.page, this.filter);
+
       });
   }
 
-  DeleteUser(index){
+  DeleteUser(index) {
     const ids = this.lists[index][0];
     this.subcription = this.listusersService
       .DesativarConta(ids)
-      .subscribe(response_server => { 
-        const sucess = this.listusersService.ValidateDesactive(response_server)
+      .subscribe(response_server => {
+        this.subcription.unsubscribe();
+        const sucess = this.listusersService.ValidateDesactive(response_server);
         if (sucess) {
-            alert("Usuário " + this.lists[index][1] + " foi desativado!");
-        }else {
+          alert("Usuário " + this.lists[index][1] + " foi desativado!");
+        } else {
           alert("Ocorreu um erro desconhecido.");
         }
-        
-        this.GetList(this.page,this.filter);
-        
+
+        this.GetList(this.page, this.filter);
+
       });
   }
   VerDesativos() {
@@ -110,23 +116,58 @@ export class ListusersComponent implements OnInit {
     this.dbutton = ativo;
     this.desativos = !this.desativos;
     this.lists = [];
-    this.GetList(1,"all");
+    this.GetList(1, "all");
 
   }
-  ResetSenha(i) {
+  ResetSenha(index) {
+    const ids = this.lists[index][0];
+    this.subcription = this.listusersService
+      .ResetarSenha(ids)
+      .subscribe(response_server => {
+        this.subcription.unsubscribe();
+        const sucess = this.listusersService.ValidateDesactive(response_server);
+        if (sucess) {
+          alert("Usuário " + this.lists[index][1] + " teve sua senha resetada!");
+        } else {
+          alert("Ocorreu um erro desconhecido.");
+        }
+        this.editar = 0;
     
+
+      });
   }
-  Saves(i) {
-    
+  Saves(index, valor) {
+    if (valor != '') {
+      let person: personOfListUsersInterface = new personOfListUsersInterface;
+      person.ids = this.lists[index][0];
+      person.type = valor;
+      person.user = this.lists[index][1];
+      this.subcription = this.listusersService
+        .AlterarTipoConta(person)
+        .subscribe(response_server => {
+          
+          const sucess = this.listusersService.ValidateDesactive(response_server);
+          if (sucess) {
+            alert("Usuário " + this.lists[index][1] + " foi alterado!");
+          } else {
+            alert("Ocorreu um erro desconhecido.");
+          }
+          this.subcription.unsubscribe();
+          this.editar = 0;
+          this.GetList(this.page, this.filter);
+
+        });
+    }
   }
+
 
   formList(info) {
-    const sizeof:sizeoflistofuserInterface = info[0];
+    const sizeof: sizeoflistofuserInterface = info[0];
     const peaples = info[1];
-    let peaple:personOfListUsersInterface;
-    this.contage = String(Number(sizeof.initpag)+1) + "-" + 
-                    String(sizeof.endpag) + " de " + String(sizeof.size) + " usuários";
-    if (sizeof.next==='1') {
+    let peaple: personOfListUsersInterface;
+    this.contage = String(Number(sizeof.initpag) + 1) + "-" +
+      String(sizeof.endpag) + " de " + String(sizeof.size) + " usuários";
+    if (sizeof.next === '1') {
       this.nextpage = true;
     }
     else {
@@ -135,26 +176,26 @@ export class ListusersComponent implements OnInit {
 
     //this.lists = info.slice(1);
     this.lists = [];
-    for (let i=0; i < peaples.length; i++) {
+    for (let i = 0; i < peaples.length; i++) {
       peaple = peaples[i];
       switch (peaple.type) {
         case '7':
-          peaple.type ='suporte';
+          peaple.type = 'suporte';
           break;
         case '5':
-           peaple.type ='Expedição';
+          peaple.type = 'Expedição';
           break;
         case '4':
-           peaple.type ='Projetos';
+          peaple.type = 'Projetos';
           break;
         case '3':
-           peaple.type ='Módulo';
+          peaple.type = 'Módulo';
           break;
         case '2':
-           peaple.type ='Mod.Proj';
+          peaple.type = 'Mod.Proj';
           break;
         case '1':
-           peaple.type ='Administrador';
+          peaple.type = 'Administrador';
           break;
       }
       this.lists.push([peaple.ids, peaple.user, peaple.type]);
@@ -164,48 +205,49 @@ export class ListusersComponent implements OnInit {
 
   History(index) {
     const iddousuario = this.lists[index][0];
-    this.listusersService.setIDdoUser(iddousuario);
+    const user = this.lists[index][1];
+    this.listusersService.setIDdoUser(iddousuario,user);
   }
 
-  Search(valor){
-    if (valor == ''){
-      this.filter='all';
-    }else{
-      this.filter=valor;
+  Search(valor) {
+    if (valor == '') {
+      this.filter = 'all';
+    } else {
+      this.filter = valor;
       this.page = 1;
     }
-    this.GetList(this.page,this.filter);;
+    this.GetList(this.page, this.filter);;
   }
 
-  PageNext(condicion){
+  PageNext(condicion) {
     if (condicion) {
       this.page++;
-      this.GetList(this.page,this.filter);
+      this.GetList(this.page, this.filter);
     }
 
   }
 
-  PagePrevius(condicion){
+  PagePrevius(condicion) {
     if (condicion) {
       this.page--;
-      this.GetList(this.page,this.filter);
+      this.GetList(this.page, this.filter);
     }
   }
 
-  GetList(pagina,filtro) {
+  GetList(pagina, filtro) {
     this.lists = [];
     this.listuserfilters.page = pagina;
     this.listuserfilters.filtro = filtro;
 
-    this.subcription = this.listusersService.getList_Server(this.listuserfilters,this.desativos).
-    subscribe(( response ) => { 
-      this.subcription.unsubscribe();
-      const listusers = this.listusersService.ValidateList(response);
-      this.formList(listusers); });
-  } 
+    this.subcription = this.listusersService.getList_Server(this.listuserfilters, this.desativos).
+      subscribe((response) => {
+        this.subcription.unsubscribe();
+        const listusers = this.listusersService.ValidateList(response);
+        this.formList(listusers);
+      });
+  }
 
-  
+
 }
-
 
 

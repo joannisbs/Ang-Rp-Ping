@@ -1,6 +1,9 @@
+import { routes } from './../../pages.routing';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { ListhistoryUsersService } from 'src/app/services/user/listhystoryusers.service';
+import { GetListHistoryUserInteface, sizeoflistofuserInterface, historyoflistofhistorysInterface } from 'src/app/models/user/user';
+import * as jsPDF from 'jspdf';  
 
 @Component({
   selector: 'app-listhistoryusers',
@@ -12,17 +15,20 @@ export class ListhistoryusersComponent implements OnInit {
   private subcription: Subscription;
 
   public lists = [];
-  public lista = [];
   public ctl_lixo = 0;
   public ctl_edit = 0;
   public ctl_acoes = 0;
 
   public contage = ''
 
-  public nextpage = false;
+  public nextpage = true;
   public page = 1;
   public filter = "all";
 
+  private reg;
+  
+  public showModal = false;
+  public showModalWhating = false;
   constructor( private listhistoryusersService: ListhistoryUsersService) { 
     this.GetList(1,"all");
   }
@@ -49,25 +55,40 @@ export class ListhistoryusersComponent implements OnInit {
   }
 
   formList(info) {
-    this.contage = String(info[0][0]) + "-" + 
-                    String(info[0][1]) + " de " + String(info[0][2]) + " registros";
-    if (info[0][3]==='1') {
+
+    const sizeof: sizeoflistofuserInterface = info[0];
+    const registros = info[1];
+    let evento: historyoflistofhistorysInterface;
+    this.contage = String(Number(sizeof.initpag) + 1) + "-" +
+            String(sizeof.endpag) + " de " + String(sizeof.size) + " registros";
+    
+    this.reg = String(sizeof.size);
+    if (sizeof.next === '1') 
+    {
       this.nextpage = true;
     }
-    else {
+    else 
+    {
       this.nextpage = false;
     }
+    let lista = [];
+    for (let i = 0; i < registros.length; i++) {
 
-    
-    this.lists = info.slice(1).reverse();
-    for (let i=0; i< this.lists.length; i++) {
-      const data = this.lists[i][1].slice(7,9) + '/'+
-        this.lists[i][1].slice(4,6) + '/'+
-        this.lists[i][1].slice(1,3) + ' às ' + this.lists[i][1].slice(10,15) ;
-      this.lists[i][1]=data
+      evento = registros[i];
+      const data = evento.hora.slice(7,9) + '/'+
+        evento.hora.slice(4,6) + '/'+
+        evento.hora.slice(1,3) + ' às ' + evento.hora.slice(10,15) ;
+
+        lista.push([data,evento.event]);
+      
+
     }
-
+    
+    this.lists = lista;
+    
   }
+
+
  
   Search(valor){
     if (valor == ''){
@@ -86,6 +107,104 @@ export class ListhistoryusersComponent implements OnInit {
     }
 
   }
+  geratePDF(listas) {
+    this.showModal = false;
+    this.showModalWhating = true;
+    const user = this.listhistoryusersService.getUSER();
+
+    let fill = this.filter;
+    if (fill == 'all') {
+      fill = 'vazio';
+    }
+
+
+    var doc = new jsPDF('p', 'pt', 'a4');
+    
+    doc.setFontType("bold");
+    doc.setFontSize(9);
+    doc.setLineWidth(15)
+    doc.text(30, 23, 'Historico do usuario '+ user +
+    ' gerado com o filtro '+ fill +' contendo '+ this.contage);
+    
+    let l = 0;
+    for ( let i = 0; i<listas.length; i++){
+      
+      if (l == 1) {
+        l = 0;
+        doc.setDrawColor(255, 255, 255);
+      }else{
+        l = 1;
+        doc.setDrawColor(230, 230, 230);
+      }
+      const stringToPdf = listas[i][0] + ' -> ' +listas[i][1];
+      const coord = 50 + i*15;
+      doc.line(20, coord, 560, coord);
+      doc.text(30, coord+3, stringToPdf);
+    }
+    doc.save("HistoricoParcial_"+ user +".pdf");
+    this.showModalWhating = false;
+  }
+  async geratePDFCompleto() {
+    this.showModal = false;
+    this.showModalWhating = true;
+    await this.GetList(1,"all");
+    await this.sleep(1200);
+    const user = this.listhistoryusersService.getUSER();
+
+
+    var doc = new jsPDF('p', 'pt', 'a4');
+    
+    doc.setFontType("bold");
+    doc.setFontSize(9);
+    doc.setLineWidth(15)
+    doc.text(30, 23, 'Historico do usuario '+ user +
+    ' completo contendo '+ this.reg +' registros.');
+    let pag = 1;
+    const maxofpages = 1+ (this.reg/50);
+    while (pag < maxofpages) {
+      await this.GetList(pag,"all");
+      await this.sleep(1200);
+        
+       
+        const listas = this.lists.slice(0);
+        let l = 0;
+        if (pag > 1){
+          doc.addPage();
+        }
+        console.log(listas.length);
+      for ( let i = 0; i<listas.length; i++){
+        console.log("aqui");
+        if (l == 1) {
+          l = 0;
+          doc.setDrawColor(255, 255, 255);
+        }else{
+          l = 1;
+          doc.setDrawColor(230, 230, 230);
+        }
+        const stringToPdf = listas[i][0] + '  --  ' +listas[i][1];
+        const coord = 50 + i*15;
+        doc.line(20, coord, 560, coord);
+        doc.text(30, coord+3, stringToPdf);
+      }
+      doc.text(275, 820, 'Pagina '+ pag)
+      pag = pag + 1;
+      
+    }
+    doc.save("HistoricoCompleto_"+ user +".pdf");
+    this.showModalWhating = false;
+    await this.GetList(1,"all");
+    
+  }
+  ShowModalGerar()
+  {
+    this.showModal = true;
+  }
+  GeraMesmaPagina() {
+    this.geratePDF(this.lists);
+    this.showModal = false;
+  }
+
+  
 
   PagePrevius(condicion){
     if (condicion) {
@@ -93,11 +212,28 @@ export class ListhistoryusersComponent implements OnInit {
       this.GetList(this.page,this.filter);
     }
   }
-
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
   GetList(pagina,filtro) {
-    this.subcription = this.listhistoryusersService.getHistoryUserList(pagina,filtro).
-    subscribe(( objeto ) => { this.formList(objeto); });
+    
+    this.lists = [];
+    let filtersHistory:GetListHistoryUserInteface = new GetListHistoryUserInteface;
+    filtersHistory.page = pagina;
+    filtersHistory.filtro = filtro;
+    this.subcription = this.listhistoryusersService.getHistoryUserList(filtersHistory).
+    subscribe((response) => {
+      const listusers = this.listhistoryusersService.ValidateList(response);
+      console.log(listusers);
+      this.formList(listusers);
+      this.subcription.unsubscribe();
+      });
+    
+
+    
+      
   } 
 
   
 }
+

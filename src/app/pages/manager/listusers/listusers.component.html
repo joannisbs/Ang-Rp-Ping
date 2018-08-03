@@ -56,7 +56,7 @@
               <span *ngIf='ctl_resetsenha' class="classtoltip Listar">Resetar senha</span>
             </div>
             <div class="classSelectTipe">
-            <select class="classSelect classImputForm" id="user_tipe" formControlName="user_tipe">
+            <select class="classSelect classImputForm" id="user_tipe" #user_tipe>
               <option class="classOption selected" value="">Tipo de Conta:</option>
               <option class="classOption" value="7">Usuário Suporte</option>
               <!-- <option class="classOption" value="6">Usuário Cadastro</option> -->
@@ -68,7 +68,7 @@
             </select>
           </div>
             <div class="classbotaoEdit">
-            <button type="button" class="classButtonSalve Editar" (click)="Saves(i)" (mouseenter)="ctl_save=true;" (mouseleave)="ctl_save=false;">
+            <button type="button" class="classButtonSalve Editar" (click)="Saves(i,user_tipe.value)" (mouseenter)="ctl_save=true;" (mouseleave)="ctl_save=false;">
                 <img src="/assets/icons/save.png" *ngIf="!ctl_save" class="classButtonIcon">
                 <img src="/assets/icons/savepro.png" *ngIf="ctl_save" class="classButtonIcon">
               </button>
