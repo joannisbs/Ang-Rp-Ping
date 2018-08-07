@@ -28,12 +28,7 @@ const routes: Routes = [
       {
         path: 'listhistoryusers', 
         loadChildren: 'src/app/pages/manager/listhistoryusers/listhistoryusers.module#ListhistoryusersModule',
-        canActivate:[AuthGuard,
-                      SuportGuard,
-                      ModuloGuard,
-                      ModuloProjetoGuard,
-                      ExpedicaoGuard,
-                      ProjetoGuard] ,
+        canActivate:[AuthGuard] ,
       },
     ]
   }

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../services/login/auth.service';
+import { ListusersService } from '../../services/user/listusers.service';
+import { ListhistoryusersComponent } from '../../pages/manager/listhistoryusers/listhistoryusers.component';
 
 @Component({
   selector: 'app-navbar',
@@ -19,7 +21,8 @@ export class NavbarComponent implements OnInit {
   public url_icon = '/assets/icons/menuwhite.png';
   url_icon2 = '/assets/icons/xwhite.png';
 
-  constructor() { }
+  constructor(private listusersService: ListusersService,
+   ) { }
 
   ngOnInit() { }
 
@@ -35,6 +38,10 @@ export class NavbarComponent implements OnInit {
 
   clickDropdpown(idClik) {
     this.idNav = idClik;
+  }
+  MyNavhistory() {
+    this.listusersService.myhistory();
+    
   }
 
 }

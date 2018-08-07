@@ -1,21 +1,45 @@
 <!-- Divisória tamanho das laterais -->
 <div class="classMargemLateral animated bounceInUp">
-  
-    <!-- Titulo -->
-    <label class="classLabelTitle">Cadastro De Uma Novo Usuário</label>
-    <label class="classTextTitleError animated shake" [class.d-none]="!ocorreuSubmit">O formulário contém erros, porfavor corrigi-los antes de Salvar.</label>
-    
-    <form [formGroup]="formulario" autocomplete="off" (ngSubmit)="onSubmit(formulario.value, formulario.valid)">
-      
-        <div class="card classCardForm">
-  
-      <!-- Chama Componete referente ao cadastro da empresa -->
-      <app-user-comum-form [userComumForm]="formulario"></app-user-comum-form>
 
+  <!-- Titulo -->
+  <label class="classLabelTitle">Cadastro De Um Novo Usuário</label>
+  <label class="classTextTitleError animated shake" [class.d-none]="!ocorreuSubmit">O formulário contém erros, porfavor corrigi-los antes de Salvar.</label>
+
+  <form [formGroup]="formulario" autocomplete="off" (ngSubmit)="onSubmit(formulario.value, formulario.valid)">
+
+    <div class="card classCardForm">
+
+      <!-- Campo de input do nome da empresa -->
       <div class="form-group col-md-6 classCentro">
-          
-      <div class="classDivSelect">
-          <label class="classLabelForm" for="emp_nome">Tipo:</label>  
+
+
+        <div class="input-group">
+          <label class="classLabelForm" for="user_login">Login:</label>
+          <input type="text" class="form-control classImputForm" [class.classBorderInvalid]=" !showErrors( 'user_login' )" id="user_login"
+            placeholder="Digite o Login" formControlName="user_login" maxlength="25">
+
+          <!-- Icone de X has error -->
+          <span class='input-group-addon' [class.d-none]="showErrors( 'user_login' )">
+            <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+          </span>
+        </div>
+
+        
+        <!-- Mensagem de erro -->
+        <small id="nameHelpBlock" class="form-text classTextodeErro" [class.d-none]="showErrors( 'user_login' )">
+          Campo obrigatório.
+        </small>
+
+      </div>
+      <div class="classSeparador"></div>
+      <small id="nameHelpBlock" class="form-text classCentro">
+        O nome de usuário devera conter apenas letras minúsculas e pontos.
+      </small>
+      <div class="classSeparador"></div>
+      <div class="form-group col-md-6 classCentro">
+
+        <div class="classDivSelect">
+          <label class="classLabelForm" for="emp_nome">Tipo:</label>
           <select class="classSelect classImputForm" id="user_tipe" formControlName="user_tipe">
             <option class="classOption selected" value="">Tipo de Conta:</option>
             <option class="classOption" value="7">Usuário Suporte</option>
@@ -28,52 +52,51 @@
           </select>
         </div>
       </div>
-   
+      <div class="classSeparador"></div>
+      <small id="nameHelpBlock" class="form-text classCentro">
+        O usuário será cadastrado com a senha padrão (123456).
+      </small>
 
-          
-      </div>
-  
-      <!-- Botão submit -->
-      <div class="float-right">
-        <button 
-          type="submit" 
-          class="btn-primary classSubmitButton"
-          [class.classFormInvalido]="formulario.invalid" 
-          [class.classFormValido]="formulario.valid"
-        >
-          Salvar Alterações
-        </button>
+    </div>
 
-        <!-- Modal -->
-       <div class="modal modal-backdrop fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" [class.show]=" showModal " [style.display]=" showModal ? 'block' : 'none'">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content classModalTamanho ">
-            <div class="modal-header">
-              <h5 class="modal-title classModalLabalsTitle" id="ModalLabel">Parabéns, usuário criado!</h5>
-              
-                
-            </div>
-            
-                <label class="classModalLabals"> O que deseja fazer?</label>
-            
-            <div class="modal-footer justify-content-around">
-            
-              <button type="button" class="classModalBotao" (click)="ClearForm()">Cadastrar outro usuário</button>
-              
-              <button type="button" class="classModalBotao" onclick="window.location.href='#/pages/register'">Voltar ao monitoramento</button>
 
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- Botão submit -->
+    <div class="float-right">
+      <button type="submit" class="btn-primary classSubmitButton" [class.classFormInvalido]="formulario.invalid" [class.classFormValido]="formulario.valid">
+        Salvar Alterações
+      </button>
+
+
+
+    </div>
+
+  </form>
+  <br />
+  <!-- Margem no final da Página -->
+  <div class="classMargemLateral classMargimFimPagina"></div>
+</div>
+<router-outlet></router-outlet>
+
+<!-- Modal -->
+<div class="modal modal-backdrop fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" [class.show]=" showModal "
+  [style.display]=" showModal ? 'block' : 'none'">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content classModalTamanho ">
+      <div class="modal-header">
+        <h5 class="modal-title classModalLabalsTitle" id="ModalLabel">Parabéns, usuário criado!</h5>
 
 
       </div>
-    </form>
-    <br />
-    <!-- Margem no final da Página -->
-    <div class="classMargemLateral classMargimFimPagina"></div>
+
+      <label class="classModalLabals"> O que deseja fazer?</label>
+
+      <div class="modal-footer justify-content-around">
+
+        <button type="button" class="classModalBotao" (click)="ClearForm()">Cadastrar outro usuário</button>
+
+        <button type="button" class="classModalBotao" onclick="window.location.href='#/pages/monitor/visaogeral'">Voltar ao monitoramento</button>
+
+      </div>
+    </div>
   </div>
-  <router-outlet></router-outlet>
-    
-    
+</div>

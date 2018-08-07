@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class NewUserService {
+export class NovasenhaService {
 
   private api = environment.api_url;
 
@@ -25,19 +25,17 @@ export class NewUserService {
       const sucessrequisition: StandartResponseInterface = response_server[1];
 
       if (sucessrequisition.sucess = true) {
-        const sucessSalve: StandartResponseInterface = response_server[2];
-        return sucessSalve;
+        return true;
       }
-      alert("Você não tem permissão para fazer isso.");
-      this.router.navigate(['/login'])
+      return false;
     }
     alert("Sessão inválida, por favor faça login novamente.");
     this.router.navigate(['/login'])
   }
 
-  newUser(token: LoginInteface ,usuario: newUserInteface): Observable<any> {
+  newUser(token: LoginInteface ,password): Observable<any> {
     return this.http
-      .post(`${this.api}/api/user/newUser/`, [token ,usuario])
+      .post(`${this.api}/api/user/newPassword/`, [token ,password])
       .map(res => res.json());
   }
 

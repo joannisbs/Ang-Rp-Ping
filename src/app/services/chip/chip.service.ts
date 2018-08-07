@@ -1,4 +1,4 @@
-import { LoginInteface } from './../../models/login/login';
+import { LoginInteface } from '../../models/login/login';
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
 
 import { ChipInteface } from '../../models/chip/chip';
-import { AuthService } from 'src/app/services/login/auth.service';
+import { AuthService } from '../login/auth.service';
 
 @Injectable({
   providedIn: 'root'

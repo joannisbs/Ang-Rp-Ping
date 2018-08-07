@@ -1,15 +1,15 @@
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../../../routesguards/auth.guard';
+import { EditpasswordComponent } from 'src/app/pages/registrers/editpassword/editpassword.component';
 
-import { ListhistoryusersComponent } from './listhistoryusers.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ListhistoryusersComponent,
+    component: EditpasswordComponent,
     canActivate:[AuthGuard] ,
     
   }
 ];
 
-export const routingListhitoryusers = RouterModule.forChild(routes);
+export const routingEditPassword = RouterModule.forChild(routes);

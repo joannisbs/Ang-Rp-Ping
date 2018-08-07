@@ -1,8 +1,8 @@
-import { routes } from './../../pages.routing';
+import { routes } from '../../pages.routing';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { ListhistoryUsersService } from 'src/app/services/user/listhystoryusers.service';
-import { GetListHistoryUserInteface, sizeoflistofuserInterface, historyoflistofhistorysInterface } from 'src/app/models/user/user';
+import { ListhistoryUsersService } from '../../../services/user/listhystoryusers.service';
+import { GetListHistoryUserInteface, sizeoflistofuserInterface, historyoflistofhistorysInterface } from '../../../models/user/user';
 import * as jsPDF from 'jspdf';  
 
 @Component({
@@ -123,8 +123,8 @@ export class ListhistoryusersComponent implements OnInit {
     doc.setFontType("bold");
     doc.setFontSize(9);
     doc.setLineWidth(15)
-    doc.text(30, 23, 'Historico do usuario '+ user +
-    ' gerado com o filtro '+ fill +' contendo '+ this.contage);
+    doc.text(30, 23, 'Histórico do usuário '+ user +
+    ' gerado com o filtro '+ fill +' contendo '+ this.contage + ' registros');
     
     let l = 0;
     for ( let i = 0; i<listas.length; i++){
@@ -144,6 +144,8 @@ export class ListhistoryusersComponent implements OnInit {
     doc.save("HistoricoParcial_"+ user +".pdf");
     this.showModalWhating = false;
   }
+
+  
   async geratePDFCompleto() {
     this.showModal = false;
     this.showModalWhating = true;
@@ -157,14 +159,14 @@ export class ListhistoryusersComponent implements OnInit {
     doc.setFontType("bold");
     doc.setFontSize(9);
     doc.setLineWidth(15)
-    doc.text(30, 23, 'Historico do usuario '+ user +
-    ' completo contendo '+ this.reg +' registros.');
+    doc.text(30, 23, 'Histórico do usuário '+ user +
+    ' completo contendo '+ this.reg);
     let pag = 1;
     const maxofpages = 1+ (this.reg/50);
     while (pag < maxofpages) {
       await this.GetList(pag,"all");
       await this.sleep(1200);
-        
+
        
         const listas = this.lists.slice(0);
         let l = 0;
@@ -172,6 +174,9 @@ export class ListhistoryusersComponent implements OnInit {
           doc.addPage();
         }
         console.log(listas.length);
+        doc.setFontType("bold");
+        doc.setFontSize(9);
+        doc.setLineWidth(15)
       for ( let i = 0; i<listas.length; i++){
         console.log("aqui");
         if (l == 1) {

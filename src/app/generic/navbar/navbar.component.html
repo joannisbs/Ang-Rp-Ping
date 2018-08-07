@@ -27,7 +27,7 @@
               <img src="/assets/icons/repw.png" alt="icon" class="icon">Relógios</a>
             <a *ngIf="nivel!=7" class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/newclientes">
               <img src="/assets/icons/cliw2.png" alt="icon" class="icon">Clientes</a>
-            <a *ngIf="nivel!=7" class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/newusuarios">
+            <a *ngIf="nivel==1" class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/newusers">
               <img src="/assets/icons/filaw.png" alt="icon" class="icon">Usuários</a>
             <a *ngIf="nivel!=7" class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/newequipamento">
               <img src="/assets/icons/equipbranco.png" alt="icon" class="icon">Equipamento</a>
@@ -72,14 +72,25 @@
               <img src="/assets/icons/empw.png" alt="icon" class="icon">Empresas</a>
             <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="teste">
               <img src="/assets/icons/repw.png" alt="icon" class="icon">Relógios</a>
-            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/manager/listusers">
+            <a class="dropdown-item itemmenu itemmenu2 align-self-center" *ngIf="nivel==1" href="#/pages/manager/listusers">
               <img src="/assets/icons/filaw.png" alt="icon" class="icon">Usuários</a>
           </div>
         </li>
-        <li class="nav-item separador">
-          <a class="nav-link itemmenu itemmenu1 align-self-center" href="#">
-            <img src="/assets/icons/sair.png" alt="icon" class="icon">Sair</a>
+
+        <li class="nav-item dropdown separador" (click)="clickDropdpown(5)" (mouseleave)="mouseLeave()">
+          <a class="nav-link itemmenu itemmenu1 align-self-center" id="navDrop">
+            <img src="/assets/icons/conta.png" alt="icon" class="icon">Minha Conta</a>
+
+          <div class="dropdown-menu dropultimo" [class.show]="idNav === 5">
+            <a class="dropdown-item itemmenu itemmenu2 align-self-center" (click)="MyNavhistory()">
+              <img src="/assets/icons/lista1.png" alt="icon" class="icon">Meu Histórico</a>
+            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="#/pages/register/editpass">
+              <img src="/assets/icons/cadeadoaberto.png" alt="icon" class="icon">Alterar Senha</a>
+            <a class="dropdown-item itemmenu itemmenu2 align-self-center" href="">
+              <img src="/assets/icons/sair.png" alt="icon" class="icon">Sair</a>
+          </div>
         </li>
+
       </ul>
     </div>
   </nav>

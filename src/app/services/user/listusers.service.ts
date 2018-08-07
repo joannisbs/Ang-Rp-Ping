@@ -6,8 +6,9 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { AuthService } from '../login/auth.service';
 import { Router } from '@angular/router';
-import { StandartResponseInterface } from 'src/app/models/standartResponse/standartResponse';
-import { sizeoflistofuserInterface, personOfListUsersInterface } from 'src/app/models/user/user';
+import { StandartResponseInterface } from '../../models/standartResponse/standartResponse';
+import { sizeoflistofuserInterface, personOfListUsersInterface } from '../../models/user/user';
+import { ListhistoryusersComponent } from '../../pages/manager/listhistoryusers/listhistoryusers.component';
 
 @Injectable({
   providedIn: 'root'
@@ -23,11 +24,18 @@ export class ListusersService {
   constructor(private http: Http,
     private authService: AuthService,
     private router: Router) { }
-
+    myhistory(){
+      const token: LoginInteface = this.authService.GetToken();
+      this.IDdoUsuarioSelecionado = Number(token.ids);
+      this.UsuarioSelecionado = token.user;
+      this.router.navigate(['/pages/manager/listhistoryusers']);
+      
+      
+    }
     setIDdoUser(valor,valor2) {
       this.IDdoUsuarioSelecionado = valor;
       this.UsuarioSelecionado = valor2;
-      this.router.navigate(['/pages/manager/listhistoryusers'])
+      this.router.navigate(['/pages/manager/listhistoryusers']);
     }
     getUserSelec() {
       return this.UsuarioSelecionado;

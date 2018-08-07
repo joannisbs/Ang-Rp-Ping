@@ -6,7 +6,7 @@ import { environment } from '../../../environments/environment';
 import { UserInteface } from '../../models/user/user';
 import { Observable, Subscription } from 'rxjs';
 import { LoginInteface } from '../../models/login/login';
-import { StandartResponseInterface } from 'src/app/models/standartResponse/standartResponse';
+import { StandartResponseInterface } from '../../models/standartResponse/standartResponse';
 
 
 

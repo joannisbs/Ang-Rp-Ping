@@ -1,11 +1,10 @@
 
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { routing } from './newuser.routing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { NewuserComponent } from './newuser.component';
-import { UserComumFormComponent } from '../components/user-comum-form/user-comum-form.component';
+import { routingnewUser } from './newuser.routing';
 
 
 
@@ -15,10 +14,9 @@ import { UserComumFormComponent } from '../components/user-comum-form/user-comum
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    routing
+    routingnewUser
   ],
   declarations: [
-    NewuserComponent,
-    UserComumFormComponent]
+    NewuserComponent]
 })
 export class NewUserModule { }

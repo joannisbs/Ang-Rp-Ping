@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ListusersService } from '../../../services/user/listusers.service'
-import { GetListUserInteface, sizeoflistofuserInterface, personOfListUsersInterface } from 'src/app/models/user/user';
+import { GetListUserInteface, sizeoflistofuserInterface, personOfListUsersInterface } from '../../../models/user/user';
 
 @Component({
   selector: 'app-listusers',

@@ -19,7 +19,7 @@ const routes: Routes = [
     children: 
     [
       {
-        path: 'newusuarios', 
+        path: 'newusers', 
         loadChildren: 'src/app/pages/registrers/newuser/newuser.module#NewUserModule',
         canActivate:[AuthGuard,
                       SuportGuard,
@@ -27,6 +27,11 @@ const routes: Routes = [
                       ModuloProjetoGuard,
                       ExpedicaoGuard,
                       ProjetoGuard] ,
+      },
+      {
+        path: 'editpass', 
+        loadChildren: 'src/app/pages/registrers/editpassword/editpassword.module#EditpasswordModule',
+        //canActivate:[AuthGuard] ,
       },
       {
         path: 'newchip', 

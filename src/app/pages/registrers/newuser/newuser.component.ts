@@ -1,12 +1,11 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UserComumFormGroup } from '../components/user-comum-form/user-comum.interface';
 import { NewUserService } from '../../../services/user/user.service';
 import { AuthService } from '../../../services/login/auth.service';
 import { Subscription } from 'rxjs';
-import { sha256 } from 'js-sha256';
 import { newUserInteface } from '../../../models/user/user';
+import { StandartResponseInterface } from '../../../models/standartResponse/standartResponse';
 
 @Component({
   selector: 'app-newuser',
@@ -29,19 +28,21 @@ export class NewuserComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private newUserService: NewUserService) { }
-
+  
+  showErrors(value) {
+    return this.formulario.controls[ value ].valid || !(this.formulario.controls[ value].touched || this.ocorreuSubmit);
+  }
   montaobjct(){
     this.users.user_name = this.formulario.get('user_login').value;
-    this.users.user_pasw = this.formulario.get('user_psw').value;
-    this.users.user_pasr = this.formulario.get('user_re_psw').value;
-    this.users.user_pasw = sha256(this.users.user_pasw);
-    this.users.user_pasr = sha256(this.users.user_pasr);
     this.users.user_tipe = this.formulario.get('user_tipe').value;
     
   }
   ngOnInit() {
     this.formulario = this.formBuilder.group ({
-      ...UserComumFormGroup,
+      user_login: ['',
+        [Validators.required,
+        Validators.maxLength(25),
+        Validators.pattern('[a-z]{3,}.*')]],
       user_tipe: ['',
       [Validators.required,
       Validators.pattern('[0-9]')]],
@@ -53,29 +54,28 @@ export class NewuserComponent implements OnInit {
     this.showModal = false;
   }
 
-  onSubmit(usuario, valido) {
+  onSubmit(valido) {
     if (valido) {  
-      const senha1 = this.formulario.get('user_psw').value;
-      const senha2 = this.formulario.get('user_re_psw').value;
-      
-      if ( senha1 === senha2) {
 
-        this.montaobjct();
-        console.log(this.users);
-        this.ocorreuSubmit = false;
-        const token = this.authService.GetToken();
-        this.subcription = this.newUserService
+      this.montaobjct();
+      this.ocorreuSubmit = false;
+      const token = this.authService.GetToken();
+      this.subcription = this.newUserService
         .newUser(token,this.users)
-        .subscribe(res => {
-          console.log(res);
-          this.showModal = true;
-          this.ocorreuSubmit = false;
+        .subscribe(response => {
+          
+          const sucessCreate: StandartResponseInterface = this.newUserService.Validate(response);
+          if (sucessCreate.sucess == true) {
+            this.showModal = true;
+            this.ocorreuSubmit = false;
+          }else{
+            if (sucessCreate.motivo == '4') {
+              alert("Usuário já cadastrado.")
+            }
+          }
+
         }
         );
-      } else {
-        this.ocorreuSubmit = true;
-        this.diferencasenha = true;
-      }   
     }
     else {
       this.ocorreuSubmit = true;    
@@ -89,5 +89,3 @@ export class NewuserComponent implements OnInit {
 
 }
 
-
- 

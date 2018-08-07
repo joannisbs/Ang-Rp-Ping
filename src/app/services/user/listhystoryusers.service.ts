@@ -5,9 +5,9 @@ import { LoginInteface } from '../../models/login/login';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { AuthService } from '../login/auth.service';
-import { ListusersService } from 'src/app/services/user/listusers.service';
-import { GetListHistoryUserInteface, sizeoflistofuserInterface, personOfListUsersInterface, historyoflistofhistorysInterface } from 'src/app/models/user/user';
-import { StandartResponseInterface } from 'src/app/models/standartResponse/standartResponse';
+import { ListusersService } from './listusers.service';
+import { GetListHistoryUserInteface, sizeoflistofuserInterface, personOfListUsersInterface, historyoflistofhistorysInterface } from '../../models/user/user';
+import { StandartResponseInterface } from '../../models/standartResponse/standartResponse';
 import { Router } from '@angular/router';
 
 @Injectable({
