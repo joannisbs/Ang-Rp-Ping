@@ -1,0 +1,162 @@
+<!-- Divisória tamanho das laterais -->
+<div class="classMargemLateral" [class.animated,class.bounceInUp]="!showModal">
+  <!-- Titulo -->
+  <label class="classLabelTitle" [class.classred]="desativos">{{ tittle }}</label>
+
+  <div class='classcabecalho'>
+    <div class="classCampoPesquisa">
+
+      <div class="input-group">
+        <input type="text" class="form-control classImputSearch" #search (keyup)="Search(search.value)">
+        <!-- Icone de X has error -->
+        <span class='input-group-addon'>
+          <img src='/assets/icons/lupa.png' alt='Search' class='classButtonLupa'>
+        </span>
+      </div>
+    </div>
+    <div class="classCampoPage align-content-center">
+      <button class="classButtonPage classAlinhamento" (click)="PagePrevius(page > 1)">
+        <img src="/assets/icons/antverde.png" *ngIf="page > 1" class="classButtonIconNext">
+        <img src="/assets/icons/antcinza.png" *ngIf="page == 1" class="classButtonIconNext">
+      </button>
+      <label class="classLabelFormHeader classTamanhoHeaderPage">{{ page }}</label>
+      <button class="classButtonPage" (click)="PageNext(!nextpage)">
+        <img src="/assets/icons/proxverd.png" *ngIf="!nextpage" class="classButtonIconNext">
+        <img src="/assets/icons/proxcinza.png" *ngIf="nextpage" class="classButtonIconNext">
+      </button>
+
+    </div>
+
+
+    <div class="classCampoFiltro">
+      <div class="input-group">
+        <a class="classTamanhoFiltro" (click)="ShowDropEscolha()">
+          <label class="classFiltrodedados">{{ DropChoice }}</label>
+        </a>
+        <div class="input-group-append">
+          <div class="dropdown-menu" [class.show]="showDropDown">
+            <li class="dropdown-item" (click)="ClickDropChoice('Todos')">Todos</li>
+            <li class="dropdown-item" (click)="ClickDropChoice('Estoque')">Estoque</li>
+            <li class="dropdown-item" (click)="ClickDropChoice('Funcionamento')">Funcionamento</li>
+            <li class="dropdown-item" (click)="ClickDropChoice('Saídas')">Saídas</li>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="classCampoContage">
+      <label class="classContagemDeDados">{{ contage }}</label>
+    </div>
+  </div>
+
+
+
+
+  <div>
+    <div *ngFor="let item of arrayChip; let i = index;">
+      <div class="card classCardForm" *ngIf='ctl_editar != (i+1)'>
+        <div class="form-row">
+
+          <div class="form-group col-md-2 zeramargem" (mouseenter)="campos((i+1)*10 + 0)" (mouseleave)="campos(0)">
+            <label class="classLabelFormList classtamanhonome margenleftLabel">{{item[0]}}</label>
+            <span *ngIf='ctl_campos === ((i+1)*10 + 0)' class="classtoltip Editar">Número</span>
+          </div>
+          <div class="form-group col-md-3 zeramargem" (mouseenter)="campos((i+1)*10 + 1)" (mouseleave)="campos(0)">
+            <label class="classLabelFormList classtamanhonome text-center">{{item[1]}}</label>
+            <span *ngIf='ctl_campos === ((i+1)*10 + 1)' class="classtoltip Editar">Ip/host</span>
+          </div>
+          <div class="form-group col-md-2 zeramargem" (mouseenter)="campos((i+1)*10 + 2)" (mouseleave)="campos(0)">
+            <label class="classLabelFormList classtamanhonome text-center">{{item[2]}}</label>
+            <span *ngIf='ctl_campos === ((i+1)*10 + 2)' class="classtoltip Editar">Operadora</span>
+          </div>
+
+          <div class="form-group col-md-2 zeramargem" (mouseenter)="campos((i+1)*10 + 3)" (mouseleave)="campos(0)">
+            <label class="classLabelFormList classtamanhonome text-center">{{item[3]}}</label>
+            <span *ngIf='ctl_campos === ((i+1)*10 + 3)' class="classtoltip Editar">Situação</span>
+          </div>
+          <div class="form-group col-md-3 zeramargem">
+
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-2 zeramargem " (mouseenter)="campos((i+1)*10 + 4)" (mouseleave)="campos(0)">
+            <label class="classLabelFormList classtamanhonome margenleftLabel">{{arrayDetals[i][0]}}</label>
+            <span *ngIf='ctl_campos === ((i+1)*10 + 4)' class="classtoltip Editar">Data</span>
+          </div>
+          <div class="form-group col-md-3 zeramargem" (mouseenter)="campos((i+1)*10 + 5)" (mouseleave)="campos(0)">
+            <label class="classLabelFormList classtamanhonome text-center">{{arrayDetals[i][1]}}</label>
+            <span *ngIf='ctl_campos === ((i+1)*10 + 59)' class="classtoltip Editar">Empresa ou Situação ou Saida para:</span>
+            <span *ngIf="ctl_campos === ((i+1)*10 + 5) && item[3] == 'Estoque'" class="classtoltip Editar">Motivo</span>
+          </div>
+          <div class="form-group col-md-2 zeramargem" (mouseenter)="campos((i+1)*10 + 6)" (mouseleave)="campos(0)">
+            <label class="classLabelFormList classtamanhonome text-center">{{arrayDetals[i][2]}}</label>
+            <span *ngIf="ctl_campos === ((i+1)*10 + 6) && item[3] == 'Funcionamento'" class="classtoltip Editar">Relógio</span>
+            <span *ngIf="ctl_campos === ((i+1)*10 + 6) && item[3] == 'Estoque'" class="classtoltip Editar">Responsável</span>
+            <span *ngIf="ctl_campos === ((i+1)*10 + 6) && item[3] == 'Saída'" class="classtoltip Editar">Responsável</span>
+          </div>
+          <div class="form-group col-md-2 zeramargem" (mouseenter)="campos((i+1)*10 + 7)" (mouseleave)="campos(0)">
+            <label class="classLabelFormList classtamanhonome text-center">{{arrayDetals[i][3]}}</label>
+            <span *ngIf='ctl_campos === ((i+1)*10 + 7 + ctl_number)' class="classtoltip Editar">Número do módulo</span>
+          </div>
+
+
+          <div class="form-group col-sm-1 classZeraMargem">
+
+            <button type="button" class="classButton Listar" *ngIf="showOptions" (click)="History(i)" (mouseenter)="acoes(i+1)" (mouseleave)="acoes(0)">
+              <img src="/assets/icons/lista1.png" *ngIf="ctl_acoes === i+1" class="classButtonIcon">
+              <img src="/assets/icons/lista2.png" *ngIf="ctl_acoes !== i+1" class="classButtonIcon">
+            </button>
+
+            <span *ngIf='ctl_acoes === i+1' class="classtoltip Listar">Listar histórico</span>
+
+          </div>
+          <div class="form-group col-sm-1 classZeraMargem">
+            <button type="button" class="classButton Editar" *ngIf="showOptions" (click)="EditChip(i+1)" (mouseenter)="edit(i+1)" (mouseleave)="edit(0)">
+              <img src="/assets/icons/caneta2.png" *ngIf="ctl_edit === i+1" class="classButtonIcon">
+              <img src="/assets/icons/caneta3.png" *ngIf="ctl_edit !== i+1" class="classButtonIcon">
+            </button>
+
+            <span *ngIf='ctl_edit === i+1' class="classtoltip Editar">Editar Chip</span>
+
+          </div>
+
+          <div class="form-group col-sm-1 classZeraMargem" *ngIf="!desativos">
+            <button type="button" class="classButton Remover" *ngIf="showOptions" (click)="DeleteChip(i)" (mouseenter)="lixo(i+1)" (mouseleave)="lixo(0)">
+              <img src="/assets/icons/lixoBrancoaberto.png" *ngIf="ctl_lixo === i+1" class="classButtonIcon">
+              <img src="/assets/icons/lixoBranco1.png" *ngIf="ctl_lixo !== i+1" class="classButtonIcon">
+            </button>
+            <span *ngIf='ctl_lixo === i+1' class="classtoltip Remover">Desativar Chip</span>
+
+          </div>
+          <div class="form-group col-sm-1 classZeraMargem" *ngIf="desativos">
+            <button type="button" class="classButton reactive" *ngIf="showOptions" (click)="AtiveChip(i)" (mouseenter)="lixo(i+1)" (mouseleave)="lixo(0)">
+              <img src="/assets/icons/reset.png" *ngIf="ctl_lixo === i+1" class="classButtonIcon">
+              <img src="/assets/icons/reactive.png" *ngIf="ctl_lixo !== i+1" class="classButtonIcon">
+            </button>
+            <span *ngIf='ctl_lixo === i+1' class="classtoltip reactive">Reativar Chip</span>
+
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="card classCardForm" *ngIf='ctl_editar == (i+1)'>
+        <div class="form-row">
+          
+        </div>
+        <div class="form-row">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="classCampoInativos">
+    <button class="ClassBotaoVerDesativos" *ngIf="showOptions" [class.classbackblue]="desativos" (click)="VerDesativos()">
+      {{ button }}
+    </button>
+  </div>
+  <div class="classCampoInativos">
+    <button class="ClassBotaoVerDesativos classbackblue">
+        Gerar PDF
+      </button>
+</div>
+</div>

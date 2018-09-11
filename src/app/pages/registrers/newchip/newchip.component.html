@@ -122,7 +122,7 @@
       <div class="modal modal-backdrop fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" [class.show]=" showModal "
         [style.display]=" showModal ? 'block' : 'none'">
         <div class="modal-dialog" role="document">
-          <div class="modal-content classModalTamanho ">
+          <div class="modal-content classtamanho ">
             <div class="modal-header">
               <div  *ngIf="!OcorreuFalhas">
                 <h5 class="modal-title classModalLabalsTitle" id="ModalLabel">Parabéns, os dados foram salvos com sucesso!</h5>
@@ -137,7 +137,7 @@
               <div *ngIf="OcorreuSucess">
                 <label class="classModalLabals"> Os seguintes chips foram salvos:</label>
                 <div *ngFor="let item of listaOK">
-                  <label class="classModalLabals"> Número: {{item}} </label>
+                  <label class="classModalLabals"> Número: {{item[0]}}, Ip: {{item[1]}} </label>
                 </div>
               </div>
               <div *ngIf="!OcorreuSucess">
@@ -145,7 +145,7 @@
               </div>
               <label class="classModalLabals"> Os seguintes chips estão com erro:</label>
               <div *ngFor="let item of listaFalhas">
-                <label class="classModalLabals"> Número: {{item[0]}}, {{item[1]}} </label>
+                <label class="classModalLabals"> Num.: {{item[0]}} Ip: {{item[1]}} - {{item[2]}} </label>
 
               </div>
             </div>

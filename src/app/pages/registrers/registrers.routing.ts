@@ -31,7 +31,7 @@ const routes: Routes = [
       {
         path: 'editpass', 
         loadChildren: 'src/app/pages/registrers/editpassword/editpassword.module#EditpasswordModule',
-        //canActivate:[AuthGuard] ,
+        canActivate:[AuthGuard] ,
       },
       {
         path: 'newchip', 

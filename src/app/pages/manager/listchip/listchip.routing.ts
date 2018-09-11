@@ -1,15 +1,16 @@
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../../../routesguards/auth.guard';
-import { EditpasswordComponent } from './editpassword.component';
+
+import { ListChipComponent } from 'src/app/pages/manager/listchip/listchip.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: EditpasswordComponent,
+    component: ListChipComponent,
     canActivate:[AuthGuard] ,
     
   }
 ];
 
-export const routingEditPassword = RouterModule.forChild(routes);
+export const routingChipList = RouterModule.forChild(routes);

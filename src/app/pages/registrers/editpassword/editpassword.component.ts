@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { NovasenhaService } from 'src/app/services/user/novasenha.service';
-import { AuthService } from 'src/app/services/login/auth.service';
-import { StandartResponseInterface } from 'src/app/models/standartResponse/standartResponse';
+import { NovasenhaService } from '../../../services/user/novasenha.service';
+import { AuthService } from '../../../services/login/auth.service';
+import { StandartResponseInterface } from '../../../models/standartResponse/standartResponse';
 import { sha256 } from 'js-sha256';
 
 @Component({

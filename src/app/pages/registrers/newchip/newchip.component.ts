@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { ChipService } from '../../../services/chip/chip.service';
 import { Subscription } from 'rxjs';
+import { CadastrChipInteface } from '../../../models/chip/chip';
 
 
 
@@ -167,7 +168,7 @@ export class NewchipComponent implements OnInit , OnDestroy {
   }
 
   // Methodos relacionados ao Submit
-  VerificaSeSalvouTudo(res){
+  VerificaSeSalvouTudo(listofchips){
     this.OcorreuFalhas = false;
     this.OcorreuSucess = false;
     this.listaFalhas = [];
@@ -175,32 +176,33 @@ export class NewchipComponent implements OnInit , OnDestroy {
     // # 1 Chip Existente
     // # 2 Conflito de Ip
     // # 3 dados Inconsistentes
-    for (let i=0; i < res.length; i++) 
-    {
-      if (res[i][0]=== false)
-      {
-        let motivo='';
-        if (res[i][1]==1)
-        {
-          motivo = 'Chip já cadastrado';
-        }else if (res[i][1]==2)
-        {
-          motivo = 'Conflito de ip com outro chip';
-        }else if (res[i][1]==3)
-        {
-          motivo = 'Os dados foram inconsistentes';
-        }
-          this.listaFalhas.push([res[i][2],motivo]);
-          this.OcorreuFalhas = true;
 
-      }else {
-        this.listaOK.push(res[i][2]);
-        this.OcorreuSucess = true;
+    if (listofchips != false) {
+      this.listaFalhas = [];
+      for (let i=0; i < listofchips.length; i++) {
+        const chipresponse: CadastrChipInteface = listofchips[i]
+        if (chipresponse.sucess === false){
+          let motivo='';
+          if (chipresponse.motivo == '1'){
+            motivo = 'Chip já foi cadastrado';
+          }
+          if (chipresponse.motivo == '2'){
+            motivo = 'Ocorreu um conflito de ip com outro chip';
+          }
+          if (chipresponse.motivo == '3'){
+            motivo = 'Os dados estão inconsistentes';
+          }
+          this.listaFalhas.push([chipresponse.number,chipresponse.ipaddr,motivo]);
+          this.OcorreuFalhas = true;
+        }else {
+          this.listaOK.push([chipresponse.number,chipresponse.ipaddr]);
+          this.OcorreuSucess = true;
+        }
       }
     }
-    this.showModal = true;
-      console.log(this.listaFalhas);
+    this.showModal = true; 
   }
+
   onSubmit(chips, valido) {
     console.log(chips);
 
@@ -209,9 +211,11 @@ export class NewchipComponent implements OnInit , OnDestroy {
       this.ocorreuSubmit = false;
       this.subcription = this.chipService
       .cadastrarChip(chips)
-      .subscribe(res => {
-        this.VerificaSeSalvouTudo(res);
-        
+      .subscribe(response => {
+        const listsucess = this.chipService.Validate(response);
+        this.VerificaSeSalvouTudo(listsucess);
+
+        this.subcription.unsubscribe();
       }
       );
     } else {

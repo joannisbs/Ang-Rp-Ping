@@ -30,6 +30,11 @@ const routes: Routes = [
         loadChildren: 'src/app/pages/manager/listhistoryusers/listhistoryusers.module#ListhistoryusersModule',
         canActivate:[AuthGuard] ,
       },
+      {
+        path: 'listchip', 
+        loadChildren: 'src/app/pages/manager/listchip/listchip.module#ListChipModule',
+        //canActivate:[AuthGuard] ,
+      },
     ]
   }
 ];

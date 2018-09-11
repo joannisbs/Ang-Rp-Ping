@@ -69,9 +69,9 @@ export class NewuserComponent implements OnInit {
             this.showModal = true;
             this.ocorreuSubmit = false;
           }else{
-            if (sucessCreate.motivo == '4') {
+          
               alert("Usuário já cadastrado.")
-            }
+            
           }
 
         }

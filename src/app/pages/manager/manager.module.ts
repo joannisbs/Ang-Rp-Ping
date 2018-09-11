@@ -4,7 +4,8 @@ import { ManagerComponent } from './manager.components'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { routingManager } from './manager.routing'
+import { routingManager } from './manager.routing';
+
 
 @NgModule({
   imports: [
