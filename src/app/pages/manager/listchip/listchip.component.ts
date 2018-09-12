@@ -43,7 +43,7 @@ export class ListChipComponent implements OnInit {
   public ctl_acoes = 0;
   public ctl_campos = 0;
   public ctl_number = 0;
-  public clt_editar = 0;
+  public ctl_editar = 0;
 
   public showOptions = false;
   public button = "Vizualizar Chips desativos";
@@ -97,8 +97,31 @@ export class ListChipComponent implements OnInit {
     this.GetList();
 
   } 
+  ColocaOperadora(i, valor) {
+       
+   
+    let op = '';
+    if (valor.slice(0,2)==='10') {
+
+      if (valor.slice(2,5)==='.26') {
+        op = 'Vivo';
+      }else if (valor.slice(2,5)==='.50') {
+        op = 'Oi';
+      }else if(valor.slice(2,6)==='.115') {
+        op = 'Porto';
+      }
+    }else if (valor.slice(0,6)==='172.40'){
+      op = 'Claro';
+    }else if (valor.slice(0,4)==='host'){
+      op = '4G';
+    }else {op = 'INVALID'}
+    this.arrayChip[i][2] = op;
+    this.arrayChip[i][1] = valor;
+    
+  }
   EditChip(i){
-    this.clt_editar = i;
+    this.ctl_editar = i;
+    console.log("AQUI",i)
   }
   
   Search(valor){
@@ -149,6 +172,7 @@ export class ListChipComponent implements OnInit {
       const ipchip = chip.chip_ip;
       let chipwhere = chip.chip_where;
       const operadora = chip.chip_oper;
+      const chipsid = chip.id;
       if (chipwhere == 'e') {
         chipwhere = 'Estoque'
         this.ctl_number = 9999999;
@@ -156,7 +180,7 @@ export class ListChipComponent implements OnInit {
       const data = detalhe.one.slice(7,9) + '/'+
         detalhe.one.slice(4,6) + '/'+
         detalhe.one.slice(1,3) + ' às ' + detalhe.one.slice(10,15) ;
-      this.arrayChip.push([numChip, ipchip, operadora, chipwhere]);
+      this.arrayChip.push([numChip, ipchip, operadora, chipwhere, chipsid]);
       this.arrayDetals.push([data, detalhe.two, detalhe.three,'']);
 
     
@@ -214,6 +238,16 @@ export class ListChipComponent implements OnInit {
       alert("O chip não foi desativado, justificativa inválida.");
     }
     
+  }
+  Saves(i){
+    let chipss:ChipListRet = new ChipListRet;
+    chipss.chip_ip = this.arrayChip[i][1];
+    chipss.chip_oper = this.arrayChip[i][2];
+    chipss.id = this.arrayChip[i][4];
+    chipss.chip_num = this.arrayChip[i][0];
+    console.log(chipss);
+    this.subcription = this.chipservice.EditChipIp(chipss).subscribe (
+      (response) => { });
   }
   AtiveChip(valor){
     let motivo = prompt("É necessário uma justificativa.");

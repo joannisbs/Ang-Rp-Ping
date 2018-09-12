@@ -53,21 +53,36 @@
 
   <div>
     <div *ngFor="let item of arrayChip; let i = index;">
-      <div class="card classCardForm" *ngIf='ctl_editar != (i+1)'>
+      <div class="card classCardForm">
         <div class="form-row">
 
           <div class="form-group col-md-2 zeramargem" (mouseenter)="campos((i+1)*10 + 0)" (mouseleave)="campos(0)">
             <label class="classLabelFormList classtamanhonome margenleftLabel">{{item[0]}}</label>
             <span *ngIf='ctl_campos === ((i+1)*10 + 0)' class="classtoltip Editar">Número</span>
           </div>
-          <div class="form-group col-md-3 zeramargem" (mouseenter)="campos((i+1)*10 + 1)" (mouseleave)="campos(0)">
+
+
+
+          <div class="form-group col-md-3 zeramargem" *ngIf="ctl_editar != i+1" (mouseenter)="campos((i+1)*10 + 1)" (mouseleave)="campos(0)">
             <label class="classLabelFormList classtamanhonome text-center">{{item[1]}}</label>
             <span *ngIf='ctl_campos === ((i+1)*10 + 1)' class="classtoltip Editar">Ip/host</span>
           </div>
+
+          <div class="form-group col-md-3 zeramargem" *ngIf='ctl_editar == i+1' (mouseenter)="campos((i+1)*10 + 1)" (mouseleave)="campos(0)">
+            <input type="text" class="form-control classImputForm" #inputChip id="chip_ip" value="{{item[1]}}" formControlName="chip_ip" maxlength="45"
+              (keyup)="ColocaOperadora(i,inputChip.value)">
+            <span *ngIf='ctl_campos === ((i+1)*10 + 1)' class="classtoltip Editar">Ip/host</span>
+          </div>
+
+
+
           <div class="form-group col-md-2 zeramargem" (mouseenter)="campos((i+1)*10 + 2)" (mouseleave)="campos(0)">
             <label class="classLabelFormList classtamanhonome text-center">{{item[2]}}</label>
             <span *ngIf='ctl_campos === ((i+1)*10 + 2)' class="classtoltip Editar">Operadora</span>
           </div>
+
+
+
 
           <div class="form-group col-md-2 zeramargem" (mouseenter)="campos((i+1)*10 + 3)" (mouseleave)="campos(0)">
             <label class="classLabelFormList classtamanhonome text-center">{{item[3]}}</label>
@@ -109,13 +124,23 @@
             <span *ngIf='ctl_acoes === i+1' class="classtoltip Listar">Listar histórico</span>
 
           </div>
-          <div class="form-group col-sm-1 classZeraMargem">
+          <div class="form-group col-sm-1 classZeraMargem" *ngIf="ctl_editar != i+1">
             <button type="button" class="classButton Editar" *ngIf="showOptions" (click)="EditChip(i+1)" (mouseenter)="edit(i+1)" (mouseleave)="edit(0)">
               <img src="/assets/icons/caneta2.png" *ngIf="ctl_edit === i+1" class="classButtonIcon">
               <img src="/assets/icons/caneta3.png" *ngIf="ctl_edit !== i+1" class="classButtonIcon">
             </button>
 
             <span *ngIf='ctl_edit === i+1' class="classtoltip Editar">Editar Chip</span>
+
+          </div>
+
+          <div class="form-group col-sm-1 classZeraMargem" *ngIf="ctl_editar == i+1">
+            <button type="button" class="classButton reactive" *ngIf="showOptions" (click)="Saves(i)" (mouseenter)="edit(i+1)" (mouseleave)="edit(0)">
+              <img src="/assets/icons/save.png" *ngIf="ctl_edit === i+1" class="classButtonIcon">
+              <img src="/assets/icons/savepro.png" *ngIf="ctl_edit !== i+1" class="classButtonIcon">
+            </button>
+
+            <span *ngIf='ctl_edit === i+1' class="classtoltip Editar">Salvar Ip</span>
 
           </div>
 
@@ -140,13 +165,7 @@
 
 
       </div>
-      <div class="card classCardForm" *ngIf='ctl_editar == (i+1)'>
-        <div class="form-row">
-          
-        </div>
-        <div class="form-row">
-        </div>
-      </div>
+
     </div>
   </div>
   <div class="classCampoInativos">
@@ -156,7 +175,7 @@
   </div>
   <div class="classCampoInativos">
     <button class="ClassBotaoVerDesativos classbackblue">
-        Gerar PDF
-      </button>
-</div>
+      Gerar PDF
+    </button>
+  </div>
 </div>

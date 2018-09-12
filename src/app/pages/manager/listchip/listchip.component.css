@@ -1,6 +1,7 @@
 @import url(./../../../generic/css-generico/tilulodapagina.css);
 @import url(./../../../generic/css-generico/corpodepagina.css);
 @import url(./../../../generic/css-generico/listbutons.css);
+@import url(./../../../generic/css-generico/formimput.css);
 
 .classContagemDeDados{
     color: #21237b;
