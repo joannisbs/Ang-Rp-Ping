@@ -67,10 +67,10 @@ export class ChipService {
       .post(`${this.api}/api/user/ChipActive/`,[token ,chipid, motivo])
       .map(res => res.json());
   }
-  EditChipIp(chip): Observable<any> {
+  EditChipIp(chip,motivo): Observable<any> {
     const token: LoginInteface = this.authService.GetToken();
     return this.http
-      .post(`${this.api}/api/user/ChipEditIp/`,[token ,chip])
+      .post(`${this.api}/api/user/ChipEditIp/`,[token ,chip,motivo])
       .map(res => res.json());
   }
 }

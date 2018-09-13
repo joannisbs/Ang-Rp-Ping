@@ -18,7 +18,7 @@ export class ListChipComponent implements OnInit {
 
   private subcription: Subscription;
 
-  
+
   public tittle = "Lista de completa de chips";
   private Atittle = "Lista de completa de chips";
   private Btittle = "Lista de chips no estoque";
@@ -35,7 +35,7 @@ export class ListChipComponent implements OnInit {
   public page = 1;
   public search = 'all';
 
-  public arrayChip   = [];
+  public arrayChip = [];
   public arrayDetals = [];
 
   public ctl_lixo = 0;
@@ -50,20 +50,22 @@ export class ListChipComponent implements OnInit {
   public dbutton = "Vizualizar Chips ativos";
 
   private chiplistbanc = [];
+  private valoripasalvar = '0';
+
 
   constructor(
     private chipservice: ChipService,
     private authService: AuthService,
-  ) { 
+  ) {
     this.GetList();
     const nivel = authService.GetNivel();
-    if (nivel == '1' || nivel == '2' || nivel == '4'){
+    if (nivel == '1' || nivel == '2' || nivel == '4') {
       this.showOptions = true;
     }
-    else{
+    else {
       this.showOptions = false;
     }
-   }
+  }
 
   ngOnInit() {
 
@@ -85,7 +87,7 @@ export class ListChipComponent implements OnInit {
   acoes(i) {
     this.ctl_acoes = i;
   }
-  campos(i){
+  campos(i) {
     this.ctl_campos = i;
   }
   VerDesativos() {
@@ -96,35 +98,36 @@ export class ListChipComponent implements OnInit {
     this.desativos = !this.desativos;
     this.GetList();
 
-  } 
+  }
   ColocaOperadora(i, valor) {
-       
-   
-    let op = '';
-    if (valor.slice(0,2)==='10') {
 
-      if (valor.slice(2,5)==='.26') {
+
+    let op = '';
+    if (valor.slice(0, 2) === '10') {
+
+      if (valor.slice(2, 5) === '.26') {
         op = 'Vivo';
-      }else if (valor.slice(2,5)==='.50') {
+      } else if (valor.slice(2, 5) === '.50') {
         op = 'Oi';
-      }else if(valor.slice(2,6)==='.115') {
+      } else if (valor.slice(2, 6) === '.115') {
         op = 'Porto';
       }
-    }else if (valor.slice(0,6)==='172.40'){
+    } else if (valor.slice(0, 6) === '172.40') {
       op = 'Claro';
-    }else if (valor.slice(0,4)==='host'){
+    } else if (valor.slice(0, 4) === 'host') {
       op = '4G';
-    }else {op = 'INVALID'}
+    } else { op = 'INVALID' }
     this.arrayChip[i][2] = op;
-    this.arrayChip[i][1] = valor;
-    
+    this.valoripasalvar = valor;
+    //this.arrayChip[i][1] = valor;
+
   }
-  EditChip(i){
+  EditChip(i) {
     this.ctl_editar = i;
-    console.log("AQUI",i)
+    console.log("AQUI", i)
   }
-  
-  Search(valor){
+
+  Search(valor) {
     this.search = valor;
     this.GetList();
   }
@@ -134,16 +137,16 @@ export class ListChipComponent implements OnInit {
   ClickDropChoice(valor) {
     this.DropChoice = valor;
     this.showDropDown = false;
-    if (valor == "Todos"){
+    if (valor == "Todos") {
       this.tittle = this.Atittle;
     }
-    else if (valor == "Estoque"){
+    else if (valor == "Estoque") {
       this.tittle = this.Btittle;
     }
-    else if (valor == "Funcionamento"){
+    else if (valor == "Funcionamento") {
       this.tittle = this.Ctittle;
     }
-    else if (valor == "Saídas"){
+    else if (valor == "Saídas") {
       this.tittle = this.Dtittle;
     }
     this.GetList();
@@ -163,11 +166,11 @@ export class ListChipComponent implements OnInit {
       this.GetList();
     }
   }
-  montaArraychip(dado , detalhess){
+  montaArraychip(dado, detalhess) {
 
     for (let i = 0; i < dado.length; i++) {
-      const chip:ChipListRet = dado[i];
-      const detalhe:ChipdetailInterface = detalhess[i];
+      const chip: ChipListRet = dado[i];
+      const detalhe: ChipdetailInterface = detalhess[i];
       const numChip = chip.chip_num;
       const ipchip = chip.chip_ip;
       let chipwhere = chip.chip_where;
@@ -177,99 +180,129 @@ export class ListChipComponent implements OnInit {
         chipwhere = 'Estoque'
         this.ctl_number = 9999999;
       }
-      const data = detalhe.one.slice(7,9) + '/'+
-        detalhe.one.slice(4,6) + '/'+
-        detalhe.one.slice(1,3) + ' às ' + detalhe.one.slice(10,15) ;
+      const data = detalhe.one.slice(7, 9) + '/' +
+        detalhe.one.slice(4, 6) + '/' +
+        detalhe.one.slice(1, 3) + ' às ' + detalhe.one.slice(10, 15);
       this.arrayChip.push([numChip, ipchip, operadora, chipwhere, chipsid]);
-      this.arrayDetals.push([data, detalhe.two, detalhe.three,'']);
+      this.arrayDetals.push([data, detalhe.two, detalhe.three, '']);
 
-    
+
     }
     this.chiplistbanc = dado;
-  
+
   }
-  montaContade(dado){
+  montaContade(dado) {
     const sizeof: sizeoflistofuserInterface = dado;
     this.contage = String(Number(sizeof.initpag) + 1) + "-" +
-            String(sizeof.endpag) + " de " + String(sizeof.size) + " registros";
-    if (sizeof.endpag >= sizeof.size){
+      String(sizeof.endpag) + " de " + String(sizeof.size) + " registros";
+    if (sizeof.endpag >= sizeof.size) {
       this.nextpage = true;
-    }else {
+    } else {
       this.nextpage = false;
     }
   }
-  GetList(){
+  GetList() {
     this.arrayChip = [];
     this.arrayDetals = [];
     let dadospagechip: ListChipsInteface = new ListChipsInteface;
     dadospagechip.categ = this.DropChoice;
     dadospagechip.page = String(this.page);
     dadospagechip.search = this.search;
-    this.subcription = this.chipservice.listarChip(dadospagechip,this.desativos).subscribe (
-    (response) => {
-     
-      const listChips = this.chipservice.Validate(response);
-      this.montaContade(listChips[0]);
-      this.montaArraychip(listChips[1],listChips[2] );
-      this.subcription.unsubscribe();
-      
-    });
+    this.subcription = this.chipservice.listarChip(dadospagechip, this.desativos).subscribe(
+      (response) => {
+
+        const listChips = this.chipservice.Validate(response);
+        this.montaContade(listChips[0]);
+        this.montaArraychip(listChips[1], listChips[2]);
+        this.subcription.unsubscribe();
+
+      });
   }
-  DeleteChip(valor){
+  DeleteChip(valor) {
     let motivo = prompt("É necessário uma justificativa.");
-    if (motivo != ''){
-      const chipid:ChipListRet = this.chiplistbanc[valor];
-      this.subcription = this.chipservice.DeletarrChip(chipid.id,motivo).subscribe (
+    if (motivo != '') {
+      const chipid: ChipListRet = this.chiplistbanc[valor];
+      this.subcription = this.chipservice.DeletarrChip(chipid.id, motivo).subscribe(
         (response) => {
           const sucess = this.chipservice.Validate(response);
-          
-          
+
+
           if (sucess) {
-            alert("O chip "+chipid.chip_num+" foi desativado!")
+            alert("O chip " + chipid.chip_num + " foi desativado!")
           }
-          else{
-            alert("Ocorreu um erro desconhecido!")
-          }
-  
-          this.subcription.unsubscribe();
-          
-        });
-    }else {
-      alert("O chip não foi desativado, justificativa inválida.");
-    }
-    
-  }
-  Saves(i){
-    let chipss:ChipListRet = new ChipListRet;
-    chipss.chip_ip = this.arrayChip[i][1];
-    chipss.chip_oper = this.arrayChip[i][2];
-    chipss.id = this.arrayChip[i][4];
-    chipss.chip_num = this.arrayChip[i][0];
-    console.log(chipss);
-    this.subcription = this.chipservice.EditChipIp(chipss).subscribe (
-      (response) => { });
-  }
-  AtiveChip(valor){
-    let motivo = prompt("É necessário uma justificativa.");
-    if (motivo != ''){
-      const chipid:ChipListRet = this.chiplistbanc[valor];
-      this.subcription = this.chipservice.AtivarChip(chipid.id, motivo).subscribe (
-        (response) => {
-          const sucess = this.chipservice.Validate(response);
-          
-          if (sucess) {
-            alert("O chip "+chipid.chip_num+" foi ativado!")
-          }
-          else{
+          else {
             alert("Ocorreu um erro desconhecido!")
           }
 
           this.subcription.unsubscribe();
-          
+
         });
+    } else {
+      alert("O chip não foi desativado, justificativa inválida.");
+    }
+
+  }
+  ListHistori (result){
+    console.log(result);
+  }
+  Saves(i) {
+    let chipss: ChipListRet = new ChipListRet;
+    chipss.chip_ip = this.valoripasalvar;
+    //chipss.chip_ip = this.arrayChip[i][1];
+    chipss.chip_oper = this.arrayChip[i][2];
+    chipss.id = this.arrayChip[i][4];
+    chipss.chip_num = this.arrayChip[i][0];
+    console.log(chipss);
+    if (chipss.chip_oper != 'INVALID') {
+
+      let motivo = prompt("É necessário uma justificativa." );
+      console.log(motivo);
+      if (motivo != null) {
+        if (motivo != '') {
+          this.subcription = this.chipservice.EditChipIp(chipss, motivo).subscribe(
+            (response) => {
+              const sucess = this.chipservice.Validate(response);
+  
+              if (!sucess) {
+  
+                alert("Ocorreu um erro desconhecido!")
+              }
+              this.arrayChip[i][1] = this.valoripasalvar;
+              this.subcription.unsubscribe();
+              this.ctl_editar = 0;
+            });
+        } else {
+          this.ColocaOperadora(i,this.arrayChip[i][1]);
+          alert("O chip não foi salvo, justificativa inválida.");
+        }
       }else {
-        alert("O chip não foi Reativado, justificativa inválida.");
+
+        this.ColocaOperadora(i,this.arrayChip[i][1]);
+        this.ctl_editar = 0;
       }
+    }
+  }
+  AtiveChip(valor) {
+    let motivo = prompt("É necessário uma justificativa.");
+    if (motivo != '') {
+      const chipid: ChipListRet = this.chiplistbanc[valor];
+      this.subcription = this.chipservice.AtivarChip(chipid.id, motivo).subscribe(
+        (response) => {
+          const sucess = this.chipservice.Validate(response);
+
+          if (sucess) {
+            alert("O chip " + chipid.chip_num + " foi ativado!")
+          }
+          else {
+            alert("Ocorreu um erro desconhecido!")
+          }
+
+          this.subcription.unsubscribe();
+
+        });
+    } else {
+      alert("O chip não foi Reativado, justificativa inválida.");
+    }
   }
 }
 
