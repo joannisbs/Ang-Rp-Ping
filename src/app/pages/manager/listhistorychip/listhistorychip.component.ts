@@ -1,17 +1,15 @@
-import { routes } from '../../pages.routing';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { ListhistoryUsersService } from '../../../services/user/listhystoryusers.service';
-import { GetListHistoryUserInteface, sizeoflistofuserInterface, historyoflistofhistorysInterface } from '../../../models/user/user';
 import * as jsPDF from 'jspdf';  
-
+import { ChipService } from '../../../services/chip/chip.service';
+import { sizeoflistofuserInterface, historyoflistofhistorysInterface } from 'src/app/models/user/user';
+import { ListChipHistoryInteface } from 'src/app/models/chip/chip';
 @Component({
-  selector: 'app-listhistoryusers',
-  templateUrl: './listhistoryusers.component.html',
-  styleUrls: ['./listhistoryusers.component.css']
+  selector: 'app-listhistorychip',
+  templateUrl: './listhistorychip.component.html',
+  styleUrls: ['./listhistorychip.component.css']
 })
-export class ListhistoryusersComponent implements OnInit {
-
+export class ListhistorychipComponent implements OnInit {
   private subcription: Subscription;
 
   public lists = [];
@@ -29,7 +27,7 @@ export class ListhistoryusersComponent implements OnInit {
   
   public showModal = false;
   public showModalWhating = false;
-  constructor( private listhistoryusersService: ListhistoryUsersService) { 
+  constructor( private chipService: ChipService) { 
     this.GetList(1,"all");
   }
 
@@ -56,8 +54,8 @@ export class ListhistoryusersComponent implements OnInit {
 
   formList(info) {
 
-    const sizeof: sizeoflistofuserInterface = info[0];
-    const registros = info[1];
+    const sizeof: sizeoflistofuserInterface = info[2];
+    const registros = info[3];
     let evento: historyoflistofhistorysInterface;
     this.contage = String(Number(sizeof.initpag) + 1) + "-" +
             String(sizeof.endpag) + " de " + String(sizeof.size) + " registros";
@@ -110,7 +108,7 @@ export class ListhistoryusersComponent implements OnInit {
   geratePDF(listas) {
     this.showModal = false;
     this.showModalWhating = true;
-    const user = this.listhistoryusersService.getUSER();
+    const user = 'useer'//this.listhistoryusersService.getUSER();
 
     let fill = this.filter;
     if (fill == 'all') {
@@ -151,7 +149,7 @@ export class ListhistoryusersComponent implements OnInit {
     this.showModalWhating = true;
     await this.GetList(1,"all");
     await this.sleep(1200);
-    const user = this.listhistoryusersService.getUSER();
+    const user = 'user'//this.listhistoryusersService.getUSER();
 
 
     var doc = new jsPDF('p', 'pt', 'a4');
@@ -173,12 +171,12 @@ export class ListhistoryusersComponent implements OnInit {
         if (pag > 1){
           doc.addPage();
         }
-     
+       
         doc.setFontType("bold");
         doc.setFontSize(9);
         doc.setLineWidth(15)
       for ( let i = 0; i<listas.length; i++){
-        
+       
         if (l == 1) {
           l = 0;
           doc.setDrawColor(255, 255, 255);
@@ -222,14 +220,18 @@ export class ListhistoryusersComponent implements OnInit {
   }
   GetList(pagina,filtro) {
     
-    this.lists = [];
-    let filtersHistory:GetListHistoryUserInteface = new GetListHistoryUserInteface;
-    filtersHistory.page = pagina;
-    filtersHistory.filtro = filtro;
-    this.subcription = this.listhistoryusersService.getHistoryUserList(filtersHistory).
-    subscribe((response) => {
-      const listusers = this.listhistoryusersService.ValidateList(response);
+    let dadosenvia: ListChipHistoryInteface = new ListChipHistoryInteface;
+    dadosenvia.ids = this.chipService.GetChipid();
+    dadosenvia.page = pagina;
+    dadosenvia.search = filtro;
 
+    this.lists = [];
+
+
+    this.subcription = this.chipService.ListHistoryChip(dadosenvia).
+    subscribe((response) => {
+      const listusers = this.chipService.Validate(response);
+      console.log(listusers);
       this.formList(listusers);
       this.subcription.unsubscribe();
       });
@@ -241,4 +243,3 @@ export class ListhistoryusersComponent implements OnInit {
 
   
 }
-

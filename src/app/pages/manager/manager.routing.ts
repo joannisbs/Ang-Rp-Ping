@@ -33,8 +33,14 @@ const routes: Routes = [
       {
         path: 'listchip', 
         loadChildren: 'src/app/pages/manager/listchip/listchip.module#ListChipModule',
-        //canActivate:[AuthGuard] ,
+        canActivate:[AuthGuard] ,
       },
+      {
+        path: 'listhistorychip', 
+        loadChildren: 'src/app/pages/manager/listhistorychip/listhistorychip.module#ListhistoryChipModule',
+        canActivate:[AuthGuard] ,
+      },
+      
     ]
   }
 ];

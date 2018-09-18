@@ -46,7 +46,7 @@ export class ListhistoryUsersService {
 
       if (sucessrequisition.sucess = true) {
         const sizeof: sizeoflistofuserInterface = response_server[2];
-        console.log(response_server[3]);
+        ;
         let listsofuser: Array<historyoflistofhistorysInterface> = response_server[3]
         const tamanhodeusuariosrecebidos = listsofuser.length;
         let peaple = [];

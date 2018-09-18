@@ -56,7 +56,7 @@ export class NewchipComponent implements OnInit , OnDestroy {
     this.chips = this.formulario.get('chips') as FormArray;
     const valor = this.chips.at(i).get('chip_ip').value;
       
-    console.log(valor);
+   
     let op = '';
     if (valor.slice(0,2)==='10') {
 
@@ -204,10 +204,10 @@ export class NewchipComponent implements OnInit , OnDestroy {
   }
 
   onSubmit(chips, valido) {
-    console.log(chips);
+
 
     if (valido) {
-      console.log('Valido');
+     
       this.ocorreuSubmit = false;
       this.subcription = this.chipService
       .cadastrarChip(chips)

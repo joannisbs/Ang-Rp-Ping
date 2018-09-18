@@ -1,0 +1,99 @@
+<!-- Divisória tamanho das laterais -->
+<div class="classMargemLateral" [class.animated,class.bounceInUp]="!showModal">
+
+  <!-- Titulo -->
+  <label class="classLabelTitle">Histórico do chip</label>
+
+  <div class="cabecalho">
+    <div class="classCampoPesquisa">
+        <div class="input-group">
+
+            <input type="text" class="form-control classImputSearch" #search
+            (keyup)="Search(search.value)">
+
+            <!-- Icone de X has error -->
+            <span class='input-group-addon'>
+              <img src='/assets/icons/lupa.png' alt='Search' class='classButtonLupa'>
+            </span>
+          </div>
+    </div>
+    <div class="classCampoPage align-content-center">
+    <button class="classButtonPage classAlinhamento"(click)="PagePrevius(page > 1)">
+        <img src="/assets/icons/antverde.png" *ngIf="page > 1" class="classButtonIconNext">
+        <img src="/assets/icons/antcinza.png" *ngIf="page == 1" class="classButtonIconNext">
+    </button>
+      <label class="classLabelFormHeader classTamanhoHeaderPage" >{{ page }}</label>
+      <button class="classButtonPage" (click)="PageNext(!nextpage)">
+        <img src="/assets/icons/proxverd.png" *ngIf="!nextpage" class="classButtonIconNext">
+        <img src="/assets/icons/proxcinza.png" *ngIf="nextpage" class="classButtonIconNext">
+      </button>
+   
+  </div>
+    <div class="classCampoContage">
+      <label class="classContagemDeDados" >{{ contage }}</label>
+    </div>
+  </div>
+  <br />
+
+  <div *ngFor="let item of lists; let i = index;">
+      <div class="card classCardForm">
+      <div class="form-row">  
+          
+        <div class="form-group col-md-5 zeramargem">
+          <label class="classLabelFormList classtamanhonome text-center">{{item[0]}}</label>
+        </div>
+        <div class="form-group col-md-7 zeramargem">
+          <label class="classLabelFormList classtamanhonome text-center">{{item[1]}}</label>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="classCampoInativos">
+      <button class="ClassBotaoVerDesativos" (click)="ShowModalGerar()">
+          Gerar PDF
+        </button>
+  </div>
+    <div>
+        <div class="modal modal-backdrop fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" [class.show]=" showModal " [style.display]=" showModal ? 'block' : 'none'">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content classModalTamanho ">
+                <div class="modal-header">
+                  <h5 class="modal-title classModalLabalsTitle" id="ModalLabel">Gerar relatório em PDF</h5>
+                  
+                    
+                </div>
+                
+                    
+                
+                <div class="modal-footer justify-content-around">
+                
+                  <button type="button" class="classModalBotao" (click)="GeraMesmaPagina()">Somente a página atual</button>
+                  
+                  <button type="button" class="classModalBotao" (click)="geratePDFCompleto()">Histórico completo</button>
+    
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal modal-backdrop fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" [class.show]=" showModalWhating " [style.display]=" showModalWhating ? 'block' : 'none'">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content classModalTamanho ">
+                  <div class="modal-header">
+                    <h5 class="modal-title classModalLabalsTitle" id="ModalLabel">Carregando...</h5>
+                    
+                      
+                  </div>
+                  
+                      
+                  
+                
+                      <div class="progress progressbar">
+                          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                      </div>
+                  
+                </div>
+              </div>
+            </div>
+    </div>
+</div>

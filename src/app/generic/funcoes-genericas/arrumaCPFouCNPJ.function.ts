@@ -3,7 +3,7 @@
     cpf_cnpj = cpf_cnpj.replace(/\./g , '');
     cpf_cnpj = cpf_cnpj.replace('\-', '');
     cpf_cnpj = cpf_cnpj.replace('\/', '');
-    console.log(cpf_cnpj);
+    
     if (cpf_cnpj.length === 11) {
         let cpf = cpf_cnpj.substring(0, 3);
         cpf = cpf + '.';

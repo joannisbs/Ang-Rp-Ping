@@ -124,7 +124,7 @@ export class ListChipComponent implements OnInit {
   }
   EditChip(i) {
     this.ctl_editar = i;
-    console.log("AQUI", i)
+
   }
 
   Search(valor) {
@@ -242,8 +242,11 @@ export class ListChipComponent implements OnInit {
     }
 
   }
-  ListHistori (result){
-    console.log(result);
+  History (i){
+    const ids = this.arrayChip[i][4];
+    this.subcription.unsubscribe();
+    this.chipservice.HistoryChip(ids);
+
   }
   Saves(i) {
     let chipss: ChipListRet = new ChipListRet;
@@ -252,11 +255,11 @@ export class ListChipComponent implements OnInit {
     chipss.chip_oper = this.arrayChip[i][2];
     chipss.id = this.arrayChip[i][4];
     chipss.chip_num = this.arrayChip[i][0];
-    console.log(chipss);
+   
     if (chipss.chip_oper != 'INVALID') {
 
       let motivo = prompt("É necessário uma justificativa." );
-      console.log(motivo);
+    
       if (motivo != null) {
         if (motivo != '') {
           this.subcription = this.chipservice.EditChipIp(chipss, motivo).subscribe(

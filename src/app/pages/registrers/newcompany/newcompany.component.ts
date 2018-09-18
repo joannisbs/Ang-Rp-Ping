@@ -45,12 +45,12 @@ export class NewcompanyComponent implements OnInit, OnDestroy {
     // caso Válido realisar metodo de envio
     if (valido) {
 
-      console.log(company);
+     
       this.ocorreuSubmit = false;
       this.companyService
       .cadastrarCompany(company)
       .subscribe(res => {
-        console.log(res);
+       
         this.showModal = true;
       }
       );

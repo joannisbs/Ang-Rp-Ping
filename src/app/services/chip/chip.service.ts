@@ -9,14 +9,16 @@ import { environment } from '../../../environments/environment';
 import { AuthService } from '../login/auth.service';
 import { StandartResponseInterface } from '../../models/standartResponse/standartResponse';
 import { Router } from '@angular/router';
-import { ListChipsInteface, ChipInteface } from 'src/app/models/chip/chip';
+import { ListChipsInteface, ChipInteface, ListChipHistoryInteface } from 'src/app/models/chip/chip';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ChipService {
   
   private api = environment.api_url;
+  private chipidhistory = '0';
 
   constructor(private http: Http,
     private authService: AuthService,
@@ -71,6 +73,19 @@ export class ChipService {
     const token: LoginInteface = this.authService.GetToken();
     return this.http
       .post(`${this.api}/api/user/ChipEditIp/`,[token ,chip,motivo])
+      .map(res => res.json());
+  }
+  HistoryChip(chipid) {
+    this.chipidhistory = chipid;
+    this.router.navigate(['/pages/manager/listhistorychip']);
+  }
+  GetChipid(){
+    return this.chipidhistory;
+  }
+  ListHistoryChip(chipvalue:ListChipHistoryInteface){
+    const token: LoginInteface = this.authService.GetToken();
+    return this.http
+      .post(`${this.api}/api/user/ChipListHistory/`,[token ,chipvalue])
       .map(res => res.json());
   }
 }

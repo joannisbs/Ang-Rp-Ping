@@ -33,3 +33,8 @@ export class ChipdetailInterface {
     three: string;
     
 }
+export class ListChipHistoryInteface {
+    page:   string;
+    search: string;
+    ids:  string;
+}

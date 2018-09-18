@@ -52,7 +52,7 @@ export class EditpasswordComponent implements OnInit {
 
         }
         );
-    console.log(this.SENHAS);
+    
   }
   verifica() {
     this.validade = false;
