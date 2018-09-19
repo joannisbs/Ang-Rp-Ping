@@ -1,46 +1,30 @@
-
 <div [formGroup]="companyForm" autocomplete="no">
 
   <!-- Linha 1  -->
   <div class="form-row">
-        
+
     <!-- Campo de input do nome da empresa -->
-    <div class="form-group col-lg-4">
+    <div class="form-group col-lg-3">
 
       <label class="classLabelForm" for="emp_nome">Empresa:</label>
       <div class="input-group">
-        
-        <input 
-          type="text" 
-          autocomplete="no" 
-          class="form-control classImputForm" 
-          [class.classBorderInvalid]="!showErrors( 'emp_nome' )"
-          id="emp_nome" 
-          placeholder="Nome" 
-          formControlName="emp_nome" 
-          maxlength="12"
-        >
+
+        <input type="text" autocomplete="no" class="form-control classImputForm" [class.classBorderInvalid]="!showErrors( 'emp_nome' )"
+          id="emp_nome" placeholder="Nome" formControlName="emp_nome" maxlength="12">
 
         <!-- Icone de X has error -->
-        <span class='input-group-addon' 
-          [class.d-none]=" showErrors( 'emp_nome' )"
-        >
+        <span class='input-group-addon' [class.d-none]=" showErrors( 'emp_nome' )">
           <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de ajuda -->
-      <small id="nameHelpBlock" 
-          class="form-text" 
-          [class.classTextodeErro]=" !showErrors( 'emp_nome' )"
-          [class.text-muted]=" showErrors( 'emp_nome' )">
+      <small id="nameHelpBlock" class="form-text" [class.classTextodeErro]=" !showErrors( 'emp_nome' )" [class.text-muted]=" showErrors( 'emp_nome' )">
         Será exibido na tela Ping.
       </small>
 
       <!-- Mensagem de erro -->
-      <small id="nameHelpBlock" 
-          class="form-text classTextodeErro" 
-          [class.d-none]=" showErrors( 'emp_nome' )">
+      <small id="nameHelpBlock" class="form-text classTextodeErro" [class.d-none]=" showErrors( 'emp_nome' )">
         Campo obrigatório, máximo 12 caracterers, iniciar com letra maiúscula.
       </small>
     </div>
@@ -51,110 +35,48 @@
       <label class="classLabelForm" for="empdata_cnpj">CNPJ:</label>
       <div class="input-group">
 
-        <input 
-          type="text" 
-          autocomplete="no" 
-          class="form-control classImputForm" 
-          [class.classBorderInvalid]="!showErrors( 'empdata_cnpj' )"
-          id="empdata_cnpj" 
-          placeholder="CNPJ ou CPF" 
-          formControlName="empdata_cnpj"
-          maxlength="18"
-          (blur)="arrumaCNPJ(companyForm.value.empdata_cnpj, 'empdata_cnpj' )"
-        >
+        <input type="text" autocomplete="no" class="form-control classImputForm" [class.classBorderInvalid]="!showErrors( 'empdata_cnpj' )"
+          id="empdata_cnpj" placeholder="CNPJ ou CPF" formControlName="empdata_cnpj" maxlength="18" (blur)="arrumaCNPJ(companyForm.value.empdata_cnpj, 'empdata_cnpj' )">
 
         <!-- Icone de X has error -->
-        <span class='input-group-addon' 
-          [class.d-none]=" showErrors( 'empdata_cnpj' )"
-        >
+        <span class='input-group-addon' [class.d-none]=" showErrors( 'empdata_cnpj' )">
           <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
 
       <!-- Mensagem de erro -->
-      <small 
-        id="nameHelpBlock" 
-        class="form-text classTextodeErro" 
-        [class.d-none]=" showErrors( 'empdata_cnpj' )"
-      >
+      <small id="nameHelpBlock" class="form-text classTextodeErro" [class.d-none]=" showErrors( 'empdata_cnpj' )">
         Campo obrigatório.
       </small>
     </div>
 
-    <!-- Campo de input do responsável da empresa -->
-    <div class="form-group col-lg-5">
+    <!-- Campo de input razao social da empresa -->
+    <div class="form-group col-lg-6">
 
-      <label class="classLabelForm" for="empdata_resp">Responsável:</label>
+      <label class="classLabelForm" for="empdata_razao">Razão Social:</label>
       <div class="input-group">
 
-        <input 
-          type="text" 
-          autocomplete="no" 
-          class="form-control classImputForm" 
-          [class.classBorderInvalid]="!showErrors( 'empdata_resp' )" 
-          id="empdata_resp" 
-          placeholder="Nome Sobrenome" 
-          formControlName="empdata_resp"
-          maxlength="45"
-        >
+        <input type="text" autocomplete="no" class="form-control classImputForm" [class.classBorderInvalid]="!showErrors( 'empdata_razao' )"
+          id="empdata_razao" placeholder="Razão Social" formControlName="empdata_razao" maxlength="90">
 
         <!-- Icone de X has error -->
-        <span 
-          class='input-group-addon' 
-          [class.d-none]="showErrors( 'empdata_resp' )"
-        >
+        <span class='input-group-addon' [class.d-none]="showErrors( 'empdata_razao' )">
           <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
-      </div>  
+      </div>
+
       <!-- Mensagem de erro -->
-      <small 
-        id="nameHelpBlock" 
-        class="form-text classTextodeErro" 
-        [class.d-none]="showErrors( 'empdata_resp' )"
-      >
-        Campo obrigatório. 
-      </small>    
-    </div> 
+      <small id="nameHelpBlock" class="form-text classTextodeErro" [class.d-none]="showErrors( 'empdata_razao' )">
+        Campo obrigatório.
+      </small>
+    </div>
+
   </div>
 
   <!-- Linha 2  -->
   <div class="form-row">
 
-    <!-- Campo de input razao social da empresa -->
-    <div class="form-group col-lg-9">
 
-      <label class="classLabelForm" for="empdata_razao">Razão Social:</label>
-      <div class="input-group">
-
-        <input 
-          type="text" 
-          autocomplete="no" 
-          class="form-control classImputForm" 
-          [class.classBorderInvalid]="!showErrors( 'empdata_razao' )" 
-          id="empdata_razao" 
-          placeholder="Razão Social" 
-          formControlName="empdata_razao"
-          maxlength="90"
-        >
-
-        <!-- Icone de X has error -->
-        <span 
-          class='input-group-addon' 
-          [class.d-none]="showErrors( 'empdata_razao' )"
-        >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
-        </span>
-      </div>
-
-      <!-- Mensagem de erro -->
-      <small 
-        id="nameHelpBlock" 
-        class="form-text classTextodeErro" 
-        [class.d-none]="showErrors( 'empdata_razao' )"
-      >
-        Campo obrigatório.
-      </small>
-    </div>
 
 
     <!-- Campo de input do telefone da empresa -->
@@ -163,215 +85,61 @@
       <label class="classLabelForm" for="empdata_tel">Telefone:</label>
       <div class="input-group">
 
-        <input 
-          type="text" 
-          autocomplete="no" 
-          class="form-control classImputForm" 
-          [class.classBorderInvalid]="!showErrors( 'empdata_tel' )" 
-          id="empdata_tel" 
-          placeholder="Fixo ou Celular" 
-          formControlName="empdata_tel"
-          maxlength="15"
-          (blur)="arrumaTel(companyForm.value.empdata_tel, 'empdata_tel' )"
-        >
+        <input type="text" autocomplete="no" class="form-control classImputForm" [class.classBorderInvalid]="!showErrors( 'empdata_tel' )"
+          id="empdata_tel" placeholder="Fixo ou Celular" formControlName="empdata_tel" maxlength="15" (blur)="arrumaTel(companyForm.value.empdata_tel, 'empdata_tel' )">
 
         <!-- Icone de X has error -->
-        <span 
-          class='input-group-addon' 
-          [class.d-none]="showErrors( 'empdata_tel' )" 
-        >
+        <span class='input-group-addon' [class.d-none]="showErrors( 'empdata_tel' )">
           <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
         </span>
       </div>
       <!-- Mensagem de erro -->
-      <small 
-        id="nameHelpBlock" 
-        class="form-text classTextodeErro" 
-        [class.d-none]="showErrors( 'empdata_tel' )"
-      >
+      <small id="nameHelpBlock" class="form-text classTextodeErro" [class.d-none]="showErrors( 'empdata_tel' )">
         Campo obrigatório, coloque o DDD
+      </small>
+    </div>
+
+    <!-- Campo de input do responsável da empresa -->
+    <div class="form-group col-lg-4">
+
+      <label class="classLabelForm" for="empdata_resp">Responsável:</label>
+      <div class="input-group">
+
+        <input type="text" autocomplete="no" class="form-control classImputForm" [class.classBorderInvalid]="!showErrors( 'empdata_resp' )"
+          id="empdata_resp" placeholder="Nome Sobrenome" formControlName="empdata_resp" maxlength="45">
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' [class.d-none]="showErrors( 'empdata_resp' )">
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+        </span>
+      </div>
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" class="form-text classTextodeErro" [class.d-none]="showErrors( 'empdata_resp' )">
+        Campo obrigatório.
+      </small>
+    </div>
+
+    <!-- Campo de input do email da empresa -->
+    <div class="form-group col-lg-5">
+      <label class="classLabelForm" for="empdata_email">Email:</label>
+      <div class="input-group">
+
+        <input type="text" autocomplete="no" class="form-control classImputForm" [class.classBorderInvalid]="!showErrors( 'empdata_email' )"
+          id="empdata_email" placeholder="user@email.com" formControlName="empdata_email" maxlength="45">
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon' [class.d-none]="showErrors( 'empdata_email' )">
+          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+        </span>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <small id="nameHelpBlock" class="form-text classTextodeErro" [class.d-none]="showErrors( 'empdata_email' )">
+        Campo Obrigatório.
       </small>
     </div>
 
 
   </div>
-
-  <!-- Linha 3  -->
-  <div class="form-row">
-
-    <!-- Campo de input do email da empresa -->
-    <div class="form-group col-lg-6">
-      <label class="classLabelForm" for="empdata_email">Email:</label>
-      <div class="input-group">
-        
-        <input 
-          type="text" 
-          autocomplete="no" 
-          class="form-control classImputForm" 
-          [class.classBorderInvalid]="!showErrors( 'empdata_email' )" 
-          id="empdata_email" 
-          placeholder="user@email.com" 
-          formControlName="empdata_email"
-          maxlength="45"
-          
-          
-        >
-        
-        <!-- Icone de X has error -->
-        <span 
-          class='input-group-addon' 
-          [class.d-none]="showErrors( 'empdata_email' )"
-        >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
-        </span>
-      </div>
-
-      <!-- Mensagem de erro -->   
-      <small 
-        id="nameHelpBlock" 
-        class="form-text classTextodeErro" 
-        [class.d-none]="showErrors( 'empdata_email' )"
-      >
-        Campo Obrigatório.
-      </small>
-    </div> 
-
-    <!-- Campo de input do tela da empresa -->
-    <div class="form-group col-lg-2">
-      
-      <label class="classLabelForm" for="emp_tela">Tela:</label>
-      <div class="input-group">
-
-        <input 
-          type="text" 
-          autocomplete="no" 
-          class="form-control classImputForm" 
-          [class.classBorderInvalid]="!showErrors( 'emp_tela' )" 
-          id="emp_tela" 
-          placeholder="Tela" 
-          formControlName="emp_tela" 
-          maxlength="1"
-        >
-
-        <!-- Icone de X has error -->
-        <span 
-          class='input-group-addon' 
-          [class.d-none]="showErrors( 'emp_tela' )"
-        >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
-        </span>
-      </div>
-
-      <!-- Mensagem de ajuda --> 
-      <small id="nameHelpBlock" 
-        class="form-text" 
-        [class.classTextodeErro]="!showErrors( 'emp_tela' )"
-        [class.text-muted]="showErrors( 'emp_tela' ) "
-      >
-
-        A tela do ping que será exibido a empresa.
-      </small> 
-      
-      <!-- Mensagem de erro -->  
-      <small 
-        id="nameHelpBlock" 
-        class="form-text classTextodeErro" 
-        [class.d-none]="showErrors( 'emp_tela' )"
-      >
-
-        Campo obrigatório, 1 ou 2. 
-      </small>    
-    </div> 
-      
-    <!-- Campo de input da linha da empresa -->
-    <div class="form-group col-lg-2">
-      <label class="classLabelForm" for="emp_linha">Linha:</label>
-      <div class="input-group">
-        
-        <input 
-          type="text" 
-          autocomplete="no" 
-          class="form-control classImputForm" 
-          [class.classBorderInvalid]="!showErrors( 'emp_linha' )" 
-          id="emp_linha" 
-          placeholder="Linha" 
-          formControlName="emp_linha" 
-          maxlength="2"
-        >
-
-        <!-- Icone de X has error -->
-        <span class='input-group-addon' 
-          [class.d-none]="showErrors( 'emp_linha' )">
-          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
-        </span>
-      </div>  
-
-      <!-- Mensagem de ajuda --> 
-      <small 
-        id="nameHelpBlock" 
-        class="form-text" 
-        [class.classTextodeErro]="!showErrors( 'emp_linha' )"
-        [class.text-muted]="showErrors( 'emp_linha' ) "
-      >
-
-        A linha do ping que será exibido a empresa.
-      </small> 
-      
-      <!-- Mensagem de erro -->  
-      <small 
-        id="nameHelpBlock" 
-        class="form-text classTextodeErro" 
-        [class.d-none]="showErrors( 'emp_linha' )"
-      >
-        Campo obrigatório, 0-10. 
-      </small>    
-    </div> 
-
-    <!-- Campo de input da coluna da empresa -->
-    <div class="form-group col-lg-2">
-      
-      <label class="classLabelForm" for="emp_coluna">Coluna:</label>
-      <div class="input-group">
-        
-        <input 
-          type="text" 
-          autocomplete="no" 
-          class="form-control classImputForm" 
-          [class.classBorderInvalid]="!showErrors( 'emp_coluna' )" 
-          id="emp_coluna" 
-          placeholder="Coluna" 
-          formControlName="emp_coluna" 
-          maxlength="2"
-        >
-
-        <!-- Icone de X has error -->
-        <span 
-          class='input-group-addon' 
-          [class.d-none]="showErrors( 'emp_coluna' )"
-        >
-          <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
-        </span>
-      </div> 
-
-      <!-- Mensagem de ajuda --> 
-      <small id="nameHelpBlock" 
-        class="form-text" 
-        [class.classTextodeErro]="!showErrors( 'emp_coluna' )"
-        [class.text-muted]="showErrors( 'emp_coluna' ) "
-      >
-        A coluna do ping que será exibido a empresa.
-      </small> 
-
-      <!-- Mensagem de erro -->
-      <small 
-        id="nameHelpBlock" 
-        class="form-text classTextodeErro" 
-        [class.d-none]="showErrors( 'emp_coluna' ) "
-      >
-        Campo obrigatório. 
-      </small>    
-    </div> 
-
-  </div> 
 
 </div>

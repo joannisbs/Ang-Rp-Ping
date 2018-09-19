@@ -10,6 +10,7 @@ import { RegistrersComponent } from './registrers.components';
 
 // imports rotas
 import { routing } from './registrers.routing';
+import { CompanyFormComponent } from 'src/app/pages/registrers/components/company-form/company-form.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { routing } from './registrers.routing';
   declarations: 
   [
     RegistrersComponent,
+    
   ]
 
 })

@@ -5,7 +5,6 @@ import { SuportGuard } from '../../../routesguards/suport.guard';
 import { ExpedicaoGuard } from '../../../routesguards/expedicao.guard';
 import { ProjetoGuard } from '../../../routesguards/projeto.guard';
 
-
 const routes: Routes = [
   {
     path: '',
