@@ -8,6 +8,7 @@ import { CompanyService } from '../../../services/company/company.service';
 import { Subscription } from 'rxjs';
 
 import { playAudioError } from '../../../generic/funcoes-genericas/soundfunctions/soundError';
+import { ValidadeResponsesService } from 'src/app/services/validade_responses/validade-responses.service';
 
 @Component({
   selector: 'app-newcompany',
@@ -24,6 +25,7 @@ export class NewcompanyComponent implements OnInit, OnDestroy {
   constructor(
     private formBuilder: FormBuilder,
     private companyService: CompanyService,
+    private validate: ValidadeResponsesService,
   ) { }
 
 
@@ -46,19 +48,21 @@ export class NewcompanyComponent implements OnInit, OnDestroy {
     if (valido) {
 
      
+
+      console.log(company);
       this.ocorreuSubmit = false;
       this.companyService
       .cadastrarCompany(company)
-      .subscribe(res => {
-       
-        this.showModal = true;
+      .subscribe(respose => {
+        this.validate.ValidateSeccion(respose[0]);
+        //this.showModal = true;
       }
       );
 
     } else {
       // Variavel que da o feedback do botão precionado para os componets do form
       this.ocorreuSubmit = true;
-      playAudioError();
+      //playAudioError();
       scrollTo(0, 0);
 
     }
