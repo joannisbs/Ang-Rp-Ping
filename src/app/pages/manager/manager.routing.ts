@@ -40,6 +40,12 @@ const routes: Routes = [
         loadChildren: 'src/app/pages/manager/listhistorychip/listhistorychip.module#ListhistoryChipModule',
         canActivate:[AuthGuard] ,
       },
+      {
+        path: 'listcompany', 
+        loadChildren: 'src/app/pages/manager/listcompany/listcompany.module#ListcompanyModule',
+        canActivate:[AuthGuard] ,
+      },
+      
       
     ]
   }
