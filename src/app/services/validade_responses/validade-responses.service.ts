@@ -29,9 +29,10 @@ export class ValidadeResponsesService {
       case 3:
         alert("Sua conta não tem permissão para realizar esta tarefa," +
         +   "\n       por favor contate um administrador.");
+        break;
       
       case 4: 
-        alert("Ocorreu um erro desconhecido. ( ernum: 4 )");
+        alert("Ocorreu um erro desconhecido. ( ernum: 1 )");
         break;
 
       default:
@@ -40,4 +41,36 @@ export class ValidadeResponsesService {
     }
     return false;
   }
+
+  ValidateAction ( response_server ){
+
+    switch ( response_server ){
+      
+      case 1: // sucesso
+        return 1;
+      
+      case 0: 
+        alert("Ocorreu um erro desconhecido. ( ernum: 2 )");
+        break;
+      
+      
+      case 2:
+        return 2;
+      
+      case 3:
+        alert("Ocorreu um erro desconhecido. ( ernum: 3 )");
+        break;
+
+      case 4:
+        alert("Ocorreu um erro desconhecido. ( ernum: 4 )");
+        break;
+      
+      default:
+        alert("Ocorreu um erro desconhecido. ( ernum: errofrontdefault " + response_server + " )");
+        break;
+
+    }
+    return 3;
+  }
 }
+
