@@ -7,8 +7,8 @@ import { addressFormGroup } from '../components/address-form/address.interface';
 import { CompanyService } from '../../../services/company/company.service';
 import { Subscription } from 'rxjs';
 
-import { playAudioError } from '../../../generic/funcoes-genericas/soundfunctions/soundError';
 import { ValidadeResponsesService } from 'src/app/services/validade_responses/validade-responses.service';
+
 
 @Component({
   selector: 'app-newcompany',
@@ -22,6 +22,8 @@ export class NewcompanyComponent implements OnInit, OnDestroy {
   public showModal = false;
   private subcription: Subscription;
 
+  private Subimitonetime = true;
+ 
   constructor(
     private formBuilder: FormBuilder,
     private companyService: CompanyService,
@@ -47,17 +49,30 @@ export class NewcompanyComponent implements OnInit, OnDestroy {
     // caso Válido realisar metodo de envio
     if (valido) {
 
-     
-
-      console.log(company);
-      this.ocorreuSubmit = false;
-      this.companyService
-      .cadastrarCompany(company)
-      .subscribe(respose => {
-        this.validate.ValidateSeccion(respose[0]);
-        //this.showModal = true;
+      if ( this.Subimitonetime ) {
+        this.Subimitonetime = false;
+        this.ocorreuSubmit = false;
+        this.companyService
+        .cadastrarCompany(company)
+        .subscribe(respose => {
+          const Secionsucess = this.validate.ValidateSeccion(respose[0]);
+          if (Secionsucess){
+            const postSucess = this.validate.ValidateAction(respose[1]);
+            if (postSucess == 1){
+              alert("A empresa foi salva com sucesso!");
+              this.showModal = true;
+              this.Subimitonetime = true;
+              this.subcription.unsubscribe();
+            }else if (postSucess == 2){
+              alert("A empresa já existe no banco de dados.")
+            }
+          }
+          this.Subimitonetime = true;
+        }
+        );
       }
-      );
+
+
 
     } else {
       // Variavel que da o feedback do botão precionado para os componets do form
