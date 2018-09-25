@@ -3,3 +3,8 @@ export interface StandartResponseInterface {
     motivo: string;
         
 }
+export class StandartSearchList {
+    search: string;
+    pagina: string;
+    ObjIds: string;
+}
