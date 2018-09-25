@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/login/auth.service';
-import { StandartResponseInterface } from 'src/app/models/standartResponse/standartResponse';
+import { StandartSearchList } from 'src/app/models/standartResponse/standartResponse';
 import { LoginInteface } from 'src/app/models/login/login';
 
 @Injectable({
@@ -26,6 +26,23 @@ export class CompanyService {
     return this.http
       .post(`${this.api}/api/user/NewCompany`, [ token, company ] )
       .map(res => res.json());
+  }
+
+  listarCompanys ( data_search:StandartSearchList, desativo ):Observable<any> {
+    const token: LoginInteface = this.authService.GetToken();
+    
+    if (desativo == true){
+      return this.http
+      .post(`${this.api}/api/user/NewCompany`, [ token, data_search ] )
+      .map(res => res.json());
+
+    }else{
+      return this.http
+      .post(`${this.api}/api/user/ListActivedCompany`, [ token, data_search ] )
+      .map(res => res.json());
+
+    }
+
   }
 
 
