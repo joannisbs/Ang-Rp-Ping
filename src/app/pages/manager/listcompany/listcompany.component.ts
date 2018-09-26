@@ -4,6 +4,7 @@ import { StandartSearchList } from '../../../models/standartResponse/standartRes
 import { Subscription } from 'rxjs';
 import { ValidadeResponsesService } from 'src/app/services/validade_responses/validade-responses.service';
 import { EmpresaInteface } from 'src/app/models/company/company';
+import { sizeoflistofuserInterface } from 'src/app/models/user/user';
 
 @Component({
   selector: 'app-listcompany',
@@ -14,10 +15,9 @@ export class ListcompanyComponent implements OnInit {
 
   constructor(
     private companyservice: CompanyService,
-    private validate: ValidadeResponsesService,
-  ) 
-  { 
-    this.GetList();
+    private validate: ValidadeResponsesService ) { 
+    
+      this.GetList();
   }
 
   ngOnInit() {
@@ -26,14 +26,20 @@ export class ListcompanyComponent implements OnInit {
   private subcription: Subscription;
   
   public arrayEmpresas: EmpresaInteface[] = [];
-
   
+  
+  public contage = 'zero';
   public pagina = 1;
   public nextpage = false;
   private search = 'all';
   private desativos = false;
   private listavazia = false;
   
+  public tittle = 'Lista de Empresas';
+  private dtittle = 'Lista de Empresas Desativadas';
+
+  public showModal = false;
+
   GetList() {
 
     this.arrayEmpresas = [];
@@ -55,9 +61,25 @@ export class ListcompanyComponent implements OnInit {
         const ListSucess = this.validate.ValidateList   ( response [ 1 ] );
         
         if ( ListSucess == 1 ){
-          this.arrayEmpresas = response [ 2 ];
+          const sizeof: sizeoflistofuserInterface = response [ 2 ];
 
+          this.arrayEmpresas = response [ 3 ];
+
+          this.contage = String ( Number ( sizeof.initpag ) + 1 ) + "-" +
+            String ( sizeof.endpag ) + " de " + String ( sizeof.size ) + " empresas";
+
+
+          if ( sizeof.next === '1' ) {
+            this.nextpage = true;
+          }
+          else {
+            this.nextpage = false;
+          }
+          console.log(this.contage);
+          console.log("problema");
           console.log(this.arrayEmpresas);
+
+          
           
         }else if( ListSucess == 2 ) {
           this.listavazia = true;
@@ -68,5 +90,26 @@ export class ListcompanyComponent implements OnInit {
       this.subcription.unsubscribe();
 
    });
+  }
+
+
+  PageNext ( condicion ) {
+    if ( condicion ) {
+      this.pagina++;
+      this.GetList();
+    }
+
+  }
+
+  PagePrevius ( condicion ) {
+    if ( condicion ) {
+      this.pagina--;
+      this.GetList();
+    }
+  }
+
+
+  Search(item) {
+    console.log(item);
   }
 }

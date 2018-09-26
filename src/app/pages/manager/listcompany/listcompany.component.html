@@ -1,3 +1,53 @@
-<p>
-  listcompany works!
-</p>
+<!-- Divisoria tamanho das laterais -->
+<div class="classMargemLateral" [class.animated,class.bounceInUp]="!showModal"> 
+
+  <!-- Titulo -->
+  <label class="classLabelTitle" [class.classred]="desativos"> {{ title }} </label>
+
+  <div class="cabecalho">
+    <div class="classCampoPesquisa">
+      <div class="input-group">
+
+        <input type="text" class="form-control classImputSearch" #search (keyup)="Search(search.value)">
+
+        <!-- Icone de X has error -->
+        <span class='input-group-addon'>
+          <img src='/assets/icons/lupa.png' alt='Search' class='classButtonLupa'>
+        </span>
+      </div>
+    </div>
+
+    <div class="classCampoPage align-content-center">
+      <button class="classButtonPage classAlinhamento" (click)="PagePrevius(page > 1)">
+        <img src="/assets/icons/antverde.png" *ngIf="pagina > 1" class="classButtonIconNext">
+        <img src="/assets/icons/antcinza.png" *ngIf="pagina == 1" class="classButtonIconNext">
+      </button>
+      <label class="classLabelFormHeader classTamanhoHeaderPage">{{ pagina }}</label>
+      <button class="classButtonPage" (click)="PageNext(!nextpage)">
+        <img src="/assets/icons/proxverd.png" *ngIf="!nextpage" class="classButtonIconNext">
+        <img src="/assets/icons/proxcinza.png" *ngIf="nextpage" class="classButtonIconNext">
+      </button>
+
+    </div>
+
+    <div class="classCampoContage">
+      <label class="classContagemDeDados">{{ contage }}</label>
+    </div>
+  </div>
+  <br />
+
+  <div *ngFor="let empresa of arrayEmpresas; let i = index;">
+    {{ empresa.emp_nome }}
+
+    <div class="card classCardForm">
+      <div class="form-row">
+        <div class="form-group col-sm-4 classZeraMargem">
+          <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">test</label>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>

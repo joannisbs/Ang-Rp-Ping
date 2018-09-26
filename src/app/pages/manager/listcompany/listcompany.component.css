@@ -1,0 +1,117 @@
+@import url(./../../../generic/css-generico/tilulodapagina.css);
+@import url(./../../../generic/css-generico/corpodepagina.css);
+@import url(./../../../generic/css-generico/listbutons.css);
+@import url(./../../../generic/css-generico/cabecalhoPaginacao.css);
+
+.classTipodeConta {
+    width: 100%;
+    text-align: center;
+}
+
+.classLabelnomeconta{
+    margin-left: 20px;
+}
+.classImputForm {
+    border-color:#21237b;
+    border-radius: 10px !important;
+    background-color: white;
+    font-style: italic;
+    color: #21237b;
+    font-size: 16px;
+    font-weight: 525;
+    margin-top: 7px;
+    height: 35px;
+    width: 100%;
+}
+.classButtonSalve{
+    margin: 0 auto;
+    /* Alterações de Corpo */
+    width: 40px; 
+    height: 40px; 
+    border: none;
+    border-radius: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    /* Deixar Objeto Não Selecionavel */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    cursor: pointer;
+    outline: none;
+}
+
+
+/* Tooltip text */
+.classtoltip {
+    width: 120px;
+    
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 4;
+    bottom: 105%;
+    left: 50%;
+    margin-left: -70px;
+    font-size: 16px;
+    font-weight: 525;
+
+
+}
+.classCentralizaEdit{
+   margin: 0 auto;
+   width: 280px;
+}
+.classSelectTipe{
+    position: relative;
+    float: left;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+    width: 180px;
+}
+.classbotaoEdit{
+    position: relative;
+    float: left;
+
+    width:  40px;
+}
+.classred{
+    color: red !important;
+}
+.classbackblue{
+    background-color: #21237b !important;
+}
+.classCampoInativos{
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 10%;
+}
+.ClassBotaoVerDesativos{
+    justify-content: center;
+    margin-left: calc(50% - 200px);
+    width: 400px;
+    height: 30px;
+    background-color: red ;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    font-style: italic;
+    /* Deixar Objeto Não Selecionavel */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    cursor: pointer;
+    outline: none;
+    z-index:2;
+    
+}
