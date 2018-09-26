@@ -27,7 +27,13 @@ export class ListcompanyComponent implements OnInit {
   
   public arrayEmpresas: EmpresaInteface[] = [];
   
+  public ctrl_acoes  = 0;
+  public ctrl_campos = 0;
+  public ctrl_detail = 0;
+  public ctrl_edit   = 0;
+  public ctrl_lixo   = 0;
   
+
   public contage = 'zero';
   public pagina = 1;
   public nextpage = false;
@@ -39,6 +45,26 @@ export class ListcompanyComponent implements OnInit {
   private dtittle = 'Lista de Empresas Desativadas';
 
   public showModal = false;
+
+  f_ctrl_acoes  ( i ) {
+    this.ctrl_acoes = i;
+  }
+
+  f_ctrl_campos ( i ) {
+    this.ctrl_campos = i;
+  }
+ 
+  f_ctrl_detail ( i ) {
+    this.ctrl_edit = i;
+  }
+  
+  f_ctrl_edit   ( i ) {
+    this.ctrl_edit = i;
+  }
+
+  f_ctrl_lixo   ( i ) {
+    this.ctrl_lixo = i;
+  }
 
   GetList() {
 
@@ -92,7 +118,6 @@ export class ListcompanyComponent implements OnInit {
    });
   }
 
-
   PageNext ( condicion ) {
     if ( condicion ) {
       this.pagina++;
@@ -108,8 +133,10 @@ export class ListcompanyComponent implements OnInit {
     }
   }
 
-
   Search(item) {
     console.log(item);
   }
 }
+
+
+

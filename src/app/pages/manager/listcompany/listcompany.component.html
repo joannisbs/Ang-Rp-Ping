@@ -5,6 +5,8 @@
   <label class="classLabelTitle" [class.classred]="desativos"> {{ title }} </label>
 
   <div class="cabecalho">
+
+
     <div class="classCampoPesquisa">
       <div class="input-group">
 
@@ -14,15 +16,20 @@
         <span class='input-group-addon'>
           <img src='/assets/icons/lupa.png' alt='Search' class='classButtonLupa'>
         </span>
+
       </div>
     </div>
 
+
     <div class="classCampoPage align-content-center">
+
       <button class="classButtonPage classAlinhamento" (click)="PagePrevius(page > 1)">
         <img src="/assets/icons/antverde.png" *ngIf="pagina > 1" class="classButtonIconNext">
         <img src="/assets/icons/antcinza.png" *ngIf="pagina == 1" class="classButtonIconNext">
       </button>
+
       <label class="classLabelFormHeader classTamanhoHeaderPage">{{ pagina }}</label>
+
       <button class="classButtonPage" (click)="PageNext(!nextpage)">
         <img src="/assets/icons/proxverd.png" *ngIf="!nextpage" class="classButtonIconNext">
         <img src="/assets/icons/proxcinza.png" *ngIf="nextpage" class="classButtonIconNext">
@@ -30,54 +37,75 @@
 
     </div>
 
+
     <div class="classCampoContage">
+
       <label class="classContagemDeDados">{{ contage }}</label>
+
     </div>
+
   </div>
   <br />
 
   <div *ngFor="let empresa of arrayEmpresas; let i = index;">
 
 
-    <div class="card classCardForm">
+    <div class="card classCardForm" (mouseleave)="f_ctrl_campos(0)">
+
       <div class="form-row">
-        <div class="form-group col-lg-2 classZeraMargem">
-          <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.emp_nome }}</label>
+
+        <div class="form-group col-lg-2 classZeraMargem" (mouseenter)="f_ctrl_campos((i + 1) * 10 + 0)" (mouseleave)="f_ctrl_campos(0)">
+          
+          <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.emp_nome }}</label>   
+          <span *ngIf='ctrl_campos === ((i+1)*10 + 0)' class="classtoltip Editar">Nome</span>
+        
         </div>
-        <div class="form-group col-lg-3 classZeraMargem">
+
+        <div class="form-group col-lg-3 classZeraMargem" (mouseenter)="f_ctrl_campos((i + 1) * 10 + 1)" (mouseleave)="f_ctrl_campos(0)">
           <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.empdata_cnpj }}</label>
+          <span *ngIf='ctrl_campos === ((i+1)*10 + 1)' class="classtoltip Editar">Nome</span>
         </div>
-        <div class="form-group col-lg-5 classZeraMargem">
+
+        <div class="form-group col-lg-5 classZeraMargem" (mouseenter)="f_ctrl_campos((i + 1) * 10 + 2)" (mouseleave)="f_ctrl_campos(0)">
           <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.empdata_razao }}</label>
+          <span *ngIf='ctrl_campos === ((i+1)*10 + 2)' class="classtoltip Editar">Nome</span>
         </div>
-        <div class="form-group col-lg-2 classZeraMargem">
-            <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.cont_Tot }} relógios</label>
-          </div>
+
+        <div class="form-group col-lg-2 classZeraMargem" (mouseenter)="f_ctrl_campos((i + 1) * 10 + 3)" (mouseleave)="f_ctrl_campos(0)">
+          <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.cont_Tot }} relógios</label>
+          <span *ngIf='ctrl_campos === ((i+1)*10 + 3)' class="classtoltip Editar">Nome</span>
+        </div>
+
       </div>
 
 
       <div class="form-row">
-          <div class="form-group col-lg-2 classZeraMargem">
-              <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.empdata_tel }}</label>
-            </div>
-        <div class="form-group col-lg-3 classZeraMargem">
+        <div class="form-group col-lg-2 classZeraMargem" (mouseenter)="f_ctrl_campos((i + 1) * 10 + 4)" (mouseleave)="f_ctrl_campos(0)">
+          <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.empdata_tel }}</label>
+          <span *ngIf='ctrl_campos === ((i+1)*10 + 4)' class="classtoltip Editar">Nome</span>
+        </div>
+        <div class="form-group col-lg-3 classZeraMargem" (mouseenter)="f_ctrl_campos((i + 1) * 10 + 5)" (mouseleave)="f_ctrl_campos(0)">
           <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.empdata_resp }}</label>
+          <span *ngIf='ctrl_campos === ((i+1)*10 + 5)' class="classtoltip Editar">Nome</span>
         </div>
 
-        <div class="form-group col-lg-5 classZeraMargem">
+        <div class="form-group col-lg-5 classZeraMargem" (mouseenter)="f_ctrl_campos((i + 1) * 10 + 6)" (mouseleave)="f_ctrl_campos(0)">
           <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.empdata_email }}</label>
+          <span *ngIf='ctrl_campos === ((i+1)*10 + 6)' class="classtoltip Editar">Nome</span>
         </div>
 
       </div>
 
 
       <div class="form-row">
-          <div class="form-group col-lg-5 classZeraMargem">
-              <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.end_cidade }} - {{ empresa.end_uf }}</label>
-            </div>
-            <div class="form-group col-lg-6 classZeraMargem">
-              <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.end_bairro }}</label>
-            </div>
+        <div class="form-group col-lg-5 classZeraMargem" (mouseenter)="f_ctrl_campos((i + 1) * 10 + 7)" (mouseleave)="f_ctrl_campos(0)">
+          <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.end_cidade }} - {{ empresa.end_uf }}</label>
+            <span *ngIf='ctrl_campos === ((i+1)*10 + 7)' class="classtoltip Editar">Nome</span>
+          </div>
+        <div class="form-group col-lg-6 classZeraMargem" (mouseenter)="f_ctrl_campos((i + 1) * 10 + 8)" (mouseleave)="f_ctrl_campos(0)">
+          <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.end_bairro }}</label>
+          <span *ngIf='ctrl_campos === ((i+1)*10 + 8)' class="classtoltip Editar">Nome</span>
+        </div>
 
       </div>
 
