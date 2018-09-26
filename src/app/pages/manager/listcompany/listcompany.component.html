@@ -1,5 +1,5 @@
 <!-- Divisoria tamanho das laterais -->
-<div class="classMargemLateral" [class.animated,class.bounceInUp]="!showModal"> 
+<div class="classMargemLateral" [class.animated,class.bounceInUp]="!showModal">
 
   <!-- Titulo -->
   <label class="classLabelTitle" [class.classred]="desativos"> {{ title }} </label>
@@ -37,16 +37,51 @@
   <br />
 
   <div *ngFor="let empresa of arrayEmpresas; let i = index;">
-    {{ empresa.emp_nome }}
+
 
     <div class="card classCardForm">
       <div class="form-row">
-        <div class="form-group col-sm-4 classZeraMargem">
-          <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">test</label>
+        <div class="form-group col-lg-2 classZeraMargem">
+          <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.emp_nome }}</label>
+        </div>
+        <div class="form-group col-lg-3 classZeraMargem">
+          <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.empdata_cnpj }}</label>
+        </div>
+        <div class="form-group col-lg-5 classZeraMargem">
+          <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.empdata_razao }}</label>
+        </div>
+        <div class="form-group col-lg-2 classZeraMargem">
+            <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.cont_Tot }} relógios</label>
+          </div>
+      </div>
+
+
+      <div class="form-row">
+          <div class="form-group col-lg-2 classZeraMargem">
+              <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.empdata_tel }}</label>
+            </div>
+        <div class="form-group col-lg-3 classZeraMargem">
+          <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.empdata_resp }}</label>
         </div>
 
+        <div class="form-group col-lg-5 classZeraMargem">
+          <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.empdata_email }}</label>
+        </div>
 
       </div>
+
+
+      <div class="form-row">
+          <div class="form-group col-lg-5 classZeraMargem">
+              <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.end_cidade }} - {{ empresa.end_uf }}</label>
+            </div>
+            <div class="form-group col-lg-6 classZeraMargem">
+              <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.end_bairro }}</label>
+            </div>
+
+      </div>
+
+
     </div>
   </div>
 
