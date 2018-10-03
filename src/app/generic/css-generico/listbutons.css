@@ -44,6 +44,15 @@
 .reactive:active{
     background-color: #005068; 
 }
+.detail{
+    background-color: #c87c00; 
+}
+.detail:hover{
+    background-color: #af6c00; 
+}
+.detail:active{
+    background-color: #925b02; 
+}
 .classButton{
     margin: 0 auto;
     /* Alterações de Corpo */
