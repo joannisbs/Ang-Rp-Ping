@@ -8,3 +8,8 @@ export class StandartSearchList {
     pagina: string;
     ObjIds: string;
 }
+
+export class StandartDelete {
+    id    : string;
+    motivo: string;
+}

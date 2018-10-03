@@ -1,4 +1,5 @@
 export class EmpresaInteface {
+    id              :string;
     emp_nome        :string;
     empdata_cnpj    :string;
     empdata_email   :string;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyService } from '../../../services/company/company.service';
-import { StandartSearchList } from '../../../models/standartResponse/standartResponse';
+import { StandartSearchList, StandartDelete } from '../../../models/standartResponse/standartResponse';
 import { Subscription } from 'rxjs';
 import { ValidadeResponsesService } from 'src/app/services/validade_responses/validade-responses.service';
 import { EmpresaInteface } from 'src/app/models/company/company';
@@ -46,6 +46,89 @@ export class ListcompanyComponent implements OnInit {
 
   public showModal = false;
 
+  public button = 'Ver Desativos';
+  public dbutton = 'Ver Ativos';
+
+  ActiveEmpresa( index ) {
+    const excluir: StandartDelete = new StandartDelete;
+
+    excluir.id      = this.arrayEmpresas[ index ].id
+    excluir.motivo  = prompt( "É necessário uma justificativa." );
+
+    if ( excluir.motivo != null ) {
+      if ( excluir.motivo != '' ) {
+
+        this.subcription = this.companyservice
+        .reativarCompany ( excluir ).subscribe ( ( response ) => {
+
+          this.GetList();
+
+          const Secionsucess = this.validate.ValidateSeccion( response [ 0 ] );
+      
+            if ( Secionsucess ){
+              const ActionSucess = this.validate.ValidateAction   ( response [ 1 ] );
+        
+              if ( ActionSucess == 1 ){
+                
+                alert ( "A empresa foi excluída com sucesso." );
+                
+          
+              }else if( ActionSucess == 2 ) {
+                alert ( "A empresa não existe." );
+              }
+            }
+          this.subcription.unsubscribe();
+        });
+      }else{
+        alert ( "Justificativa inválida." );
+      }
+    }else {
+      alert ( "Justificativa inválida." );
+
+    }
+    
+  }
+
+  deleteEmpresa( index ) {
+    const excluir: StandartDelete = new StandartDelete;
+
+    excluir.id      = this.arrayEmpresas[ index ].id
+    excluir.motivo  = prompt( "É necessário uma justificativa." );
+
+    if ( excluir.motivo != null ) {
+      if ( excluir.motivo != '' ) {
+        
+        this.subcription = this.companyservice
+        .deletarCompany( excluir ).subscribe( ( response ) => {
+
+          this.GetList();
+
+          const Secionsucess = this.validate.ValidateSeccion( response [ 0 ] );
+      
+            if ( Secionsucess ){
+              const ActionSucess = this.validate.ValidateAction   ( response [ 1 ] );
+        
+              if ( ActionSucess == 1 ){
+                
+                alert ( "A empresa foi excluída com sucesso." );
+          
+              }else if( ActionSucess == 2 ) {
+                alert ( "A empresa não existe." );
+              }
+            }
+          this.subcription.unsubscribe();
+        });
+      }else{
+        alert ( "Justificativa inválida." );
+      }
+    }else {
+      alert ( "Justificativa inválida." );
+
+    }
+    
+  }
+  
+
   f_ctrl_acoes  ( i ) {
     this.ctrl_acoes = i;
   }
@@ -55,7 +138,7 @@ export class ListcompanyComponent implements OnInit {
   }
  
   f_ctrl_detail ( i ) {
-    this.ctrl_edit = i;
+    this.ctrl_detail = i;
   }
   
   f_ctrl_edit   ( i ) {
@@ -67,6 +150,12 @@ export class ListcompanyComponent implements OnInit {
   }
 
   GetList() {
+
+    this.ctrl_acoes  = 0;
+    this.ctrl_campos = 0;
+    this.ctrl_detail = 0;
+    this.ctrl_edit   = 0;
+    this.ctrl_lixo   = 0;
 
     this.arrayEmpresas = [];
     this.listavazia = false;
@@ -133,8 +222,19 @@ export class ListcompanyComponent implements OnInit {
     }
   }
 
-  Search(item) {
-    console.log(item);
+  Search ( item ) {
+    this.search = item;
+    this.GetList();
+  }
+
+  VerDesativos(){
+    const aux = this.button;
+    this.button = this.dbutton;
+    this.dbutton = aux;
+
+    this.desativos = !this.desativos;
+    this.GetList();
+
   }
 }
 

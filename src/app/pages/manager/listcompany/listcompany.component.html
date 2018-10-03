@@ -109,6 +109,34 @@
 
         </div>
 
+        <div class="form-group col-lg-1 classZeraMargem">
+
+            <button type="button" class="classButton detail" (click)="EditUser(i+1)" (mouseenter)="f_ctrl_detail(i+1)" (mouseleave)="f_ctrl_detail(0)">
+              <img src="/assets/icons/visudetail.png" *ngIf="ctrl_detail === i+1" class="classButtonIcon">
+              <img src="/assets/icons/detail.png" *ngIf="ctrl_detail !== i+1" class="classButtonIcon">
+            </button>
+  
+            <span *ngIf='ctrl_detail === i+1' class="classtoltip detail">Visualizar detalhes</span>
+            
+          </div>
+
+        <div class="form-group col-lg-1 classZeraMargem" *ngIf="!desativos">
+            <button type="button" class="classButton Remover" (click)="deleteEmpresa(i)" (mouseenter)="f_ctrl_lixo(i+1)" (mouseleave)="f_ctrl_lixo(0)">
+              <img src="/assets/icons/lixoBrancoaberto.png" *ngIf="ctrl_lixo === i+1" class="classButtonIcon">
+              <img src="/assets/icons/lixoBranco1.png" *ngIf="ctrl_lixo !== i+1" class="classButtonIcon">
+            </button>
+            <span *ngIf='ctrl_lixo === i+1' class="classtoltip Remover">Desativar conta</span>
+            
+          </div>
+          <div class="form-group col-lg-1 classZeraMargem"  *ngIf="desativos">
+              <button type="button" class="classButton reactive" (click)="ActiveEmpresa(i)" (mouseenter)="f_ctrl_lixo(i+1)" (mouseleave)="f_ctrl_lixo(0)">
+                <img src="/assets/icons/reset.png" *ngIf="ctrl_lixo === i+1" class="classButtonIcon">
+                <img src="/assets/icons/reactive.png" *ngIf="ctrl_lixo !== i+1" class="classButtonIcon">
+              </button>
+              <span *ngIf='ctrl_lixo === i+1' class="classtoltip reactive">Reativar conta</span>
+              
+        </div>
+
       </div>
 
 
@@ -124,17 +152,42 @@
         </div>
 
 
-        <div class="form-group col-lg-6 classZeraMargem" (mouseenter)="f_ctrl_campos((i + 1) * 10 + 8)" (mouseleave)="f_ctrl_campos(0)">
+        <div class="form-group col-lg-5 classZeraMargem" (mouseenter)="f_ctrl_campos((i + 1) * 10 + 8)" (mouseleave)="f_ctrl_campos(0)">
 
           <label class="classLabelFormList classLabelnomeconta" [class.classred]="desativos">{{ empresa.end_bairro }}</label>
           <span *ngIf='ctrl_campos === ((i+1)*10 + 8)' class="classtoltip Editar">Bairro</span>
 
         </div>
 
+        <div class="form-group col-lg-1 classZeraMargem">
+
+            <button type="button" class="classButton Listar" (click)="History(i)" (mouseenter)="f_ctrl_acoes(i+1)" (mouseleave)="f_ctrl_acoes(0)">
+              <img src="/assets/icons/lista1.png" *ngIf="ctrl_acoes === i+1" class="classButtonIcon">
+              <img src="/assets/icons/lista2.png" *ngIf="ctrl_acoes !== i+1" class="classButtonIcon">
+            </button>
+
+            <span *ngIf='ctrl_acoes === i+1' class="classtoltip Listar">Listar histórico</span>
+
+        </div>
+
+        <div class="form-group col-lg-1 classZeraMargem">
+            <button type="button" class="classButton Editar" (click)="EditUser(i+1)" (mouseenter)="f_ctrl_edit(i+1)" (mouseleave)="f_ctrl_edit(0)">
+              <img src="/assets/icons/caneta2.png" *ngIf="ctrl_edit === i+1" class="classButtonIcon">
+              <img src="/assets/icons/caneta3.png" *ngIf="ctrl_edit !== i+1" class="classButtonIcon">
+            </button>
+  
+            <span *ngIf='ctrl_edit === i+1' class="classtoltip Editar">Editar conta</span>
+            
+          </div>
+
       </div>
 
 
     </div>
   </div>
-
+  <div class="classCampoInativos">
+    <button class="ClassBotaoVerDesativos" [class.classbackblue]="desativos"  (click)="VerDesativos()">
+        {{ button }}
+      </button>
+  </div>
 </div>
