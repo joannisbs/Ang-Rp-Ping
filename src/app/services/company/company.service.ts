@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/login/auth.service';
 import { StandartSearchList, StandartDelete } from 'src/app/models/standartResponse/standartResponse';
 import { LoginInteface } from 'src/app/models/login/login';
+import { EmpresaInteface } from 'src/app/models/company/company';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,8 @@ import { LoginInteface } from 'src/app/models/login/login';
 export class CompanyService {
 
   private api = environment.api_url;
+
+  private companyasereditada : EmpresaInteface;
 
   constructor(  private http: Http,
                 private authService: AuthService,
@@ -42,6 +45,14 @@ export class CompanyService {
       .map(res => res.json());
   }
 
+  editarCompany (company:EmpresaInteface) {
+    this.companyasereditada = company;
+    this.router.navigate(['/pages/register/editempresa']);
+  }
+
+  getCompanytoEdit (){
+    return this.companyasereditada;
+  }
 
   listarCompanys ( data_search:StandartSearchList, desativo ):Observable<any> {
     const token: LoginInteface = this.authService.GetToken();

@@ -171,7 +171,7 @@
         </div>
 
         <div class="form-group col-lg-1 classZeraMargem">
-            <button type="button" class="classButton Editar" (click)="EditUser(i+1)" (mouseenter)="f_ctrl_edit(i+1)" (mouseleave)="f_ctrl_edit(0)">
+            <button type="button" class="classButton Editar" (click)="editarCompany(i)" (mouseenter)="f_ctrl_edit(i+1)" (mouseleave)="f_ctrl_edit(0)">
               <img src="/assets/icons/caneta2.png" *ngIf="ctrl_edit === i+1" class="classButtonIcon">
               <img src="/assets/icons/caneta3.png" *ngIf="ctrl_edit !== i+1" class="classButtonIcon">
             </button>

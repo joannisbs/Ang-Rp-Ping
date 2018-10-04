@@ -55,6 +55,11 @@ export class ListcompanyComponent implements OnInit {
     excluir.id      = this.arrayEmpresas[ index ].id
     excluir.motivo  = prompt( "É necessário uma justificativa." );
 
+    if (excluir.motivo.length > 20) {
+      alert ("Sua justificativa é muito grande, utilizar no máximo 20 caracteres");
+      excluir.motivo = prompt("Digite uma justificativa mais curta." );
+    }
+
     if ( excluir.motivo != null ) {
       if ( excluir.motivo != '' ) {
 
@@ -94,7 +99,12 @@ export class ListcompanyComponent implements OnInit {
 
     excluir.id      = this.arrayEmpresas[ index ].id
     excluir.motivo  = prompt( "É necessário uma justificativa." );
-
+    
+    if (excluir.motivo.length > 20) {
+      alert ("Sua justificativa é muito grande, utilizar no máximo 20 caracteres");
+      excluir.motivo = prompt("Digite uma justificativa mais curta." );
+    }
+   
     if ( excluir.motivo != null ) {
       if ( excluir.motivo != '' ) {
         
@@ -128,6 +138,10 @@ export class ListcompanyComponent implements OnInit {
     
   }
   
+  editarCompany( index ) {
+    const company = this.arrayEmpresas[index];
+    this.companyservice.editarCompany ( company );
+  }
 
   f_ctrl_acoes  ( i ) {
     this.ctrl_acoes = i;
@@ -190,9 +204,7 @@ export class ListcompanyComponent implements OnInit {
           else {
             this.nextpage = false;
           }
-          console.log(this.contage);
-          console.log("problema");
-          console.log(this.arrayEmpresas);
+         
 
           
           
@@ -228,9 +240,14 @@ export class ListcompanyComponent implements OnInit {
   }
 
   VerDesativos(){
-    const aux = this.button;
+    let aux = this.button;
     this.button = this.dbutton;
     this.dbutton = aux;
+
+    aux = this.tittle;
+    this.tittle = this.dtittle;
+    this.dtittle = aux;
+    
 
     this.desativos = !this.desativos;
     this.GetList();

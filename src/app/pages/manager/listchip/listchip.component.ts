@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { GetListUserInteface, sizeoflistofuserInterface } from '../../../models/user/user';
 import { ListChipsInteface, ChipListRet, ChipdetailInterface } from 'src/app/models/chip/chip';
 import { AuthService } from 'src/app/services/login/auth.service';
+import * as jsPDF from 'jspdf';  
 
 @Component({
   selector: 'app-listchip',
@@ -52,6 +53,8 @@ export class ListChipComponent implements OnInit {
   private chiplistbanc = [];
   private valoripasalvar = '0';
 
+  public showModal = false;
+  public showModalWhating = false;
 
   constructor(
     private chipservice: ChipService,
@@ -218,9 +221,109 @@ export class ListChipComponent implements OnInit {
 
       });
   }
+
+  geratePDF() {
+    this.showModal = false;
+    this.showModalWhating = true;
+
+    let fill = this.search;
+    if (fill == 'all') {
+      fill = 'vazio';
+    }
+
+  
+
+    var doc = new jsPDF('p', 'pt', 'a4');
+    
+    doc.setFontType("bold");
+    doc.setFont('Console');
+    doc.setFontSize(9);
+    doc.setLineWidth(15)
+    doc.text(30, 23, 'Lista de chips' +
+    ' gerado com o filtro '+ fill +' contendo '+ this.contage + ' chips');
+    
+
+    let l = 0;
+    for ( let i = 0; i< this.arrayChip.length; i++){
+      
+      if (l == 1) {
+        l = 0;
+        doc.setDrawColor(255, 255, 255);
+
+
+      }else{
+        l = 1;
+        doc.setDrawColor(230, 230, 230);
+      }
+
+      let det1;
+      let det2;
+
+      if ( this.arrayChip[i][3] = 'Estoque' ) {
+        det1 = 'Motivo:   '
+        det2 = 'Resp: '
+      } else if ( this.arrayChip[i][3] = 'Funcionamento' ) {
+        det1 = 'Empresa:  '
+        det2 = 'Relo: '
+      } else if ( this.arrayChip[i][3] = 'saida' ) {
+        det1 = 'Saida p/: '
+        det2 = 'Resp: '
+      } 
+
+      let coord = 50 + 2*i*15;
+      doc.line(20, coord, 560, coord);
+      doc.line(20, coord + 2 , 560, coord + 2);
+
+      let stringToPdf =  " Número: "   + this.arrayChip[i][0];
+
+      doc.text(30, coord+3, stringToPdf);
+
+      stringToPdf = " | Ip: " + this.arrayChip[i][1];
+
+      doc.text(140, coord+3, stringToPdf);
+
+      stringToPdf = " | Op: " + this.arrayChip[i][2];
+
+      doc.text(370, coord+3, stringToPdf);
+
+      stringToPdf = " | Sit: " + this.arrayChip[i][3];
+
+      doc.text(450, coord+3, stringToPdf);      
+      
+      coord = 65 + 2*i*15;
+      doc.line(20, coord  , 560, coord);
+
+      stringToPdf = " Data: "  + this.arrayDetals[i][0]
+
+      doc.text(30, coord+3, stringToPdf); 
+
+      stringToPdf = " | " + det1 + this.arrayDetals[i][1]
+
+      doc.text(140, coord+3, stringToPdf); 
+
+      stringToPdf = " | " + det2 + this.arrayDetals[i][2]
+
+      doc.text(370, coord+3, stringToPdf); 
+
+    }
+    doc.save("ListaChipParcial.pdf");
+    this.showModalWhating = false;
+  }
+
+  geratePDFComplete() {
+    this.search = 'all';
+    this.DropChoice = "Todos";
+    this.GetList();
+
+  }
+
   DeleteChip(valor) {
     let motivo = prompt("É necessário uma justificativa.");
-    if (motivo != '') {
+    if (motivo.length > 20) {
+      alert ("Sua justificativa é muito grande, utilizar no máximo 20 caracteres");
+      motivo = prompt("Digite uma justificativa mais curta." );
+    }
+    if (motivo != '' && motivo != null) {
       const chipid: ChipListRet = this.chiplistbanc[valor];
       this.subcription = this.chipservice.DeletarrChip(chipid.id, motivo).subscribe(
         (response) => {
@@ -242,6 +345,14 @@ export class ListChipComponent implements OnInit {
     }
 
   }
+  espacoBranco( tamanhoQuer, tamanhoTenho ){
+    const falta = tamanhoQuer - tamanhoTenho;
+    let string = '';
+    for(let i = 0;i < falta; i++) {
+      string = string + ' ';
+    }
+    return string;
+  }
   History (i){
     const ids = this.arrayChip[i][4];
     this.subcription.unsubscribe();
@@ -259,7 +370,11 @@ export class ListChipComponent implements OnInit {
     if (chipss.chip_oper != 'INVALID') {
 
       let motivo = prompt("É necessário uma justificativa." );
-    
+      if (motivo.length > 20) {
+        alert ("Sua justificativa é muito grande, utilizar no máximo 20 caracteres");
+        motivo = prompt("Digite uma justificativa mais curta." );
+      }
+
       if (motivo != null) {
         if (motivo != '') {
           this.subcription = this.chipservice.EditChipIp(chipss, motivo).subscribe(
@@ -287,7 +402,11 @@ export class ListChipComponent implements OnInit {
   }
   AtiveChip(valor) {
     let motivo = prompt("É necessário uma justificativa.");
-    if (motivo != '') {
+    if (motivo.length > 20) {
+      alert ("Sua justificativa é muito grande, utilizar no máximo 20 caracteres");
+      motivo = prompt("Digite uma justificativa mais curta." );
+    }
+    if (motivo != '' && motivo != null) {
       const chipid: ChipListRet = this.chiplistbanc[valor];
       this.subcription = this.chipservice.AtivarChip(chipid.id, motivo).subscribe(
         (response) => {

@@ -49,6 +49,16 @@ const routes: Routes = [
           ExpedicaoGuard,
           ProjetoGuard] ,
       },
+
+      {
+        path: 'editempresa', 
+        loadChildren: 'src/app/pages/registrers/editcompany/editcompany.module#EditCompanyModule',
+        canActivate:[AuthGuard,
+          SuportGuard,
+          ExpedicaoGuard,
+          ProjetoGuard] ,
+      },
+
       // { 
       //   path: 'newreq', 
       //   loadChildren: 'src/app/pages/registrers/newrequisition/newrequisition.module#NewRequisitionModule'
