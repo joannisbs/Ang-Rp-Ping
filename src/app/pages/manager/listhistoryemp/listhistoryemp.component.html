@@ -1,16 +1,15 @@
-<!-- Divisória tamanho das laterais -->
 <div class="classMargemLateral" [class.animated,class.bounceInUp]="!showModal">
 
-  <!-- Titulo -->
+
   <label class="classLabelTitle">Histórico do chip</label>
 
   <div class="cabecalho">
     <div class="classCampoPesquisa">
       <div class="input-group">
 
-        <input type="text" class="form-control classImputSearch" #search (keyup)="Search(search.value)">
+        <input type="text" class="form-control classImputSearch" #search (keyup)="SearchFunction(search.value)">
 
-        <!-- Icone de X has error -->
+
         <span class='input-group-addon'>
           <img src='/assets/icons/lupa.png' alt='Search' class='classButtonLupa'>
         </span>
@@ -18,10 +17,10 @@
     </div>
     <div class="classCampoPage align-content-center">
       <button class="classButtonPage classAlinhamento" (click)="PagePrevius(page > 1)">
-        <img src="/assets/icons/antverde.png" *ngIf="page > 1" class="classButtonIconNext">
-        <img src="/assets/icons/antcinza.png" *ngIf="page == 1" class="classButtonIconNext">
+        <img src="/assets/icons/antverde.png" *ngIf="this.SearchObjList.pagina != '1'" class="classButtonIconNext">
+        <img src="/assets/icons/antcinza.png" *ngIf="this.SearchObjList.pagina == '1'" class="classButtonIconNext">
       </button>
-      <label class="classLabelFormHeader classTamanhoHeaderPage">{{ page }}</label>
+      <label class="classLabelFormHeader classTamanhoHeaderPage">{{ this.SearchObjList.pagina }}</label>
       <button class="classButtonPage" (click)="PageNext(!nextpage)">
         <img src="/assets/icons/proxverd.png" *ngIf="!nextpage" class="classButtonIconNext">
         <img src="/assets/icons/proxcinza.png" *ngIf="nextpage" class="classButtonIconNext">
@@ -34,15 +33,15 @@
   </div>
   <br />
 
-  <div *ngFor="let item of lists; let i = index;">
+  <div *ngFor="let item of arrayListHistoryEmpresas; let i = index;">
     <div class="card classCardForm">
       <div class="form-row">
 
         <div class="form-group col-md-5 zeramargem">
-          <label class="classLabelFormList classtamanhonome text-center">{{item[0]}}</label>
+          <label class="classLabelFormList classtamanhonome text-center">{{arrumaHora(item.hora)}}</label>
         </div>
         <div class="form-group col-md-7 zeramargem">
-          <label class="classLabelFormList classtamanhonome text-center">{{item[1]}}</label>
+          <label class="classLabelFormList classtamanhonome text-center">{{item.event}}</label>
         </div>
 
       </div>

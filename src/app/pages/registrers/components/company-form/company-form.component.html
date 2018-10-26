@@ -10,7 +10,7 @@
       <div class="input-group">
 
         <input type="text" autocomplete="no" class="form-control classImputForm" [class.classBorderInvalid]="!showErrors( 'emp_nome' )"
-          id="emp_nome" placeholder="Nome" formControlName="emp_nome" maxlength="12">
+          id="emp_nome" placeholder="Nome" formControlName="emp_nome" maxlength="11">
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' [class.d-none]=" showErrors( 'emp_nome' )">
@@ -25,7 +25,7 @@
 
       <!-- Mensagem de erro -->
       <small id="nameHelpBlock" class="form-text classTextodeErro" [class.d-none]=" showErrors( 'emp_nome' )">
-        Campo obrigatório, máximo 12 caracterers, iniciar com letra maiúscula.
+        Campo obrigatório, máximo 11 caracterers, iniciar com letra maiúscula.
       </small>
     </div>
 
@@ -57,7 +57,7 @@
       <div class="input-group">
 
         <input type="text" autocomplete="no" class="form-control classImputForm" [class.classBorderInvalid]="!showErrors( 'empdata_razao' )"
-          id="empdata_razao" placeholder="Razão Social" formControlName="empdata_razao" maxlength="90">
+          id="empdata_razao" placeholder="Razão Social" formControlName="empdata_razao" maxlength="40">
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' [class.d-none]="showErrors( 'empdata_razao' )">
@@ -106,7 +106,7 @@
       <div class="input-group">
 
         <input type="text" autocomplete="no" class="form-control classImputForm" [class.classBorderInvalid]="!showErrors( 'empdata_resp' )"
-          id="empdata_resp" placeholder="Nome Sobrenome" formControlName="empdata_resp" maxlength="45">
+          id="empdata_resp" placeholder="Nome Sobrenome" formControlName="empdata_resp" maxlength="20">
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' [class.d-none]="showErrors( 'empdata_resp' )">
@@ -125,7 +125,7 @@
       <div class="input-group">
 
         <input type="text" autocomplete="no" class="form-control classImputForm" [class.classBorderInvalid]="!showErrors( 'empdata_email' )"
-          id="empdata_email" placeholder="user@email.com" formControlName="empdata_email" maxlength="45">
+          id="empdata_email" placeholder="user@email.com" formControlName="empdata_email" maxlength="40">
 
         <!-- Icone de X has error -->
         <span class='input-group-addon' [class.d-none]="showErrors( 'empdata_email' )">

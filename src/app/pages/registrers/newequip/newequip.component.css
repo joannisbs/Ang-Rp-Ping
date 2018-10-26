@@ -2,3 +2,51 @@
 @import url(./../../../generic/css-generico/tilulodapagina.css);
 @import url(./../../../generic/css-generico/corpodepagina.css);
 @import url(./../../../generic/css-generico/cardform.css);
+
+@import url(./../../../generic/css-generico/formimput.css);
+
+.classCentro{
+    margin: auto;
+}
+.classLabelForm{
+    width: 100px;
+}
+
+.classBorderchek{
+    border-width: 2px;
+    border-color: #21237b;
+    border-style: solid;
+    border-radius: 10px;
+    width: calc(100% - 110px);
+    background-color: white;
+     
+}
+
+.alinhamentoColuna{
+    margin-left: calc(50% - 200px);
+    /* margin-right: 50%; */
+}
+
+.borderlate{
+    float: left;
+}
+
+.classCheckOption{
+    width: 100px;
+    height: 25px;
+    margin-top: 5px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-bottom: 5px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* margin-left: calc(25% - 50px); */
+}
+.icon {
+    width: 15px;
+    margin-bottom: 5px;
+    margin-right: 3px;
+  }

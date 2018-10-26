@@ -4,7 +4,7 @@ export const companyFormGroup = {
 
     emp_nome: ['',
         [Validators.required,
-        Validators.maxLength(12),
+        Validators.maxLength(11),
         Validators.pattern('[A-Z].*')]],
 
     empdata_cnpj: ['',
@@ -18,15 +18,15 @@ export const companyFormGroup = {
 
     empdata_resp: ['',
         [Validators.required,
-        Validators.maxLength(45)]],
+        Validators.maxLength(20)]],
 
     empdata_razao: ['',
         [Validators.required,
-        Validators.maxLength(90)]],
+        Validators.maxLength(40)]],
 
     empdata_email: ['',
         [Validators.required,
-        Validators.maxLength(60),
+        Validators.maxLength(40),
         Validators.pattern(/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i)]],
 
     empdata_tel: ['',

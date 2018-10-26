@@ -21,3 +21,4 @@ export class EmpresaInteface {
     emp_ativo       :boolean;
 }
 
+

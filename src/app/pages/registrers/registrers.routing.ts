@@ -58,6 +58,11 @@ const routes: Routes = [
           ExpedicaoGuard,
           ProjetoGuard] ,
       },
+      {
+        path: 'newEquip', 
+        loadChildren: 'src/app/pages/registrers/newequip/newequip.module#NewEquipModule',
+        canActivate:[AuthGuard] ,
+      },
 
       // { 
       //   path: 'newreq', 

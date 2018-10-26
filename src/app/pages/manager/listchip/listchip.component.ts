@@ -192,6 +192,7 @@ export class ListChipComponent implements OnInit {
 
     }
     this.chiplistbanc = dado;
+    return 1;
 
   }
   montaContade(dado) {
@@ -203,8 +204,10 @@ export class ListChipComponent implements OnInit {
     } else {
       this.nextpage = false;
     }
+    return 1;
   }
-  GetList() {
+
+  async GetList() {
     this.arrayChip = [];
     this.arrayDetals = [];
     let dadospagechip: ListChipsInteface = new ListChipsInteface;
@@ -212,16 +215,18 @@ export class ListChipComponent implements OnInit {
     dadospagechip.page = String(this.page);
     dadospagechip.search = this.search;
     this.subcription = this.chipservice.listarChip(dadospagechip, this.desativos).subscribe(
-      (response) => {
-
-        const listChips = this.chipservice.Validate(response);
-        this.montaContade(listChips[0]);
-        this.montaArraychip(listChips[1], listChips[2]);
-        this.subcription.unsubscribe();
-
-      });
+      (response) => this.GetListMontaarrays(response) );
   }
 
+  async GetListMontaarrays(response) {
+    const listChips = this.chipservice.Validate(response);
+    let ret = null;
+    ret = await this.montaContade(listChips[0]);
+    ret = await this.montaArraychip(listChips[1], listChips[2]);
+    this.subcription.unsubscribe();
+  }
+
+  
   geratePDF() {
     this.showModal = false;
     this.showModalWhating = true;
@@ -310,13 +315,114 @@ export class ListChipComponent implements OnInit {
     this.showModalWhating = false;
   }
 
-  geratePDFComplete() {
+  async geratePDFComplete() {
     this.search = 'all';
     this.DropChoice = "Todos";
-    this.GetList();
+    this.showModal = false;
+    this.showModalWhating = true;
+    this.page = 1;
+    var doc = new jsPDF('p', 'pt', 'a4');
+    console.log(this.nextpage);
+    while(!this.nextpage) {
+      console.log(this.nextpage);
+      
+     
+      
+      this.GetList();
+      await this.esperaGetList();
+
+     if (this.page > 1) {
+      await doc.addPage();
+     }
+      
+      await doc.setFontType("bold");
+      await doc.setFont('Console');
+      await doc.setFontSize(9);
+      await doc.setLineWidth(15);
+      
+      await this.criaPage(doc);
+      this.page++;
+    }
+    
+    doc.save("ListaChipCompleto.pdf");
+      this.showModalWhating = false;
+
+    
 
   }
+  criaPage(doc){
+    doc.text(30, 23, 'Lista completa de chips contendo '+ this.contage + ' chips');
+      
+      let l = 0;
+      for ( let i = 0; i< this.arrayChip.length; i++){
+        
+        if (l == 1) {
+          l = 0;
+          doc.setDrawColor(255, 255, 255);
+  
+  
+        }else{
+          l = 1;
+          doc.setDrawColor(230, 230, 230);
+        }
+  
+        let det1;
+        let det2;
+  
+        if ( this.arrayChip[i][3] = 'Estoque' ) {
+          det1 = 'Motivo:   '
+          det2 = 'Resp: '
+        } else if ( this.arrayChip[i][3] = 'Funcionamento' ) {
+          det1 = 'Empresa:  '
+          det2 = 'Relo: '
+        } else if ( this.arrayChip[i][3] = 'saida' ) {
+          det1 = 'Saida p/: '
+          det2 = 'Resp: '
+        } 
+  
+        let coord = 50 + 2*i*15;
+        doc.line(20, coord, 560, coord);
+        doc.line(20, coord + 2 , 560, coord + 2);
+  
+        let stringToPdf =  " Número: "   + this.arrayChip[i][0];
+  
+        doc.text(30, coord+3, stringToPdf);
+  
+        stringToPdf = " | Ip: " + this.arrayChip[i][1];
+  
+        doc.text(140, coord+3, stringToPdf);
+  
+        stringToPdf = " | Op: " + this.arrayChip[i][2];
+  
+        doc.text(370, coord+3, stringToPdf);
+  
+        stringToPdf = " | Sit: " + this.arrayChip[i][3];
+  
+        doc.text(450, coord+3, stringToPdf);      
+        
+        coord = 65 + 2*i*15;
+        doc.line(20, coord  , 560, coord);
+  
+        stringToPdf = " Data: "  + this.arrayDetals[i][0]
+  
+        doc.text(30, coord+3, stringToPdf); 
+  
+        stringToPdf = " | " + det1 + this.arrayDetals[i][1]
+  
+        doc.text(140, coord+3, stringToPdf); 
+  
+        stringToPdf = " | " + det2 + this.arrayDetals[i][2]
+  
+        doc.text(370, coord+3, stringToPdf); 
+  
+      }
+      doc.text(275, 820, 'Pagina '+ this.page)
+      
 
+
+      this.arrayChip = [];
+      
+  }
   DeleteChip(valor) {
     let motivo = prompt("É necessário uma justificativa.");
     if (motivo.length > 20) {
@@ -338,21 +444,31 @@ export class ListChipComponent implements OnInit {
           }
 
           this.subcription.unsubscribe();
-
+          
         });
     } else {
       alert("O chip não foi desativado, justificativa inválida.");
     }
 
   }
-  espacoBranco( tamanhoQuer, tamanhoTenho ){
-    const falta = tamanhoQuer - tamanhoTenho;
-    let string = '';
-    for(let i = 0;i < falta; i++) {
-      string = string + ' ';
+
+  async esperaGetList (){
+    
+    while(true) {
+      try{
+        let value = this.arrayChip[0][1];
+        return 1;
+      }
+      catch{
+        await this.sleep(1);
+      }
     }
-    return string;
   }
+
+sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   History (i){
     const ids = this.arrayChip[i][4];
     this.subcription.unsubscribe();
@@ -399,6 +515,9 @@ export class ListChipComponent implements OnInit {
         this.ctl_editar = 0;
       }
     }
+  }
+  ShowModalGerar() {
+    this.showModal = true;
   }
   AtiveChip(valor) {
     let motivo = prompt("É necessário uma justificativa.");

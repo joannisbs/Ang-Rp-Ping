@@ -20,6 +20,7 @@ export class NewcompanyComponent implements OnInit, OnDestroy {
   public formulario: FormGroup;
   public ocorreuSubmit = false;
   public showModal = false;
+  public showModalWhating = false;
   private subcription: Subscription;
 
   private Subimitonetime = true;
@@ -48,6 +49,7 @@ export class NewcompanyComponent implements OnInit, OnDestroy {
 
     // caso Válido realisar metodo de envio
     if (valido) {
+      this.showModalWhating = true;
 
       if ( this.Subimitonetime ) {
         this.Subimitonetime = false;
@@ -59,11 +61,13 @@ export class NewcompanyComponent implements OnInit, OnDestroy {
           if (Secionsucess){
             const postSucess = this.validate.ValidateAction(respose[1]);
             if (postSucess == 1){
+              this.showModalWhating = false;
               alert("A empresa foi salva com sucesso!");
               this.showModal = true;
               this.Subimitonetime = true;
               this.subcription.unsubscribe();
             }else if (postSucess == 2){
+              this.showModalWhating = false;
               alert("A empresa já existe no banco de dados.")
             }
           }

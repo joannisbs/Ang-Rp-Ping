@@ -1,0 +1,47 @@
+@import url(./../../../generic/css-generico/tilulodapagina.css);
+@import url(./../../../generic/css-generico/corpodepagina.css);
+@import url(./../../../generic/css-generico/listbutons.css);
+@import url(./../../../generic/css-generico/cabecalhoPaginacao.css);
+@import url(./../../../generic/css-generico/modal.css);
+
+.classtamanhonome{
+    height: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+}
+.zeramargem{
+    margin: 0 !important;
+}
+
+.classCampoInativos{
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 10%;
+}
+.ClassBotaoVerDesativos{
+    justify-content: center;
+    margin-left: calc(50% - 200px);
+    width: 400px;
+    height: 30px;
+    background-color: #21237b ;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    font-style: italic;
+    /* Deixar Objeto Não Selecionavel */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    cursor: pointer;
+    outline: none;
+    z-index:2;
+    
+}
+.progressbar{
+    margin: 20px;
+}

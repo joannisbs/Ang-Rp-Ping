@@ -10,8 +10,109 @@
       
       <div class="card classCardForm">
   
-      <!-- Chama Componete referente ao cadastro de um modelo novo de relógio -->  
-      <app-equip-form [equipForm]="formulario"></app-equip-form>
+        
+  
+          <div class="form-group col-md-6 classCentro">
+                
+            <!-- Campo de input do nome da empresa -->
+            <div class="form-group">
+        
+              
+              <div class="input-group">
+                <label class="classLabelForm" for="reps_marca">Marca:</label>
+                
+                <input 
+                  type="text" 
+                  class="form-control classImputForm" 
+                  id="reps_marca" 
+                  placeholder="Marca" 
+                  formControlName="reps_marca" 
+                >
+        
+                <!-- Icone de X has error -->
+                <span class='input-group-addon' 
+                  [class.d-none]="formulario.controls['reps_marca'].valid || !formulario.controls['reps_marca'].touched "
+                >
+                  <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+                </span>
+              </div>
+        
+        
+              <!-- Mensagem de erro -->
+              <small id="nameHelpBlock" 
+                  class="form-text classTextodeErro" 
+                  [class.d-none]="formulario.controls['reps_marca'].valid || !formulario.controls['reps_marca'].touched ">
+                Campo obrigatório.
+              </small>
+            </div>
+        
+            <!-- Campo de input do nome da empresa -->
+            <div class="form-group">
+        
+              
+              <div class="input-group">
+                
+                <label class="classLabelForm" for="reps_modelo">Modelo:</label>
+                <input 
+                  type="text" 
+                  class="form-control classImputForm" 
+                  id="reps_modelo" 
+                  placeholder="Modelo" 
+                  formControlName="reps_modelo" 
+                >
+        
+                <!-- Icone de X has error -->
+                <span class='input-group-addon' 
+                  [class.d-none]="formulario.controls['reps_modelo'].valid || !formulario.controls['reps_modelo'].touched "
+                >
+                  <img src='/assets/icons/xred.png' alt='ERRO' class='classIconedeInvalido'>
+                </span>
+              </div>
+        
+              <!-- Mensagem de erro -->
+              <small id="nameHelpBlock" 
+                  class="form-text classTextodeErro" 
+                  [class.d-none]="formulario.controls['reps_modelo'].valid || !formulario.controls['reps_modelo'].touched ">
+                Campo obrigatório.
+              </small>
+            </div>
+        
+        
+            <div class="form-group">
+              <div class="input-group borderlate">
+                <label class="classLabelForm" for="reps_modelo">Leitor:</label>
+                <div class="classBorderchek ">
+        
+                  <div class="alinhamentoColuna">
+                    
+                    <label class="checkbox-inline classLabelForm classCheckOption" (click)="showImage(!formulario.controls['reps_CheckAzul'].value , 0)">
+                      <img src="{{ imagebutton[0] }}" alt="icon" class="icon">
+                      <input formControlName="reps_CheckAzul" id="reps_CheckAzul" class="d-none" type="checkbox" value="">Azul
+                    </label>
+        
+                    <label class="checkbox-inline classLabelForm classCheckOption" (click)="showImage(!formulario.controls['reps_CheckVerde'].value , 1)">
+                      <img src="{{ imagebutton[1] }}" alt="icon" class="icon">
+                      <input formControlName="reps_CheckVerde" id="reps_CheckVerde"  type="checkbox" class="d-none" value="">Verde
+                    </label>
+                  </div>
+                  <div class="alinhamentoColuna">
+                    <label class="checkbox-inline classLabelForm classCheckOption" (click)="showImage(!formulario.controls['reps_CheckBranco'].value , 2)">
+                      <img src="{{ imagebutton[2] }}" alt="icon" class="icon">
+                      <input formControlName="reps_CheckBranco"  id="reps_CheckBranco"  class="d-none" type="checkbox" value="">Branco
+                    </label>
+        
+                    <label class="checkbox-inline classLabelForm classCheckOption" (click)="showImage(!formulario.controls['reps_CheckVermelho'].value , 3)">
+                      <img src="{{ imagebutton[3] }}" alt="icon" class="icon">
+                      <input formControlName="reps_CheckVermelho" id="reps_CheckVermelho"  class="d-none" type="checkbox" value="">Vermelho
+                    </label>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        
       
       </div>
       

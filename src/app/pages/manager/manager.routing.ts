@@ -45,7 +45,11 @@ const routes: Routes = [
         loadChildren: 'src/app/pages/manager/listcompany/listcompany.module#ListcompanyModule',
         canActivate:[AuthGuard] ,
       },
-      
+      {
+        path: 'listhistorycompany', 
+        loadChildren: 'src/app/pages/manager/listhistoryemp/listhistoryemp.module#ListhistoryempModule',
+        canActivate:[AuthGuard] ,
+      },
       
     ]
   }

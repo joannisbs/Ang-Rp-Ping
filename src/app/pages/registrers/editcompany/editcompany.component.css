@@ -4,3 +4,7 @@
 @import url(./../../../generic/css-generico/cardform.css);
 @import url(./../../../generic/css-generico/modal.css);    
 @import url(./../../../generic/css-generico/formimput.css);
+
+.progressbar{
+    margin: 20px;
+}

@@ -19,6 +19,8 @@ export class CompanyService {
 
   private companyasereditada : EmpresaInteface;
 
+  private companyStorie;
+
   constructor(  private http: Http,
                 private authService: AuthService,
                 private router: Router
@@ -35,6 +37,13 @@ export class CompanyService {
     const token: LoginInteface = this.authService.GetToken();
     return this.http
       .post(`${this.api}/api/user/ToDesactiveCompany`, [ token, company ] )
+      .map(res => res.json());
+  }
+
+  salvaredicaoCompany(ids , company): Observable<any> {
+    const token: LoginInteface = this.authService.GetToken();
+    return this.http
+      .post(`${this.api}/api/user/EditCompany`, [ token, ids, company ] )
       .map(res => res.json());
   }
 
@@ -69,6 +78,23 @@ export class CompanyService {
 
     }
 
+  }
+
+  HistoryEmp(chipid) {
+    this.companyStorie = chipid;
+    this.router.navigate(['/pages/manager/listhistorycompany']);
+  }
+
+
+  GetCompanyId(){
+    return this.companyStorie;
+  }
+
+  ListHistoriesEmp(data_search:StandartSearchList):Observable<any> {
+    const token: LoginInteface = this.authService.GetToken();
+    return this.http
+    .post(`${this.api}/api/user/ListHistoryCompany`, [ token, data_search ] )
+    .map(res => res.json());
   }
 
 

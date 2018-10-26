@@ -2,6 +2,7 @@
 @import url(./../../../generic/css-generico/corpodepagina.css);
 @import url(./../../../generic/css-generico/listbutons.css);
 @import url(./../../../generic/css-generico/formimput.css);
+@import url(./../../../generic/css-generico/modal.css);
 
 .classContagemDeDados{
     color: #21237b;
@@ -212,4 +213,7 @@
 }
 .classbackblue{
     background-color: #21237b !important;
+}
+.progressbar{
+    margin: 20px;
 }

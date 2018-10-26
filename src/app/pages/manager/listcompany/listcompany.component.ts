@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import { ValidadeResponsesService } from 'src/app/services/validade_responses/validade-responses.service';
 import { EmpresaInteface } from 'src/app/models/company/company';
 import { sizeoflistofuserInterface } from 'src/app/models/user/user';
+import * as jsPDF from 'jspdf';  
+
 
 @Component({
   selector: 'app-listcompany',
@@ -45,6 +47,7 @@ export class ListcompanyComponent implements OnInit {
   private dtittle = 'Lista de Empresas Desativadas';
 
   public showModal = false;
+  public showModalWhating = false;
 
   public button = 'Ver Desativos';
   public dbutton = 'Ver Ativos';
@@ -217,6 +220,239 @@ export class ListcompanyComponent implements OnInit {
       this.subcription.unsubscribe();
 
    });
+  }
+
+  geratePDF() {
+    this.showModal = false;
+    this.showModalWhating = true;
+
+    let fill = this.search;
+    if (fill == 'all') {
+      fill = 'vazio';
+    }
+
+  
+
+    var doc = new jsPDF('p', 'pt', 'a4');
+    
+    doc.setFontType("bold");
+    doc.setFont('Times');
+    doc.setFontSize(9);
+    doc.setLineWidth(15)
+    doc.text(20, 23, 'Lista de chips' +
+    ' gerado com o filtro '+ fill +' contendo '+ this.contage);
+    
+
+    let l = 0;
+    for ( let i = 0; i< this.arrayEmpresas.length; i++){
+      
+      if (l == 1) {
+        l = 0;
+        doc.setDrawColor(255, 255, 255);
+
+
+      }else{
+        l = 1;
+        doc.setDrawColor(210, 210, 210);
+      }
+
+
+      let coord = 40 + 4*i*15;
+      doc.line(15, coord, 580, coord);
+      doc.line(15, coord + 2 , 580, coord + 2);
+
+      let stringToPdf =  " Nome: "   + this.arrayEmpresas[i].emp_nome;
+
+      doc.text(20, coord+3, stringToPdf);
+
+      stringToPdf = " | Cnpj: " + this.arrayEmpresas[i].empdata_cnpj;
+
+      doc.text(130, coord+3, stringToPdf);
+
+      stringToPdf = " | Razao: " + this.arrayEmpresas[i].empdata_razao;
+
+      doc.text(235, coord+3, stringToPdf);
+
+      stringToPdf = " | Total: " + this.arrayEmpresas[i].cont_Tot + " relógios";
+
+      doc.text(480, coord+3, stringToPdf);      
+      
+      coord = 55 + 4*i*15;
+      doc.line(15, coord  , 580, coord);
+      doc.line(15, coord + 2 , 580, coord + 2);
+
+      stringToPdf = " Resp: "  + this.arrayEmpresas[i].empdata_resp;
+
+      doc.text(20, coord+3, stringToPdf); 
+
+      stringToPdf = " | Tel: "  + this.arrayEmpresas[i].empdata_tel;
+
+      doc.text(130, coord+3, stringToPdf); 
+
+      stringToPdf = " | Email: " + this.arrayEmpresas[i].empdata_email;
+      doc.text(235, coord+3, stringToPdf); 
+      
+      stringToPdf = " | Cep: "  + this.arrayEmpresas[i].end_cep;
+      doc.text(480, coord+3, stringToPdf); 
+      
+      coord = 70 + 4*i*15;
+      doc.line(15, coord  , 580, coord);
+      doc.line(15, coord + 2 , 580, coord + 2);
+
+      stringToPdf = " Bairro: "  + this.arrayEmpresas[i].end_bairro;
+
+      doc.text(20, coord+3, stringToPdf); 
+     
+    
+      //doc.text(110, coord+3, stringToPdf); 
+     
+      stringToPdf = " | P.Ref: " + this.arrayEmpresas[i].end_ref;
+
+      doc.text(235, coord+3, stringToPdf); 
+
+      stringToPdf = " | Comp: " + this.arrayEmpresas[i].end_comp;
+
+      doc.text(480, coord+3, stringToPdf);    
+
+      coord = 85 + 4*i*15;
+      doc.line(15, coord  , 580, coord);
+
+      
+      stringToPdf = " Cid-UF: "  + this.arrayEmpresas[i].end_cidade + '-' + this.arrayEmpresas[i].end_uf;
+
+      doc.text(20, coord+3, stringToPdf); 
+
+     
+
+      // doc.text(130, coord+3, stringToPdf); 
+     
+      stringToPdf = " | Rua: " + this.arrayEmpresas[i].end_rua;
+      doc.text(235, coord+3, stringToPdf); 
+
+      stringToPdf = " | Nº: " + this.arrayEmpresas[i].end_num;
+
+      doc.text(480, coord+3, stringToPdf); 
+
+      
+    }
+    doc.text(275, 825, 'Página 1');
+    doc.save("ListaEmpresaParcial.pdf");
+    this.showModalWhating = false;
+  }
+
+  // async geratePDFComplete() {
+  //   this.search = 'all';
+  //   this.DropChoice = "Todos";
+  //   this.showModal = false;
+  //   this.showModalWhating = true;
+  //   this.page = 1;
+  //   var doc = new jsPDF('p', 'pt', 'a4');
+  //   console.log(this.nextpage);
+  //   while(!this.nextpage) {
+  //     console.log(this.nextpage);
+      
+     
+      
+  //     this.GetList();
+  //     await this.esperaGetList();
+
+  //    if (this.page > 1) {
+  //     await doc.addPage();
+  //    }
+      
+  //     await doc.setFontType("bold");
+  //     await doc.setFont('Console');
+  //     await doc.setFontSize(9);
+  //     await doc.setLineWidth(15);
+      
+  //     await this.criaPage(doc);
+  //     this.page++;
+  //   }
+    
+  //   doc.save("ListaChipCompleto.pdf");
+  //     this.showModalWhating = false;
+
+    
+
+  // }
+  // criaPage(doc){
+  //   doc.text(20, 23, 'Lista completa de chips contendo '+ this.contage + ' chips');
+      
+  //     let l = 0;
+  //     for ( let i = 0; i< this.arrayEmpresas.length; i++){
+        
+  //       if (l == 1) {
+  //         l = 0;
+  //         doc.setDrawColor(255, 255, 255);
+  
+  
+  //       }else{
+  //         l = 1;
+  //         doc.setDrawColor(230, 230, 230);
+  //       }
+  
+  //       let det1;
+  //       let det2;
+  
+  //       if ( this.arrayEmpresas[i][3] = 'Estoque' ) {
+  //         det1 = 'Motivo:   '
+  //         det2 = 'Resp: '
+  //       } else if ( this.arrayEmpresas[i][3] = 'Funcionamento' ) {
+  //         det1 = 'Empresa:  '
+  //         det2 = 'Relo: '
+  //       } else if ( this.arrayEmpresas[i][3] = 'saida' ) {
+  //         det1 = 'Saida p/: '
+  //         det2 = 'Resp: '
+  //       } 
+  
+  //       let coord = 50 + 2*i*15;
+  //       doc.line(15, coord, 580, coord);
+  //       doc.line(15, coord + 2 , 580, coord + 2);
+  
+  //       let stringToPdf =  " Número: "   + this.arrayEmpresas[i][0];
+  
+  //       doc.text(20, coord+3, stringToPdf);
+  
+  //       stringToPdf = " | Ip: " + this.arrayEmpresas[i][1];
+  
+  //       doc.text(130, coord+3, stringToPdf);
+  
+  //       stringToPdf = " | Op: " + this.arrayEmpresas[i][2];
+  
+  //       doc.text(370, coord+3, stringToPdf);
+  
+  //       stringToPdf = " | Sit: " + this.arrayEmpresas[i][3];
+  
+  //       doc.text(450, coord+3, stringToPdf);      
+        
+  //       coord = 65 + 2*i*15;
+  //       doc.line(15, coord  , 580, coord);
+  
+  //       stringToPdf = " Data: "  + this.arrayDetals[i][0]
+  
+  //       doc.text(20, coord+3, stringToPdf); 
+  
+  //       stringToPdf = " | " + det1 + this.arrayDetals[i][1]
+  
+  //       doc.text(130, coord+3, stringToPdf); 
+  
+  //       stringToPdf = " | " + det2 + this.arrayDetals[i][2]
+  
+  //       doc.text(370, coord+3, stringToPdf); 
+  
+  //     }
+  //     doc.text(275, 820, 'Pagina '+ this.page)
+      
+
+
+  //     this.arrayEmpresas = [];
+      
+  // }
+
+  ListarHistory(index){
+    const ids     = this.arrayEmpresas[ index ].id;
+    this.subcription.unsubscribe();
+    this.companyservice.HistoryEmp(ids);
   }
 
   PageNext ( condicion ) {

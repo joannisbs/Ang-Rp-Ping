@@ -3,3 +3,7 @@
 @import url(./../../../generic/css-generico/corpodepagina.css);
 @import url(./../../../generic/css-generico/cardform.css);
 @import url(./../../../generic/css-generico/modal.css);    
+
+.progressbar{
+    margin: 20px;
+}

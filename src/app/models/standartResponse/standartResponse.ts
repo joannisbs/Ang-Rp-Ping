@@ -13,3 +13,8 @@ export class StandartDelete {
     id    : string;
     motivo: string;
 }
+
+export class StandartHistorie {
+    hora  : string;
+    event : string;
+}         

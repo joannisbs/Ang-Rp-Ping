@@ -20,7 +20,7 @@ import { ValidadeResponsesService } from 'src/app/services/validade_responses/va
 
 export class EditcompanyComponent implements OnInit {
 
-
+  public showModalWhating = false;
   public formulario: FormGroup;
   public ocorreuSubmit = false;
   public showModal = false;
@@ -44,7 +44,6 @@ export class EditcompanyComponent implements OnInit {
   ngOnInit() {
     this.formulario = this.formBuilder.group({
 
-      ...companyFormGroup,
 
       end_cep: ['',
         [Validators.required,
@@ -96,15 +95,15 @@ export class EditcompanyComponent implements OnInit {
 
       empdata_resp: ['',
         [Validators.required,
-        Validators.maxLength(45)]],
+        Validators.maxLength(20)]],
 
       empdata_razao: ['',
         [Validators.required,
-        Validators.maxLength(90)]],
+        Validators.maxLength(40)]],
 
       empdata_email: ['',
         [Validators.required,
-        Validators.maxLength(60),
+        Validators.maxLength(40),
         Validators.pattern(/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i)]],
 
       empdata_tel: ['',
@@ -114,6 +113,22 @@ export class EditcompanyComponent implements OnInit {
 
     });
 
+    this.formulario.get('end_cep').patchValue(this.company.end_cep);
+    this.formulario.get('end_rua').patchValue(this.company.end_rua);
+    this.formulario.get('end_num').patchValue(this.company.end_num);
+    this.formulario.get('end_comp').patchValue(this.company.end_comp);
+    this.formulario.get('end_uf').patchValue(this.company.end_uf);
+    this.formulario.get('end_cidade').patchValue(this.company.end_cidade);
+    this.formulario.get('end_bairro').patchValue(this.company.end_bairro);
+    this.formulario.get('end_ref').patchValue(this.company.end_ref);
+
+    this.formulario.get('emp_nome').patchValue(this.company.emp_nome);
+    this.formulario.get('empdata_cnpj').patchValue(this.company.empdata_cnpj);
+    this.formulario.get('empdata_resp').patchValue(this.company.empdata_resp);
+    this.formulario.get('empdata_razao').patchValue(this.company.empdata_razao);
+    this.formulario.get('empdata_email').patchValue(this.company.empdata_email);
+    this.formulario.get('empdata_tel').patchValue(this.company.empdata_tel);
+
   }
 
   ClearForm() {
@@ -121,26 +136,29 @@ export class EditcompanyComponent implements OnInit {
     this.showModal = false;
   }
 
-  onSubmit(company, valido) {
+  onSubmit(empnova, valido) {
 
     // caso Válido realisar metodo de envio
     if (valido) {
-
+      this.showModalWhating = true;
       if (this.Subimitonetime) {
         this.Subimitonetime = false;
         this.ocorreuSubmit = false;
         this.companyService
-          .cadastrarCompany(company)
+          .salvaredicaoCompany(this.company.id, empnova)
           .subscribe(respose => {
             const Secionsucess = this.validate.ValidateSeccion(respose[0]);
             if (Secionsucess) {
               const postSucess = this.validate.ValidateAction(respose[1]);
               if (postSucess == 1) {
+                this.showModalWhating = false;
                 alert("A empresa foi salva com sucesso!");
                 this.showModal = true;
                 this.Subimitonetime = true;
+                
                 this.subcription.unsubscribe();
               } else if (postSucess == 2) {
+                this.showModalWhating = false;
                 alert("A empresa já existe no banco de dados.")
               }
             }
@@ -169,7 +187,7 @@ export class EditcompanyComponent implements OnInit {
   }
 
   showErrors(value) {
-    return this.formulario.controls[ value ].valid || !(this.formulario.controls[ value].touched || this.ocorreuSubmit);
+    return this.formulario.controls[ value ].valid && !this.ocorreuSubmit ;
   }
   buscarCep(cep) {
     if (!cep) { return; }

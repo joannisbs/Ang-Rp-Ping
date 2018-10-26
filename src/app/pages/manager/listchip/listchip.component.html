@@ -69,8 +69,8 @@
           </div>
 
           <div class="form-group col-md-3 zeramargem" *ngIf='ctl_editar == i+1' (mouseenter)="campos((i+1)*10 + 1)" (mouseleave)="campos(0)">
-            <input type="text" class="form-control classImputForm" #inputChip id="chip_ip" value="{{item[1]}}" formControlName="chip_ip" maxlength="45"
-              (keyup)="ColocaOperadora(i,inputChip.value)">
+            <input type="text" class="form-control classImputForm" #inputChip id="chip_ip" value="{{item[1]}}" formControlName="chip_ip"
+              maxlength="45" (keyup)="ColocaOperadora(i,inputChip.value)">
             <span *ngIf='ctl_campos === ((i+1)*10 + 1)' class="classtoltip Editar">Ip/host</span>
           </div>
 
@@ -174,8 +174,53 @@
     </button>
   </div>
   <div class="classCampoInativos">
-    <button class="ClassBotaoVerDesativos classbackblue" (click)="geratePDF()">
+    <button class="ClassBotaoVerDesativos classbackblue" (click)="ShowModalGerar()">
       Gerar PDF
     </button>
+  </div>
+  <div>
+    <div class="modal modal-backdrop fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" [class.show]=" showModal "
+      [style.display]=" showModal ? 'block' : 'none'">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content classModalTamanho ">
+          <div class="modal-header">
+            <h5 class="modal-title classModalLabalsTitle" id="ModalLabel">Gerar relatório em PDF</h5>
+
+
+          </div>
+
+
+
+          <div class="modal-footer justify-content-around">
+
+            <button type="button" class="classModalBotao" (click)="geratePDF()">Somente a página atual</button>
+
+            <button type="button" class="classModalBotao" (click)="geratePDFComplete()">Lista completa</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal modal-backdrop fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" [class.show]=" showModalWhating "
+      [style.display]=" showModalWhating ? 'block' : 'none'">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content classModalTamanho ">
+          <div class="modal-header">
+            <h5 class="modal-title classModalLabalsTitle" id="ModalLabel">Carregando...</h5>
+
+
+          </div>
+
+
+
+
+          <div class="progress progressbar">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+              aria-valuemax="100" style="width: 100%"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
 </div>
